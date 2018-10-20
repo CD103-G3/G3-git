@@ -1,0 +1,31 @@
+@mixin gridSys($colNum, $colWidthName:null, $minWidth:null) {
+    @if $minWidth != null {
+        @media screen and (min-width: #{$minWidth}) {
+            @for $i from 1 through $colNum {
+                @if $colWidthName != null {
+                    .grid-#{$colWidthName}-#{$i} {
+                        width: (100% / 12) * $i;
+                    }
+                }@else {
+                    .grid-#{$i} {
+                        width: (100% / 12) * $i;
+                    }
+                } 
+            }
+        } 
+    } 
+    @else {
+        @for $i from 1 through $colNum {
+            @if $colWidthName != null {
+                .grid-#{$colWidthName}-#{$i} {
+                    width: (100% / 12) * $i;
+                }
+            }@else {
+                .grid-#{$i} {
+                    width: (100% / 12) * $i;
+                    float: left;
+                }
+            } 
+        } 
+    }
+};

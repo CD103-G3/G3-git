@@ -1,1 +1,198 @@
+// @import 
+@import "var/daycookVar";
+@import "layout/grid";
+@import "mixins/mixins";
+
+
+// gridSystem
+@include gridSys(12);
+@include gridSys(12, md, 768px);
+@include gridSys(12, lg, 1024px);
+
+// media query
+$pad: 768px;
+$PC: 1024px; 
+$lgPC: 1200px;
+// @include rwdSys() {
+// };
+* {
+    box-sizing: border-box;
+}
+button {
+    border: none;
+}
+body {
+    font-family: $fmy;
+    font-size: $fontSize_text;
+}
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.maxWidthWrapper {
+    @include maxWidthWrapper(1200px);
+    width: 100%;
+}
+h2{
+    font-weight: 600;
+    font-size: $fontSize_M;
+    color: $color_main2;
+    text-align: center;
+}
+.step-wrapper {
+    max-width: 800px;
+    text-align: center;
+    margin: auto;
+    li {
+       span {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 20px auto;
+            line-height: 60px; 
+            display: block;
+            border-radius: $BR;
+            background-color: #fff;
+            color: $color_main2;
+            border: 2px solid $color_main2;
+            font-size: $fontSize_M;
+            font-weight: 600;
+            &.active {
+                background-color: $color_main2;
+                color: #fff;
+            }
+        }
+        &:nth-child(n+2) {
+            span:before {
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: -1;
+                top: 30px;
+                right: 0;
+                width: 35vw;
+                max-width: 300px;
+                height: 2px;
+                background-color: $color_main2;
+            }
+        }  
+    }
+}
+
+.chooseDay-wrapper {
+    position: relative;
+    margin: 100px auto 0px;
+    padding: 50px;
+    border-radius: 50px;
+    @include border(2px, $color_main1);
+    h2 {
+        display: inline;
+        position: absolute;
+        top: -30px;
+        left: 0;
+        right: 0;
+        width: 300px;
+        margin: auto;
+        padding: 10px;
+        background-color: #fff;
+    }
+    .element-day {
+        margin: auto;
+        font-size: 0;
+        text-align: center;
+        li {
+            @include square(80px, #fff, $color_main2) {
+                display: inline-block;
+                font-size: $fontSize_text;
+                @include border(2px, $color_main2);
+                border-radius: 10px;
+                margin: 4px;
+            };
+            span {
+                line-height: 50px;
+                font-size: $fontSize_M;
+                font-weight: 800;
+            }
+            &:hover {
+                @include hover($color_main2, #fff, .2s);
+            }
+        }
+    }
+}
+
+.name-container {
+    position: relative;
+    margin: 100px auto 0px;
+    padding: 50px;
+    border-radius: 50px;
+    @include border(2px, $color_main1);
+    h2 {
+        display: inline;
+        position: absolute;
+        top: -30px;
+        left: 0;
+        right: 0;
+        width: 400px;
+        margin: auto;
+        padding: 10px;
+        background-color: #fff;
+    }
+    h3 {
+        margin-left: 20px;
+    }
+    input {
+        @include inputText(10px,100px, $color_main2);
+        width: calc(100% - 40px);
+        max-width: 500px;
+        margin: 20px;
+        font-size: $fontSize_S;
+        font-family: $fmy;
+        text-align: center;
+        
+        &:focus + .hint {
+            opacity: .8;
+            color: #fff;
+            border-width: 4px;
+            transition: .2s;
+        }
+    }
+    .input-wrapper {
+        position: relative;
+        .hint {
+            @include hint(200px, 60px, $color_txt) {
+                opacity: .0;
+                top: 100px;
+                color: #fff;
+            }
+        }
+    }
+    
+    select {
+        @include inputText(10px,100px, $color_main2);
+        width: calc(100% - 40px);
+        margin: 20px;
+        font-size: $fontSize_S;
+    }
+}
+.btn-container {
+    margin-bottom: 100px;
+    text-align: center;
+    font-size: 0;
+    .check-BTN,
+    .cancel-BTN {
+        @include btn(240px, dark);
+        max-width: calc(50% - 20px);
+        margin: 10px;
+        font-size: $fontSize_S;
+
+    }
+    .cancel-BTN {
+        @include btn(240px);
+        background-color: $color_main3;
+        color: $color_main2;
+    }
+}
+
+
 

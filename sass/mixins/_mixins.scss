@@ -1,0 +1,115 @@
+@mixin rwdSys($device) {
+    @if $device == pad {
+        @media screen and (min-width: $pad){
+            @content
+        }
+    };
+    @if $device == PC {
+        @media screen and (min-width: $PC){
+            @content
+        }
+    };
+    @if $device == lgPC {
+        @media screen and (min-width: $lgPC){
+            @content
+        }
+    };
+    
+}
+
+// @mixin stepNav($status) {
+
+// };
+@mixin maxWidthWrapper($maxWidth) {
+    max-width: $maxWidth;
+    margin: auto;
+}
+
+@mixin square($w, $bgc:null, $color:null) {
+    width: $w;
+    height: $w;
+    background-color: $bgc;
+    color: $color;
+    // line-height: $w;
+    // display: table-cell;
+    vertical-align: middle;
+    @content
+};
+
+@mixin border($px, $color) {
+    border: $px solid $color;
+}
+@mixin hover($bgc, $color, $trans) {
+    background-color: $bgc;
+    color: $color;
+    transition: $trans;
+    cursor: pointer;
+}
+@mixin inputText( $padding:null, $borad:null, $boco:null) {
+    padding: $padding;
+    border-radius: $borad;
+    border: 2px solid $boco;
+};
+@mixin decoLine($w, $h) {
+    position: absolute;
+    content: '';
+    display: block;
+    width: $w;
+    height: $h;
+    @content
+};
+@mixin hint($w, $h, $bgc) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $w;
+    height: $h;
+    line-height: $h;
+    text-align: center;
+    background-color: $bgc;
+    border-radius: 10px;
+    transition: .3s;
+    @content;
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: 0px;
+        border-width: 0px 10px 10px ;
+        border-style: solid;
+        border-color: transparent transparent $bgc;
+    }
+}
+@mixin btn($w, $bgc:null) {
+    @if $bgc == dark {
+        &:hover {
+            opacity: .7;
+         }
+    } @else {
+        &:hover {
+            background-color: $color_main1;
+         }
+    }
+    position: relative;
+    // float: left;
+    display: inline-block;
+    width: $w;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: $color_main2;
+    color: #fff;
+    border-radius: 100px;
+    transition: .2s;
+    cursor: pointer;
+    &:hover {
+        opacity: .7;
+        transition: .2s;
+    }
+}
