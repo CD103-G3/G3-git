@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" >
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery-3.3.1.min.js"></script>
+	
+</head>
+<body>
+	<header>
+		<ul class="nav">
+			<li>
+				<span class="seach_button">
+					<img src="image/member_Bonus.png" alt="seach">
+					搜尋
+				</span>
+			</li>
+			<li><a href="javascript:void(0)">發起飯糰</a></li>
+			<li><a href="javascript:void(0)">發起飯糰</a></li>
+			<li class="logo">
+				<a href="javascript:void(0)">	
+					<img src="image/logo.png" alt="logo">
+				</a>
+			</li>
+			<li><a href="javascript:void(0)">發起飯糰</a></li>
+			<li class="member">
+				<div>
+					<img src="image/member_Bonus.png" alt="member_Pic" class="member_Pic">
+				</div>
+				<div>
+					<span><img src="image/member_Bonus.png" alt="achievement_Pic" class="achievement_Pic">300積分</span><br>
+					<span>Sara. always</span>
+				</div>
+			</li>
+			<li class="other_link">
+				<a href="javascript:void(0)">
+					<img src="image/member_Bonus.png" alt="QRcode">
+					<span>2</span>
+				</a>
+				<a href="javascript:void(0)">
+					<img src="image/member_Bonus.png" alt="shopping_cart">
+					<span>3</span>
+				</a>
+			</li>
+		</ul>	
+	</header>
+
+	<script>
+
+		var liList = document.querySelectorAll(".nav li");
+		
+		liList.forEach(function(item){
+
+			var struct = '';
+
+			struct = document.createElement("div");     
+			struct.className = "view";
+			
+			struct1 = document.createElement("div");     
+			struct1.className = "slice s" + 10;
+		
+			for (var i = 9; i > 0; i--) {
+		
+				struct2 = document.createElement("div");     
+				struct2.className = "slice s" + i;
+		
+				struct2.appendChild(struct1);
+	
+				struct1 = struct2;
+			}
+
+			struct.appendChild(struct2);
+		
+			item.appendChild(struct);
+			
+		});
+
+	</script>
+
+</body>
+</html>
