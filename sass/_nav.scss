@@ -1,0 +1,151 @@
+@charset "UTF-8";
+.nav{
+
+    font-size: 0;
+    height: 100px;
+
+    *{
+        font-size: 0;
+        font-family: sans-serif, "微軟正黑體", "Microsoft JhengHei";
+        // outline: 1px solid red;
+    }
+    
+    li{
+        width: 14.28571428571429%;
+        height: 100px;
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        position: relative;
+        
+        a{
+            text-decoration: none;
+            font-size: 24px;
+            color: #fff;
+            display: inline-block;
+        }
+
+        &:after{
+            content: '';
+            width: 0;
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        .view {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            perspective: 1000px;
+            z-index: -1;
+
+            .slice {
+                width: 100%;
+                height: 10px;
+                transform-style: preserve-3d;
+                // transform-origin: center top;
+                transition: 150ms ease-in-out;
+                transform: translateY(100%);
+                background-image: url(../image/nav_background.png);
+                perspective: 1000px;
+                position: relative;
+            }
+            .s1{
+                transform: translateY(0);
+            }
+        }   
+
+        @for $j from 8 through 10{
+
+            &:hover .s#{$j} { 
+                border: 2px solid #2d3e51;
+                border-bottom: none;
+                border-radius: 5px 5px 5px 5px;
+                transition-delay: (10 - $j) * 50ms;
+                transform: translate3d(-0.4px * $j, 0, 0) rotate3d(1, 0, 0, -180deg);
+                background-color: #425075;
+            }
+        }  
+    }
+
+    @for $i from 1 through 7{
+
+        @for $j from 1 through 10{
+
+            li:nth-of-type(#{$i}) .s#{$j}{
+                background-position: -100% * ($i - 1) -100%*($j - 1);
+            }
+        }
+    }
+        
+    .member div{
+        display: inline-block;
+        vertical-align: middle;
+
+        .member_Pic{
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+
+        img{
+            cursor: pointer;
+        }
+        
+        span{
+            display: inline-block;
+
+            .achievement_Pic{
+                margin: -5px 8px 0 2px;
+                vertical-align: middle;
+            }
+        }
+    }
+    
+    span{
+        padding: 5px 10px;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .seach_button{
+        padding: 10px 40px 10px 10px;
+        font-size: 16px;
+        color: #76391b;
+        border-radius: 20px;
+        background-color: #fcf2ca;
+        box-shadow: 1px 3px 1px #ad6631;
+        cursor: pointer;
+
+        img{
+            margin-top: -6px;
+            vertical-align: middle;
+        }
+
+    }
+
+    .other_link a{
+        margin: 0 8px;
+        padding: 5px;
+        color: #76391b;
+        border-radius: 20px;
+        background-color: #fcf2ca;
+        box-shadow: 1px 3px 1px #ad6631;
+        display: inline-block;
+        position: relative;
+
+        span{
+            padding: 5px 6px;
+            font-size: 8px;
+            color: #fff;
+            background-color: #AD6631;
+            border-radius: 50%;
+            position: absolute;
+            top: -8px;
+            right: -4px;
+        }
+    }
+}
