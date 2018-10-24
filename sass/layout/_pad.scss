@@ -1,0 +1,6 @@
+@import "var";
+@import "mixins/mixins";
+
+@include respond(medium){
+    @include grid(md,12,15px);
+};

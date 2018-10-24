@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>日食購物車</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+    <nav></nav>
+    <div class="cart-intro">
+        <div class="cart-container">
+            <h2>日食購物車</h2>
+        <div class="cart-flow">
+            <div class="cart-flow_item">
+                <div class="cart-circle">
+                    <h3>Step</h3>
+                    <p>1</p>
+                </div>
+                <p>購物明細</p>
+            </div>
+            <div class="cart-flow_item">
+               <div class="cart-circle">
+                    <h3>Step</h3>
+                    <p>2</p>
+                </div>
+                <p>確認訂單</p>
+            </div>
+            <div class="cart-flow_item">
+                <div class="cart-circle">
+                    <h3>Step</h3>
+                    <p>3</p>
+                </div>
+                <p>購物完成</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <div class="cart-shop">
+        <div class="cart-container">
+            <ul class="title1">
+                <li class="rwd-intro">商品介紹</li>
+                <li>商品圖</li>
+                <li>商品名稱</li>
+                <li>數量</li>
+                <li>單價</li>
+                <li>功能</li>
+            </ul>
+            <ul class="title2">
+                <li>
+                    <img src="image/noodle7.png" alt="">
+                    <p>綠咖哩海鮮麵</p>
+                </li>
+                <li>
+                    <p>綠咖哩海鮮麵</p>
+                </li>
+                <li>
+                    <input type="button" class="qty_cut qty_width" name="qty_cut" value="-">
+                    <input type="number" class="qty" id="qty_input" name="quantity" min="0" value="0" max="99999">
+                    <input type="button" class="qty_add qty_width" name="qty_add" value="+">
+                </li>
+                <li class="cart-price">
+                    <p>NT$<span>200</span></p>
+                </li>
+                <li class="cart-icno">
+                    <p>
+                        <button class="icobutton icobutton--heart"><span class="fa fa-heart"></span><span class="icobutton__text icobutton__text--side">10</span></button>
+                        收藏
+                    </p>
+                    <p>
+                        <button class="icobutton icobutton2 icobutton--delete"><span class="fa fa-trash-alt"></span><span class="icobutton__text2 icobutton__text--side">10</span></button>
+                        刪除
+                    </p>
+                </li>
+            </ul>
+            <div class="cart-infor clearfix">
+                <div class="row">
+                    <div class="cart-infor-item">
+                   <p class="wait-time">預計等待時間:<span>15分</span></p>
+                   <a href="::javascript">繼續購物</a>
+                </div>
+                 <div class="cart-infor-item">
+                    <p class="total">共<span>一件</span></p>
+                    <p class="sum">總計<span>NT$ 200</span></p>
+                    <p>使用購物金
+                        <input type="text" placeholder="NT$">
+                        <!-- <span>NT$ 10</span> -->
+                    </p>
+                    <p class="final">結帳金額<span>NT$200</span></p>
+                    <div>
+                        <input type="button" value="立即結帳">
+                        <!-- <input type="button" value="下一步"> -->
+                    </div>
+                 </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/mo.min.js"></script>
+	<script src="js/moicon.js"></script>
+</body>
+</html>

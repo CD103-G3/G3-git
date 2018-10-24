@@ -1,0 +1,382 @@
+@import "var";
+@import "nav";
+@import "mixins/mixins";
+@import "layout/small";
+@import "layout/mobile";
+@import "layout/pad";
+@import "layout/desktop";
+
+body{
+    font-family: $fmy;
+}
+.food-container,.food-container-2{
+    @include container(1200px,0);
+    width: calc(100% - 24px);
+    padding-left: 12px;
+    padding-right: 12px;
+    @include respond(desktop){
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+@include respond(desktop){
+    
+    .food-container-2{
+        @include container(1400px,0);
+        
+    }
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.food-container img,
+.food-container-2 img{
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+.clearfix:after{
+    content:'';
+    display: table;
+    clear: both;
+}
+nav{
+    height: 60px;
+    background-color: $color_main1;
+    margin-bottom: 20px;
+}
+// /共用
+.food-Banner{
+    margin-bottom: 25px;
+    img{
+        border-top-left-radius: 90px;
+        border-top-right-radius: 180px;
+        border-bottom-right-radius: 120px;
+        border-bottom-left-radius: 20px;
+        @include respond(medium){
+            height: 80vh;
+        }
+        @include respond(desktop){
+            height: 85vh;
+        }
+    }
+    @include respond(desktop){
+        margin-bottom: 50px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    position: relative;
+    .food-name{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        background-color: rgba($color_main3, 0.8);
+        color:$color_main2;
+        padding: 10px 40px 0px 10px;
+        border-radius: 10px;        
+        @include respond(moblie){
+            top:75px;
+            left: 50px;
+            
+        }
+        font-size: $fontSize_L;
+        font-family: $fmy;
+    }
+    
+    h2{
+        font-size: $fontSize_M;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%)    ;
+        font-family: $fmy;
+        color: #fff;
+        font-weight: 600;
+        @include respond(moblie){
+            font-size: $fontSize_L;
+        }
+        @include respond(desktop){
+            font-size: $fontSize_XXL;
+        }
+    }
+    p{  
+        margin-bottom: 10px;
+        @include respond(desktop){
+            margin-bottom: 30px;
+        }
+        font-size: $fontSize_text;
+    }
+}
+.food-search{   
+    position: absolute;
+    left:50%;
+    transform: translateX(-50%);
+    top: 70%;
+    color:$color_main2;
+        input{
+            width: 200px;
+            background-color: #f1f1f179;
+            border:none;
+            padding: 10px 5px 10px 25px;
+            border-radius: 10px;
+            font-size: $fontSize_text - 1;
+            position: relative;
+            &::placeholder{
+                color: $color_main2;
+                font-family: $fmy;
+            }
+            @include respond(moblie){
+                width: 200px;
+            }
+            @include respond(desktop){
+                width: 260px;
+                padding: 10px 5px 10px 25px;
+                font-size: $fontSize_S;
+            }
+        }
+        .fa-search{
+            position: absolute;
+            top: 12px;
+            @include respond(desktop){
+                top: 15px;
+            }
+            left: 5px;
+            z-index: 1;
+        }
+    
+}
+.food-choose{
+    font-size: 0;
+    margin-bottom: 50px;
+    .part--4{
+        width: calc(33.33% - 7px);
+        &:nth-child(2),
+        &:nth-child(5){ 
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+    @include respond(desktop){
+        .part-lg-4{
+            width: calc(33.33% - 96px);
+            padding-right: 0;
+            padding-left: 0;
+            
+            &:nth-child(2){
+                margin-left: 143px;
+                margin-right: 143px;
+            }
+        }
+    }
+    &_item{
+        color: #76391b;
+        border-radius: 20px;
+        background-color: #fcf2ca;
+        box-shadow: 1px 3px 1px #ad6631;
+        font-size: 16px;
+        padding: 10px 0;
+        position: relative;
+        @media screen and (min-width: 500px) and (max-width: 767px) {
+            padding: 15px 0;
+        }
+        @include respond(moblie){
+            padding: 30px 0
+        }
+        @include respond(desktop){
+            padding: 40px 0;
+        }
+        position: relative;
+        p{
+            margin-left: 5px;
+            font-size: 15px;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            &:nth-child(2){
+                display: none;
+            }
+        }
+        
+    }
+    
+    &_img{
+        position: absolute;
+        right: 3px;
+        top: 2px;
+        z-index: 1;
+        width: 50%;
+        height: 50px;
+        @include respond(moblie){
+            right: 3px;
+            top: 6px;
+            height: 80px;
+        }
+        @include respond(desktop){
+            right: 3px;
+            top: 6px;
+            height: 100px;
+        }
+        @media screen and (min-width: 500px) and (max-width: 767px) {
+            height: 60px;
+        }
+        background-image:url(../image/rice.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #fff;
+        border-radius: 20px;
+        
+    }
+    
+    
+}
+
+.food-container-2{
+   h1{
+       font-size: $fontSize_L;
+       @include respond(desktop){
+        font-size: $fontSize_XL;
+       }
+       text-align: center;
+       color: #76391B;
+   }
+    
+}
+.food-content{
+    font-size: 0;
+    .food-item{
+        margin-bottom: 50px;
+    }
+}
+
+.food-title{
+    width: 200px;
+    position: relative;
+    left: -5px;
+    bottom: -5px;
+    z-index: 1;
+    font-size: $fontSize_S;
+    padding:10px;
+    text-align: center;
+    background-color: $color_main4;
+    color: $color_main3;
+    border-radius:   20px; @include respond(medium)
+        {
+        font-size: $fontSize_L;
+    }
+}
+.food-pic{
+    position: relative;
+    font-size: 16px;
+    border: 2px solid $color_main2;
+    .food-zoom{
+        background-color:$color_main3;
+        color: $color_main2;
+        padding: 10px;
+        position: absolute;
+        bottom: 35px;
+        right: 25px;
+        font-size: $fontSize_S;
+        border-radius: 50%;        
+        @include respond(medium){
+            font-size: $fontSize_M;
+        }
+    }
+    .food-price{
+        position: absolute;
+        font-size: $fontSize_M;
+        right: -10px;
+        bottom: -3px;
+        display: inline-block;
+        width: 50px;
+        height:50px;
+        border-radius:50%    ;
+        text-align: center;
+        line-height: 50px;
+        background-color: $color_main1;
+        color:$color_hot;
+        font-weight: 600;
+        @include respond(medium){
+            width:  70px;
+            height: 70px;
+            right: -20px;
+             bottom: -25px;
+            text-align: center;
+            line-height: 70px;
+            font-size: $fontSize_L;
+        }
+    }
+}
+.food-score{
+    padding: 10px 0;
+    font-size: 0;
+    .egg{
+        display: inline-block;
+        margin-right: 5px;
+        img{
+            width: 20px;
+            height: 25px;
+        }
+    }
+    @include respond(medium){
+        font-size: $fontSize_M;
+    }
+}
+.food-button{
+    &-save, &-buy{
+        width: calc(50% - 30px);
+        font-size: $fontSize_text;
+        box-sizing: border-box;
+        float:left;
+        text-align:center;   
+        padding:10px;
+        color: $color_main2;
+        border-radius: 20px;
+        background-color: #fcf2ca;
+        box-shadow: 1px 3px 1px #ad6631;
+        cursor: pointer;
+        p{
+            display: inline-block;
+            vertical-align: middle;
+        }
+        @include respond(medium){
+            width: calc(50% - 30px);
+            padding: 15px;
+            span{
+                font-size: $fontSize_M;
+                margin-right: 5px;
+            }
+            p{
+                font-size: $fontSize_S;
+            }
+        }
+        @include respond(desktop){
+            width: calc(50% - 40px);
+            padding: 15px;
+            span{
+                font-size: $fontSize_M;
+                margin-right: 5px;
+            }
+            p{
+                font-size: $fontSize_S;
+            }
+        }
+    }
+    &-buy{
+        margin-left: 60px;
+        @include respond(desktop){
+            margin-left: 80px;
+        }
+    }
+}
+.food-button .fa-heart{
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.food-button .fa-cart-plus{
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
