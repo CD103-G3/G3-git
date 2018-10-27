@@ -1,0 +1,295 @@
+@import "daycookMixin";
+@import "daycookVar";
+@import "nav";
+
+// 共用
+//間距
+$space_lr: 0 16px;     //手機左右
+$space_sm_lr: 0 30px;  //平板左右
+
+*{ 
+    // outline: 1px solid #f00;
+    font-size: $fontSize_text;
+    color: $color_txt;
+    box-sizing: border-box;
+}
+
+body{ 
+    font-size: $fontSize_text;
+    font-family: $fmy; 
+    line-height: $lineHeight;
+}
+
+.wrapper{ 
+    width: 100%; 
+    padding: $space_lr;
+    margin-bottom: 30px;
+
+    img,a,span{ display: block; }
+
+    img{ width: 100%; }
+
+    a{ text-decoration: none; }
+
+    .fl{ float: left; }
+
+    .font_blod{ font-weight: bold; }
+}
+
+h2{ font-size: $fontSize_L; }
+// 共用結束
+
+// 麵包屑
+.breadcrumbs{
+    margin-top: 60px;
+    a{
+        vertical-align: middle;
+
+        &:hover{ color: $color_main4; }
+        &:before{
+            content: '\203A';
+            padding: 0 5px;
+            color: $color_txt;
+        }
+        
+        &:first-child:before{ display: none; }
+    }
+}
+// 麵包屑結束
+
+//產品介紹
+.banner_pic{
+    position: relative;
+
+    .like{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.banner_txt{
+    margin-top: 25px;
+
+    .product{
+        span{ margin-left: 20px; }
+    }
+}
+
+.score{
+    margin-top: 15px;
+
+    .score_text{ 
+        margin-right: 25px;
+        font-size: $fontSize_S; 
+    }
+
+    .grade span{ 
+        width: 25px; 
+        margin-right: 10px;
+    }
+}
+
+.price{ 
+    margin-top: 20px;
+    font-size: $fontSize_M;
+}
+
+.content{ 
+    margin-top: 20px; 
+
+    .content_top{
+        span{ 
+            margin-right: 25px; 
+            font-size: $fontSize_S;
+        }
+
+        .kcal{
+            span{ 
+                margin-right: 10px; 
+                font-size: $fontSize_text;
+                line-height: $fontSize_S * $lineHeight;
+            }
+        }
+    }
+
+    p{ margin-top: 15px; }
+}
+
+.count{
+    margin-top: 50px; 
+
+    .count_qty{
+        span{ 
+            margin-right: 25px;
+            font-size: $fontSize_S; 
+        }
+    }
+
+    .count_input{
+        .qty_width{ height: $fontSize_S * $lineHeight; }
+
+        .qty{ text-align: center; }
+    }
+
+    .count_button{
+        margin-top: 50px;
+        position: relative;
+
+        button{ width: 45%; }
+
+        .add_cart{
+            padding: 5px 0;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+        }
+
+        .go_cart{
+            padding: 5px 0;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    }
+}
+//產品介紹結束
+
+//留言板
+.title{
+    margin: 80px 0 50px;
+    font-size: $fontSize_XL; 
+    text-align: center
+}
+
+.member_msg{
+    margin-top: 30px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+
+    .member_txt{
+        .member_letter{ 
+            margin-top: 10px;
+            width: 100%; 
+        }
+
+        .comments{
+            margin-top: 10px;
+            float: right;
+        }
+    }
+}
+//留言板結束
+
+@include rwd(sm,float) {  //768px
+    // 共用
+    .wrapper{ 
+        padding: $space_sm_lr;
+        margin-bottom: 50px;
+    }
+    // 共用結束
+
+    //產品介紹
+    .banner_pic{
+        .like{ font-size: $fontSize_M; }
+    }
+
+    .banner_txt{ margin-top: 35px; }
+
+    .score{
+        margin-top: 25px;
+
+        .score_text{ margin-right: 30px; }
+
+        .grade span{ margin-right: 20px; }
+    }
+
+    .price{ margin-top: 30px; }
+
+    .content{ 
+        margin-top: 30px; 
+
+        .content_top{
+            span{ margin-right: 40px;  }
+        }
+
+        p{ margin-top: 25px; }
+    }
+    
+    .count{
+        .count_qty{
+            padding: 0;
+
+            span{ margin-right: 40px; }
+        }
+    
+        .count_button{
+            margin-top: 0px;
+            padding: 0;
+    
+            button{ width: 40%; }
+
+            .add_cart,.go_cart{ padding: 10px 0; }
+        }
+    }
+    //產品介紹結束
+
+    //留言板
+    .title{ margin: 100px 0 80px; }
+
+    .member_msg{
+        .member_txt{
+            .member_letter,.comments{ margin-top: 15px;}
+        }
+    }
+    //留言板結束
+}
+
+@include rwd(md,float) {  //1024px
+    //產品介紹
+    .banner_pic{
+        padding: 0 15px 0 0;
+
+        .like{ right: 30px; }
+    }
+    
+    .banner_txt{ 
+        margin-top: 0px; 
+        padding: 0 0 0 15px;
+    }
+    
+    .score{
+        margin-top: 15px;
+    
+        .score_text{ margin-right: 25px; }
+    }
+    
+    .price{ margin-top: 20px; }
+    
+    .content{ 
+        margin-top: 20px; 
+    
+        p{ margin-top: 15px; }
+    }
+    
+    .count{
+        .count_qty{
+            span{ margin-right: 25px; }
+        }
+    
+        .count_button{
+            button{ width: 45%; }
+        }
+    }
+}
+
+@include rwd(lg,float) { //1200px
+    .wrapper{ 
+        width: 1200px; 
+        padding: 0;
+        margin: auto;
+        margin-bottom: 50px;
+    }
+}
