@@ -8,7 +8,7 @@ $space_lr: 0 16px;     //手機左右
 $space_sm_lr: 0 30px;  //平板左右
 
 *{ 
-    // outline: 1px solid #f00;
+    outline: 1px solid #f00;
     font-size: $fontSize_text;
     color: $color_txt;
     box-sizing: border-box;
@@ -60,6 +60,7 @@ h2{ font-size: $fontSize_L; }
 //產品介紹
 .banner_pic{
     position: relative;
+    z-index: -1;
 
     .like{
         position: absolute;
@@ -127,9 +128,20 @@ h2{ font-size: $fontSize_L; }
     }
 
     .count_input{
-        .qty_width{ height: $fontSize_S * $lineHeight; }
+        input{ margin-right: 5px; }
+        .qty_width{ 
+            width: $fontSize_S * $lineHeight;
+            height: $fontSize_S * $lineHeight; 
+            border-radius: 25px;
+        }
 
-        .qty{ text-align: center; }
+        .qty{ 
+            width: 100px;
+            height: $fontSize_S * $lineHeight;
+            text-align: center; 
+        }
+
+        .qty_add{ margin-right: 0px; }
     }
 
     .count_button{
@@ -217,19 +229,35 @@ h2{ font-size: $fontSize_L; }
 
         p{ margin-top: 25px; }
     }
-    
+
     .count{
+        .count_input{
+            input{ margin-right: 10px; }
+
+            .qty_width{ 
+                width: ($fontSize_S + 10px) * $lineHeight;
+                height: ($fontSize_S + 10px) * $lineHeight; 
+            }
+
+            .qty{ 
+                width: 100px;
+                height: ($fontSize_S + 10px) * $lineHeight; 
+            }
+        }
         .count_qty{
             padding: 0;
 
-            span{ margin-right: 40px; }
+            span{ 
+                line-height:($fontSize_S + 10px) * $lineHeight;;
+                margin-right: 30px; 
+            }
         }
     
         .count_button{
             margin-top: 0px;
             padding: 0;
     
-            button{ width: 40%; }
+            button{ width: 45%; }
 
             .add_cart,.go_cart{ padding: 10px 0; }
         }
@@ -273,18 +301,20 @@ h2{ font-size: $fontSize_L; }
     
         p{ margin-top: 15px; }
     }
-    
+
     .count{
-        .count_qty{
-            span{ margin-right: 25px; }
-        }
-    
-        .count_button{
-            button{ width: 45%; }
+        .count_input{
+            input{ margin-right: 5px; }
+
+            .qty_width{ 
+                width: ($fontSize_S + 5px) * $lineHeight;
+                height: ($fontSize_S + 5px) * $lineHeight; 
+            }
+
+            .qty{ width: 50px; }
         }
     }
 }
-
 @include rwd(lg,float) { //1200px
     .wrapper{ 
         width: 1200px; 

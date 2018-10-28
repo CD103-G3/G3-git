@@ -36,20 +36,17 @@ header{
         }
         
         &:checked ~ nav{
-            top: 0; 
-            transition: 1s;
-        
-            &:before{
-                transform: translate(-50%, -50%);    
-                transition: 1s;
-            }
+            transform: translate(-350px, 1000px) rotate(0deg); 
+            top: -1000px;
+            left: 350px;
+            transition: transform 1s;
         }
     }
 
     .phone_nav{
         padding: 0 40px 0 10px;
-        height: 100px;
-        background: url(../images/nav_background.png) repeat-x;
+        height: 75px;
+        background: url(../image/nav_background_768.png) repeat-x;
         position: relative;
 
         &:after{
@@ -84,7 +81,7 @@ header{
             transition: .5s;
             position: absolute;
             top: 28%;
-            z-index: 10;
+            z-index: 1001;
 
             .line,
             &:before,
@@ -113,7 +110,7 @@ header{
         }
   
         .logo img{
-            height: 120px;
+            height: 90px;
         }
   
         .seach_button{
@@ -134,8 +131,12 @@ header{
 
     nav{ 
         transition: 1s;
-        position: absolute;
-        top: -550px;
+        position: absolute; 
+        transform: translate(0, 0) rotate(-90deg);
+        top: -1000px;
+        left: 350px;
+        transition: transform 1s;
+        // transform: translate(-1000px, -350px) rotate(90deg);
 
         &:before{
             content: '';
@@ -144,8 +145,7 @@ header{
             border-radius: 50%;
             background-color: #425075;
             transform-origin: left top;
-            transform: translate(-100%, -50%);
-            transition: 1s;
+            transform: translate(-50%, -50%);
             position: absolute;
             top: 0;
             left: 0;
@@ -198,7 +198,7 @@ header{
                         
                         span{
                             padding: 5px 10px;
-                            font-size: 16px;
+                            font-size: 12px;
                             color: #fff;
                             display: inline-block;
                 
@@ -220,7 +220,7 @@ header{
             width: 70vmin;
             height: 70vmin;
             transform: translate(-50%, -50%);
-            transition: all 1s;
+            transition: 1s;
             top: 50%;
             left: 50%;
 
@@ -236,39 +236,72 @@ header{
         height: 50px;
         border-radius: 15px;
         background-color: #425075;
-        transform: translate(0, 0);
-        transition: all 1s;
-        display: none;
-        position: absolute;
-        top: 20%;
-        left: 10%;
-        z-index: 11;
+        position: fixed;
+        transition: 1s;
+        top: 80px;
+        right: 0%;
+        z-index: 101;
 
-        li{
-            margin: 0 auto;
+        &.floaty.active {
+            z-index: 10001;
+        }
+        
+        &.floaty:before{
+            content: "";
+            display: block;
+            position: absolute;;
+            width: 100%;
+            height: 100%;
+            margin-left: 0;
+            margin-top: 0;
+        }
+        
+        &.floaty.active:before {
+            content: "";
+            display: block;
+            top: -500%;
+            left: -500%;
+            width: 1100%;
+            height: 1100%;
+        }
+
+        ul{
             text-align: center;
-            display: none;
+            
+            li{
+                margin: 0 auto;
+                width: 50%;
+                height: 23.33333333vmin;
+                display: none;
 
-            // &:nth-of-type(1){
-            //     width: 100%;
-            //     height: 33.33333333%;
-            // }
-            // &:nth-of-type(4){
-            //     width: 50%;
-            //     height: 33.33333333%;
-            // }
-            // &:nth-of-type(2){
-            //     width: 50%;
-            //     height: 33.33333333%;
-            // }
-            // &:nth-of-type(5){
-            //     width: 50%;
-            //     height: 33.33333333%;
-            // }
-            // &:nth-of-type(3){
-            //     width: 50;
-            //     height: 33.33333333%;
-            // }
+                &:after{
+                    content: '';
+                    width: 0;
+                    height: 100%;
+                    vertical-align: middle;
+                    display: inline-block;
+                }
+
+                a{
+                    font-size: 16px;
+                    vertical-align: middle;
+                    display: inline-block;
+
+                    img{
+                        margin-bottom: 5px;
+                        width: 40%;
+                    }
+                }
+
+                &:nth-of-type(1){
+                    width: 100%;
+                }
+
+                &:nth-of-type(4),
+                &:nth-of-type(5){
+                    max-width: 120px;
+                }
+            }
         }
     }
 
@@ -280,13 +313,23 @@ header{
 @media screen and (min-width: 1024px){
 
     header{          
-        background-image: url('../images/nav_background.png');       
+        background-image: url(../image/nav_background.png);       
         font-size: 0;
         text-align: center;
+
+        #navctrl{
+            &:checked ~ nav{
+                transform: translate(0, 0) rotate(0deg); 
+                top: 0px;
+                left: 0px;
+                transition: 0s;
+            }
+        }
 
         .phone_nav{      
             padding: 0;
             width: 14.28571428%;
+            height: 100px;
             background: none;
             display: inline-block;
             vertical-align: top;
@@ -308,13 +351,22 @@ header{
                 margin: 0;
                 padding: 0;
                 display: none;
+
+                img{
+                    height: 120px;
+                }
             }
+  
         }
     
         nav{            
             width: 71.42857142%;
-            position: static;
+            position: relative;
             display: inline-block;
+            transform: translate(0, 0) rotate(0deg);
+            transition: 0s;
+            top: 0px;
+            left: 0px;
             vertical-align: top;
     
             &:before{
@@ -375,6 +427,7 @@ header{
                 width: 14.28571428%;
                 height: 100px;
                 transform: translate(0, 0);
+                transition: 0s;
                 position: static;
 
                 li{    
@@ -393,6 +446,8 @@ header{
             background: none;    
             vertical-align: top;
             display: inline-block;
+            transform: translate(0, 0);
+            transition: 0s;
             position: static;
             
             &:checked ~ .white_Point{
@@ -415,12 +470,17 @@ header{
 
                 li{    
                     width: auto;
+                    height: auto;
                     display: inline-block;
 
                     &.table_hidden{    
                         display: none;
                     }
                     
+                    &:nth-of-type(1){
+                        width: auto;
+                    }
+
                     a{
                         margin: 0 8px;
                         padding: 6px;
@@ -432,6 +492,11 @@ header{
                         display: inline-block;
                         position: relative;
                     
+                        img{
+                            width: 25px;
+                            height: 25px;
+                        }
+
                         span{
                             padding: 3px 7px 5px;
                             font-size: 8px;
@@ -462,7 +527,7 @@ header{
                 transform-style: preserve-3d;
                 transform-origin: center top;
                 transition: 150ms ease-in-out;
-                background-image: url('../images/nav_background.png');
+                background-image: url(../image/nav_background.png);
                 perspective: 1000px;
                 position: relative; 
                 top: 100%;

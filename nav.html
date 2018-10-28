@@ -23,7 +23,7 @@
 			</div>
 			<div class="nav_right">			
 				<span class="seach_button">
-					<img src="image/member_Bonus.png" alt="seach">
+					<img src="image/icon/search.svg" width="25" alt="seach">
 					搜尋
 				</span>
 			</div>
@@ -44,10 +44,10 @@
 					</div>
 					<div class="after_login">
 						<div>
-							<img src="image/member_Bonus.png" alt="member_Pic" class="member_Pic">
+							<img src="image/icon/user.svg" alt="member_Pic" class="member_Pic">
 						</div>
 						<div>
-							<span><img src="image/member_Bonus.png" alt="achievement_Pic" class="achievement_Pic">300積分</span><br>
+							<span><img src="image/icon/riceball.svg" width="30" alt="achievement_Pic" class="achievement_Pic">300積分</span><br>
 							<span>Sara. always</span>
 						</div>
 					</div>
@@ -69,48 +69,49 @@
 			</ul>
 		</nav>
 		<input type="checkbox" id="white_Point_control">
-		<label class="white_Point" for="white_Point_control">
+		<label class="white_Point floaty" for="white_Point_control">
 			<ul>
 				<div id="view7"></div>
 				<li>
 					<a href="javascript:void(0)">
-						<img src="image/member_Bonus.png" alt="sc"><br>
+						<img src="image/icon/cart.svg" alt="cart"><br>
 						購物車
 						<span>3</span>
 					</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)">
-						<img src="image/member_Bonus.png" alt="qm"><br>
+						<img src="image/icon/qrcode.svg" alt="qrcode"><br>
 						快速取餐
 						<span>2</span>
 					</a>
 				</li>
 				<li class="table_hidden">
 					<a href="javascript:void(0)">
-						<img src="image/member_Bonus.png" alt="wte"><br>
+						<img src="image/icon/game.svg" alt="game"><br>
 						想吃什麼？
 					</a>
 				</li>
 				<li class="table_hidden">
 					<a href="javascript:void(0)">
-						<img src="image/member_Bonus.png" alt="mc"><br>
+						<img src="image/icon/if_General_-_Office_54_1471106.svg" alt="mc"><br>
 						我的收藏
 					</a>
 				</li>
 				<li class="table_hidden">
 					<a href="javascript:void(0)">
-						<img src="image/member_Bonus.png" alt="mrb"><br>
+						<img src="image/icon/riceball.svg" alt="riceball"><br>
 						我的飯團
 					</a>
 				</li>		
 			</ul>
 		</label>
-	</header>
+	</header
+	>
+	<!-- <script src="js/floaty.js"></script> -->
 
 	<script>
 
-		
 		for (var i = 1; i <= 7; i++) {
 		
 			var view = document.querySelector("#view" +　i);
