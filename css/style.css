@@ -1,0 +1,425 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 微軟正黑體; }
+
+@media screen and (min-width: 767px) {
+  .part-1, .part-2, .part-3, .part-4, .part-5, .part-6, .part-7, .part-8, .part-9, .part-10, .part-11, .part-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  .part-1 {
+    width: 8.33333%; }
+  .part-2 {
+    width: 16.66667%; }
+  .part-3 {
+    width: 25%; }
+  .part-4 {
+    width: 33.33333%; }
+  .part-5 {
+    width: 41.66667%; }
+  .part-6 {
+    width: 50%; }
+  .part-7 {
+    width: 58.33333%; }
+  .part-8 {
+    width: 66.66667%; }
+  .part-9 {
+    width: 75%; }
+  .part-10 {
+    width: 83.33333%; }
+  .part-11 {
+    width: 91.66667%; }
+  .part-12 {
+    width: 100%; }
+  header {
+    width: 100%;
+    height: 100px;
+    background-color: #ff03; }
+  .coll_slogan {
+    width: 100%;
+    height: 150px;
+    background-color: #BB7232;
+    font-size: 0; }
+  .coll_slogan_title {
+    width: 50%;
+    display: inline-block; }
+  .coll_slogan_title p {
+    max-width: 600px;
+    font-size: 30px;
+    margin: auto;
+    padding: 10px 0; }
+  .coll_slogan_left {
+    text-align: left; }
+  .coll_slogan_right {
+    text-align: right; }
+  .coll_slogan_pic {
+    width: 50%;
+    display: inline-block; }
+  .coll_slogan_pic_icon {
+    width: 5%; }
+  .coll_panel {
+    height: 800px;
+    display: block; }
+  .coll_total {
+    max-width: 300px;
+    width: 100%;
+    height: 300px;
+    border-radius: 999px;
+    background-color: #E69500;
+    margin: 50px 15% 0;
+    z-index: 2; }
+  .coll_total_num {
+    text-align: center;
+    font-size: 30px;
+    max-width: 50px;
+    width: 100%;
+    height: 50px;
+    border-radius: 999px;
+    background-color: #FFBA3B;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 8px 0px 0 2px;
+    margin: 30px 115px; }
+  .coll_total_title {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 20px; }
+  .coll_total_s {
+    display: none; }
+  .coll_kind {
+    max-width: 350px;
+    box-sizing: border-box;
+    border: 15px #bc5437 solid;
+    border-radius: 10px;
+    width: 100%;
+    height: 650px;
+    background-color: #eedfbe;
+    margin: 200px 10% 0;
+    padding: 80px 0 0 0px;
+    box-shadow: 2px 2px 4px 4px #ddd;
+    z-index: 0; }
+  .coll_kind_item p {
+    font-size: 30px;
+    margin: 5px auto;
+    text-align: center; }
+  .coll_kind_item_text {
+    text-shadow: 3px 1px #333333;
+    color: #fff;
+    font-size: 24px; }
+  .kind_icon {
+    width: 100%;
+    margin: 20px 0; }
+  .coll_title {
+    background-color: #FCF2CA; }
+  .coll_title_kind {
+    height: 200px; }
+  .coll_kind_item_title {
+    background-color: #333333;
+    color: #fff;
+    border: 2px #333333 solid;
+    border-radius: 10px;
+    box-sizing: border-box; }
+  .coll_title_kind_text {
+    width: 10%;
+    height: 50px; }
+  .title_kind_icon {
+    width: 50%;
+    text-align: center;
+    display: block;
+    margin: auto; }
+  .coll_title_kind_line {
+    width: 45%;
+    height: 100px; }
+  .coll_title_kind_text p {
+    font-size: 30px;
+    text-align: center; }
+  .title_kind_line_icon {
+    width: 100%;
+    height: 100px;
+    display: block;
+    margin: auto; }
+  .coll_food {
+    box-sizing: border-box;
+    border: 2px solid #333333;
+    margin: auto;
+    font-size: 0px; }
+  .coll_food_X {
+    border-bottom: 2px solid #333333; }
+  .coll_food_X_icon {
+    float: right;
+    width: 5%; }
+  .coll_food_title p {
+    line-height: 40px;
+    font-size: 30px;
+    text-align: center;
+    border: 2px #ccc solid;
+    border-radius: 10px;
+    background-color: #BB7232;
+    color: #fff; }
+  .coll_food_score {
+    margin: auto;
+    text-align: center; }
+  .coll_food_title_icon {
+    width: 15%;
+    margin: auto; }
+  .coll_food_info {
+    float: none;
+    display: inline-block;
+    vertical-align: bottom; }
+  .coll_food_info p {
+    font-size: 16px;
+    line-height: 1.6; }
+  .coll_food_price {
+    float: none;
+    display: inline-block;
+    vertical-align: bottom; }
+  .coll_food_price p {
+    color: #333333;
+    font-size: 30px;
+    padding: 0 0 0 0;
+    text-align: center; }
+  .coll_food_pic_icon {
+    width: 80%;
+    display: block;
+    margin: auto;
+    text-align: center; }
+  .coll_food_shop {
+    float: right;
+    text-align: center; }
+  .coll_food_shop_button {
+    padding-left: -10px;
+    border-radius: 5px;
+    margin: 5px; }
+  .coll_food_shop_text {
+    display: inline-block;
+    vertical-align: baseline;
+    font-size: 24px;
+    margin: 0 5px;
+    color: #BB7232; }
+  .coll_food_shop_icon {
+    margin: 0px 0 -4px 5px;
+    display: inline-block;
+    vertical-align: baseline;
+    width: 14%; } }
+
+@media screen and (max-width: 767px) {
+  * {
+    margin: 0;
+    padding: 0; }
+  .part-s-1, .part-s-2, .part-s-3, .part-s-4, .part-s-5, .part-s-6, .part-s-7, .part-s-8, .part-s-9, .part-s-10, .part-s-11, .part-s-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  .part-s-1 {
+    width: 8.33333%; }
+  .part-s-2 {
+    width: 16.66667%; }
+  .part-s-3 {
+    width: 25%; }
+  .part-s-4 {
+    width: 33.33333%; }
+  .part-s-5 {
+    width: 41.66667%; }
+  .part-s-6 {
+    width: 50%; }
+  .part-s-7 {
+    width: 58.33333%; }
+  .part-s-8 {
+    width: 66.66667%; }
+  .part-s-9 {
+    width: 75%; }
+  .part-s-10 {
+    width: 83.33333%; }
+  .part-s-11 {
+    width: 91.66667%; }
+  .part-s-12 {
+    width: 100%; }
+  header {
+    width: 100%;
+    height: 100px;
+    background-color: #ff03; }
+  .coll_slogan {
+    width: 100%;
+    height: 150px;
+    background-color: #BB7232;
+    font-size: 0; }
+  .coll_slogan_title {
+    width: 100%;
+    display: inline-block; }
+  .coll_slogan_title p {
+    font-size: 20px;
+    margin: auto;
+    padding: 10px 0; }
+  .coll_slogan_right {
+    text-align: right; }
+  .coll_slogan_pic {
+    width: 50%; }
+  .coll_slogan_pic_icon {
+    width: 5%; }
+  .coll_panel {
+    width: 100%;
+    height: 400px;
+    background-color: #ccc;
+    display: block;
+    font-size: 0; }
+  .coll_total {
+    max-width: 100px;
+    height: 100px;
+    border-radius: 999px;
+    background-color: orange;
+    margin: 0 0 0 10%;
+    z-index: 2;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0; }
+  .coll_total_num {
+    text-align: center;
+    padding: 25px 0 25px;
+    font-size: 30px; }
+  .coll_total_title {
+    font-size: 16px;
+    display: none; }
+  .coll_total_s {
+    float: none;
+    display: inline-block;
+    vertical-align: middle; }
+  .coll_total_s p {
+    font-size: 24px;
+    min-width: 170px; }
+  .coll_kind_item p {
+    font-size: 18px;
+    margin: 1px auto;
+    text-align: center; }
+  .kind_icon {
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+    text-align: center; }
+  .coll_title {
+    background-color: #FCF2CA; }
+  .coll_title_kind {
+    height: 130px;
+    font-size: 0;
+    padding: 0; }
+  .title_kind_icon {
+    width: 40%;
+    text-align: center;
+    display: block;
+    margin: auto; }
+  .coll_title_kind_line {
+    width: 25%;
+    height: 50px;
+    display: inline-block;
+    font-size: 0px;
+    padding: 0; }
+  .coll_title_kind_text {
+    font-size: 0px;
+    width: 50%;
+    height: 50px;
+    display: inline-block;
+    height: 120px;
+    text-align: center;
+    padding: 0; }
+  .title_kind_line_icon {
+    font-size: 0px;
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    margin: auto;
+    padding: 0; }
+  .coll_title_kind_text p {
+    margin: auto;
+    font-size: 24px;
+    display: inline-block;
+    padding: 0; }
+  .coll_food {
+    box-sizing: border-box;
+    border: 2px solid #333333;
+    margin: auto; }
+  .coll_food_X_icon {
+    float: right;
+    width: 10%; }
+  .coll_food_title p {
+    line-height: 40px;
+    font-size: 24px;
+    text-align: center; }
+  .coll_food_score {
+    margin: auto;
+    text-align: center; }
+  .coll_food_title_icon {
+    width: 15%;
+    margin: auto; }
+  .coll_food_info_text {
+    padding: 1px; }
+  .coll_food_price p {
+    color: #333333;
+    font-size: 30px;
+    padding: 0 0 0 0;
+    text-align: center;
+    margin: 10px 0; }
+  .coll_food_pic_icon {
+    width: 80%;
+    display: block;
+    margin: auto;
+    text-align: center; }
+  .coll_food_shop {
+    float: right;
+    text-align: center; }
+  .coll_food_shop_text {
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: baseline; }
+  .coll_food_shop_icon {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 15%;
+    margin: 0px 0 -4px 5px; } }
