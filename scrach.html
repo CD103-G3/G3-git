@@ -1,142 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        *{
- margin: 0;
- padding: 0;
-}
-#main{
- width: calc(100% - 32px);
- margin: 0 16px;
- background-image: url('../image/scrach.png');
- background-repeat: no-repeat;
- background-position: center center;
- background-size: cover;
- height: 85vh;
- top:50%;
- position: absolute;
- transform: translateY(-50%);
-}
- 
-.canvasBox{
- width: 78%;
- height:40vh;
- border-radius: 10px;
- background-color: #FFF;
- margin-left: 11%;
- line-height: 160px;
- text-align: center;
- position: relative;
- top:60%;
- transform: translateY(-30%);
-}
-#canvas{
- width: 96%;
- height: 96%;
- position: absolute;
- left: 2%;
- top: 2%;
- background-color: pink;
-}
-.disappear{
- -webkit-animation: disa 2s 1;
- animation: disa 2s 1;
- -webkit-animation-fill-mode: forwards;
- -moz-animation-fill-mode: forwards;
- -o-animation-fill-mode: forwards;
- animation-fill-mode: forwards;
-}
-@keyframes disa{
- 0%{opacity:1;}
- 100%{opacity: 0;}
-}
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width" />
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700italic,700' rel='stylesheet' type='text/css'>
+  
+  <title>Scratch Card</title>
+  <link rel="stylesheet" href="css/scratch.css">
+
 </head>
 <body>
-    <!-- 大的背景盒子-->
- <div id="main">
-    <!-- 定位的盒子-->
-        <div class="canvasBox">
-        <!-- 放内容的盒子-->
-        <span id="prize">
-        恭喜发财，红包拿来
-        </span>
-        <!-- 蒙版画布-->
-        <canvas id="canvas"></canvas>
+<div class="scrach-card">
+  <div class="scratch-container">
+    <div id="promo" class="scratchpad"></div>
   </div>
- </div>
- <script>
-    var canvas = document.getElementById("canvas");
- var ctx = canvas.getContext('2d');
- /* 画布偏移量，下面用到的时候再介绍*/
- var arr = getOffset(canvas);
- var oLeft = arr[0];
- var oTop = arr[1];
- /* 初始化画布*/
- ctx.beginPath();
- ctx.fillStyle = '#ccc';
- ctx.fillRect(0,0,canvas.width,canvas.height);
- ctx.closePath();
- /* 增加触摸监听*/
- document.addEventListener("touchstart",function(){
-  /* 初始化画笔*/
-  ctx.beginPath();
-  /* 画笔粗细*/
-  ctx.lineWidth = 30;
-  /* 设置组合效果*/
-  ctx.globalCompositeOperation = 'destination-out';
-  /* 移动画笔原点*/
-  ctx.moveTo(event.touches[0].pageX,event.touches[0].pageY);
- },false)
- document.addEventListener("touchmove",function(){
-  /* 根据手指移动画线，使之变透明*/
-  ctx.lineTo(event.touches[0].pageX,event.touches[0].pageY);
-  /* 填充*/
-  ctx.stroke();
- })
- /* 之所以会用到下面的那个函数getOffset（obj）
-  * 是因为event.touches[0].pageX、pageY获取的是相对于可视窗口的距离
-  * 而lineTo画笔的定位是根据画布位置定位的
-  * 所以就要先获取到画布(canvas)相对于可视窗口的距离，然后计算得出触摸点相对于画布的距离 
-  * */
- /* 获取该元素到可视窗口的距离*/
- function getOffset(obj){
-  var valLeft = 0,valTop = 0;
-  function get(obj){
-  valLeft += obj.offsetLeft;
-  valTop += obj.offsetTop;
-  /* 不到最外层就一直调用，直到offsetParent为body*/
-  if (obj.offsetParent.tagName!='BODY') {
-   get(obj.offsetParent);
-  }
-  return [valLeft,valTop];
-  }
-  return get(obj);
- }
+  <div class="promo-container" style="display:none;">
+    <div class="promo-code"></div>
+    <a href="javascript::" target="_blank" class="btn">確認</a>
+  </div>
+</div>
 
- document.addEventListener("touchend",function(){
-  /* 获取imageData对象*/
-  var imageDate = ctx.getImageData(0,0,canvas.width,canvas.height);
-  /* */
-  var allPX = imageDate.width * imageDate.height;
-   
-  var iNum = 0;//记录刮开的像素点个数
-   
-  for(var i=0;i<allPX;i++){
-  if(imageDate.data[i*4+3] == 0){
-   iNum++;
+<a class="btnPOP" href="javascript::">開始刮刮樂</a>
+
+<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://jennamolby.com/scratch-and-win/js/wScratchPad.min.js"></script>
+
+<script type="text/javascript">
+
+var promoCode = '';
+var bg1 = 'images/ScrachPrice.png';
+var bg2 = 'images/ScrachPrice.png';
+var bg3 = 'images/40scrach.svg';
+var bgArray= [ bg1, bg2, bg3 ],
+selectBG = bgArray[Math.floor(Math.random() * bgArray.length)];
+if (selectBG == bg1) {
+    promoCode = '購物金50元';
+  } else if (selectBG == bg2) {
+    promoCode = '購物金50元';
+  } if (selectBG == bg3) {
+    var promoCode = '';
   }
-  }
-  if(iNum >= allPX*3/4){
-  // disappear里面写了缓慢清除的css3动画效果
-  canvas.setAttribute('class','disappear'); 
-  }
- },false)
- </script>
+$('#promo').wScratchPad({
+    // the size of the eraser
+    size        : 70,    
+    // the randomized scratch images   
+    bg:  selectBG,
+    // give real-time updates
+    realtime    : true, 
+    // The overlay images
+    fg: 'images/scrachBg.png',
+    // The cursor (coin) images
+    'cursor': 'url("https://jennamolby.com/scratch-and-win/images/coin1.png") 5 5, default',
+    
+    scratchMove: function (e, percent) {
+        // Show the plain-text promo code and call-to-action when the scratch area is 50% scratched
+        if ((percent > 50) && (promoCode != '')) {
+          $('.promo-container').show();
+          $('body').removeClass('not-selectable');
+          $('.promo-code').html('您的購物金: ' + promoCode);
+        }
+      }
+ });
+ document.querySelector('.btn').addEventListener('click',function(){
+      document.querySelector('.promo-container').style.display = 'none';
+ });
+</script>
+      
+
 </body>
 </html>

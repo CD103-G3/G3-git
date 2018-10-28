@@ -11,58 +11,121 @@
 <body>
 	<header>
 		<input type="checkbox" id="navctrl">
-		<ul class="nav">
-			<label class="hb" for="navctrl"><span class="line"></span></label>
-			<li>
+		<div class="phone_nav">
+			<div id="view1"></div>
+			<div class="nav_left">
+				<label class="hb" for="navctrl">
+					<span class="line"></span>
+				</label>
+			</div>
+			<div class="logo">
+				<a href="javascript:void(0)">
+					<img src="images/logo.png" alt="logo">
+				</a>
+			</div>
+			<div class="nav_right">			
 				<span class="seach_button">
-					<img class="img-Searh" src="image/member_Bonus.png" alt="seach">
+					<img src="images/icon/search.svg" width="25" alt="seach">
 					搜尋
 				</span>
-			</li>
-			<li><a href="javascript:void(0)">發起飯糰</a></li>
-			<li><a href="javascript:void(0)">發起飯糰</a></li>
-			<li class="logo">
-				<a href="javascript:void(0)">	
-					<img class="img-Logo" src="image/logo.png" alt="logo">
-				</a>
-			</li>
-			<li><a href="javascript:void(0)">發起飯糰</a></li>
-			<li class="member">
-				<div>
-					<img class="img-Mem" src="image/member_Bonus.png" alt="member_Pic" class="member_Pic">
-				</div>
-				<div>
-					<span><img class="img-Mem" src="image/member_Bonus.png" alt="achievement_Pic" class="achievement_Pic">300積分</span><br>
-					<span>Sara. always</span>
-				</div>
-			</li>
-			<li class="other_link">
-				<a href="javascript:void(0)">
-					<img src="image/member_Bonus.png" alt="QRcode">
-					<span>2</span>
-				</a>
-				<a href="javascript:void(0)">
-					<img src="image/member_Bonus.png" alt="shopping_cart">
-					<span>3</span>
-				</a>
-			</li>
-		</ul>	
+			</div>
+		</div>
+		<nav>
+			<ul>
+				<li class="logo">
+					<div id="view4"></div>
+					<a href="javascript:void(0)">
+						<img src="images/logo.png" alt="logo">
+					</a>
+				</li>
+				<li class="member">
+					<div id="view6"></div>
+					<div class="before_login">
+						<a href="javascript:void(0)">註冊</a>
+						<a href="javascript:void(0)">登入</a>
+					</div>
+					<div class="after_login">
+						<div>
+							<img src="images/icon/user.svg" alt="member_Pic" class="member_Pic">
+						</div>
+						<div>
+							<span><img src="images/icon/riceball.svg" width="30" alt="achievement_Pic" class="achievement_Pic">300積分</span><br>
+							<span>Sara. always</span>
+						</div>
+					</div>
+				</li>
+				<li class="meals">
+						<div id="view5"></div>
+					<a href="javascript:void(0)">日食餐點</a>
+				</li>
+				<li class="initiate">			
+					<div id="view2"></div>
+					<a href="javascript:void(0)">發起飯糰</a>
+				</li>
+				<li class="participate">
+					<div id="view3"></div>
+					<a href="javascript:void(0)">參加飯糰</a>
+				</li>
+				<li class="table_hidden"><a href="javascript:void(0)">會員中心</a></li>
+				<li class="table_hidden"><a href="javascript:void(0)">克服雞器人</a></li>
+			</ul>
+		</nav>
+		<input type="checkbox" id="white_Point_control">
+		<label class="white_Point floaty" for="white_Point_control">
+			<ul>
+				<div id="view7"></div>
+				<li>
+					<a href="javascript:void(0)">
+						<img src="images/icon/cart.svg" alt="cart"><br>
+						購物車
+						<span>3</span>
+					</a>
+				</li>
+				<li>
+					<a href="javascript:void(0)">
+						<img src="images/icon/qrcode.svg" alt="qrcode"><br>
+						快速取餐
+						<span>2</span>
+					</a>
+				</li>
+				<li class="table_hidden">
+					<a href="javascript:void(0)">
+						<img src="images/icon/game.svg" alt="game"><br>
+						想吃什麼？
+					</a>
+				</li>
+				<li class="table_hidden">
+					<a href="javascript:void(0)">
+						<img src="images/icon/if_General_-_Office_54_1471106.svg" alt="mc"><br>
+						我的收藏
+					</a>
+				</li>
+				<li class="table_hidden">
+					<a href="javascript:void(0)">
+						<img src="images/icon/riceball.svg" alt="riceball"><br>
+						我的飯團
+					</a>
+				</li>		
+			</ul>
+		</label>
 	</header>
 
 	<div class="food-container">
-
+        <div class="food-search">
+			<input type="text" id="input_search" maxlength="30" required>
+			<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
+			<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
+        </div>
         <div class="food-Banner part--12 part-sm-12">
-            <img src="image/food_banner2.jpg">
+            <img id="elimg" src="images/noodle.jpg">
+            <canvas id="elcanvas"></canvas>
             <div class="food-name">
                 <p>飲料</p>
                 <p>Drink</p>
             </div>
-            <h2>餐點介紹</h2>
-            <div class="food-search">
-                <form action="">
-                    <span class="fas fa-search"></span>
-                    <input type="search" placeholder="想吃甚麼呢">
-                </form>
+            <div class="menu-info">
+                <h2>非常快速輕鬆不容易失手的一道菜!</h2>
+                <h2>小朋友大人都很喜歡唷！</h2>
             </div>
         </div>
 
@@ -92,14 +155,38 @@
                 </div>
                 </div>
             </div>
-			
+			 <div class="rwd-dek part--4 part-sm-4 part-lg-4">
+                <div class="food-choose_item">
+                    <p>素食</p>
+                    <p>lorem</p>
+                    <div class="food-choose_img">
+                </div>
+                </div>
+            </div>
+             <div class="rwd-dek part--4 part-sm-4 part-lg-4">
+                <div class="food-choose_item">
+                    <p>素食</p>
+                    <p>lorem</p>
+                    <div class="food-choose_img">
+                </div>
+                </div>
+            </div>
+             <div class="rwd-dek part--4 part-sm-4 part-lg-4">
+                <div class="food-choose_item">
+                    <p>素食</p>
+                    <p>lorem</p>
+                    <div class="food-choose_img">
+                </div>
+                </div>
+            </div>
         </div>
     </div>
-        <!-- <div class="food-filiter">
-            <span class="">辣味</span>
-            <span class=""></span>
-        </div> -->
+        
     <div class="food-container-2">
+            <!-- <div class="food-filiter">
+                <span class="spicy"><img src="images/icon7.png"/>很辣</span>
+                <span class="veget"><img src="images/vegetable.png">素食</span>
+            </div> -->
             <h1>菜色一覽</h1>  
             <div class="food-content">
             <div class="food-item  part--12 part-sm-6 part-md-4 part-lg-4">
@@ -108,26 +195,27 @@
                         <h2>雞肉井飯</h2>
                     </div>
                     <div class="food-pic">
-                        <img src="image/rice.png" alt=""> 
+                        <img src="images/rice.png" alt="">
+                           
                         <span class="food-zoom fas fa-search"></span>
                         <span class="food-price">$35</span>
                     </div>    
                     
                     <ul class="food-score">
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
 						<li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
                     </ul>
                     <div class="food-button clearfix">
@@ -148,26 +236,26 @@
                     <h2>雞肉井飯</h2>
                 </div>
                 <div class="food-pic">
-                    <img src="image/rice.png" alt="">
+                    <img src="images/rice.png" alt="">
                     <span class="food-zoom fas fa-search"></span>
                     <span class="food-price">$35</span>
                 </div>    
                 
                 <ul class="food-score">
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
 						<li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
                     </ul>
                 <div class="food-button clearfix">
@@ -188,26 +276,26 @@
                     <h2>雞肉井飯</h2>
                 </div>
                 <div class="food-pic">
-                    <img src="image/rice.png" alt="">
+                    <img src="images/rice.png" alt="">
                     <span class="food-zoom fas fa-search"></span>
                     <span class="food-price">$35</span>
                 </div>    
                 
                 <ul class="food-score">
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
 						<li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
                     </ul>
                 <div class="food-button clearfix">
@@ -228,26 +316,26 @@
                     <h2>雞肉井飯</h2>
                 </div>
                 <div class="food-pic">
-                    <img src="image/rice.png" alt="">
+                    <img src="images/rice.png" alt="">
                     <span class="food-zoom fas fa-search"></span>
                     <span class="food-price">$35</span>
                 </div>    
                 
                 <ul class="food-score">
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggFull.png" alt="">
+							<img src="images/eggFull.png" alt="">
 						</li>
                         <li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
 						<li class="egg">
-							<img src="image/eggEmpty.png" alt="">
+							<img src="images/eggEmpty.png" alt="">
 						</li>
                     </ul>
                 <div class="food-button clearfix">
@@ -268,35 +356,28 @@
     <script src="js/jquery-3.3.1.min.js"></script>  
 	<script>
 
-		var liList = document.querySelectorAll(".nav li");
+		for (var i = 1; i <= 7; i++) {
 		
-		liList.forEach(function(item){
+			var view = document.querySelector("#view" +　i);
 
-			var struct = '';
-
-			struct = document.createElement("div");     
-			struct.className = "view";
-			
 			struct1 = document.createElement("div");     
-			struct1.className = "slice s" + 10;
+			struct1.className = "slice s" + 3;
 		
-			for (var i = 9; i > 0; i--) {
+			for (var j = 2; j > 0; j--) {
 		
 				struct2 = document.createElement("div");     
-				struct2.className = "slice s" + i;
+				struct2.className = "slice s" + j;
 		
 				struct2.appendChild(struct1);
 	
 				struct1 = struct2;
 			}
-
-			struct.appendChild(struct2);
 		
-			item.appendChild(struct);
+			view.appendChild(struct2);
 			
-		});
+		}
 
 	</script>
-
+    <script src="js/puzzle.js"></script>
 </body>
 </html>

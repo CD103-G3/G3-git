@@ -32,3 +32,4 @@ gulp.task('default', ['sass'], function () {
   gulp.watch("images/*").on('change', reload);
   // gulp.watch("images/*").on('change', reload);
 });
+

@@ -15,7 +15,7 @@ body{
     padding-left: 12px;
     padding-right: 12px;
     @include respond(desktop){
-        width: 100%;
+        width: calc(100% - 24px);
         margin: 0 auto;
     }
 }
@@ -41,79 +41,63 @@ body{
     display: table;
     clear: both;
 }
-nav{
-    height: 60px;
-    background-color: $color_main1;
-    margin-bottom: 20px;
+
+.food-choose .rwd-dek{
+    display: none;
 }
+
 // /共用
-.food-Banner{
-    margin-bottom: 25px;
-    img{
-        border-top-left-radius: 90px;
-        border-top-right-radius: 180px;
-        border-bottom-right-radius: 120px;
-        border-bottom-left-radius: 20px;
-        @include respond(medium){
-            height: 80vh;
+.food-search{   
+        width: 250px;
+        font-size: 20px;
+        margin: 0 auto;
+        border-radius: 50px;
+        border: 2px solid #BB7232;
+        position: relative;
+        margin-bottom: 25px;
+        @include respond(moblie){
+            width: 300px;
         }
-        @include respond(desktop){
-            height: 85vh;
-        }
+        
+      #input_search {
+        width: 100%;
+        font-size: 24px;
+        line-height: 36px;
+        padding-left: 15px;
+        border-radius: 50px;
+        border: 0;
+        outline: none; }
+         #input_search:focus + label,
+        #input_search:valid + label {
+          top: 0;
+          transform: translateY(-150%);
+          transition: 0.4s;
+          font-size: 16px; }
+         #input_search:focus {
+          border: 0; }
+       .input_pl {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: 0.4s; }
+       #start_search {
+        font-size: 24px;
+        font-family: 微軟正黑體, arial, "sans serif";
+        line-height: 60px;
+        color: #fff;
+        background-color: #BB7232;
+        border-radius: 0 50px 50px 0;
+        border: 0;
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
     @include respond(desktop){
-        margin-bottom: 50px;
-        padding-left: 0;
-        padding-right: 0;
+        width: 400px;
+        margin-bottom: 40px;
     }
-    position: relative;
-    .food-name{
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        background-color: rgba($color_main3, 0.8);
-        color:$color_main2;
-        padding: 10px 40px 0px 10px;
-        border-radius: 10px;        
-        @include respond(moblie){
-            top:75px;
-            left: 50px;
-            
-        }
-        font-size: $fontSize_L;
-        font-family: $fmy;
-    }
-    
-    h2{
-        font-size: $fontSize_M;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%,-50%)    ;
-        font-family: $fmy;
-        color: #fff;
-        font-weight: 600;
-        @include respond(moblie){
-            font-size: $fontSize_L;
-        }
-        @include respond(desktop){
-            font-size: $fontSize_XXL;
-        }
-    }
-    p{  
-        margin-bottom: 10px;
-        @include respond(desktop){
-            margin-bottom: 30px;
-        }
-        font-size: $fontSize_text;
-    }
-}
-.food-search{   
-    position: absolute;
-    left:50%;
-    transform: translateX(-50%);
-    top: 70%;
-    color:$color_main2;
         input{
             width: 200px;
             background-color: #f1f1f179;
@@ -122,6 +106,8 @@ nav{
             border-radius: 10px;
             font-size: $fontSize_text - 1;
             position: relative;
+            border: 1px solid $color_main2;
+            box-shadow: 1px 3px 1px #ad6631;
             &::placeholder{
                 color: $color_main2;
                 font-family: $fmy;
@@ -140,15 +126,105 @@ nav{
             top: 12px;
             @include respond(desktop){
                 top: 15px;
+                left: 8px;
             }
-            left: 5px;
+            left: 8px;
             z-index: 1;
         }
-    
 }
+.food-Banner{
+    margin-bottom: 15px;
+    position: relative;
+    height: 28vh;
+    img{
+        border-radius: 20px 80px 20px;
+        position: absolute;
+        @include respond(moblie){
+            height: 60vh;
+        }
+        @include respond(medium){
+            height: 62vh;
+        }
+        @include respond(desktop){
+            height: 78vh;
+        }
+    }
+    canvas {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    @include respond(moblie){
+        height: 60vh;
+        padding-right: 0;
+        padding-left: 0;
+    }
+    @include respond(medium){
+        // height: 77vh;
+        padding-left: 0px;
+        padding-right: 0px;
+        // margin-bottom: 20px;
+    }
+    @include respond(desktop){
+        margin-bottom: 50px;
+        padding-left: 0;
+        padding-right: 0;
+        height: 78vh;
+    }
+    .food-name{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        background-color: rgba($color_main3, 0.8);
+        color:$color_main2;
+        padding: 10px 40px 0px 10px;
+        border-radius: 10px;        
+        @include respond(moblie){
+            top:75px;
+            left: 50px;
+        }
+        @include respond(desktop){
+            padding: 20px 100px 0px 20px;
+            p{
+                font-size: $fontSize_L;
+            }
+        }
+        font-size: $fontSize_L;
+        font-family: $fmy;
+    }
+    
+    h2{
+        font-size: $fontSize_text - 1;
+        font-family: $fmy;
+        color: #fff;
+        font-weight: 600;
+        line-height: 1.6;
+        @include respond(moblie){
+            font-size: $fontSize_L;
+        }
+        @include respond(desktop){
+            font-size: $fontSize_XXL;
+        }
+    }
+    p{  
+        margin-bottom: 10px;
+        @include respond(desktop){
+            margin-bottom: 30px;
+        }
+        font-size: $fontSize_text;
+    }
+    .menu-info{
+        position: absolute;
+        top: 55%;
+        left: 10%;
+    }
+}
+
 .food-choose{
     font-size: 0;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
+    margin-top: 25px;
     .part--4{
         width: calc(33.33% - 7px);
         &:nth-child(2),
@@ -158,6 +234,7 @@ nav{
         }
     }
     @include respond(desktop){
+        margin-bottom: 50px;
         .part-lg-4{
             width: calc(33.33% - 96px);
             padding-right: 0;
@@ -192,6 +269,9 @@ nav{
             font-size: 15px;
             margin-top: 8px;
             margin-bottom: 8px;
+            @include respond(desktop){
+                font-size: $fontSize_L;
+            }
             &:nth-child(2){
                 display: none;
             }
@@ -213,13 +293,13 @@ nav{
         }
         @include respond(desktop){
             right: 3px;
-            top: 6px;
+            top: 15px;
             height: 100px;
         }
         @media screen and (min-width: 500px) and (max-width: 767px) {
             height: 60px;
         }
-        background-image:url(../image/rice.png);
+        background-image:url(../images/rice.png);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
@@ -230,12 +310,39 @@ nav{
     
     
 }
-
+.food-filiter{
+    font-size: $fontSize_text;
+    .spicy{
+        margin-right: 20px;
+    }
+    img{
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+    @include respond(desktop){
+        font-size: $fontSize_S;
+        color: #76391b;
+        .spicy{
+            margin-right: 80px;
+        }
+        img{
+            width: 50px;
+            height: 50px;
+            vertical-align: middle;
+            display: inline-block;
+        }
+    }
+}
 .food-container-2{
+    
    h1{
        font-size: $fontSize_L;
+       margin-bottom: 20px;
        @include respond(desktop){
         font-size: $fontSize_XL;
+        margin-bottom: 50px;
        }
        text-align: center;
        color: #76391B;
@@ -269,24 +376,37 @@ nav{
     position: relative;
     font-size: 16px;
     border: 2px solid $color_main2;
+    overflow: hidden;
+    img{
+        position: relative;
+        right: -80px;
+        bottom: -30px;
+    }
     .food-zoom{
         background-color:$color_main3;
         color: $color_main2;
         padding: 10px;
         position: absolute;
-        bottom: 35px;
-        right: 25px;
+        top: 0;
+        right: 0;
         font-size: $fontSize_S;
         border-radius: 50%;        
         @include respond(medium){
             font-size: $fontSize_M;
         }
+        @include respond(desktop){
+            top: 5px;
+            right: 5px;
+            width:25px;
+            height:25px;
+        }
     }
     .food-price{
+        overflow: hidden;
         position: absolute;
         font-size: $fontSize_M;
-        right: -10px;
-        bottom: -3px;
+        right: 0;
+        bottom: 0px;
         display: inline-block;
         width: 50px;
         height:50px;
@@ -299,13 +419,15 @@ nav{
         @include respond(medium){
             width:  70px;
             height: 70px;
-            right: -20px;
-             bottom: -25px;
+            right: 5px;
+            bottom: 5px;
             text-align: center;
             line-height: 70px;
             font-size: $fontSize_L;
         }
+        
     }
+    
 }
 .food-score{
     padding: 10px 0;
@@ -380,3 +502,27 @@ nav{
     vertical-align: middle;
 }
 
+@include respond(desktop){
+    .food-choose .rwd-dek{
+        display: inline-block;
+    }
+    .food-choose .part--4:nth-child(5) {
+        margin-left: 143px;
+        margin-right: 143px;
+    }
+    .food-choose .part-lg-4{
+        margin-bottom: 20px;
+    }
+}
+@media all and (min-width:400px) and (max-width:578px){
+    .food-Banner{
+        margin-bottom: 70px;
+    }
+}
+
+@media all and (min-width:578px) and (max-width:767px){
+    .food-Banner{
+        margin-bottom: 40px;
+        height: 55vh;
+    }
+}

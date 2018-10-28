@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  img{
+      width: 100%;
+      display: inline-block;
+      vertical-align: top;
+  }
+  body {
+      background:#efefef;
+  }
+  .scratch-container {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width:100%;
+    max-width:1200px;
+    margin: 0 auto;
+  }
+  .scrach-card{
+    border:2px solid rgb(62, 58, 58);
+    width: 90%;
+    height: 500px;
+    background-image: url('../images/scrach.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.scratchpad{
+  width:600px;
+  height:300px;
+  margin: 0 10px;
+  margin:250px auto;
+  border:1px solid black;
+}
+  .promo-container {
+      background:#FFF;
+      border-radius:5px;
+      -moz-border-radius:5px;
+      -webkit-border-radius:5px;
+      width:200px;
+      padding:20px;
+      margin:0 auto;
+      text-align:center;
+      font-family:'Open Sans', Arial,Sans-serif;
+      color:#333;
+      font-size:16px;
+      margin-top:20px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+       
+  }
+  .btn {
+    background:#56CFD2;
+    color:#FFF;
+    padding:10px 25px;
+    display:inline-block;
+    margin-top:15px;
+    text-decoration:none;
+    font-weight:600;
+    text-transform:uppercase;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radiuss:3px;
+  }
+  .btnPOP{
+      display: inline-block;
+      padding: 10px 25px;
+      background-color: #56CFD2;
+      border-radius:10px;
+      text-decoration: none;
+      text-align: center;
+      margin: 10px auto;
+    position: absolute;
+    top:0;
+    right: 0;
+  }
+  img{
+      border-radius: 40px;
+  }
+  @media screen and (min-width:320px) and (max-width:400px){ 
+   .scratchpad{
+    width:90%;
+    height:200px;
+    margin: 0 10px;
+    margin: 280px auto;
+    border:1px solid black;
+  }
+  }
+  @media screen and (min-width:401px) and (max-width:640px){ 
+   .scratchpad{
+    width:350px;
+    height:200px;
+    margin: 0 10px;
+    margin: 288px auto;
+    border:1px solid black;
+  }
+}
+
+@media (min-width: 576px) {
+    .scrach-card{
+        width:90%;  
+    
+} 
+.scratchpad{
+    margin: 176px auto;
+}
+}
+
+@media (min-width: 768px) { 
+    .scrach-card{
+        width:90%;  
+    
+} 
+.scratchpad {
+   
+    margin: 166px auto;
+   
+}
+}
+
+
+@media (min-width: 992px) { 
+    .scrach-card{
+    width:90%;      
+    
+}
+.scratchpad{
+    margin: 166px auto;
+}
+}
+
+
+  @media screen and (min-width:1200px){
+    
+    .scrach-card{
+        width: 1000px;
+        
+    }
+    .scratchpad {
+        margin: 166px auto;
+    }
+  }
+  
