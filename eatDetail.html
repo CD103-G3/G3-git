@@ -161,9 +161,9 @@
                 <div class="count_qty part-sm-5 part-md-6 part-lg-5 clearfix">
                     <span class="font_blod fl">數量</span>
                     <div class="count_input fl">
-                        <input type="button" class="qty_cut qty_width" name="qty_cut" value="-">
-                        <input type="number" class="qty" id="qty_input" name="quantity" min="0" value="0" max="99999">
-                        <input type="button" class="qty_add qty_width" name="qty_add" value="+">
+                        <input type="button" class="qty_cut qty_width" id="qty_cut" name="qty_cut" value="-">
+                        <input type="text" class="qty" id="qty" name="quantity" value="1">
+                        <input type="button" class="qty_add qty_width" id="qty_add" name="qty_add" value="+">
                     </div>    
                 </div>
                 <div class="count_button part-sm-7 part-md-6 part-lg-7">
@@ -231,10 +231,11 @@
             }
         }
     </script>
+    <script src="js/eatDetail.js"></script>
 </body>
 </html>
 
-<script>
+<!-- <script>
     for (var i = 1; i <= 7; i++) {
 		
         var view = document.querySelector("#view" +　i);
@@ -255,10 +256,4 @@
         view.appendChild(struct2);
         
     }
-
-    qty_input.oninput = function () {
-    if (this.value.length > 3) {
-        this.value = this.value.slice(0,3); 
-    }
-}
-</script>
+</script> -->

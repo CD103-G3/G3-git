@@ -8,7 +8,6 @@
 
 .part-1, .part-2, .part-3, .part-4, .part-5, .part-6, .part-7, .part-8, .part-9, .part-10, .part-11, .part-12 {
   float: left;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   padding: 10px; }
 
@@ -67,38 +66,20 @@ header {
   header #navctrl {
     display: none; }
     header #navctrl:checked ~ .phone_nav .hb .line {
-      -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
       transform: rotate(360deg);
       opacity: 0;
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
       transition: 0.3s; }
     header #navctrl:checked ~ .phone_nav .hb:before {
-      -webkit-transform: translateY(13.5px) rotate(225deg);
-      -ms-transform: translateY(13.5px) rotate(225deg);
       transform: translateY(13.5px) rotate(225deg);
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
       transition: 0.3s; }
     header #navctrl:checked ~ .phone_nav .hb:after {
-      -webkit-transform: translateY(-13px) rotate(-225deg);
-      -ms-transform: translateY(-13px) rotate(-225deg);
       transform: translateY(-13px) rotate(-225deg);
-      -webkit-transition: 0.3s;
-      -o-transition: 0.3s;
       transition: 0.3s; }
     header #navctrl:checked ~ nav {
       top: 0;
-      -webkit-transition: 1s;
-      -o-transition: 1s;
       transition: 1s; }
       header #navctrl:checked ~ nav:before {
-        -webkit-transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        -webkit-transition: 1s;
-        -o-transition: 1s;
         transition: 1s; }
   header .phone_nav {
     padding: 0 40px 0 10px;
@@ -126,8 +107,6 @@ header {
       height: 50px;
       cursor: pointer;
       opacity: .8;
-      -webkit-transition: .5s;
-      -o-transition: .5s;
       transition: .5s;
       position: absolute;
       top: 28%;
@@ -144,8 +123,6 @@ header {
         right: 0;
         bottom: 21%;
         left: 0;
-        -webkit-transition: 0.3s;
-        -o-transition: 0.3s;
         transition: 0.3s; }
       header .phone_nav .hb:before {
         bottom: auto; }
@@ -158,15 +135,12 @@ header {
       color: #76391b;
       border-radius: 50%;
       background-color: #fcf2ca;
-      -webkit-box-shadow: 1px 3px 1px #ad6631;
       box-shadow: 1px 3px 1px #ad6631;
       cursor: pointer; }
       header .phone_nav .seach_button img {
         margin-top: -6px;
         vertical-align: middle; }
   header nav {
-    -webkit-transition: 1s;
-    -o-transition: 1s;
     transition: 1s;
     position: absolute;
     top: -550px; }
@@ -176,14 +150,8 @@ header {
       height: 1100px;
       border-radius: 50%;
       background-color: #425075;
-      -webkit-transform-origin: left top;
-      -ms-transform-origin: left top;
       transform-origin: left top;
-      -webkit-transform: translate(-100%, -50%);
-      -ms-transform: translate(-100%, -50%);
       transform: translate(-100%, -50%);
-      -webkit-transition: 1s;
-      -o-transition: 1s;
       transition: 1s;
       position: absolute;
       top: 0;
@@ -228,11 +196,7 @@ header {
     header #white_Point_control:checked ~ .white_Point {
       width: 70vmin;
       height: 70vmin;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
-      -webkit-transition: all 1s;
-      -o-transition: all 1s;
       transition: all 1s;
       top: 50%;
       left: 50%; }
@@ -244,11 +208,7 @@ header {
     height: 50px;
     border-radius: 15px;
     background-color: #425075;
-    -webkit-transform: translate(0, 0);
-    -ms-transform: translate(0, 0);
     transform: translate(0, 0);
-    -webkit-transition: all 1s;
-    -o-transition: all 1s;
     transition: all 1s;
     display: none;
     position: absolute;
@@ -312,32 +272,20 @@ header {
           header nav ul li.table_hidden {
             display: none; }
           header nav ul li.logo {
-            -webkit-transform: translateX(200%);
-            -ms-transform: translateX(200%);
             transform: translateX(200%); }
           header nav ul li.member {
-            -webkit-transform: translateX(300%);
-            -ms-transform: translateX(300%);
             transform: translateX(300%); }
           header nav ul li.meals {
-            -webkit-transform: translateX(100%);
-            -ms-transform: translateX(100%);
             transform: translateX(100%); }
           header nav ul li.initiate {
-            -webkit-transform: translateX(-300%);
-            -ms-transform: translateX(-300%);
             transform: translateX(-300%); }
           header nav ul li.participate {
-            -webkit-transform: translateX(-300%);
-            -ms-transform: translateX(-300%);
             transform: translateX(-300%); }
     header #white_Point_control {
       display: none; }
       header #white_Point_control:checked ~ .white_Point {
         width: 14.28571428%;
         height: 100px;
-        -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
         transform: translate(0, 0);
         position: static; }
         header #white_Point_control:checked ~ .white_Point li.table_hidden {
@@ -354,8 +302,6 @@ header {
       header .white_Point:checked ~ .white_Point {
         width: 50px;
         height: 50px;
-        -webkit-transform: translate(0, 0);
-        -ms-transform: translate(0, 0);
         transform: translate(0, 0);
         position: static; }
       header .white_Point ul {
@@ -378,7 +324,6 @@ header {
             color: #76391b;
             border-radius: 20px;
             background-color: #fcf2ca;
-            -webkit-box-shadow: 1px 3px 1px #ad6631;
             box-shadow: 1px 3px 1px #ad6631;
             display: inline-block;
             position: relative; }
@@ -402,16 +347,10 @@ header {
       header #view1 .slice, header #view2 .slice, header #view3 .slice, header #view4 .slice, header #view5 .slice, header #view6 .slice, header #view7 .slice {
         width: 100%;
         height: 10px;
-        -webkit-transform-style: preserve-3d;
         transform-style: preserve-3d;
-        -webkit-transform-origin: center top;
-        -ms-transform-origin: center top;
         transform-origin: center top;
-        -webkit-transition: 150ms ease-in-out;
-        -o-transition: 150ms ease-in-out;
         transition: 150ms ease-in-out;
         background-image: url("../images/nav_background.png");
-        -webkit-perspective: 1000px;
         perspective: 1000px;
         position: relative;
         top: 100%; }
@@ -423,20 +362,14 @@ header {
       border: 2px solid #2d3e51;
       border-bottom: none;
       border-radius: 5px 5px 5px 5px;
-      -webkit-transition-delay: 150ms;
-      -o-transition-delay: 150ms;
       transition-delay: 150ms;
-      -webkit-transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
       transform: translate3d(-4px, 0, 0) rotate3d(1, 0, 0, -180deg);
       background-color: #425075; }
     header li:not(.logo):not(.member):hover .s3 {
       border: 2px solid #2d3e51;
       border-bottom: none;
       border-radius: 5px 5px 5px 5px;
-      -webkit-transition-delay: 100ms;
-      -o-transition-delay: 100ms;
       transition-delay: 100ms;
-      -webkit-transform: translate3d(-6px, 0, 0) rotate3d(1, 0, 0, -180deg);
       transform: translate3d(-6px, 0, 0) rotate3d(1, 0, 0, -180deg);
       background-color: #425075; }
     header #view1 .s1 {
@@ -485,7 +418,6 @@ header {
 * {
   font-size: 16px;
   color: #333333;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box; }
 
 body {
@@ -631,7 +563,6 @@ h2 {
     width: 100%; }
   .part-sm-1, .part-sm-2, .part-sm-3, .part-sm-4, .part-sm-5, .part-sm-6, .part-sm-7, .part-sm-8, .part-sm-9, .part-sm-10, .part-sm-11, .part-sm-12 {
     float: left;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px; }
   .wrapper {
@@ -698,7 +629,6 @@ h2 {
     width: 100%; }
   .part-md-1, .part-md-2, .part-md-3, .part-md-4, .part-md-5, .part-md-6, .part-md-7, .part-md-8, .part-md-9, .part-md-10, .part-md-11, .part-md-12 {
     float: left;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px; }
   .banner_pic {
@@ -750,7 +680,6 @@ h2 {
     width: 100%; }
   .part-lg-1, .part-lg-2, .part-lg-3, .part-lg-4, .part-lg-5, .part-lg-6, .part-lg-7, .part-lg-8, .part-lg-9, .part-lg-10, .part-lg-11, .part-lg-12 {
     float: left;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
     padding: 10px; }
   .wrapper {
