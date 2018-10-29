@@ -39,7 +39,7 @@
 			</div>
 			<!-- 橘色結束 -->
 			
-			<!-- 紅色 -->
+			<!-- 紅色的-->
 			<div class="coll_kind  part-s-12 part-l-12">
 					<div class="coll_kind_item part-4 part-s-2 part-l-2 ">
 						<img src="image/hot-pot.png" alt="hot_pot" title="鍋物" class="kind_icon">
