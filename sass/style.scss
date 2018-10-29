@@ -15,8 +15,13 @@ $PC: 1024px;
 $lgPC: 1200px;
 // @include rwdSys() {
 // };
+$pd: 10px;
+@include scrollBar(8px, $color_main2, $color_main3);
+
+
 * {
     box-sizing: border-box;
+    line-height: 1.6;
 }
 button {
     border: none;
@@ -34,12 +39,26 @@ body {
     @include maxWidthWrapper(1200px);
     width: 100%;
 }
+a {
+    text-decoration: none;
+}
+h1 {
+    font-weight: 800;
+    font-size: $fontSize_L;
+    padding: 10px;
+    // color: $color_main2;
+    text-align: center;
+}
 h2{
     font-weight: 600;
     font-size: $fontSize_M;
     color: $color_main2;
     text-align: center;
 }
+@include picSetting;
+
+
+
 .step-wrapper {
     max-width: 800px;
     text-align: center;
@@ -101,7 +120,11 @@ h2{
         margin: auto;
         font-size: 0;
         text-align: center;
-        li {
+        input { display: none; }
+        input[type="radio"]:checked + label {
+            @include hover($color_main2, #fff, .2s);
+        }
+        label {
             @include square(80px, #fff, $color_main2) {
                 display: inline-block;
                 font-size: $fontSize_text;
@@ -110,6 +133,7 @@ h2{
                 margin: 4px;
             };
             span {
+                display: block;
                 line-height: 50px;
                 font-size: $fontSize_M;
                 font-weight: 800;
@@ -157,13 +181,20 @@ h2{
             transition: .2s;
         }
     }
+    .randomTitle {
+        @include btn(160px, dark);
+        display: block;
+        margin-left: $pd * 2;
+    }
     .input-wrapper {
         position: relative;
+        input { font-weight: 800; }
         .hint {
             @include hint(200px, 60px, $color_txt) {
                 opacity: .0;
                 top: 100px;
                 color: #fff;
+                line-height: 1.6;
             }
         }
     }
@@ -176,7 +207,7 @@ h2{
     }
 }
 .btn-container {
-    margin-bottom: 100px;
+    margin: 60px auto 100px;
     text-align: center;
     font-size: 0;
     .check-BTN,
@@ -191,6 +222,459 @@ h2{
         @include btn(240px);
         background-color: $color_main3;
         color: $color_main2;
+    }
+}
+
+// 3-2----------------------------------------------
+.cal-btn {
+    @include roundBtn(40px, $color_main4) {
+        font-size: 40px;
+        font-weight: 900;
+        color: $color_main3;
+    };
+}
+.settingThreshold-container {
+    max-width: 960px;
+    margin: auto;
+    padding: 30px;
+    .setting {
+        margin: 20px 0;
+        padding: 20px;
+        @include border(1px, $color_main2, right);
+        h3 {
+            text-align: center;
+        }
+        .settingArea {
+            width: 70%;
+            margin: auto;
+            padding: 20px 0;
+            text-align: center;
+        }
+    }
+    .bonus {
+        padding: 20px;
+        p {
+            padding: 40px;
+            span {
+                font-size: $fontSize_XL; 
+                font-weight: 600;   
+            }
+        }
+    }
+    
+}
+#people, #minus, #plus {
+    display: inline-block;
+    float: none;
+}
+#people {
+    // display: block;
+    text-align: center;
+    font-size: $fontSize_XL; 
+    font-weight: 600;  
+}
+#people2 {
+    font-size: $fontSize_M;
+}
+.addMeal-container {
+    position: relative;
+    padding: 30px;
+    border-radius: 30px;
+    // background-color: $color_main4;
+    background-image: url("../asset/natural-wooden-paneling-texture.jpg");
+    background-size: cover;
+    background-position: center;
+    // background-color: #ddd;
+    // @include border(2px, $color_main4);
+    .checkMeal-btn {
+        margin: 10px auto;
+        @include btn(160px, dark);
+    }
+    @include rwdSys(pad) {
+        width: 90%;
+    }
+    @include rwdSys(pad) {
+        .checkMeal-btn {display: none;}
+    }
+    .checkMeal-bg {
+        display: none;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgb(92, 92, 92);
+        opacity: .6;
+    }
+    
+}
+#add-meal {
+    position: fixed;
+    display: none;
+}
+#add-meal:checked + .addMeal-container .addMealPanel {
+    left: 0;
+    transition: .3s;
+}
+#add-meal:checked + .addMeal-container .checkMeal-bg {
+    display: block;
+    transition: .3s;
+}
+.addMealPanel {
+    // display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: -700px;
+    transition: .3s;
+    float: none;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    // @include border(2px, $color_main4);
+    box-shadow: 0px 6px 20px rgba(70, 70, 70, 0.445);
+    @include rwdSys(pad) {
+        position: relative;
+        left: 0;
+        float: left;
+        display: block;
+        // background-color: rgba(51, 51, 170, 0.178);
+    }
+    ul {
+        li {
+            float: left;
+            width: calc(33.33% - 20px);
+            margin: 10px 10px 0px;
+            padding: 10px;
+            text-align: center;
+            border-radius: 200px;
+            cursor: pointer;
+            @include border(2px, $color_main4);
+            @include rwdSys(pc) {
+                width: calc(16.66% - 10px);
+            }
+            &.active {
+                background-color: $color_main4;
+                color: #fff;
+            }
+        }
+        padding-bottom: 20px;
+        @include border(1px, $color_main4, bottom);
+    }
+    .add-wrapper {
+        width: 100%;
+        // height: 75%;
+        height: 500px;
+        padding: 10px;
+        font-size: 0;
+        text-align: center;
+        overflow-y: scroll;
+        background-color: #eee;
+        
+    }
+}
+.mealPointer {
+    position: absolute;
+    top: 250px;
+    left: 55%;
+    text-align: center;
+    h3 { width: 100px; }
+    .pic {
+        filter: invert(100);
+        transform: rotate(90deg) scale(.5);
+    }
+}
+.selectMeal {
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: $fontSize_text;
+    box-shadow: 6px 6px 0px $color_main1;
+    .pic { border-radius: 20px; }
+    .topUI {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 10px;
+        .addThis, .removeThis {
+            position: relative;
+            font-size: $fontSize_L;
+            @include border(1px, #aaa);
+            @include roundBtn(30px, #fff) {
+                box-shadow: none;
+            };
+            .hint {
+                display: none;
+                font-size: $fontSize_text;
+                color: #fff;
+                @include hint(100px, 30px, #333) {
+                    // z-index: 2;
+                    top: 40px;
+                };
+                &:after {
+                    left: 10px;
+                    right: auto;
+                }
+            }
+
+            &:hover {
+                opacity: .9;
+                .hint {
+                    display: block;
+                }
+            } 
+            &.removeThis {
+                font-size: $fontSize_text;
+            }    
+        }
+    }
+    .meal-title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        .meal-score {
+            padding: 6px;
+        }
+    }
+    .title-wrapper {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 6px 10px;
+        background-color: $color_main2;
+        color: $color_main3;
+    }
+    .added-bg {
+        @include coverTextBG(#fff, #111, $fontSize_S, .8);
+        // display: none;
+        left: 100000px;
+        opacity: 0;
+        transition: opacity .3s;
+    }
+}
+.addedList {
+    position: relative;
+    max-width: 500px;
+    // height: 400px;
+    margin: auto;
+    background-color: #fff;
+    @include border(2px, $color_main1);
+    text-align: center;
+    float: none;
+    border-radius: 20px;
+    &:before {
+    }
+    .mealArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        // line-height: 400px;
+        overflow-y: scroll;
+        .selectMeal {
+            box-shadow: 6px 6px 0px $color_main4;
+        }
+    }
+    .grouponDate {
+        padding: 20px;
+        margin: 0 20px;
+        vertical-align: middle;
+        border-bottom: 2px solid $color_main1;
+        h3 {
+            padding: 20px;
+        }
+        .grouponDay {
+            font-size: $fontSize_L;
+        }
+    }
+    .grouponDetail {
+        // padding: 20px;
+        margin: 0 20px;
+        border-top: 2px solid $color_main3;
+        div {
+            padding: 30px 10px;
+        }
+        #addedMealNow {
+            font-size: $fontSize_L;
+        }
+        .originalPrice {
+            text-decoration: line-through;
+        }
+        // .salePrice {
+             
+        // } 
+    }
+    #salePrice {
+        color: $color_hot;
+        @include highFont;
+    } 
+    @include rwdSys(pad) {
+        float: left;
+        right: -100px;
+    }
+    .addMeal-btn {
+        @include roundBtn(60px, #fff) {
+            position: absolute;
+            top: 450px;
+            right: 20px;
+            font-size: $fontSize_L;
+            box-shadow: 0px 3px 10px rgba(77, 77, 77, 0.39);
+            &:active {
+                top: 454px;
+            }
+        }
+        @include rwdSys(pad) {
+            display: none;
+        }
+        &:after {
+            position: absolute;
+            top: 50px;
+            left: -30px;
+            width: 200%;
+            content: '點此增加餐點';
+            font-size: $fontSize_text;
+        }
+        
+    }
+}
+
+// 3-3----------------------------------------------
+.createdList-wrapper {
+    margin-top: 160px;
+    @include roundBorder(3, 3px, $color_main1);
+    h1 {
+        background-color: $color_main1;
+        padding: 30px;
+        font-size: $fontSize_M;
+    }
+    .selectedMealList-container {
+        margin: -40px 0 0;
+        padding: $pd * 2;
+        
+        .mealList {
+            @include roundBorder(2, 3px, $color_main2 );
+            background-color: #fff;
+            h2 {
+                background-color: $color_main2;
+                padding: $pd;
+                
+                color: #fff;
+            }
+            .addedMeal-wrapper {
+                height: 500px;
+                overflow-y: scroll;
+            }
+        }
+    }
+}
+.selectedDetail-container {
+    padding: $pd *2;
+    .selectedDetail {
+        // background-color: #ddd;
+        padding: $pd *2;
+        @include roundBorder(3, 3px, $color_main1);
+        box-shadow: 0px 0px 20px rgba(65, 65, 65, 0.418);
+    }
+    .grouponTitle {
+        h2 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: $pd;
+            padding-left: 0px;
+            font-weight: 800;
+            text-align: left;
+            line-height: 1.6;
+            // @include roundBorder(3, 3px, $color_main2);
+            border-bottom: 2px dashed $color_main2;
+            .grouponTag {
+                font-size: $fontSize_text;
+            }
+        }
+    }
+    .grouponDate {
+        h3 {
+            padding: $pd;
+            padding-left: 0px;
+        }
+        .date-wrapper {
+            @include flexSB {
+                @include textPD($pd);
+                border-bottom: 2px dashed $color_main2;
+            }
+        }
+        .startDate, .endDate, .grouponDay {
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+    .bonusArea-wrapper {
+        @include textPD($pd*3);
+        border-bottom: 2px dashed $color_main2;
+        .title {
+            display: block;
+            @include textPD($pd);
+        } 
+        .people {
+            display: inline-block;
+            // @include textPD($pd*2);
+            font-size: $fontSize_L;
+            font-weight: 600;
+            text-align: center;
+            color: $color_hot;
+        }
+        .people-container {
+            p { @include textPD($pd * 3); }
+            h3 { font-weight: 600; }
+            
+        } 
+        p {
+            @include textPD($pd);
+        }
+        .bonus-container {
+            padding: $pd *1;
+            background-color: $color_bonus;
+            color: $color_main2;
+            font-weight: bolder;
+            border-radius: 1000px;
+            .bonus {
+                font-size: $fontSize_M;
+            }
+            .pic {
+                position: relative;
+            }
+            .bonus-coin {
+                display: block;
+                @include coverTextBG(#fff) {
+                    font-size: $fontSize_L;
+                    font-weight: 900;
+                };
+            }
+        }
+    }
+    .grouponDetail {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        @include textPD($pd * 2);
+        text-align: center;
+        .salePrice {
+            color: $color_hot;
+            font-weight: 800;
+        }
+        #addedMealNow, #salePrice {
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
     }
 }
 

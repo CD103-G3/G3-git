@@ -6,21 +6,251 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/Reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <script src="js/main.js"></script>
+
+    <title>3-2</title>
 </head>
 <body>
     <nav>
         <!-- 這裡放導覽列 -->
     </nav>
     <div class="maxWidthWrapper">
+        <div class="settingThreshold-container clearfix">
+            <h2>
+                設定此飯團的購物金人數門檻
+            </h2>
+            <div class="setting grid-12 grid-md-6 clearfix">
+                <h3>設定人數門檻(單位: 人)</h3>
+                <div class="settingArea">
+                    <div id="minus" class="cal-btn grid-3">
+                        -
+                    </div>
+                    <div id="people" class="grid-6 people">
+                        10 
+                    </div>
+                    <div id="plus" class="cal-btn grid-3">
+                        +
+                    </div>
+                </div>
+                
+            </div>
+            <div id="bonus" class="bonus grid-12 grid-md-6">
+                <h3>
+                    達成後可獲得的購物金，達成門檻的前 <span id="people2"> 10 </span> 人可獲得  
+                </h3>
+                <p>
+                    <span id="3_2Bonus">
+                        0
+                    </span>
+                    元購物金
+                </p>
+            </div>
+        </div>
+        <h1>選擇你想在此飯團加入的餐點</h1>
+        <input type="checkbox" id="add-meal">
+        <div class="addMeal-container clearfix">     
+            <div class="addMealPanel grid-12 grid-md-7">
+                <h2> 選擇餐點分類</h2>
+                <ul class="clearfix">    
+                    <li class="active">簡餐餐</li>
+                    <li>丼飯</li>
+                    <li>0001</li>
+                    <li>0001</li>
+                    <li>0001</li>
+                    <li>0001</li>
+                </ul>
+                <div class="add-wrapper">
+                    <div class="selectMeal">
+                        <div class="topUI">
+                            <!-- place id of meal here -->
+                            <div class="addThis" id="meal01">+
+                                <div class="hint">加此餐點</div>
+                            </div>
+                            <div class="scaleUp">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="asset/teishoku01.gif" alt="meal-001">
+                        </div>
+                        <div class="meal-title">
+                            <div class="meal-score">
+                                AAAAA
+                            </div>
+                            <div class="title-wrapper" >
+                                <h3 id="meal01_name">燒烤鍋物組
+                                </h3>
+                                <span id="meal01_price">75元</span>
+                            </div>
+                        </div>
+                        <div class="added-bg" id="meal01_bg">
+                            <p><i class="fas fa-check"></i>  已選擇</p>
+                        </div>
+                        <!-- add hidden input at here -->
+                        <input type="hidden" id="meal01input" value="燒烤鍋物組|75元|asset/teishoku01.gif">
+                    </div>
+                    <div class="selectMeal">
+                        <div class="topUI">
+                            <div class="addThis" id="meal02">+
+                                <div class="hint">加此餐點</div>
+                            </div>
+                            <div class="scaleUp">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="asset/vege02.jpg" alt="meal-001">
+                        </div>
+                        <div class="meal-title">
+                            <div class="meal-score">
+                                AAAAA
+                            </div>
+                            <div class="title-wrapper" >
+                                <h3 id="meal01_name">素食餐01
+                                </h3>
+                                <span id="meal01_price">75元</span>
+                            </div>
+                        </div>
+                        <div class="added-bg" id="meal02_bg">
+                            <p><i class="fas fa-check"></i>  已選擇</p>
+                        </div>
+                        <input type="hidden" id="meal02input" value="燒烤鍋物組|75元|asset/vege02.jpg">
+                    </div>
+                    <div class="selectMeal">
+                        <div class="topUI">
+                            <div class="addThis" id="meal03">+
+                                <div class="hint">加此餐點</div>
+                            </div>
+                            <div class="scaleUp">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="asset/teishoku01.gif" alt="meal-001">
+                        </div>
+                        <div class="meal-title">
+                            <div class="meal-score">
+                                AAAAA
+                            </div>
+                            <div class="title-wrapper" >
+                                <h3 id="meal01_name">燒烤鍋物組
+                                </h3>
+                                <span id="meal01_price">75元</span>
+                            </div>
+                        </div>
+                        <div class="added-bg" id="meal03_bg">
+                            <p><i class="fas fa-check"></i>  已選擇</p>
+                        </div>
+                        <input type="hidden" id="meal03input" value="燒烤鍋物組|75元|asset/vege02.jpg">
+                    </div>
+                    <div class="selectMeal">
+                        <div class="topUI">
+                            <div class="addThis" id="meal04">+
+                                <div class="hint">加此餐點</div>
+                            </div>
+                            <div class="scaleUp">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="asset/teishoku01.gif" alt="meal-001">
+                        </div>
+                        <div class="meal-title">
+                            <div class="meal-score">
+                                AAAAA
+                            </div>
+                            <div class="title-wrapper" >
+                                <h3 id="meal01_name">燒烤鍋物組
+                                </h3>
+                                <span id="meal01_price">75元</span>
+                            </div>
+                        </div>
+                        <div class="added-bg" id="meal04_bg">
+                            <p><i class="fas fa-check"></i>  已選擇</p>
+                        </div>
+                        <input type="hidden" id="meal04input" value="燒烤鍋物組|75元|asset/teishoku01.gif">
+                    </div>
+                    <div class="selectMeal">
+                        <div class="topUI">
+                            <div class="addThis" id="meal05">+
+                                <div class="hint">加此餐點</div>
+                            </div>
+                            <div class="scaleUp">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </div>
+                        <div class="pic">
+                            <img src="asset/teishoku01.gif" alt="meal-001">
+                        </div>
+                        <div class="meal-title">
+                            <div class="meal-score">
+                                AAAAA
+                            </div>
+                            <div class="title-wrapper" >
+                                <h3 id="meal01_name">燒烤鍋物組
+                                </h3>
+                                <span id="meal01_price">44元</span>
+                            </div>
+                        </div>
+                        <div class="added-bg" id="meal05_bg">
+                            <p><i class="fas fa-check"></i>  已選擇</p>
+                        </div>
+                    </div>
+                    <input type="hidden" id="meal05input" value="燒烤鍋物組|75元|asset/vege02.jpg">
+                </div>
+                <label for="add-meal" class="checkMeal-btn">
+                    確認選擇這些餐點
+                </label>
+            </div>
+            <label for="add-meal" class="checkMeal-bg"></label>
+            <div class="mealPointer">
+                <!-- <h3>從左側的餐點，<br>拖拉至右邊以新增餐點~</h3> -->
+                <div class="pic">
+                    <img src="asset/spoonFork-01.svg" alt="">
+                </div>
+            </div>
+            <div class="addedList grid-12 grid-md-5 clearfix">
+                <div class="grouponDate">
+                    <h3>
+                        購物金募集時間: 
+                    </h3>
+                    <span class="grouponDay">0</span>天
+                </div>
+                <div class="mealArea" id="mealArea">
+                    <p id="mealAreaInfo">尚未有任何餐點<br>
+                        您可以在左側的餐點列表<br>，在各個餐點點擊"+"，以新增餐點~
+                    </p>
+                    
+                </div>
+                <div class="grouponDetail">
+                    <div class="mealCountNow grid-3">
+                        <span id="addedMealNow">0</span>
+                        餐
+                    </div>
+                    <div class="originalPrice grid-2">
+                        <span>原價: </span>
+                        <span id="originPrice">0</span>
+                    </div>
+                    <div class="salePrice grid-7">
+                        <span>飯團價: </span>
+                        <span id="salePrice">0</span>
+                         元( <span id="saleCount">6</span>折)
+                    </div>
+                </div>
+                <label for="add-meal" class="addMeal-btn">
+                    +
+                </label>
+            </div>
+        </div>
         
         <div class="btn-container clearfix">
-            <div class="cancel-BTN">
+            <div class="cancel-BTN" href="3-1_createGroupon_selectMeal.html">
                 回上一步
             </div>
-           <div class="check-BTN">
+           <a class="check-BTN" href="3-3_createGroupon_createdList.html">
                確認並繼續
-           </div>
+           </a>
         </div>
     </div>
     
