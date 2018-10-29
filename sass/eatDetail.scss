@@ -8,7 +8,7 @@ $space_lr: 0 16px;     //手機左右
 $space_sm_lr: 0 30px;  //平板左右
 
 *{ 
-    outline: 1px solid #f00;
+    // outline: 1px solid #f00;
     font-size: $fontSize_text;
     color: $color_txt;
     box-sizing: border-box;
@@ -17,13 +17,13 @@ $space_sm_lr: 0 30px;  //平板左右
 body{ 
     font-size: $fontSize_text;
     font-family: $fmy; 
-    line-height: $lineHeight;
 }
 
 .wrapper{ 
     width: 100%; 
     padding: $space_lr;
     margin-bottom: 30px;
+    line-height: $lineHeight;
 
     img,a,span{ display: block; }
 
@@ -34,6 +34,8 @@ body{
     .fl{ float: left; }
 
     .font_blod{ font-weight: bold; }
+
+    input,button{ border: none; }
 }
 
 h2{ font-size: $fontSize_L; }
@@ -63,9 +65,11 @@ h2{ font-size: $fontSize_L; }
     z-index: -1;
 
     .like{
+        background-color: transparent;
         position: absolute;
         right: 0;
         bottom: 0;
+
     }
 }
 
@@ -85,9 +89,11 @@ h2{ font-size: $fontSize_L; }
         font-size: $fontSize_S; 
     }
 
-    .grade span{ 
-        width: 25px; 
-        margin-right: 10px;
+    .grade{
+        span{ 
+            width: 25px; 
+            margin-right: 10px;
+        }
     }
 }
 
@@ -122,23 +128,38 @@ h2{ font-size: $fontSize_L; }
 
     .count_qty{
         span{ 
+            height: ($fontSize_S + 5px) * $lineHeight;
             margin-right: 25px;
             font-size: $fontSize_S; 
+            line-height: ($fontSize_S + 5px) * $lineHeight;
         }
     }
 
     .count_input{
-        input{ margin-right: 5px; }
+        input{ 
+            margin-right: 10px;
+            height: ($fontSize_S + 5px) * $lineHeight; 
+        }
+
         .qty_width{ 
-            width: $fontSize_S * $lineHeight;
-            height: $fontSize_S * $lineHeight; 
+            width: ($fontSize_S + 5px) * $lineHeight;
             border-radius: 25px;
+            background-color: $color_main1;
+            box-shadow: 0 4px $color_main4;
+
+            &:hover{
+                box-shadow: 0 2px $color_main4;
+                transform: translateY(2px);
+                transition: box-shadow 0.3s , transform 0.3s;
+            }
         }
 
         .qty{ 
             width: 100px;
-            height: $fontSize_S * $lineHeight;
+            border: 1px solid #aaa;
             text-align: center; 
+
+            &:focus{ background-color:$color_main3; }
         }
 
         .qty_add{ margin-right: 0px; }
@@ -148,10 +169,21 @@ h2{ font-size: $fontSize_L; }
         margin-top: 50px;
         position: relative;
 
-        button{ width: 45%; }
+        button{
+            width: 45%;
+            height: ($fontSize_S + 5px) * $lineHeight; 
+            border-radius: 25px;
+            background-color: $color_main1;
+            box-shadow: 0 4px $color_main4; 
+
+            &:hover{
+                box-shadow: 0 2px $color_main4;
+                transform: translateY(2px);
+                transition: box-shadow 0.3s , transform 0.3s;
+            }
+        }
 
         .add_cart{
-            padding: 5px 0;
             position: relative;
             bottom: 0;
             left: 0;
@@ -159,7 +191,6 @@ h2{ font-size: $fontSize_L; }
         }
 
         .go_cart{
-            padding: 5px 0;
             position: absolute;
             right: 0;
             bottom: 0;
@@ -183,13 +214,25 @@ h2{ font-size: $fontSize_L; }
 
     .member_txt{
         .member_letter{ 
-            margin-top: 10px;
+            margin-top: 15px;
             width: 100%; 
+            height: ($fontSize_S + 5px) * $lineHeight;
         }
 
         .comments{
-            margin-top: 10px;
+            padding: 0 10px;
+            height: ($fontSize_S + 5px) * $lineHeight; 
+            margin-top: 20px;
+            border-radius: 25px;
+            background-color: $color_main1;
+            box-shadow: 0 4px $color_main4; 
             float: right;
+            
+            &:hover{
+                box-shadow: 0 2px $color_main4;
+                transform: translateY(2px);
+                transition: box-shadow 0.3s , transform 0.3s;
+            }
         }
     }
 }
@@ -213,7 +256,7 @@ h2{ font-size: $fontSize_L; }
     .score{
         margin-top: 25px;
 
-        .score_text{ margin-right: 30px; }
+        .score_text{ margin-right: 40px; }
 
         .grade span{ margin-right: 20px; }
     }
@@ -231,35 +274,28 @@ h2{ font-size: $fontSize_L; }
     }
 
     .count{
-        .count_input{
-            input{ margin-right: 10px; }
-
-            .qty_width{ 
-                width: ($fontSize_S + 10px) * $lineHeight;
-                height: ($fontSize_S + 10px) * $lineHeight; 
-            }
-
-            .qty{ 
-                width: 100px;
-                height: ($fontSize_S + 10px) * $lineHeight; 
-            }
-        }
         .count_qty{
             padding: 0;
-
             span{ 
-                line-height:($fontSize_S + 10px) * $lineHeight;;
-                margin-right: 30px; 
+                height:($fontSize_S + 10px) * $lineHeight;
+                margin-right: 40px; 
+                line-height:($fontSize_S + 10px) * $lineHeight;
             }
+        }
+
+        .count_input{
+            input{ height: ($fontSize_S + 10px) * $lineHeight; }
+
+            .qty_width{ width: ($fontSize_S + 10px) * $lineHeight; }
+
+            .qty{ width: 100px; }
         }
     
         .count_button{
             margin-top: 0px;
             padding: 0;
     
-            button{ width: 45%; }
-
-            .add_cart,.go_cart{ padding: 10px 0; }
+            button{ height: ($fontSize_S + 10px) * $lineHeight; }
         }
     }
     //產品介紹結束
@@ -303,15 +339,29 @@ h2{ font-size: $fontSize_L; }
     }
 
     .count{
+        .count_qty{
+            span{ 
+                height:($fontSize_S + 5px) * $lineHeight;
+                margin-right: 25px; 
+                line-height:($fontSize_S + 5px) * $lineHeight;
+            }
+        }
         .count_input{
-            input{ margin-right: 5px; }
-
-            .qty_width{ 
-                width: ($fontSize_S + 5px) * $lineHeight;
-                height: ($fontSize_S + 5px) * $lineHeight; 
+            input{ 
+                margin-right: 5px;
+                height: ($fontSize_S + 5px) * $lineHeight;  
             }
 
+            .qty_width{ width: ($fontSize_S + 5px) * $lineHeight; }
+
             .qty{ width: 50px; }
+        }
+
+        .count_button{
+            button{ 
+                height: ($fontSize_S + 5px) * $lineHeight; 
+                font-size: 15px;
+            }
         }
     }
 }
@@ -321,5 +371,11 @@ h2{ font-size: $fontSize_L; }
         padding: 0;
         margin: auto;
         margin-bottom: 50px;
+    }    
+    
+    .count{
+        .count_button{
+            button{ font-size: $fontSize_text; }
+        }
     }
 }
