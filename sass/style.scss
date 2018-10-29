@@ -2,6 +2,7 @@
 @import "var/daycookVar";
 @import "layout/grid";
 @import "mixins/mixins";
+@import "animation/anime";
 
 
 // gridSystem
@@ -20,6 +21,7 @@ $pd: 10px;
 
 
 * {
+    // outline: 1px solid $color_hot;
     box-sizing: border-box;
     line-height: 1.6;
 }
@@ -35,6 +37,20 @@ body {
     display: block;
     clear: both;
 }
+.owl-dots {
+    text-align: center;
+    button.owl-dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: $color_main1;
+        &.active {
+            background-color: $color_main2;
+        }
+    }
+}
+
 .maxWidthWrapper {
     @include maxWidthWrapper(1200px);
     width: 100%;
@@ -676,6 +692,1055 @@ h2{
             font-weight: 800;
         }
     }
+}
+// 4-1----------------------------
+
+//分頁頁籤
+@include pageBTN($color_main2);
+
+//篩選checkbox
+@include filter($color_main2);
+.groupon-wrapper {
+    position: relative;
+    border-radius: 30px;
+    border: 3px solid $color_main2;
+    // max-width: 600px;
+    max-width: 500px;
+    margin: 0px auto 60px;
+    transition: .3s;
+    @include rwdSys(pad) {
+        max-width: 90%;
+        width: 100%;
+    }
+    &:hover {
+        box-shadow: 0px 6px 20px #aaa;
+        transition: .3s;
+    }
+    // overflow: hidden;
+}
+.groupon_topUI {
+    // background-color: #ddd;
+    border-radius: 30px 30px 0px 0px;
+    //temp
+    .leftUI {
+        padding: $pd;
+        margin: 10px 0;
+        
+        .titleTag {
+            position: relative;
+            left: -32px;
+            padding: 20px;
+            padding-left: 40px;
+            background-color: $color_main1;
+            box-shadow: 0px 6px 20px rgba(80, 80, 80, 0.123);
+            &:before {
+                top: 90px;
+                left: 0px;
+                @include decoTri(12px, 0px, 0px, 23px, 
+                $color_main2, transparent, $color_main2, transparent)
+            }
+            &:after {
+                top: 0;
+                right: -40px;
+                @include decoTri(45px, 40px, 45px, 0px, 
+                $color_main1, transparent, $color_main1, transparent);
+            }
+            h3 {
+                padding-top: $pd;
+                font-size: $fontSize_M;
+                font-weight: 600;
+            }
+        }
+        .mealAndScore-container {
+            display: flex;
+            align-items: center;
+            height: 90px;
+            .meal-counter {
+                font-size: $fontSize_L;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+        .meal-container {
+            padding: $pd * 2;
+            padding-bottom: 0;
+            .andMoreMeal-counter {
+                margin: auto;
+                padding: $pd;
+                text-align: center;
+                color: $color_main2;
+                font-size: $fontSize_M;
+                font-weight: 800;
+            }
+        }
+    }
+    .rightUI {
+        padding: $pd;
+        margin: 10px 0;
+        border-left: 2px solid $color_main2;
+        .endDate-container {
+            text-align: center;
+            span {
+                font-size: $fontSize_M;
+                font-weight:800;
+                color: $color_hot;
+            }
+            .day {
+                text-align: left;
+            }
+        }
+        .threshold {
+            padding: $pd*2;
+            padding-bottom: 0;
+            text-align: center;
+            h3 { padding: $pd; }
+            .circleChart {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 136px;
+                height: 136px;
+                margin: auto;
+                .circleDisplay {
+                    @include pieChart(136px, $color_main1, $color_main2, 6px, 48/50*360);
+                    // background-color: #fff
+                }
+            }
+            .people-container {
+                position: absolute;
+                z-index: 3;
+                font-size: $fontSize_M;
+            }
+            .peopleNow {
+                position: relative;
+                top: -10px;
+                font-size: $fontSize_L;
+                font-weight: 800;
+                color: $color_hot;
+            }
+            .peopleNeeded {
+                position: relative;
+                top: 20px;
+                font-weight: 800;
+                &:before {
+                    position: absolute;
+                    top: -38px;
+                    left: -6px;
+                    display: inline;
+                    @include BfAf;
+                    width: 2px;
+                    height:76px;
+                    transform: rotate(45deg);
+                    background-color: $color_main2;
+                }
+            }
+        }
+        
+    } 
+}
+.meal-box {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    transition: .3s;
+    overflow: hidden;
+    width: 136px;
+    height: 136px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #aaa;
+    cursor: pointer;
+    .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px;
+        font-size: $fontSize_S;
+        border-radius: 0 0 0 20px;
+        color: #fff;
+        background-color: $color_main2;
+    }
+    .title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 6px;
+        background-color: $color_main1;
+    }
+    
+}
+.bonus-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    padding: $pd;
+    margin: auto;
+    vertical-align: middle;
+    .bonus {
+        .pic {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        span {
+            position: absolute;
+            top: 32%;
+            left: 30%;
+            z-index: 2;
+            color: #fff;
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+    .bonusPeople {
+        font-weight: 600;
+        padding: $pd;
+        p {
+            color: $color_hot;
+            @include textPD($pd);
+            font-size: $fontSize_L;
+        }
+        
+    }
+}
+.groupon_bottomUI {
+    // background-color: #aaa;
+    border-top: 1px solid $color_main2;
+    border-bottom: 16px solid $color_main2;
+    border-radius: 0 0 26px 26px ;
+    padding: $pd *2;
+    .mealAndKcal {
+        font-size: $fontSize_S;
+        
+        span {
+            font-size: $fontSize_L;
+            font-weight: 800;
+            color: $color_hot;
+        }
+    }
+    .price {
+        border-left: 1px solid $color_main2;
+        padding: 0px $pd;
+        .originalPrice {
+            text-decoration: line-through;
+        }
+        .grouponPrice {
+            font-size: $fontSize_S;
+            font-weight: 800;
+            color: $color_hot;
+            span {
+                font-size: $fontSize_L;
+            }
+        }
+    }
+    .callToAction {
+        text-align: center;
+    }
+    .calltoAction-BTN {
+        @include btn(100%, dark) {
+            margin: auto;
+            font-size: $fontSize_S;
+            max-width: 300px;
+            box-shadow: 0px 6px 0px $color_bonus;
+            transition: .2;
+        }
+        &:active {
+            top: 3px;
+            box-shadow: 0px 3px 0px $color_bonus;
+            transition: .2;
+        }
+    }
+}
+.almostSucc-icon {
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 116px;
+    height: 116px;
+    line-height: 116px - 10px;
+    text-align: center;
+    border: 8px solid $color_main1;
+    border-radius: 200px;
+    color: #fff;
+    font-size: $fontSize_S;
+    font-weight: 800;
+    background-color: $color_main2;
+    transform: rotate(15deg);
+}
+
+//5-1---------------------------------------
+#changeIt {
+    position: fixed;
+    display: none;
+}
+#changeIt:checked + .fixedChangeMenu-wrapper .titleClick {
+    i {
+        transform: rotate(180deg);
+        transition: .3s;
+    }
+}
+#changeIt:checked + .fixedChangeMenu-wrapper .mealChange-container {
+    ul li {
+        font-size: 0px;
+        padding: 0px;
+        transition: .3s;
+    }
+    .btn-container {
+        display: none;
+    }
+}
+.fixedChangeMenu-wrapper {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    // width: 240px;
+    // padding: 0px $pd;
+    border: 3px solid $color_main2;
+    border-radius: 10px 10px 0px 0px;
+    background-color: #fff;
+    
+    .titleClick {
+        display: block;
+        font-size: 0;
+        padding: $pd * 1;
+        text-align: center;
+        background-color: $color_main2;
+        cursor: pointer;
+    }
+    span {
+        display: inline-block;
+        padding: 0 $pd;
+        color: #fff;
+        text-align: center;
+        font-size: $fontSize_M;
+    }
+    .deleteIt {
+        text-align: center;
+        font-weight: 900;
+        cursor: pointer;
+        &:hover {
+            opacity: .3;
+        }
+    }
+    .mealChange-container {
+        ul {
+            li {
+                margin: 0px $pd;
+                padding: $pd*1.5 $pd;
+                font-size: $fontSize_S;
+                transition: .3s;
+                &+li {
+                    border-top: 1px solid #ccc;
+                }
+            }
+        }
+    }
+}
+.changeMeal-container {
+    h1 {
+        padding: $pd * 3;
+        color: $color_main2;
+        // border-bottom: 2px solid $color_main2;
+    }
+    .groupon-wrapper {
+        .meal-counter {
+            i {
+                color: $color_main1;
+            }
+            span {
+                color: $color_hot;
+            }
+        }
+        .meal-container {
+            .meal-box {
+                &:hover {
+                    border-color: $color_main2;
+                }
+                &.active {
+                    border-color: $color_main2;
+                    .added-bg {
+                        left: 0px;
+                        opacity: .8;
+                    }
+                }
+                .added-bg {
+                    @include coverTextBG(#fff, #111, $fontSize_S, .8);
+                    // display: none;
+                    left: 100000px;
+                    opacity: 0;
+                    transition: opacity .3s;
+                    &.active {
+                        left: 0px;
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.mealChange-container {
+    .info {
+        display: none;
+        text-align: center;
+        padding: $pd;
+        font-size: $fontSize_S;
+        &.active {
+            display: block;
+        }
+    }
+    .btn-container {
+        margin: 0px;
+        .check-BTN {
+            max-width: calc(80% - 20px);
+        }
+    }
+}
+
+
+
+//6-1-----------------------------------
+
+.scoreEgg-container ul li {
+    display: inline-block;
+    width: 40px;
+    .pic {
+        width: 100%;
+    }
+}
+.grouponTitle-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    color: #fff;
+    .text-box {
+        position: relative;
+        z-index: 4;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // height: 100%;
+        padding: $pd *1;
+        background-color: $color_main2;
+        box-shadow: 0px 6px 20px #ccc;
+        h2 {
+            color: #fff;
+            text-align: left;
+            @include textPD($pd);
+            font-size: $fontSize_L;
+            font-weight: 800;
+        }
+    }
+    .leftRibbon, .rightRibbon {
+        display: none;
+        @include rwdSys(pad) {
+            display: block;
+        }
+    }
+    .leftRibbon {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        left: -76px;
+        width: 100px;
+        height: 86px;
+        background-color: $color_main1;
+        &:before {
+            top: 73px;
+            left: 77px;
+            @include decoTri(12px, 0px, 0px, 23px, 
+            $color_main2, transparent, $color_main2, transparent);
+            opacity: .6;
+        }
+        &:after {
+            top: 0;
+            left: -40px;
+            @include decoTri(43px, 0px, 43px, 40px, 
+            $color_main1, transparent, $color_main1, transparent);
+        }
+    }
+    .rightRibbon {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        right: -76px;
+        width: 100px;
+        height: 86px;
+        background-color: $color_main1;
+        &:before {
+            top: 73px;
+            left: 0px;
+            @include decoTri(12px, 23px, 0px, 0px, 
+            $color_main2, transparent, $color_main2, transparent);
+            opacity: .6;
+        }
+        &:after {
+            top: 0;
+            right: -40px;
+            @include decoTri(43px, 40px, 43px, 0px, 
+            $color_main1, transparent, $color_main1, transparent);
+        }
+    }
+    .userInfo-wrapper {
+        color: $color_txt;
+        @include rwdSys(pad) {
+            top: 3px;
+            right: 10px;
+        }
+    }
+}
+.bonus-wrapper {
+    position: relative;
+    
+    margin-top: 60px;
+    padding-left: 60px;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 5000px;
+    @include rwdSys(pad) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .endDate {
+        font-weight: 900;
+        span {
+            font-size: $fontSize_L;
+            color: $color_hot;
+            padding-left: 10px;
+        }
+    }
+    .progress-container {
+        font-weight: bolder;
+        h3 {
+            @include textPD($pd);
+        }
+        span {
+            display: inline-block;
+            font-size: $fontSize_L;
+            @include textPD($pd);
+        }
+        .peopleNow {
+            color: $color_hot;
+        }
+        .progressBar {
+            position: relative;
+            width: 90%;
+            height: 6px;
+            margin: 10px auto;
+            border-radius: 100px; 
+            background-color: $color_main1;
+            &:after {
+                @include BfAf;
+                position: absolute;
+                width: 90%;
+                height: 6px;
+                border-radius: 100px; 
+                background-color: $color_main2;
+                // @include uptoMax;
+                // animation: uptoMax 2s 1;
+                @include uptoMax(2s);
+            }
+        }
+    }
+    .bonus-container {
+        width: auto;
+        max-width: 300px;
+        margin: auto;
+        float: none;
+        
+    }
+    .almostSucc-icon {
+        left: -30px;
+        top: 0;
+        transform: rotate(-15deg);
+    }
+}
+.grouponDatail-container {
+    // overflow: hidden;
+    margin-top: 200px;
+    .mealDetail-wrapper {
+        .meal-count {
+            @include textPD($pd * 3);
+            border-bottom: 2px solid $color_main4;
+            font-size: $fontSize_S;
+            span {
+                @include highFont;
+            }
+        }
+        .mealPic {
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            height: 0;
+            border-radius: 60px;
+            box-shadow: 10px 10px 0px $color_main1;
+            margin-top: $pd;
+            padding-top: 100%;
+            @include rwdSys(pad) {
+                padding-top: 33.33%;
+            }
+            &:hover .pic img {
+                transform: scale(2.6);
+                transition: .6s;
+            }
+            .pic {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                
+                img {
+                    transform: scale(2.1);
+                    transition: .2s;
+                }
+            }
+        }
+        .mealInfo-container {
+            padding: $pd * 4 ;
+            line-height: 1.6;
+            color: $color_main2;
+            font-weight: 600;
+            h2 {
+                text-align: left;
+                @include textPD($pd* 2 );
+                padding-top: 0px;
+                font-size: $fontSize_XL;
+                font-weight: bolder;
+            }
+            h2 + p {
+                max-width: 80%;
+                padding-bottom: $pd * 5; 
+            }
+            .score-wrapper {
+                padding-bottom: $pd * 2;
+                span:first-child {
+                    font-size: $fontSize_S;
+                    border-left: 4px solid $color_main2;
+                    padding: $pd;
+                }
+            }
+            .kcal-wrapper {
+                p {
+                    color: $color_hot;
+                    .kcal {
+                        @include highFont;
+                    }
+                }
+            }
+        }
+        .mealSmallPic-container {
+            @include textPD($pd*2);
+            .meal-box {
+                width: 120px;
+                height: 120px;
+                &:hover {
+                    transition: .3s;
+                    border: 4px solid $color_main2;
+                }
+                &.active {
+                    border: 4px solid $color_main2;
+                } 
+            }
+        }
+    }
+    .mealInfo-wrapper {
+        border-top: 6px solid $color_main2;
+        border-bottom: 2px solid $color_main2;
+        .mealAndKcal {
+            font-size: $fontSize_S;
+            padding: $pd * 4;
+            span {
+                font-size: $fontSize_L;
+                font-weight: 800;
+                color: $color_hot;
+            }
+        }
+        .price {
+            padding-top: $pd * 4;
+            // border-left: 1px solid $color_main2;
+            text-align: center;
+            // padding: 0px $pd;
+            .originalPrice {
+                display: none;
+                text-decoration: line-through;
+                @include rwdSys(pad) {
+                    display: block;
+                }
+            }
+            .grouponPrice {
+                font-size: $fontSize_S;
+                font-weight: 800;
+                color: $color_hot;
+                span {
+                    font-size: $fontSize_L;
+                }
+            }
+        }
+        .callToAction {
+            padding: $pd * 4;
+            text-align: center;
+        }
+        .calltoAction-BTN {
+            @include btn(100%, dark) {
+                margin: auto;
+                font-size: $fontSize_S;
+                max-width: 300px;
+                box-shadow: 0px 6px 0px $color_bonus;
+                transition: .2;
+            }
+            &:active {
+                top: 3px;
+                box-shadow: 0px 3px 0px $color_bonus;
+                transition: .2;
+            }
+        }
+    }
+    .share-wrapper {
+        text-align: center;
+        padding: $pd *3;
+        .shareGroupon-BTN {
+            margin: auto;
+            @include btn(200px) {
+                border: 3px solid $color_main2;
+                background-color: #fff;
+                color: $color_main2;
+                font-weight: 900;
+            };
+        }
+    }
+}
+.recommendGroupon-wrapper {
+    max-width: 1200px;
+    margin-top: 200px;
+    margin-bottom: 60px;
+    width: 100%;
+    overflow: hidden;
+    h2 {
+        padding: $pd;
+        margin: $pd * 4;
+        border-bottom: 4px solid $color_main2;
+    }
+    .owl-carousel {
+        box-shadow: inset 10px 0px 20px rgba(119, 119, 119, 0.151), ;
+    }
+    .groupon-box {
+        position: relative;
+        width: 360px;
+        @include rwdSys(pad) {
+            width: 500px;
+        }
+        
+        margin-top: 110px;
+        border: 3px solid $color_main2;
+        border-radius: 30px;
+    }
+    .meal-box {
+        width: 120px;
+        height: 120px;
+    }
+    .meal-box:nth-child(3) {
+        display: none;
+        @include rwdSys(pad) {
+            display: inline-block;
+        }
+    }
+}
+.userInfo-wrapper {
+    position: absolute;
+    z-index: 4;
+    top: -86px;
+    width: 280px;
+    padding: $pd;
+    line-height: 1.6;
+    background-color: $color_bonus;
+    border-radius: 200px;
+    .grouponUser {
+        position: absolute;
+        top: -28px;
+    }
+    .userPic {
+        float: left;
+        @include round(48px) {
+            // border: 2px solid $color_main2;
+        };
+    }
+    .userId, .userExp {
+        position: relative;
+        padding-left: $pd;
+    }
+    .userId { 
+        font-size: $fontSize_S;
+        font-weight: 800;
+    }
+    .userExp {
+        cursor: pointer;
+        .achievePic {
+            @include round(20px);
+        }
+        .hint {
+            @include hint(240px, auto, #333);
+            opacity: 0;
+            left: -10000px;
+            top: 30px;
+            padding: $pd;
+            color: #fff;
+            transition: opacity .3s; 
+            .pic { @include round(48px); }     
+            span {
+                text-align: left;
+                color: $color_bonus;
+            }
+            .achName {
+                font-weight: 900;
+                font-size: $fontSize_S;
+            }         
+        }
+        &:hover .hint {
+            transition: opacity .3s;
+            opacity: 1;
+            left: -30px;
+            
+        }
+        .achStatus {
+            h3, p {
+                display: inline-block;
+            }
+        }
+    }
+        
+}
+
+// 6-2---------------------------------
+
+.grouponPayment-wrapper {
+    margin-top: 100px;
+    text-align: center;
+    line-height: 1.6;
+    border: 3px solid $color_bonus;
+    border-radius: 30px;
+    background-color: #fff;
+    box-shadow: 10px 10px 0px $color_main1;
+    .pic {
+        width: 48px;
+        height: auto;
+    }
+    .selectPayment  {
+        display: inline-block;
+        padding: 0px $pd * 3;
+        &:hover label .radioCircle {
+            background-color: $color_main1;
+        }
+    }
+    h2 {
+        width: 90%;
+        margin: auto;
+        @include textPD($pd *4);
+        padding-bottom: $pd;
+        border-bottom: 2px solid $color_bonus;
+    }
+    input[type='radio'] {
+        display: none;
+        &:checked + label .radioCircle {
+            background-color: $color_main1;
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
+    label {
+        position: relative;
+        display: inline-block;
+        padding: 0px $pd;
+        vertical-align: middle;
+        cursor: pointer;
+        
+        .radioCircle {
+            position: absolute;
+            top: 30px;
+            left: -30px;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background-color: #ddd;
+            // border: 3px solid $color_main2;
+            &:after {
+                opacity: 0;
+                @include BfAf;
+                content: '$';
+                position: absolute;
+                top: -3px;
+                left: 7px;
+                color: $color_main2;
+                font-size: $fontSize_S;
+                font-weight: 900;
+            }
+        }
+    }
+    h3 {
+        display: inline-block;
+        @include textPD($pd);
+    }
+    .paymentRslt {
+        // border-top: 2px solid $color_main2;
+        
+        margin: 60px auto;
+        font-size: $fontSize_M;
+        font-weight: 900;
+        padding: $pd;
+        background-color: #eee;
+        border-radius: 5000px;
+        @include rwdSys(pad) {
+            width: 50%;
+        }
+    }
+    #selectedResult {
+        color: $color_hot;
+    }
+    .selectPayment--ATM {
+        .radioCircle {
+            top: 10px;
+        }
+        .selectPayment  {
+            padding-top: $pd * 2;
+        }
+    }
+}
+
+//6-3
+
+.maxWidthWrapper.success {
+    max-width: 100%;
+    background: #ddd url("../asset/bg01.png");
+}
+.success-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 200px;
+    
+    .dish-container {
+        position: relative;
+        @include round(766px);
+        overflow: unset;
+        position: relative;
+        margin: 100px auto;
+        background-color: #fff;
+        box-shadow: 0px 0px 20px #aaa;
+        &:before {
+            @include BfAf;
+            position: absolute;
+            z-index: -1;
+            top: 133px;
+            left: 133px;
+            @include round(500px);
+            // background-color: #aaa;
+            box-shadow: inset 6px 6px 20px rgba(48, 48, 48, 0.219);
+            display: none;
+            @include rwdSys(pad) {
+                display: block;
+            }
+        }
+        .chickDialogue {
+            display: inline-block;
+            position: absolute;
+            top: -240px;
+            left: 10px;
+            right: 0;
+            width: 300px;
+            margin: auto;
+            padding: $pd * 3;
+            color: #fff;
+            background-color: $color_txt;
+            border-radius: 300px;
+            span {
+                font-size: $fontSize_S;
+            }
+            .dialogueDeco {
+                @include centerABS(40px,40px) {
+                    bottom: -190px;
+                    height: 33px;
+                    // background-color: #ddd;
+                    overflow: hidden;
+                }
+                &:before {
+                    @include centerABS(40px,40px) {
+                        bottom: 30px;
+                        background-color: $color_txt;
+                        @include round(40px);
+                    }
+                }
+                &:after {
+                    @include centerABS(40px,40px) {
+                        left: -44px;
+                        bottom: 18px;
+                        background-color: #fff ;
+                        @include round(40px);
+                    }
+                }
+            }
+            
+        }
+    }
+    .chickPic {
+        @include centerABS(200px, auto) {
+            top: -60px;
+        };
+    }
+    .fork, .spoon {
+       width: 130px;
+       img {
+        //    box-shadow: 0px 6px 20px rgb(83, 83, 83);
+           filter: invert(1);
+       }
+       display: none;
+        @include rwdSys(pad) {
+            display: block;
+        }
+    }
+    .grouponTitle-wrapper {
+        h2 {
+            padding-right: $pd; 
+            margin-top: 0px;
+            color: #fff;
+        }
+    }
+    .grouponSimpleInfo-wrapper {
+        margin-top: 200px;
+        .bonus-wrapper {
+            // width: 90%;
+            margin: 60px auto;
+            background-color: $color_main1;
+            box-shadow: none;
+            border-radius: 0px;
+            
+            .progress-container {
+                margin: 20px 0;
+            }
+            .bonus-container {
+                border: 2px solid #fff;
+                border-radius: 3440px;
+            }
+            .almostSucc-icon {
+                top: -50px;
+                left: 0;
+            }
+            @include rwdSys(pad) {
+                box-shadow: inset 0px -6px 80px rgba(255, 123, 0, 0.822), 0px 6px 20px #ddd;
+                border-radius: 3440px;
+                .almostSucc-icon {
+                    top: 20px;
+                    left: -50px;
+                }
+            }
+        }
+    } 
 }
 
 

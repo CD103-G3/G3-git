@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/Reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+            <!-- 這裡放導覽列 -->
+    </nav>
+    <div class="page-BTN">
+        <ul>
+            <li class="active">全部飯團一覽</li>
+            <li>官方特惠飯團</li>
+            <li>飯友的飯團</li>
+        </ul>
+    </div>
+    <div class="maxWidthWrapper">
+        <div class="filter-container clearfix">
+            <span class="filter-span">排序</span>
+            <div class="filter-wrapper">
+                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_price">
+                <label for="groupon_filter_price" class="filter">平均價格
+                    <span class="filter-condition">由高到低</span>
+                    <!-- <span class="filter-condition">由低到高</span> -->
+                </label>
+            </div>
+            <div class="filter-wrapper">
+                <input type="radio" name="groupon_filter" class="groupon_filter" id="groupon_filter_time">
+                <label for="groupon_filter_time" class="filter">剩餘時間
+                    <span class="filter-condition">即將達標</span>
+                    <!-- <span class="filter-condition">由低到高</span> -->
+                </label>
+            </div>
+            
+        </div>
+        <div class="groupon-container">
+            <div class="groupon-wrapper">
+                <div class="user-info"></div>
+                <div class="groupon_topUI clearfix">
+                    <div class="leftUI grid-12 grid-md-8">
+                        <div class="titleTag grid-12 grid-md-6">
+                            <span class="tag">#超滿足</span>
+                            <h3>日式和食小資飯團</h3>
+                        </div>
+                        <div class="mealAndScore-container grid-12 grid-md-6">
+                            <div class="meal-counter grid-5">
+                                共
+                                <span>10</span>
+                                餐
+                            </div>
+                            <div class="score-counter grid-7">
+                                平均評分為: 
+                                <span>4.1</span>
+                                <div class="score-wrapper">
+                                    AAAAA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="meal-container grid-12 clearfix">
+                            <div class="meal-box">
+                                <div class="price">
+                                    75元
+                                </div>
+                                <div class="pic">
+                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
+                                </div>
+                                <div class="title">
+                                    豪華便當組
+                                </div>
+                            </div>
+                            <div class="meal-box">
+                                <div class="price">
+                                    75元
+                                </div>
+                                <div class="pic">
+                                    <img src="asset/bentou01.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    豪華便當組
+                                </div>
+                            </div>
+                            <div class="meal-box">
+                                <div class="price">
+                                    75元
+                                </div>
+                                <div class="pic">
+                                    <img src="asset/bentou01.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    豪華便當組
+                                </div>
+                            </div>
+                            <div class="meal-box">
+                                    <div class="price">
+                                        75元
+                                    </div>
+                                    <div class="pic">
+                                        <img src="asset/bentou01.jpg" alt="">
+                                    </div>
+                                    <div class="title">
+                                        豪華便當組
+                                    </div>
+                                </div>
+                            <div class="andMoreMeal-counter">
+                                ...還有 <span>5</span>個餐點
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rightUI grid-12 grid-md-4">
+                        <div class="endDate-container clearfix">
+                            <div class="date grid-6">
+                                截止日<span class="date-span">
+                                    12/14
+                                </span>
+                            </div>
+                            <div class="day grid-6">
+                                還剩下
+                                <span class="day-span">3</span>
+                                天
+                            </div>
+                        </div>
+                        <div class="threshold">
+                            <h3>已參加人數/門檻人數</h3>
+                            <div class="circleChart">
+                                <div class="people-container">
+                                    <span class="peopleNow">48</span>
+                                    <span class="peopleNeeded">50</span>
+                                </div>
+                                <div class="circleDisplay"></div>
+                            </div>
+                        </div>
+                        <div class="bonus-container clearfix">
+                                <div class="bonus grid-4">
+                                    <div class="pic">
+                                        <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                        <span class="bonus-coin">99</span>
+                                    </div>
+                                </div>
+                                <div class="bonusPeople grid-8">
+                                    <h3>達到後 前 
+                                        <span class="people">0</span>
+                                        人每人:  
+                                    </h3>
+                                    <p>
+                                        <span class="bonus">0</span>
+                                        元購物金
+                                    </p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="groupon_bottomUI clearfix">
+                    <div class="mealAndKcal grid-7 grid-md-5">
+                        <div class="avgPrice grid-6">平均
+                            <span>72</span>
+                            元 / 餐
+                        </div>
+                        <div class="avgKcal grid-6">
+                            平均<span>
+                                700
+                            </span>
+                            大卡 / 餐
+                        </div>
+                    </div>
+                    <div class="price grid-5 grid-md-3">
+                        <div class="originalPrice grid-6">
+                            原價<span>
+                                800元
+                            </span>
+                        </div>
+                        <div class="grouponPrice grid-6">
+                            飯團價(6折) <span>
+                                640元
+                            </span>
+                        </div>
+                    </div>
+                    <div class="callToAction grid-12 grid-md-4">
+                        <div class="calltoAction-BTN">
+                            查看此飯團
+                        </div>
+                    </div>
+                </div>
+                <div class="almostSucc-icon">
+                    即將達標
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <!-- 放footer -->
+    </footer>
+</body>
+</html>

@@ -17,6 +17,10 @@
     
 }
 
+$pad: 768px;
+$PC: 1024px; 
+$lgPC: 1200px;
+
 // @mixin stepNav($status) {
 
 // };
@@ -37,7 +41,13 @@
     max-width: $maxWidth;
     margin: auto;
 }
-
+@mixin round($w) {
+    width: $w;
+    height: $w;
+    border-radius: 300000px;
+    overflow: hidden;
+    @content;
+}
 @mixin square($w, $bgc:null, $color:null) {
     width: $w;
     height: $w;
@@ -151,10 +161,15 @@
         opacity: .7;
         transition: .2s;
     }
+    &:active {
+        top: 3px;
+    }
+    @content;
 };
 @mixin highFont {
     font-size: $fontSize_L;
-    font-weight: 600;
+    font-weight: 900;
+    color: $color_hot;
 }
 @mixin picSetting {
     .pic {
@@ -212,3 +227,173 @@
     padding-left: 0px;
     padding-right: 0px;
 }
+@mixin pageBTN($color:#222, $w:null) {
+    .page-BTN {
+        margin-top: 100px;
+        border-bottom: 3px solid $color;
+        ul {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            font-size: 0;
+            li {
+                display: inline-block;
+                width: 33.33%;
+                padding: 10px 10px;
+                text-align: center;
+                background-color: #fff;
+                font-size: $fontSize_text;
+                font-weight: 600;
+                border: 3px solid $color;
+                border-radius: 10px 10px 0px 0px;
+                transition: .3s;
+                cursor: pointer;
+                @include rwdSys(pad) {
+                    width: auto;
+                    padding: 10px 30px;
+                }
+                &.active, &:hover {
+                    color: #fff;
+                    background-color: $color;
+                    transition: .3s;
+                }
+            }
+            
+        }
+        
+    }
+}
+@mixin filter($color:#111) {
+    .filter-container {
+        padding: 16px;
+        padding-left: 6px;
+        input {
+            display: none;
+        }
+        .filter-span { 
+            padding: 20px;
+            display: block;
+            @include rwdSys(pad) { display: inline-block; }
+            // display: block;
+         }
+        .filter-wrapper {
+            display: inline-block;
+            padding: 0px 10px;
+            // width: 100%;
+            &+.filter-wrapper {
+                border-left: 3px solid $color;
+            }
+        }
+        .filter {
+            display: block;
+            padding: 6px;
+            border-radius: 6px;
+            // border: 1.5px solid $color;
+            color: $color;
+            font-weight: 600;
+            font-size: 20px;
+            vertical-align: middle;
+            transition: .3s;
+            cursor: pointer;
+            .filter-condition {
+                display: inline-block;
+                font-size: 16px;
+                opacity: .7;
+            }
+        }
+        .groupon_filter:checked + .filter {
+            color: #fff;
+            background-color: $color;
+            // border-bottom: 1.5px solid $color;
+            transition: .3s;
+        }
+    }
+}
+@mixin BfAf {
+    content: '';
+    display: block;
+    @content;
+}
+@mixin decoTri($w1:10px,$w2:10px,$w3:10px,$w4:10px,$bgc1: #aaa, $bgc2: transparent, $bgc3: transparent, $bgc4: #aaa) {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 0px;
+    border-width: $w1 $w2 $w3 $w4;
+    border-style: solid;
+    border-color: $bgc1 $bgc2 $bgc3 $bgc4;
+    @content;
+};
+
+@mixin pieChart($w:100px, $c1:#111, $c2:#fff, $bw: 6px , $deg: 45) {
+    position: relative;
+    width: $w;
+    height: $w;
+    background: $c2;
+    background-image: linear-gradient(to right, transparent 50%, $c1 0);
+    border-radius: 1000px;
+    &:before {
+        @include BfAf;
+        margin-left: 50%;
+        height: 100%;
+        background: $c2;
+        @if($deg > 180 ) {
+            background: $c1;
+            // $deg: $deg-180;
+            $deg180: $deg - 180;
+            transform: rotate(#{$deg180}deg);
+        } @else {
+            transform: rotate(#{$deg}deg);
+        }
+        border-radius: 0 100% 100% 0/50%;
+        transform-origin: left;
+        
+    }
+    &:after {
+        @include BfAf;
+        width: $w - ($bw*2);
+        height: $w - ($bw*2);
+        position: absolute;
+        top: $bw;
+        left: $bw;
+        background-color: #fff;
+        border-radius: 100%;
+    }
+}
+@mixin centerABS($w:100px, $h:30px, $t:0px) {
+    @include BfAf;
+    position: absolute;
+    top: $t;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: $w;
+    height: $h;
+    @content;
+}
+@mixin dialogunDeco {
+    .dialogueDeco {
+        @include centerABS(40px,40px) {
+            bottom: -190px;
+            height: 33px;
+            // background-color: #ddd;
+            overflow: hidden;
+        }
+        &:before {
+            @include centerABS(40px,40px) {
+                bottom: 30px;
+                background-color: $color_txt;
+                @include round(40px);
+            }
+        }
+        &:after {
+            @include centerABS(40px,40px) {
+                left: -44px;
+                bottom: 18px;
+                background-color: #fff ;
+                @include round(40px);
+            }
+        }
+    }
+}
+

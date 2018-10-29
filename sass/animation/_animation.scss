@@ -1,0 +1,11 @@
+@mixin uptoMax {
+    @keyframes uptoMax {
+        0% {
+            width: 0px;
+        }
+        100% {
+            width: 100%;
+        }
+    }
+    animation: uptoMax .3s 1;
+}

@@ -4,6 +4,9 @@ function $id(id) {
 function $class(className) {
     return document.getElementsByClassName(className);
 }
+function $all(all) {
+    return document.querySelectorAll(all);
+}
 function randomOneNum(min, max) {
     var length = max - min+1;
     // var arr = [];
@@ -18,7 +21,7 @@ var storage = sessionStorage;
 
 
 
-
+//初始化註冊or產生東西
 function init() {
 
     // sessionStorage設定
@@ -87,7 +90,7 @@ function init() {
     // alert(mealArray.length);
     if($id('mealArea')) {
         if(storage.addMealList.length > 1) {
-            // alert('//');
+            alert('//');
             for(let i in mealArray) {
                 mealCount++;
                 var mealId = mealArray[i];
@@ -170,14 +173,50 @@ function init() {
     }
     
     
-
-    
     //add meal function
     var addThisMeal_btn = document.getElementsByClassName('addThis');
     for(var i in addThisMeal_btn) {
         addThisMeal_btn[i].onclick = addMeal;
     } 
+    //5-1 change Meals
+    if($class('changeMeal-container').length > 0) {
+        for(let i in $class('meal-box')) {
+            $class('meal-box')[i].onclick = addToMenu;
+        }
+
+    }
+
+    //6-1
+    if($class('grouponDatail-container').length > 0) {
+        var smallPicChange = $all('.mealSmallPic-container .meal-box');
+        for(let i in smallPicChange) {
+            smallPicChange[i].onmouseover = changeMealInfo;
+        }
+    }
+    if($class('scoreEgg-container').length > 0) {
+        getScoreEgg();
+    }
+
+    //6-2
+    if($all('.grouponPayment-wrapper').length > 0) {
+        var paymentMethod = $all('.paymentMethod');
+        for(let y in paymentMethod) {
+            paymentMethod[y].oninput = function() {
+                $id('selectedResult').innerHTML = 
+                this.nextElementSibling.getElementsByTagName('h3')[0].innerText;
+            }
+        }
+    }
+
+    //6-3 animation
+    if($all('.dish-container').length > 0) {
+        anime6_3(); 
+    }
 }
+//-------------------------------
+
+
+
 if(storage.mealCount == null) { var mealCount = 0; } 
 else { var mealCount = parseInt(storage.mealCount); }
 
@@ -215,6 +254,7 @@ function checkInput() {
         return true;
     }
 }
+
 function createMealList(e) {
     // setting title and tag
     var grouponInfo = storage.grouponInfo.split('|');
@@ -259,7 +299,6 @@ function createMealList(e) {
 
     }
 }
-
 
 function genRandomTitle() {
     var adj = [ '超棒的', '吃飽飽的', '呷尚飽'];
@@ -470,5 +509,180 @@ function createMealBox(meal, mealInfo) {
     // var titlePrice = e.parentNode.parentNode.children[2].children[1].children[1].innerText;
     title.innerHTML = '<h3>' + mealName +'</h3><span> ' + mealPrice + '</span>';
     mealTitle.appendChild(title);
+}
+function calScorePic() {
+
+}
+// 6-1
+function changeMealInfo(e) {
+    var thisInfo = this.id;
+    $id('grouponDetail_pic').src = this.children[1].children[0].src;
+    $id('grouponDetail_title').innerHTML = this.children[2].innerText;
+    var smallPicChange = $('.mealSmallPic-container .meal-box');
+    for(let i in smallPicChange) {
+        smallPicChange[i].className = 'meal-box';
+    }
+    this.className += ' active';    
+    //保留用
+    var thisScore = parseFloat(this.getAttribute('score'));
+     $id('grouponDetail_score').innerHTML = thisScore;
+     console.log($all('.scoreEgg-container ul li'));
+     for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
+        console.log($all('.scoreEgg-container ul li'));
+        $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
+     }
+     $class('scoreEgg-container')[0].setAttribute('score', thisScore);
+     getScoreEgg();
+    // $id('grouponDetail_score').innerHTML = ;
+    // $id('grouponDetail_kcal').innerHTML = ;
+
+}
+
+function getScoreEgg(e) {
+    var scoreEgg = $class('scoreEgg-container');
+    for(let i = 0; i < scoreEgg.length ; i++) {
+        console.log(i);
+        var score = Math.round(scoreEgg[i].getAttribute('score'));
+        let j = 0;
+        do{
+            scoreEgg[i].children[0].children[j].children[0].children[0].src = 
+            'asset/scoreEgg_y.svg';
+            j++;
+        } while(j < score);
+    }
+    // console.log(score);
+
+}
+
+// 6-3 tweenMax
+function anime6_3() {
+    var tl = new TimelineMax();
+
+    tl.fromTo(".dish-container", 1.2, {
+        // x: 220,
+        // y: 100,
+        alpha: 0.2,
+        scale: 1.3,
+    },{
+        alpha: 1,
+        scale: 1,
+        delay: 0.3,
+        ease: CustomEase.create("custom", "M0,0 C0.14,0 0.242,0.438 0.272,0.561 0.313,0.728 0.354,0.963 0.362,1 0.37,0.985 0.406,0.922 0.466,0.878 0.53,0.83 0.609,0.855 0.622,0.864 0.698,0.914 0.741,0.993 0.748,1.01 0.82,0.95 0.84,0.946 0.859,0.96 0.878,0.974 0.897,0.985 0.911,0.998 0.922,0.994 0.939,0.984 0.954,0.984 0.969,0.984 1,1 1,1"),
+    });
+
+    tl.fromTo(".chickPic", .1, {
+        y: 10,
+    },{
+        y: -10,
+        // repeatDelay: 0.5,
+        yoyo: true,
+        repeat: 22,
+    });
+
+    tl.fromTo(".chickPic", 2, {
+        x: 900,
+        opacity: 0,
+    },{
+        x: 0,
+        opacity: 1,
+        // repeatDelay: 0.5,
+        ease: Power4.easeOut,
+    }, "-=2");
+
+    tl.fromTo(".chickDialogue", 1, {
+        opacity: 0,
+        rotation: 0,
+        transformOrigin: 'center bottom',
+    },{
+        opacity: 1,
+        rotation: 0,
+        // repeatDelay: 0.5,
+        // yoyo: true,
+        // repeat: 3,
+    });
+    tl.fromTo(".chickDialogue", 1, {
+        rotation: 0,
+        transformOrigin: 'center bottom',
+    },{
+        rotation: 10,
+        // repeatDelay: 0.5,
+        yoyo: true,
+        repeat: 3,
+    });
+
+    
+
+    // tl.add([ani01, ani02]);
+}
+
+// 5-1
+function addToMenu(e) {
+    // this.classList.toggle('active');
+    // alert(this.classList);
+    // console.log(this.classList);
+    var noMeal = function() {
+        if($id('mealChanger').children[0].children.length <= 0) {
+            $class('info')[0].classList.add('active');
+        } else {
+            $class('info')[0].classList.remove('active');
+        }
+    }
+
+    let thisMealInfo = this.children[0].getAttribute('mealInfo');
+    // alert(thisMealInfo);
+    let infoArr = thisMealInfo.split('|');
+    // alert(infoArr);
+    var newChangeMeal = `<li class="clearfix">
+        <div class="mealName grid-9">${infoArr[2]}</div>
+        <div class="deleteIt grid-3">X</div>
+        <input type="hidden" value="${thisMealInfo}">
+    </li>`;
+    
+    
+    //還沒被選，增加物件和註冊事件
+    if(this.classList.value.indexOf('active') == -1) {
+        this.classList.add('active');
+        $id('mealChanger').children[0].innerHTML += newChangeMeal;
+        var thisMealBox;
+        // 從X把原本餐點的已選擇關掉
+        for(let x in $class('deleteIt')) {
+            $class('deleteIt')[x].onclick = function() {
+                
+                console.log(this.nextElementSibling.value);
+                for(let x = 0; x < $class('meal-box').length ; x++) {
+                    if($class('meal-box')[x].children[0].getAttribute('mealInfo') == this.nextElementSibling.value) {
+                        thisMealBox = $class('meal-box')[x];
+                        console.log(thisMealBox);
+                    }
+                }
+                thisMealBox.classList.remove('active');
+                this.parentNode.parentNode.removeChild(this.parentNode);
+                
+                noMeal();
+
+            }
+        }
+    }
+    //從餐點直接取消選取 
+    else {
+        this.classList.remove('active');
+        var thisList;
+        var mealChangerLi = $id('mealChanger').children[0];
+        for(let y = 0; y < mealChangerLi.children.length;y++) {
+            console.log(mealChangerLi.children[y]);
+            // console.log(thisMealInfo);
+            if(mealChangerLi.children[y].getElementsByTagName('input')[0].value == thisMealInfo) {
+                thisList = mealChangerLi.children[y];
+            }
+        }
+        $id('mealChanger').children[0].removeChild(thisList);
+        noMeal();
+    }
+    
+    // $id('mealChanger').insertBefore(newChangeMeal, $id('mealChanger').children[0].firstChild);
+    
+
+    // 尚無餐點的顯示
+    noMeal();
 }
 window.addEventListener('load',init);

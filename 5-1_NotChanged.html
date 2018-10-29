@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/Reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/gsap/src/minified/TweenMax.min.js"></script>
+    <script src="js/gsap/src/minified/easing/CustomEase.min.js"></script>
+    <script src="js/main.js"></script>
+    <title>5-1</title>
+</head>
+<body>
+    <nav>
+            <!-- 這裡放導覽列 -->
+    </nav>
+    <div class="page-BTN">
+        <ul>
+            <li class="active">尚未兌換完的飯團</li>
+            <li>我發起的飯團</li>
+            <li>全部飯團</li>
+        </ul>
+    </div>
+    <div class="maxWidthWrapper">
+        <div class="filter-container clearfix">
+            <span class="filter-span">排序</span>
+            <div class="filter-wrapper">
+                <input type="checkbox" name="groupon_filter" class="groupon_filter" id="groupon_filter_time" checked>
+                <label for="groupon_filter_time" class="filter">餐點剩餘數量
+                    <span class="filter-condition">由少至多</span>
+                </label>
+            </div>
+            
+        </div>
+        <div class="changeMeal-container">
+            <h1><i class="fas fa-utensils"></i>&nbsp;&nbsp;&nbsp;點選各餐點即可選擇兌換&nbsp;&nbsp;&nbsp;<i class="fas fa-utensils"></i></h1>
+            <div class="groupon-wrapper">
+                <div class="user-info"></div>
+                <div class="groupon_topUI clearfix">
+                    <div class="leftUI grid-12">
+                        <div class="titleTag grid-12 grid-md-6">
+                            <span class="tag">#超滿足</span>
+                            <h3>日式和食小資飯團</h3>
+                        </div>
+                        <div class="mealAndScore-container grid-12 grid-md-6">
+                            <div class="meal-counter grid-12">
+                                <i class="fas fa-utensil-spoon"></i> 剩餘
+                                <span>8</span>
+                                餐尚未兌換
+                            </div>
+                        </div>
+                        <div class="meal-container grid-12 clearfix">
+                            <div class="meal-box">
+                                <input type="hidden" id="" mealInfo="g01|meal01|01高級便當組">
+                                <div class="price">
+                                    75元
+                                </div>
+                                <div class="pic">
+                                    <img src="asset/bentou01.jpg" alt="高級便當組"  title="高級便當組">
+                                </div>
+                                <div class="title">
+                                    01高級便當組
+                                </div>
+                                
+                                <div class="added-bg" id="meal01_bg">
+                                    <p><i class="fas fa-check"></i>  已選擇</p>
+                                </div>
+                            </div>
+                            <div class="meal-box">
+                                <input type="hidden" id="" mealInfo="g01|meal02|02豪華便當組">
+                                <div class="price">
+                                    75元
+                                </div>
+                                <div class="pic">
+                                    <img src="asset/bentou01.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    02豪華便當組
+                                </div>
+                                <div class="added-bg" id="meal01_bg">
+                                    <p><i class="fas fa-check"></i>  已選擇</p>
+                                </div>
+                            </div>
+                            <div class="meal-box">
+                                <input type="hidden" id="" mealInfo="g01|meal04|03豬排便當組">
+                                <div class="price">
+                                    75元
+                                </div>
+                                <div class="pic">
+                                    <img src="asset/bentou01.jpg" alt="">
+                                </div>
+                                <div class="title">
+                                    03豬排便當組
+                                </div>
+                                <div class="added-bg" id="meal01_bg">
+                                    <p><i class="fas fa-check"></i>  已選擇</p>
+                                </div>
+                            </div>
+                            <div class="meal-box">
+                                <input type="hidden" id="" mealInfo="g01|meal05|04雞腿便當組">
+                                    <div class="price">
+                                        75元
+                                    </div>
+                                    <div class="pic">
+                                        <img src="asset/bentou01.jpg" alt="">
+                                    </div>
+                                    <div class="title">
+                                            04雞腿便當組
+                                    </div>
+                                    <div class="added-bg" id="meal01_bg">
+                                    <p><i class="fas fa-check"></i>  已選擇</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+        </div>
+    </div>
+    <input type="checkbox" name="changeIt" id="changeIt">
+    <div class="fixedChangeMenu-wrapper">
+        <label class="titleClick" for="changeIt">
+            <span>欲兌換的餐點清單</span>
+            <span><i class="fas fa-angle-down"></i></span>
+        </label>
+        
+        <div class="mealChange-container" id="mealChanger">
+                <ul>
+                    <!-- <li class="clearfix">
+                        <div class="mealName grid-9">豪華便當組</div>
+                        <div class="deleteIt grid-3">X</div>
+                        <input type="hidden" value="g01|meal01">
+                    </li>
+                    <li class="clearfix">
+                        <div class="mealName grid-9">豪華便當組</div>
+                        <div class="deleteIt grid-3">X</div>
+                        <input type="hidden" value="g03|meal02">
+                    </li> -->
+                </ul>
+                <p class="info active">尚無餐點</p>
+                <div class="btn-container clearfix">
+                    <a class="check-BTN" href="##">
+                        確認兌換
+                    </a>
+                </div>
+        </div>
+    </div>
+    <footer>
+        <!-- 放footer -->
+    </footer>
+</body>
+
+</html>
