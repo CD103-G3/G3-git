@@ -4,55 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/meyerweb_reset.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/backstage.css">
     <title>Backstage</title>
 </head>
 <body>
-  
-    <div class="container d-flex flex-row">
-        <div class="col-xl-2">
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
-            <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-            <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
-          </div>
-        </div>
-          <div class="col-xl-10">
-            <table class="table table-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
+<div class="d-flex out">
+  <div class="container col-sm-2 col-md-2 col-lg-2 col-xl-2">
+    <div class="list-group">
+      <div><img src="images/logo3.png" alt="logo"></div>
+      <a href="#">登出</a>
+      <label for="meal" class="list-group-item list-group-item-action">餐點資料</label>
+      <label for="member_Information_radio" class="list-group-item list-group-item-action">飯團管理</label>
+      <label for="member_Information_radio" class="list-group-item list-group-item-action">留言審核</label>
+      <label for="member_Information_radio" class="list-group-item list-group-item-action">客服機器人</label>
+      <label for="member_Information_radio" class="list-group-item list-group-item-action">勳章管理</label>
+      <label for="member_Information_radio" class="list-group-item list-group-item-action">訂單管理</label>
+      <label for="member_Information_radio" class="list-group-item list-group-item-action">管理員帳號</label>
     </div>
-    
+  </div>
+  
+  <div class="container col-sm-10 col-md-10 col-lg-10 col-xl-10">
+    <input type="radio" name="meal" id="meal_change" checked>
+    <div class="banner">功能頁抬頭</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">餐點編號</th>
+          <th scope="col">餐點類別</th>
+          <th scope="col">餐點名稱</th>
+          <th scope="col">餐點圖片</th>
+          <th scope="col">餐點單價</th>
+          <th scope="col">餐點卡路里</th>
+          <th scope="col">餐點是否上架</th>
+          <th scope="col">評分數</th>
+          <th scope="col">詳情</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>丼飯</td>
+          <td>(生)特級海鮮丼</td>
+          <td><img src="images/丼1.png" alt=""></td>
+          <td>680</td>
+          <td>300</td>
+          <td>Yes</td>
+          <td>4.5</td>
+          <td><i class="fas fa-book"></i></td>
+        </tr>
+      </tbody>
+    </table>
+<!-- 切換分頁 -->
+    <ul class="pagination">
+      <li><a href="#">&laquo;</a></li>
+      <li class="active"><a href="#">1</a></li>
+      <li class="disabled"><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#">5</a></li>
+      <li><a href="#">&raquo;</a></li>
+    </ul>
+  </div>
+</div>
+
 
 
 

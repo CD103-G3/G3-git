@@ -209,14 +209,16 @@ h2{ font-size: $fontSize_L; }
 
 .member_msg{
     margin-top: 30px;
+        padding: 10px;
     border: 1px solid #aaa;
     border-radius: 10px;
 
     .member_txt{
         .member_letter{ 
-            margin-top: 15px;
             width: 100%; 
             height: ($fontSize_S + 5px) * $lineHeight;
+            margin-top: 15px;
+            border: 1px solid #aaa;
         }
 
         .comments{

@@ -612,12 +612,14 @@ h2 {
 
 .member_msg {
   margin-top: 30px;
+  padding: 10px;
   border: 1px solid #aaa;
   border-radius: 10px; }
   .member_msg .member_txt .member_letter {
-    margin-top: 15px;
     width: 100%;
-    height: 40px; }
+    height: 40px;
+    margin-top: 15px;
+    border: 1px solid #aaa; }
   .member_msg .member_txt .comments {
     padding: 0 10px;
     height: 40px;
