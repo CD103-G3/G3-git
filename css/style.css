@@ -375,7 +375,7 @@ table {
     100% {
       transform: translate(0, 0) rotate(0); } }
   .coll_panel {
-    height: 800px;
+    width: calc(25% - 20px);
     display: block; }
   .coll_total {
     max-width: 200px;
@@ -409,12 +409,16 @@ table {
     border: 15px #bc5437 solid;
     border-radius: 10px;
     width: 100%;
-    height: 650px;
     background-color: #fff;
     margin: 140px 10% 0;
     padding: 80px 0 0 0px;
     box-shadow: 2px 2px 4px 4px #ddd;
     z-index: 0; }
+  .coll_kind_item {
+    width: calc(33.33333% - 10px);
+    display: inline-block;
+    float: none;
+    font-size: 0px; }
   .coll_kind_item p {
     font-size: 30px;
     margin: 5px auto;
@@ -438,7 +442,7 @@ table {
   .coll_title {
     background-color: #FCF2A8; }
   .coll_title_kind {
-    height: 140px; }
+    margin: 0 0 50px 0; }
   .coll_kind_item_title {
     background-color: #333333;
     color: #fff;
@@ -528,7 +532,206 @@ table {
     margin: 0px 0 0px 5px;
     display: inline-block;
     vertical-align: baseline;
-    width: 14%; } }
+    width: 13%; } }
+
+@media screen and (max-width: 1200px) {
+  * {
+    margin: 0;
+    padding: 0; }
+  .part-l-1, .part-l-2, .part-l-3, .part-l-4, .part-l-5, .part-l-6, .part-l-7, .part-l-8, .part-l-9, .part-l-10, .part-l-11, .part-l-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  .part-l-1 {
+    width: 8.33333%; }
+  .part-l-2 {
+    width: 16.66667%; }
+  .part-l-3 {
+    width: 25%; }
+  .part-l-4 {
+    width: 33.33333%; }
+  .part-l-5 {
+    width: 41.66667%; }
+  .part-l-6 {
+    width: 50%; }
+  .part-l-7 {
+    width: 58.33333%; }
+  .part-l-8 {
+    width: 66.66667%; }
+  .part-l-9 {
+    width: 75%; }
+  .part-l-10 {
+    width: 83.33333%; }
+  .part-l-11 {
+    width: 91.66667%; }
+  .part-l-12 {
+    width: 100%; }
+  header {
+    width: 100%;
+    height: 100px;
+    background-color: #ff03; }
+  .coll_slogan {
+    width: 100%;
+    height: 150px;
+    background-color: #BB7232;
+    font-size: 0; }
+  .coll_slogan_title {
+    width: 100%;
+    display: inline-block; }
+  .coll_slogan_title p {
+    font-size: 20px;
+    margin: auto;
+    padding: 10px 0; }
+  .coll_slogan_right {
+    text-align: right; }
+  .coll_slogan_pic {
+    width: 50%; }
+  .coll_slogan_pic_icon {
+    width: 5%; }
+  .coll_panel {
+    width: 100%;
+    display: block;
+    font-size: 0; }
+  .coll_total {
+    max-width: 100px;
+    height: 100px;
+    border-radius: 999px;
+    background-color: #FFBA3B;
+    margin: 10px 0 10px 10%;
+    z-index: 2;
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 0; }
+  .coll_total_num {
+    text-align: center;
+    padding: 25px;
+    margin: 0;
+    font-size: 30px; }
+  .coll_total_title {
+    font-size: 16px;
+    display: none; }
+  .coll_total_s {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 20px 0px 0 20px; }
+  .coll_total_s p {
+    font-size: 24px;
+    min-width: 170px; }
+  .coll_kind {
+    box-sizing: border-box;
+    border: 15px #bc5437 solid;
+    border-radius: 10px;
+    width: 80%;
+    max-width: none;
+    background-color: #fff;
+    box-shadow: 2px 2px 4px 4px #ddd;
+    z-index: 0;
+    margin: 0 10%;
+    padding: 0; }
+  .coll_kind_item {
+    float: none;
+    display: inline-block; }
+  .coll_kind_item p {
+    font-size: 18px;
+    margin: 10px auto;
+    text-align: center; }
+  .kind_icon {
+    display: block;
+    width: 100%;
+    margin: 5px auto;
+    text-align: center; }
+  .coll_kind_item_text {
+    margin: 2px 0; }
+  .coll_title {
+    background-color: #FCF2A8;
+    margin: 0;
+    padding: 0; }
+  .coll_kind_item_title {
+    background-color: #333333;
+    color: #fff; }
+  .coll_title_kind {
+    font-size: 0;
+    padding: 0; }
+  .title_kind_icon {
+    width: 25%;
+    text-align: center;
+    display: block;
+    margin: auto; }
+  .coll_title_kind_line {
+    width: 25%;
+    height: 50px;
+    display: inline-block;
+    font-size: 0px;
+    padding: 0; }
+  .coll_title_kind_text {
+    font-size: 0px;
+    width: 50%;
+    height: 50px;
+    display: inline-block;
+    height: 120px;
+    text-align: center;
+    padding: 0; }
+  .title_kind_line_icon {
+    font-size: 0px;
+    width: 100%;
+    height: 100px;
+    display: inline-block;
+    margin: auto;
+    padding: 0; }
+  .coll_title_kind_text p {
+    margin: auto;
+    font-size: 24px;
+    display: inline-block;
+    padding: 0; }
+  .coll_food {
+    width: calc(50% - 10px);
+    box-sizing: border-box;
+    margin: 5px 5px;
+    border: 2px solid #fff;
+    border-radius: 20px; }
+  .coll_food_X_icon {
+    float: right;
+    width: 10%; }
+  .coll_food_title p {
+    line-height: 40px;
+    font-size: 24px;
+    text-align: center; }
+  .coll_food_score {
+    margin: auto;
+    text-align: center; }
+  .coll_food_title_icon {
+    width: 15%;
+    margin: auto; }
+  .coll_food_info {
+    display: none; }
+  .coll_food_info_text {
+    padding: 1px; }
+  .coll_food_price p {
+    color: #333333;
+    font-size: 30px;
+    padding: 0 0 0 0;
+    text-align: center;
+    margin: 10px 0; }
+  .coll_food_pic_icon {
+    width: 80%;
+    display: block;
+    margin: auto;
+    text-align: center; }
+  .coll_food_shop {
+    float: right;
+    text-align: center; }
+  .coll_food_shop_text {
+    font-size: 20px;
+    display: inline-block;
+    vertical-align: baseline; }
+  .coll_food_shop_icon {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 15%;
+    margin: 0px 0 -4px 5px; } }
 
 @media screen and (max-width: 767px) {
   * {
@@ -587,7 +790,6 @@ table {
   .coll_panel {
     width: 100%;
     height: 400px;
-    background-color: #E69500;
     display: block;
     font-size: 0; }
   .coll_total {
@@ -595,7 +797,7 @@ table {
     height: 100px;
     border-radius: 999px;
     background-color: #FFBA3B;
-    margin: 12px 0 -12px 10%;
+    margin: 10px 0 10px 10%;
     z-index: 2;
     float: none;
     display: inline-block;
@@ -617,6 +819,12 @@ table {
   .coll_total_s p {
     font-size: 24px;
     min-width: 170px; }
+  .coll_kind {
+    margin: 0;
+    padding: 0; }
+  .coll_kine_item {
+    margin: 0 5px;
+    width: calc(16.66667% - 10px); }
   .coll_kind_item p {
     font-size: 18px;
     margin: 10px auto;
@@ -634,7 +842,7 @@ table {
     background-color: #333333;
     color: #fff; }
   .coll_title_kind {
-    height: 130px;
+    margin: 0 0 0px 0;
     font-size: 0;
     padding: 0; }
   .title_kind_icon {
@@ -671,7 +879,8 @@ table {
   .coll_food {
     width: calc(50% - 10px);
     box-sizing: border-box;
-    border: 2px solid #333333;
+    border: 2px solid #fff;
+    border-radius: 20px;
     margin: 5px 5px;
     background-color: #fff; }
   .coll_food_X_icon {
