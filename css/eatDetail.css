@@ -498,9 +498,10 @@ body {
     font-weight: bold; }
   .wrapper input, .wrapper button {
     border: none; }
-
-h2 {
-  font-size: 30px; }
+  .wrapper h2 {
+    font-size: 30px; }
+  .wrapper .font-blod {
+    font-weight: bold; }
 
 .breadcrumbs {
   margin-top: 60px; }
@@ -515,23 +516,23 @@ h2 {
     .breadcrumbs a:first-child:before {
       display: none; }
 
-.banner_pic {
+.banner-pic {
   position: relative;
   z-index: -1; }
-  .banner_pic .like {
+  .banner-pic .like {
     background-color: transparent;
     position: absolute;
     right: 0;
     bottom: 0; }
 
-.banner_txt {
+.banner-txt {
   margin-top: 25px; }
-  .banner_txt .product span {
+  .banner-txt .product span {
     margin-left: 20px; }
 
 .score {
   margin-top: 15px; }
-  .score .score_text {
+  .score .score-text {
     margin-right: 25px;
     font-size: 20px; }
   .score .grade span {
@@ -544,10 +545,10 @@ h2 {
 
 .content {
   margin-top: 20px; }
-  .content .content_top span {
+  .content .content-top span {
     margin-right: 25px;
     font-size: 20px; }
-  .content .content_top .kcal span {
+  .content .content-top .kcal span {
     margin-right: 10px;
     font-size: 16px;
     line-height: 32px; }
@@ -556,50 +557,50 @@ h2 {
 
 .count {
   margin-top: 50px; }
-  .count .count_qty span {
+  .count .count-qty span {
     height: 40px;
     margin-right: 25px;
     font-size: 20px;
     line-height: 40px; }
-  .count .count_input input {
+  .count .count-input input {
     margin-right: 10px;
     height: 40px; }
-  .count .count_input .qty_width {
+  .count .count-input .qty-width {
     width: 40px;
     border-radius: 25px;
     background-color: #FCE444;
     box-shadow: 0 4px #BB7232; }
-    .count .count_input .qty_width:hover {
+    .count .count-input .qty-width:hover {
       box-shadow: 0 2px #BB7232;
       transform: translateY(2px);
       transition: box-shadow 0.3s , transform 0.3s; }
-  .count .count_input .qty {
+  .count .count-input .qty {
     width: 100px;
     border: 1px solid #aaa;
     text-align: center; }
-    .count .count_input .qty:focus {
+    .count .count-input .qty:focus {
       background-color: #FCF2CA; }
-  .count .count_input .qty_add {
+  .count .count-input .qty-add {
     margin-right: 0px; }
-  .count .count_button {
+  .count .count-button {
     margin-top: 50px;
     position: relative; }
-    .count .count_button button {
+    .count .count-button button {
       width: 45%;
       height: 40px;
       border-radius: 25px;
       background-color: #FCE444;
       box-shadow: 0 4px #BB7232; }
-      .count .count_button button:hover {
+      .count .count-button button:hover {
         box-shadow: 0 2px #BB7232;
         transform: translateY(2px);
         transition: box-shadow 0.3s , transform 0.3s; }
-    .count .count_button .add_cart {
+    .count .count-button .add-cart {
       position: relative;
       bottom: 0;
       left: 0;
       margin: auto; }
-    .count .count_button .go_cart {
+    .count .count-button .go-cart {
       position: absolute;
       right: 0;
       bottom: 0;
@@ -610,17 +611,17 @@ h2 {
   font-size: 36px;
   text-align: center; }
 
-.member_msg {
+.member-msg {
   margin-top: 30px;
   padding: 10px;
   border: 1px solid #aaa;
   border-radius: 10px; }
-  .member_msg .member_txt .member_letter {
+  .member-msg .member-txt .member-letter {
     width: 100%;
     height: 40px;
     margin-top: 15px;
     border: 1px solid #aaa; }
-  .member_msg .member_txt .comments {
+  .member-msg .member-txt .comments {
     padding: 0 10px;
     height: 40px;
     margin-top: 20px;
@@ -628,7 +629,7 @@ h2 {
     background-color: #FCE444;
     box-shadow: 0 4px #BB7232;
     float: right; }
-    .member_msg .member_txt .comments:hover {
+    .member-msg .member-txt .comments:hover {
       box-shadow: 0 2px #BB7232;
       transform: translateY(2px);
       transition: box-shadow 0.3s , transform 0.3s; }
@@ -665,13 +666,13 @@ h2 {
   .wrapper {
     padding: 0 30px;
     margin-bottom: 50px; }
-  .banner_pic .like {
+  .banner-pic .like {
     font-size: 24px; }
-  .banner_txt {
+  .banner-txt {
     margin-top: 35px; }
   .score {
     margin-top: 25px; }
-    .score .score_text {
+    .score .score-text {
       margin-right: 40px; }
     .score .grade span {
       margin-right: 20px; }
@@ -679,30 +680,30 @@ h2 {
     margin-top: 30px; }
   .content {
     margin-top: 30px; }
-    .content .content_top span {
+    .content .content-top span {
       margin-right: 40px; }
     .content p {
       margin-top: 25px; }
-  .count .count_qty {
+  .count .count-qty {
     padding: 0; }
-    .count .count_qty span {
+    .count .count-qty span {
       height: 48px;
       margin-right: 40px;
       line-height: 48px; }
-  .count .count_input input {
+  .count .count-input input {
     height: 48px; }
-  .count .count_input .qty_width {
+  .count .count-input .qty-width {
     width: 48px; }
-  .count .count_input .qty {
+  .count .count-input .qty {
     width: 100px; }
-  .count .count_button {
+  .count .count-button {
     margin-top: 0px;
     padding: 0; }
-    .count .count_button button {
+    .count .count-button button {
       height: 48px; }
   .title {
     margin: 100px 0 80px; }
-  .member_msg .member_txt .member_letter, .member_msg .member_txt .comments {
+  .member-msg .member-txt .member-letter, .member-msg .member-txt .comments {
     margin-top: 15px; } }
 
 @media screen and (min-width: 1024px) {
@@ -734,16 +735,16 @@ h2 {
     float: left;
     box-sizing: border-box;
     padding: 10px; }
-  .banner_pic {
+  .banner-pic {
     padding: 0 15px 0 0; }
-    .banner_pic .like {
+    .banner-pic .like {
       right: 30px; }
-  .banner_txt {
+  .banner-txt {
     margin-top: 0px;
     padding: 0 0 0 15px; }
   .score {
     margin-top: 15px; }
-    .score .score_text {
+    .score .score-text {
       margin-right: 25px; }
   .price {
     margin-top: 20px; }
@@ -751,18 +752,18 @@ h2 {
     margin-top: 20px; }
     .content p {
       margin-top: 15px; }
-  .count .count_qty span {
+  .count .count-qty span {
     height: 40px;
     margin-right: 25px;
     line-height: 40px; }
-  .count .count_input input {
+  .count .count-input input {
     margin-right: 5px;
     height: 40px; }
-  .count .count_input .qty_width {
+  .count .count-input .qty-width {
     width: 40px; }
-  .count .count_input .qty {
+  .count .count-input .qty {
     width: 50px; }
-  .count .count_button button {
+  .count .count-button button {
     height: 40px;
     font-size: 15px; } }
 
@@ -800,5 +801,5 @@ h2 {
     padding: 0;
     margin: auto;
     margin-bottom: 50px; }
-  .count .count_button button {
+  .count .count-button button {
     font-size: 16px; } }
