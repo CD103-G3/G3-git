@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .clearfix:after {
   content: '';
   display: block;
@@ -54,10 +55,9 @@
   clear: both; }
 
 * {
-  outline: 1px solid #f00; }
-
-.out {
-  padding: 30px 20px; }
+  font-size: 16px;
+  font-family: 微軟正黑體, arial, "sans serif";
+  text-align: center; }
 
 input[type="radio"],
 input[type="radio"] + div {
@@ -65,3 +65,40 @@ input[type="radio"] + div {
 
 input[type="radio"]:checked + div {
   display: block; }
+
+.out {
+  height: 93vh;
+  margin: 30px 50px; }
+  .out a {
+    text-decoration: none;
+    color: #76391B; }
+  .out .back-nav .back-logo {
+    padding-top: 30px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-bottom: none;
+    border-radius: 10px 10px 0 0; }
+  .out .back-nav .back-signout {
+    padding: 50px 0;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: none;
+    border-radius: 0 0 10px 10px;
+    font-size: 24px;
+    font-weight: bold; }
+  .out .back-nav .back-change-btn {
+    border-radius: 10px; }
+    .out .back-nav .back-change-btn:hover {
+      background-color: #FCF2CA; }
+  .out .back-text {
+    height: 93vh;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 10px; }
+    .out .back-text .banner {
+      padding: 20px 0;
+      font-size: 30px; }
+    .out .back-text img {
+      width: 80px; }
+    .out .back-text tr th, .out .back-text tr td {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      vertical-align: middle; }
+    .out .back-text .back-page li {
+      padding: 10px; }

@@ -1,9 +1,12 @@
 @import "daycookMixin";
 @import "daycookVar";
 
-*{outline: 1px solid #f00;}
-
-.out{ padding: 30px 20px; }
+*{
+    // outline: 1px solid #f00;
+    font-size: $fontSize_text;
+    font-family: $fmy;
+    text-align: center;
+}
 
 input[type="radio"],
 input[type="radio"] + div{
@@ -11,4 +14,61 @@ input[type="radio"] + div{
 }
 input[type="radio"]:checked + div{
 	display: block;
+}
+
+.out{ 
+    height: 93vh;
+    margin: 30px 50px; 
+
+    a{
+        text-decoration: none;
+        color: $color_main2;
+    }
+
+    .back-nav{
+        .back-logo{ 
+            padding-top: 30px;
+            border: 1px solid rgba(0,0,0,.125); 
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+        }
+        .back-signout{ 
+            padding: 50px 0;
+            border: 1px solid rgba(0,0,0,.125);
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            font-size: $fontSize_M;
+            font-weight: bold;
+        }
+
+        .back-change-btn{
+            border-radius: 10px;
+
+            &:hover{ background-color: $color_main3; }
+        }
+    }
+
+    .back-text{
+        height: 93vh;
+        border: 1px solid rgba(0,0,0,.125);
+        border-radius: 10px;
+
+        .banner{ 
+            padding: 20px 0;
+            font-size: $fontSize_L; 
+        }
+
+        img{ width: 80px; }
+
+        tr{
+            th,td{ 
+                border-bottom: 1px solid rgba(0,0,0,.125);
+                vertical-align: middle; 
+            }
+        }
+
+        .back-page{
+            li{ padding: 10px; }
+        }
+    }
 }
