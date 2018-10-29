@@ -1,3 +1,14 @@
+@import "daycookMixin";
+@import "daycookVar";
+
 *{outline: 1px solid #f00;}
 
 .out{ padding: 30px 20px; }
+
+input[type="radio"],
+input[type="radio"] + div{
+	display: none;
+}
+input[type="radio"]:checked + div{
+	display: block;
+}
