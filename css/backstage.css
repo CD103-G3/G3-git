@@ -84,6 +84,8 @@ input[type="radio"]:checked + div {
     border-radius: 0 0 10px 10px;
     font-size: 24px;
     font-weight: bold; }
+    .out .back-nav .back-signout a {
+      padding: 20px; }
   .out .back-nav .back-change-btn {
     border-radius: 10px; }
     .out .back-nav .back-change-btn:hover {
@@ -93,8 +95,20 @@ input[type="radio"]:checked + div {
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 10px; }
     .out .back-text .banner {
-      padding: 20px 0;
+      padding-top: 20px;
       font-size: 30px; }
+    .out .back-text .add-field a {
+      margin: 0 20px 20px 93%;
+      padding: 5px;
+      border: 1px solid rgba(0, 0, 0, 0.125);
+      border-radius: 25px;
+      box-shadow: 0 4px #76391B;
+      background-color: #FCE444;
+      display: block; }
+      .out .back-text .add-field a:hover {
+        box-shadow: 0 2px #76391B;
+        transform: translateY(2px);
+        transition: transform 2s box-shadow 2s; }
     .out .back-text img {
       width: 80px; }
     .out .back-text tr th, .out .back-text tr td {

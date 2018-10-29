@@ -39,6 +39,8 @@ input[type="radio"]:checked + div{
             border-radius: 0 0 10px 10px;
             font-size: $fontSize_M;
             font-weight: bold;
+
+            a{ padding: 20px; }
         }
 
         .back-change-btn{
@@ -54,8 +56,26 @@ input[type="radio"]:checked + div{
         border-radius: 10px;
 
         .banner{ 
-            padding: 20px 0;
+            padding-top: 20px;
             font-size: $fontSize_L; 
+        }
+
+        .add-field{
+            a{
+                margin: 0 20px 20px 93%;
+                padding: 5px;
+                border: 1px solid rgba(0,0,0,.125);
+                border-radius: 25px;
+                box-shadow: 0 4px $color_main2;
+                background-color: $color_main1;
+                display: block;
+
+            &:hover{
+                box-shadow: 0 2px $color_main2;
+                transform: translateY(2px);
+                transition: transform 2s box-shadow 2s;
+            }
+            }
         }
 
         img{ width: 80px; }
