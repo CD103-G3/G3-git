@@ -528,7 +528,6 @@ function changeMealInfo(e) {
      $id('grouponDetail_score').innerHTML = thisScore;
      console.log($all('.scoreEgg-container ul li'));
      for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
-        console.log($all('.scoreEgg-container ul li'));
         $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
      }
      $class('scoreEgg-container')[0].setAttribute('score', thisScore);
@@ -647,8 +646,6 @@ function addToMenu(e) {
         // 從X把原本餐點的已選擇關掉
         for(let x in $class('deleteIt')) {
             $class('deleteIt')[x].onclick = function() {
-                
-                console.log(this.nextElementSibling.value);
                 for(let x = 0; x < $class('meal-box').length ; x++) {
                     if($class('meal-box')[x].children[0].getAttribute('mealInfo') == this.nextElementSibling.value) {
                         thisMealBox = $class('meal-box')[x];

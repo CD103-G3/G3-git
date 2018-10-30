@@ -291,23 +291,22 @@ h2 {
     position: relative;
     display: inline-block;
     width: 160px;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background-color: #76391B;
     color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
     cursor: pointer;
     display: block;
     margin-left: 20px; }
     .name-container .randomTitle:hover {
-      opacity: .7; }
-    .name-container .randomTitle:hover {
       opacity: .7;
       transition: .2s; }
     .name-container .randomTitle:active {
-      top: 3px; }
+      top: 2px; }
   .name-container .input-wrapper {
     position: relative; }
     .name-container .input-wrapper input {
@@ -358,11 +357,12 @@ h2 {
     position: relative;
     display: inline-block;
     width: 240px;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background-color: #76391B;
     color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
     cursor: pointer;
@@ -371,35 +371,31 @@ h2 {
     font-size: 20px; }
     .btn-container .check-BTN:hover,
     .btn-container .cancel-BTN:hover {
-      opacity: .7; }
-    .btn-container .check-BTN:hover,
-    .btn-container .cancel-BTN:hover {
       opacity: .7;
       transition: .2s; }
     .btn-container .check-BTN:active,
     .btn-container .cancel-BTN:active {
-      top: 3px; }
+      top: 2px; }
   .btn-container .cancel-BTN {
     position: relative;
     display: inline-block;
     width: 240px;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background-color: #76391B;
     color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
     cursor: pointer;
     background-color: #FCF2CA;
     color: #76391B; }
     .btn-container .cancel-BTN:hover {
-      background-color: #FCE444; }
-    .btn-container .cancel-BTN:hover {
       opacity: .7;
       transition: .2s; }
     .btn-container .cancel-BTN:active {
-      top: 3px; }
+      top: 2px; }
 
 .cal-btn {
   position: relative;
@@ -468,21 +464,20 @@ h2 {
     position: relative;
     display: inline-block;
     width: 160px;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background-color: #76391B;
     color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
     cursor: pointer; }
     .addMeal-container .checkMeal-btn:hover {
-      opacity: .7; }
-    .addMeal-container .checkMeal-btn:hover {
       opacity: .7;
       transition: .2s; }
     .addMeal-container .checkMeal-btn:active {
-      top: 3px; }
+      top: 2px; }
   @media screen and (min-width: 768px) {
     .addMeal-container {
       width: 90%; } }
@@ -1181,11 +1176,12 @@ h2 {
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 48px;
-    line-height: 48px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
-    background-color: #76391B;
     color: #fff;
+    background-color: #76391B;
+    box-shadow: 0px 4px 0px #FED44F;
     border-radius: 100px;
     transition: .2s;
     cursor: pointer;
@@ -1195,12 +1191,10 @@ h2 {
     box-shadow: 0px 6px 0px #FED44F;
     transition: .2; }
     .groupon_bottomUI .calltoAction-BTN:hover {
-      opacity: .7; }
-    .groupon_bottomUI .calltoAction-BTN:hover {
       opacity: .7;
       transition: .2s; }
     .groupon_bottomUI .calltoAction-BTN:active {
-      top: 3px; }
+      top: 2px; }
     .groupon_bottomUI .calltoAction-BTN:active {
       top: 3px;
       box-shadow: 0px 3px 0px #FED44F;
@@ -1598,11 +1592,12 @@ h2 {
       position: relative;
       display: inline-block;
       width: 100%;
-      height: 48px;
-      line-height: 48px;
+      height: 40px;
+      line-height: 40px;
       text-align: center;
-      background-color: #76391B;
       color: #fff;
+      background-color: #76391B;
+      box-shadow: 0px 4px 0px #FED44F;
       border-radius: 100px;
       transition: .2s;
       cursor: pointer;
@@ -1612,12 +1607,10 @@ h2 {
       box-shadow: 0px 6px 0px #FED44F;
       transition: .2; }
       .grouponDatail-container .mealInfo-wrapper .calltoAction-BTN:hover {
-        opacity: .7; }
-      .grouponDatail-container .mealInfo-wrapper .calltoAction-BTN:hover {
         opacity: .7;
         transition: .2s; }
       .grouponDatail-container .mealInfo-wrapper .calltoAction-BTN:active {
-        top: 3px; }
+        top: 2px; }
       .grouponDatail-container .mealInfo-wrapper .calltoAction-BTN:active {
         top: 3px;
         box-shadow: 0px 3px 0px #FED44F;
@@ -1630,11 +1623,12 @@ h2 {
       position: relative;
       display: inline-block;
       width: 200px;
-      height: 48px;
-      line-height: 48px;
+      height: 40px;
+      line-height: 40px;
       text-align: center;
-      background-color: #76391B;
       color: #fff;
+      background-color: #76391B;
+      box-shadow: 0px 4px 0px #FED44F;
       border-radius: 100px;
       transition: .2s;
       cursor: pointer;
@@ -1643,12 +1637,10 @@ h2 {
       color: #76391B;
       font-weight: 900; }
       .grouponDatail-container .share-wrapper .shareGroupon-BTN:hover {
-        background-color: #FCE444; }
-      .grouponDatail-container .share-wrapper .shareGroupon-BTN:hover {
         opacity: .7;
         transition: .2s; }
       .grouponDatail-container .share-wrapper .shareGroupon-BTN:active {
-        top: 3px; }
+        top: 2px; }
 
 .recommendGroupon-wrapper {
   max-width: 1200px;
@@ -1979,3 +1971,117 @@ h2 {
           .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper .almostSucc-icon {
             top: 20px;
             left: -50px; } }
+
+.nextBTN,
+.cancelBTN {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #76391B;
+  box-shadow: 0px 4px 0px #FED44F;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: 10px;
+  font-size: 20px;
+  background-color: #BB7232;
+  color: #fff; }
+  .nextBTN:hover,
+  .cancelBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  .nextBTN:active,
+  .cancelBTN:active {
+    top: 2px; }
+
+.cancelBTN {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #76391B;
+  box-shadow: 0px 4px 0px #FED44F;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  background-color: #FCF2CA;
+  color: #76391B; }
+  .cancelBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  .cancelBTN:active {
+    top: 2px; }
+
+.mainBTN {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 600;
+  color: #76391B;
+  background-color: #FCE444;
+  box-shadow: 0px 4px 0px #76391B;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  max-width: 200px;
+  transition: .2; }
+  .mainBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  .mainBTN:active {
+    top: 2px; }
+
+.subBTN {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #76391B;
+  box-shadow: 0px 4px 0px #FED44F;
+  border-radius: 100px;
+  transition: .2s;
+  cursor: pointer;
+  margin: auto;
+  font-size: 20px;
+  max-width: 200px;
+  transition: .2; }
+  .subBTN:hover {
+    opacity: .7;
+    transition: .2s; }
+  .subBTN:active {
+    top: 2px; }
+
+.plusAndMinus {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  line-height: 35px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: #BB7232;
+  box-shadow: 0px 4px 0px #76391B;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 900;
+  color: #FCF2CA; }
+  .plusAndMinus:hover {
+    opacity: .6;
+    transition: .3s; }
+  .plusAndMinus:active {
+    top: 2px;
+    box-shadow: 0px 2px 0px #76391B; }

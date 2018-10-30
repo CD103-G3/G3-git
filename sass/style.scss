@@ -3,6 +3,7 @@
 @import "layout/grid";
 @import "mixins/mixins";
 @import "animation/anime";
+@import "mixins/general_mixins";
 
 
 // gridSystem
@@ -1743,5 +1744,10 @@ h2{
     } 
 }
 
+//通用按鈕設定
+@include nextAndCancel-BTN(120px);
+@include main-BTN(200px);
+@include sub-BTN(200px);
+@include plusAndMinus-BTN;
 
 
