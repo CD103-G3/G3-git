@@ -1,5 +1,3 @@
-//@import "daycookVar";
-
 //字體:
 $fontSize_text: 16px;
 $fontSize_S: 20px;
@@ -12,29 +10,20 @@ $lineHeight: 1.6;
 
 // 顏色: 
 $color_txt: #333333;	//字體黑 / fontBlack / 333333 ; 
-$color_txt1:  #425075;
 $color_main1: #FCE444;	//小雞黃 / yellow / FCE444 ; 
 $color_main2: #76391B;	//褐色 / brown / 76391B ; 
 $color_main3: #FCF2CA;	//淡黃色 / lightYellow / FCF2CA / ; 
 $color_main4: #BB7232;	//淡褐色 / lightBrown / #BB7232; 
-$color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ; 
+$color_hot: #FF5000;	//highlight橘 / highlightOrange / FF5000 ;
+$color_label: #208ee8;  //input focus 的label
+$color_hot2: #425075;
+$color_bonus: #FED44F;
+$color_chatBot: #FFE26A;
+$color_chatBot_text: #FEDA46;
+//RWD 用法@include rwd(sm)  
+$small_min:768px;	// @include rwd(sm){ 內容... }
+$medium_min:1024px;	// @include rwd(md){ 內容... }
+$large_min:1200px;	// @include rwd(lg){ 內容... }
 
-//RWD
-$small_min: 768px;	// @include rwd(sm,float) { ... }
-$medium_min: 1024px;	// @include rwd(md,float) { ... }
-$large_min: 1200px;	// @include rwd(lg) { ... }
-
-//btn
-$btn_Wmin: 150px;
-$btn_Wmax: 250px;
-$btn_Wmin_sm: 200px;
-$btn_Wmax_sm: 300px;
-
-//clearfix
-.clearfix:after{
-	content: '';
-	display: block;
-	width: 100%;
-	height: 0;
-	clear: both;
-}
+//小白點裡的圖示大小
+$white_point: 100px;

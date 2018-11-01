@@ -97,15 +97,15 @@ input[type="radio"]:checked + div {
     .out .back-text .banner {
       padding-top: 20px;
       font-size: 30px; }
-    .out .back-text .add-field a {
+    .out .back-text .add-field {
       margin: 0 20px 20px 93%;
-      padding: 5px;
+      padding: 10px;
       border: 1px solid rgba(0, 0, 0, 0.125);
       border-radius: 25px;
       box-shadow: 0 4px #76391B;
       background-color: #FCE444;
       display: block; }
-      .out .back-text .add-field a:hover {
+      .out .back-text .add-field:hover {
         box-shadow: 0 2px #76391B;
         transform: translateY(2px);
         transition: transform 2s box-shadow 2s; }
