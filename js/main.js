@@ -90,7 +90,6 @@ function init() {
     // alert(mealArray.length);
     if($id('mealArea')) {
         if(storage.addMealList.length > 1) {
-            alert('//');
             for(let i in mealArray) {
                 mealCount++;
                 var mealId = mealArray[i];
@@ -500,7 +499,6 @@ function createMealBox(meal, mealInfo) {
 
     var mealScore = document.createElement('div');
     mealScore.className = 'meal-score';
-    mealScore.innerHTML = 'AAAA';
     mealTitle.appendChild(mealScore);
 
     var title = document.createElement('div');
@@ -540,7 +538,6 @@ function changeMealInfo(e) {
 function getScoreEgg(e) {
     var scoreEgg = $class('scoreEgg-container');
     for(let i = 0; i < scoreEgg.length ; i++) {
-        console.log(i);
         var score = Math.round(scoreEgg[i].getAttribute('score'));
         let j = 0;
         do{
@@ -559,16 +556,25 @@ function anime6_3() {
 
     tl.fromTo(".dish-container", 1.2, {
         // x: 220,
-        // y: 100,
+        x: -300,
         alpha: 0.2,
-        scale: 1.3,
+        // scale: 1.3,
     },{
+        x: 0,
         alpha: 1,
         scale: 1,
         delay: 0.3,
+        // ease: CustomEase.create("custom", "M0,0 C0.14,0 0.242,0.438 0.272,0.561 0.313,0.728 0.354,0.963 0.362,1 0.37,0.985 0.406,0.922 0.466,0.878 0.53,0.83 0.609,0.855 0.622,0.864 0.698,0.914 0.741,0.993 0.748,1.01 0.82,0.95 0.84,0.946 0.859,0.96 0.878,0.974 0.897,0.985 0.911,0.998 0.922,0.994 0.939,0.984 0.954,0.984 0.969,0.984 1,1 1,1"),
+    });
+    tl.fromTo('.bonus-wrapper', 1.4, {
+        alpha: 0,
+        scale: 1.5
+    },{
+        alpha: 1,
+        scale: 1,
+        // ease: Circ.easeOut,
         ease: CustomEase.create("custom", "M0,0 C0.14,0 0.242,0.438 0.272,0.561 0.313,0.728 0.354,0.963 0.362,1 0.37,0.985 0.406,0.922 0.466,0.878 0.53,0.83 0.609,0.855 0.622,0.864 0.698,0.914 0.741,0.993 0.748,1.01 0.82,0.95 0.84,0.946 0.859,0.96 0.878,0.974 0.897,0.985 0.911,0.998 0.922,0.994 0.939,0.984 0.954,0.984 0.969,0.984 1,1 1,1"),
     });
-
     tl.fromTo(".chickPic", .1, {
         y: 10,
     },{

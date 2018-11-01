@@ -16,37 +16,7 @@
         <!-- 這裡放導覽列 -->
     </nav>
     <div class="maxWidthWrapper">
-        <div class="settingThreshold-container clearfix">
-            <h2>
-                設定此飯團的購物金人數門檻
-            </h2>
-            <div class="setting grid-12 grid-md-6 clearfix">
-                <h3>設定人數門檻(單位: 人)</h3>
-                <div class="settingArea">
-                    <div id="minus" class="cal-btn grid-3">
-                        -
-                    </div>
-                    <div id="people" class="grid-6 people">
-                        10 
-                    </div>
-                    <div id="plus" class="cal-btn grid-3">
-                        +
-                    </div>
-                </div>
-                
-            </div>
-            <div id="bonus" class="bonus grid-12 grid-md-6">
-                <h3>
-                    達成後可獲得的購物金，達成門檻的前 <span id="people2"> 10 </span> 人可獲得  
-                </h3>
-                <p>
-                    <span id="3_2Bonus">
-                        0
-                    </span>
-                    元購物金
-                </p>
-            </div>
-        </div>
+        
         <h1>選擇你想在此飯團加入的餐點</h1>
         <input type="checkbox" id="add-meal">
         <div class="addMeal-container clearfix">     
@@ -76,7 +46,7 @@
                         </div>
                         <div class="meal-title">
                             <div class="meal-score">
-                                AAAAA
+                                
                             </div>
                             <div class="title-wrapper" >
                                 <h3 id="meal01_name">燒烤鍋物組
@@ -104,7 +74,7 @@
                         </div>
                         <div class="meal-title">
                             <div class="meal-score">
-                                AAAAA
+                                 
                             </div>
                             <div class="title-wrapper" >
                                 <h3 id="meal01_name">素食餐01
@@ -131,7 +101,7 @@
                         </div>
                         <div class="meal-title">
                             <div class="meal-score">
-                                AAAAA
+                                 
                             </div>
                             <div class="title-wrapper" >
                                 <h3 id="meal01_name">燒烤鍋物組
@@ -158,7 +128,7 @@
                         </div>
                         <div class="meal-title">
                             <div class="meal-score">
-                                AAAAA
+                                 
                             </div>
                             <div class="title-wrapper" >
                                 <h3 id="meal01_name">燒烤鍋物組
@@ -185,7 +155,7 @@
                         </div>
                         <div class="meal-title">
                             <div class="meal-score">
-                                AAAAA
+                                 
                             </div>
                             <div class="title-wrapper" >
                                 <h3 id="meal01_name">燒烤鍋物組
@@ -243,12 +213,60 @@
                 </label>
             </div>
         </div>
+        <div class="settingThreshold-container grid-12 clearfix">
+            <h2>
+                設定此飯團的購物金人數門檻
+            </h2>
+            <div class="setting grid-12 grid-md-6 clearfix">
+                <h3>設定人數門檻(單位: 人)</h3>
+                <div class="settingArea">
+                    <div id="minus" class="plusAndMinus grid-3">
+                        -
+                    </div>
+                    <div id="people" class="grid-6 people">
+                        10 
+                    </div>
+                    <div id="plus" class="plusAndMinus grid-3">
+                        +
+                    </div>
+                </div>
+            </div>
+            <div id="bonus" class="bonus grid-12 grid-md-6">
+                <!-- <h3>
+                    達成後可獲得的購物金，達成門檻的前 <span id="people2"> 10 </span> 人可獲得  
+                </h3>
+                <p>
+                    <span id="3_2Bonus">
+                        0
+                    </span>
+                    元購物金
+                </p> -->
+                <div class="bonus-container grid-12 clearfix">
+                        <div class="grid-3">
+                            <div class="pic">
+                                <img src="asset/bonusIcon-05.svg" alt="bonus">
+                                <span class="bonus-coin">99</span>
+                            </div>
+                        </div>
+                        <div class="grid-9">
+                            <h3>達到後 前 
+                                <span class="people" id="people2">10</span>
+                                人每人可獲得:  
+                            </h3>
+                            <p>
+                                <span class="bonus" id="3_2Bonus">0</span>
+                                元購物金
+                            </p>
+                        </div>
+                </div>
+            </div>
+        </div>
         
         <div class="btn-container clearfix">
-            <div class="cancel-BTN" href="3-1_createGroupon_selectMeal.html">
+            <div class="cancelBTN" href="3-1_createGroupon_selectMeal.html">
                 回上一步
             </div>
-           <a class="check-BTN" href="3-3_createGroupon_createdList.html">
+           <a class="nextBTN" href="3-3_createGroupon_createdList.html">
                確認並繼續
            </a>
         </div>
