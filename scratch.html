@@ -20,18 +20,17 @@
   </div>
 </div>
 
-<a class="btnPOP" href="javascript::">開始刮刮樂</a>
+<a class="btnPOP" href="#">開始刮刮樂</a>
 
 <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
 <script type="text/javascript" src="https://jennamolby.com/scratch-and-win/js/wScratchPad.min.js"></script>
 
 <script type="text/javascript">
-
 var promoCode = '';
 var bg1 = 'images/ScrachPrice.png';
 var bg2 = 'images/ScrachPrice.png';
 var bg3 = 'images/40scrach.svg';
-var bgArray= [ bg1, bg2, bg3 ],
+var bgArray= [ bg1, bg2, bg3 ];
 selectBG = bgArray[Math.floor(Math.random() * bgArray.length)];
 if (selectBG == bg1) {
     promoCode = '購物金50元';
@@ -40,6 +39,7 @@ if (selectBG == bg1) {
   } if (selectBG == bg3) {
     var promoCode = '';
   }
+  
 $('#promo').wScratchPad({
     // the size of the eraser
     size        : 70,    
@@ -48,24 +48,28 @@ $('#promo').wScratchPad({
     // give real-time updates
     realtime    : true, 
     // The overlay images
-    fg: 'images/scrachBg.png',
+    // fg: 'images/scrachBg.png',
     // The cursor (coin) images
-    'cursor': 'url("https://jennamolby.com/scratch-and-win/images/coin1.png") 5 5, default',
+    'cursor': 'url("images/coin1.png") 5 5, default',
     
     scratchMove: function (e, percent) {
         // Show the plain-text promo code and call-to-action when the scratch area is 50% scratched
         if ((percent > 50) && (promoCode != '')) {
-          $('.promo-container').show();
+          console.log(percent);
+          if($('.promo-container')) {
+            $('.promo-container').show();
+          }
           $('body').removeClass('not-selectable');
           $('.promo-code').html('您的購物金: ' + promoCode);
         }
       }
  });
+
  document.querySelector('.btn').addEventListener('click',function(){
       document.querySelector('.promo-container').style.display = 'none';
+      document.querySelector('.scrach-card').removeChild(document.querySelector('.scrach-card').children[1]);
  });
 </script>
-      
-
+        
 </body>
 </html>

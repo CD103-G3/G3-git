@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>日食餐點</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" >
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-	<link rel="stylesheet" href="css/reset.css">
 	<link rel="stylesheet" href="css/dishes.css">
+	
 </head>
 <body>
 	<header>
@@ -67,7 +67,7 @@
 					<a href="javascript:void(0)">參加飯糰</a>
 				</li>
 				<li class="table_hidden"><a href="javascript:void(0)">會員中心</a></li>
-				<li class="table_hidden"><a href="javascript:void(0)">克服雞器人</a></li>
+				<li class="table_hidden"><a href="javascript:void(0)">客服雞器人</a></li>
 			</ul>
 		</nav>
 		<input type="checkbox" id="white_Point_control">
@@ -110,154 +110,176 @@
 		</label>
 	</header>
 
+	<!-- -----banner--- -->
+	<div class="food-banner">
+		<div class="food-main">
+			日食餐點
+		</div>
+	</div>
+
 	<div class="food-container">
-        <div class="food-search">
+		<div class="food-search">
 			<input type="text" id="input_search" maxlength="30" required>
 			<label for="input_search" class="input_pl">請輸入餐點關鍵字</label>
 			<button type="submit" id="start_search">搜尋<span class="search_img"></span></button>
         </div>
-        <div class="food-Banner part--12 part-sm-12">
-            <img id="elimg" src="images/noodle.jpg">
-            <canvas id="elcanvas"></canvas>
-            <div class="food-name">
-                <p>飲料</p>
-                <p>Drink</p>
-            </div>
-            <div class="menu-info">
-                <h2>非常快速輕鬆不容易失手的一道菜!</h2>
-                <h2>小朋友大人都很喜歡唷！</h2>
-            </div>
-        </div>
+        <div class="food-choose clearfix">
+            <div class="part--4 part-md-2">
+				
+				<img class="food-icon-lan" src="images/icon/lame.png" alt="">
 
-
-        <div class="food-choose">
-            <div class="part--4 part-sm-4  part-lg-4">
                 <div class="food-choose_item">
-                    <p>拉麵</p>
-                    <p>日本拉麵</p>
-                    <div class="food-choose_img">
-                	</div>
+                    <p data-rel="lan">拉麵</p>
                 </div>
             </div>
-            <div class="part--4 part-sm-4 part-lg-4">
+            <div class="part--4 part-md-2">
+			<img class="food-icon-don" src="images/icon/don.png" alt="">
                <div class="food-choose_item">
-                   	<p>井飯</p>
-                    <p>lorem</p>
-                    <div class="food-choose_img">
+                   	<p data-rel="don">井飯</p>
                 </div>
-               </div> 
-            </div> 
-            <div class="part--4 part-sm-4 part-lg-4">
+            </div>  
+            <div class="part--4 part-md-2">
+				<img class="food-icon-soup" src="images/icon/soup.png" alt="">
                 <div class="food-choose_item">
-                    <p>素食</p>
-                    <p>lorem</p>
-                    <div class="food-choose_img">
-                </div>
+                    <p data-rel="soup">鍋物</p>
                 </div>
             </div>
-			 <div class="rwd-dek part--4 part-sm-4 part-lg-4">
+			<div class="rwd-dek part--4 part-md-2">
+				<img class="food-icon-den" src="images/icon/denshyoku.png" alt="">
                 <div class="food-choose_item">
-                    <p>素食</p>
-                    <p>lorem</p>
-                    <div class="food-choose_img">
-                </div>
+                    <p data-rel="den">定食</p>
                 </div>
             </div>
-             <div class="rwd-dek part--4 part-sm-4 part-lg-4">
+            <div class="rwd-dek part--4 part-md-2">
+				<img class="food-icon-ban" src="images/icon/bandon.png" alt="">
                 <div class="food-choose_item">
-                    <p>素食</p>
-                    <p>lorem</p>
-                    <div class="food-choose_img">
-                </div>
+                    <p data-rel="ban">便當</p>
                 </div>
             </div>
-             <div class="rwd-dek part--4 part-sm-4 part-lg-4">
+            <div class="rwd-dek part--4 part-md-2">
+				<img class="food-icon-veb" src="images/icon/veget.png" alt="">
                 <div class="food-choose_item">
-                    <p>素食</p>
-                    <p>lorem</p>
-                    <div class="food-choose_img">
-                </div>
+                    <p data-rel="veb">素食</p>
                 </div>
             </div>
         </div>
+		
     </div>
-        
+    
+
+	<!-- 菜單一覽 -->
     <div class="food-container-2">
-            <!-- <div class="food-filiter">
-                <span class="spicy"><img src="images/icon7.png"/>很辣</span>
-                <span class="veget"><img src="images/vegetable.png">素食</span>
-            </div> -->
             <h1>菜色一覽</h1>  
-            <div class="food-content">
-            <div class="food-item  part--12 part-sm-6 part-md-4 part-lg-4">
+            <div class="food-content clearfix">
+            <div class="food-item  part--12 part-md-6 part-xl-3 scale-anm lan">
                 <div class="food-item-box">
-                    <div class="food-title">
-                        <h2>雞肉井飯</h2>
-                    </div>
                     <div class="food-pic">
-                        <img src="images/rice.png" alt="">
-                           
-                        <span class="food-zoom fas fa-search"></span>
-                        <span class="food-price">$35</span>
-                    </div>    
-                    
-                    <ul class="food-score">
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-						<li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-                    </ul>
+                        <img src="images/test.png" alt="">
+						<div class="bgimg">
+							<img src="images/lol.png" alt="">
+						</div>
+                    </div>
+					<div class="food-title">
+                        <h2>日式便當</h2>
+                    </div>
+					<div class="food-price">
+						<span>NT$ 65</span>
+					</div>
+                    <div class="food-score clearfix">
+						<div class="scoreEgg-container">
+							<ul>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="scoreW">
+									</div>
+								</li>
+							</ul>
+						</div>
+						<p>
+							<span class="scoreNum" id="grouponDetail_score">4.0</span>
+    					</p>
+					</div>
+
                     <div class="food-button clearfix">
-                        <div class="food-button-save">
+                        <div class="food-button-save mainBTN">
                             <span class="fas fa-heart"></span>
                             <p>收藏</p>  
                         </div>
                         <div class="food-button-buy">
                             <span class="fas fa-cart-plus"></span>
-                            <p>購買</p>
+                            <p>加入購物車</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="food-item  part--12 part-sm-6 part-md-4 part-lg-4">
+
+			<!-- 分區2 -->
+            <div class="food-item  part--12 part-md-6 part-xl-3 scale-anm lan">
                 <div class="food-item-box">
-                    <div class="food-title">
-                    <h2>雞肉井飯</h2>
-                </div>
                 <div class="food-pic">
-                    <img src="images/rice.png" alt="">
-                    <span class="food-zoom fas fa-search"></span>
-                    <span class="food-price">$35</span>
-                </div>    
-                
-                <ul class="food-score">
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-						<li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-                    </ul>
+                    <img src="images/test.png" alt="">
+                </div>
+				<div class="food-title">
+                    <h2>日式便當</h2>
+                </div>   
+                <div class="food-price">
+					<span>NT$ 65</span>
+				</div>
+                <div class="food-score clearfix">
+						<div class="scoreEgg-container">
+							<ul>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="scoreW">
+									</div>
+								</li>
+							</ul>
+						</div>
+						<p>
+							<span class="scoreNum" id="grouponDetail_score">4.0</span>
+    					</p>
+				</div>
+
                 <div class="food-button clearfix">
                     <div class="food-button-save">
                         <span class="fas fa-heart"></span>
@@ -265,39 +287,59 @@
                     </div>
                     <div class="food-button-buy">
                         <span class="fas fa-cart-plus"></span>
-                        <p>購買</p>
+                        <p>加入購物車</p>
                     </div>
                 </div>
                 </div>
             </div>
-            <div class="food-item  part--12 part-sm-6 part-md-4 part-lg-4">
+
+			<!-- 分區2 -->
+            <div class="food-item  part--12 part-md-6 part-xl-3 scale-anm lan">
                 <div class="food-item-box">
-                    <div class="food-title">
-                    <h2>雞肉井飯</h2>
-                </div>
+                   
                 <div class="food-pic">
-                    <img src="images/rice.png" alt="">
-                    <span class="food-zoom fas fa-search"></span>
-                    <span class="food-price">$35</span>
-                </div>    
-                
-                <ul class="food-score">
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-						<li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-                    </ul>
+                    <img src="images/test.png" alt="">
+                </div>
+				<div class="food-title">
+                    <h2>日式便當</h2>
+                </div>     
+                <div class="food-price">
+					<span>NT$ 65</span>
+				</div>
+                <div class="food-score clearfix">
+						<div class="scoreEgg-container">
+							<ul>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+									</div>
+								</li>
+								<li>
+									<div class="pic">
+										<img src="images/eggEmpty.svg" alt="scoreYes" class="scoreW">
+									</div>
+								</li>
+							</ul>
+						</div>
+						<p>
+							<span class="scoreNum" id="grouponDetail_score">4.0</span>
+    					</p>
+				</div>
                 <div class="food-button clearfix">
                     <div class="food-button-save">
                         <span class="fas fa-heart"></span>
@@ -305,49 +347,68 @@
                     </div>
                     <div class="food-button-buy">
                         <span class="fas fa-cart-plus"></span>
-                        <p>購買</p>
+                        <p>加入購物車</p>
                     </div>
                 </div>
                 </div>
             </div>
-            <div class="food-item  part--12 part-sm-6 part-md-4 part-lg-4">
+
+			<!-- 分區2 -->
+            <div class="food-item  part--12 part-md-6 part-xl-3 scale-anm lan">
                 <div class="food-item-box">
-                    <div class="food-title">
-                    <h2>雞肉井飯</h2>
-                </div>
-                <div class="food-pic">
-                    <img src="images/rice.png" alt="">
-                    <span class="food-zoom fas fa-search"></span>
-                    <span class="food-price">$35</span>
-                </div>    
-                
-                <ul class="food-score">
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggFull.png" alt="">
-						</li>
-                        <li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-						<li class="egg">
-							<img src="images/eggEmpty.png" alt="">
-						</li>
-                    </ul>
-                <div class="food-button clearfix">
-                    <div class="food-button-save">
-                        <span class="fas fa-heart"></span>
-                        <p>收藏</p>  
-                    </div>
-                    <div class="food-button-buy">
-                        <span class="fas fa-cart-plus"></span>
-                        <p>購買</p>
-                    </div>
-                </div>
+					<div class="food-pic">
+						<img src="images/test.png" alt="">
+					</div>
+					<div class="food-title">
+                    	<h2>日式便當</h2>
+                	</div>   
+					<div class="food-price">
+						<span>NT$ 65</span>
+					</div>
+					<div class="food-score clearfix">
+							<div class="scoreEgg-container">
+								<ul>
+									<li>
+										<div class="pic">
+											<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+										</div>
+									</li>
+									<li>
+										<div class="pic">
+											<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+										</div>
+									</li>
+									<li>
+										<div class="pic">
+											<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+										</div>
+									</li>
+									<li>
+										<div class="pic">
+											<img src="images/eggEmpty.svg" alt="scoreYes" class="score">
+										</div>
+									</li>
+									<li>
+										<div class="pic">
+											<img src="images/eggEmpty.svg" alt="scoreYes" class="scoreW">
+										</div>
+									</li>
+								</ul>
+							</div>
+							<p>
+								<span class="scoreNum" id="grouponDetail_score">4.0</span>
+							</p>
+					</div>
+					<div class="food-button clearfix">
+						<div class="food-button-save">
+							<span class="fas fa-heart"></span>
+							<p>收藏</p>  
+						</div>
+						<div class="food-button-buy">
+							<span class="fas fa-cart-plus"></span>
+							<p>加入購物車</p>
+						</div>
+					</div>
                 </div>
             </div>
         </div>
@@ -378,6 +439,19 @@
 		}
 
 	</script>
-    <script src="js/puzzle.js"></script>
+	
+    <script src="js/puzzle.js"></script> 
+	<script src="js/filiter.js"></script>
+	<script>
+		$(function() {
+		
+
+			$('.food-choose .food-choose_item').click(function(){
+
+					$('.food-choose .food-choose_item').addClass('clickMe');
+					$('.food-choose .food-choose_item').not(this).removeClass('clickMe');
+			});
+		});
+	</script>
 </body>
 </html>
