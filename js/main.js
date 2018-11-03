@@ -9,10 +9,6 @@ function $all(all) {
 }
 function randomOneNum(min, max) {
     var length = max - min+1;
-    // var arr = [];
-    // for(let i in length) {
-    //     arr.push(min+1);
-    // }
     var rand = min + Math.floor(Math.random() * length)
     return rand;
 }
@@ -171,6 +167,21 @@ function init() {
         }
     }
     
+    //3-4
+    if($all('.create3_4').length > 0) {
+        $id('copyCode').onclick = function() {
+            //複製code in input
+            var copyTxt = $id('groupon_shareCode');
+            copyTxt.select();
+            document.execCommand('copy');
+            $all('.hint')[1].style.display = 'block';
+            // 2秒後變display none
+            setTimeout(function() {
+                $all('.hint')[1].style.display = 'none';
+            }, 2000);
+        };
+        animate3_4();
+    }
     
     //add meal function
     var addThisMeal_btn = document.getElementsByClassName('addThis');
@@ -182,7 +193,24 @@ function init() {
         for(let i in $class('meal-box')) {
             $class('meal-box')[i].onclick = addToMenu;
         }
+        $id('checkChangBTN').onclick = displayPopUp5_1;
+        $id('cancelChangBTN').onclick = displayPopUp5_1;
+        $id('checkChange-container_bg').onclick = displayPopUp5_1;
 
+        $all('.changePage').forEach(function(pageBTN,w) {
+            // console.log(pageBTN);
+            // console.log(w);
+            pageBTN.onclick = function() {
+                $all('.changePage').forEach(function(e) {
+                    e.className = 'changePage';
+                });
+                this.className += ' active';
+                $all('.changePage_container').forEach(function(e) {
+                    e.style.display = 'none';
+                })
+                $all('.changePage_container')[w].style.display = 'block';
+            };
+        });
     }
 
     //6-1
@@ -549,6 +577,45 @@ function getScoreEgg(e) {
     // console.log(score);
 
 }
+// 3-4 tweenMax
+function animate3_4() {
+    var tl = new TimelineMax();
+     // tl.fromTo('.fork', 1,{},{});
+
+    tl.fromTo('.maxWidthWrapper',1.5, {
+        opacity: 0.5,
+        y: -1111,
+    },{
+        opacity: 1,
+        y: 0,
+        ease: Circ.easeOut,
+    });
+
+    tl.fromTo('.fork', 1,{
+        opacity: 0,
+        x: -100,
+    },{
+        opacity: 1,
+        x: 20,
+    });
+
+    tl.fromTo('.spoon', 1,{
+        opacity: 0,
+        x: 100,
+    },{
+        opacity: 1,
+        x: -20,
+    }, '-=1');
+
+    tl.fromTo('.shareInfo-wrapper', .7,{
+        opacity: 0,
+        scale: 1.3,
+    },{
+        opacity: 1,
+        scale: 1,
+    });
+
+}
 
 // 6-3 tweenMax
 function anime6_3() {
@@ -687,5 +754,19 @@ function addToMenu(e) {
 
     // 尚無餐點的顯示
     noMeal();
+}
+
+function displayPopUp5_1() {
+    var bgStyle = $id('checkChange-container_bg').style;
+    var popStyle = $id('popUpChange').style;
+    if(popStyle.display == 'block') {
+        popStyle.display = 'none';
+        bgStyle.left = '-10000px';
+        bgStyle.opacity = 0;
+    } else {
+        $id('popUpChange').style.display = 'block';
+        bgStyle.left = '0px';
+        bgStyle.opacity = 1;
+    }
 }
 window.addEventListener('load',init);

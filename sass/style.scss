@@ -75,11 +75,34 @@ h2{
 @include picSetting;
 
 
-
+.woodTemp {
+    position: relative;
+    background-image: url('../asset/woodTemplate-01.png');
+    // background-color: #aaa;
+    background-position: center;
+    // background-size: cover;
+    background-size: auto 160%;
+    padding: $pd;
+    color: #fff;
+    overflow: hidden;
+    // font-weight: 600;
+    box-shadow: 0px 10px 0px $color_main2;
+    @include rwdSys(pad) {
+        padding: $pd *10;
+        padding-top: 0px;;
+        padding-bottom: $pd *2;
+        margin-bottom: 20px;
+        border-radius: 20px;
+    }
+}
 .step-wrapper {
     max-width: 800px;
     text-align: center;
     margin: auto;
+    background-image: url('../asset/woodTemplate-02.png');
+    background-size: auto 132%;
+    background-position: center;
+    color: #fff;
     li {
        span {
             position: relative;
@@ -91,6 +114,7 @@ h2{
             border-radius: $BR;
             background-color: #fff;
             color: $color_main2;
+            // color: #fff;
             border: 2px solid $color_main2;
             font-size: $fontSize_M;
             font-weight: 600;
@@ -109,8 +133,9 @@ h2{
                 right: 0;
                 width: 35vw;
                 max-width: 300px;
-                height: 2px;
-                background-color: $color_main2;
+                height: 4px;
+                // background-color: $color_main2;
+                background-color: #fff;
             }
         }  
     }
@@ -121,17 +146,19 @@ h2{
     margin: 100px auto 0px;
     padding: 50px;
     border-radius: 50px;
-    @include border(2px, $color_main1);
+    // @include border(2px, $color_main1);
+    @include border(2px, #fff);
     h2 {
-        display: inline;
+        // display: inline;
         position: absolute;
-        top: -30px;
+        top: -40px;
         left: 0;
         right: 0;
         width: 300px;
         margin: auto;
         padding: 10px;
-        background-color: #fff;
+        color: #fff;
+        // background-color: #fff;
     }
     .element-day {
         margin: auto;
@@ -145,7 +172,7 @@ h2{
             @include square(80px, #fff, $color_main2) {
                 display: inline-block;
                 font-size: $fontSize_text;
-                @include border(2px, $color_main2);
+                // @include border(2px, $color_main2);
                 border-radius: 10px;
                 margin: 4px;
             };
@@ -167,17 +194,19 @@ h2{
     margin: 100px auto 0px;
     padding: 50px;
     border-radius: 50px;
-    @include border(2px, $color_main1);
+    // @include border(2px, $color_main1);
+    @include border(2px, #fff);
     h2 {
         display: inline;
         position: absolute;
-        top: -30px;
+        top: -42px;
         left: 0;
         right: 0;
         width: 400px;
         margin: auto;
         padding: 10px;
-        background-color: #fff;
+        color: #fff;
+        // background-color: #fff;
     }
     h3 {
         margin-left: 20px;
@@ -191,7 +220,7 @@ h2{
         font-size: $fontSize_S;
         font-family: $fmy;
         text-align: center;
-        
+        border: none;
         &:focus + .hint {
             opacity: .8;
             color: #fff;
@@ -223,10 +252,11 @@ h2{
         width: calc(100% - 40px);
         margin: 20px;
         font-size: $fontSize_S;
+        border: none;
     }
 }
 .btn-container {
-    margin: 60px auto 100px;
+    margin: 60px auto 50px;
     text-align: center;
     font-size: 0;
     @include nextAndCancel-BTN(240px);
@@ -248,6 +278,11 @@ h2{
     border: 3px solid $color_main2;
     border-top: 20px solid $color_main4;
     border-radius: 30px;
+    // background-image: url('../asset/woodTemplate-01.png');
+    // background-color: #aaa;
+    background-position: center;
+    // background-size: cover;
+    // background-size: auto 160%;
     .setting {
         margin: 20px 0;
         padding: 20px;
@@ -290,16 +325,21 @@ h2{
 #people2 {
     font-size: $fontSize_M;
 }
+.woodTemp.create3_2 {
+    padding: $pd;
+}
 .addMeal-container {
     position: relative;
     padding: 30px;
     border-radius: 30px;
     // background-color: $color_main4;
-    background-image: url("../asset/natural-wooden-paneling-texture.jpg");
+    // background-image: url("../asset/natural-wooden-paneling-texture.jpg");
     background-size: cover;
     background-position: center;
     // background-color: #ddd;
     // @include border(2px, $color_main4);
+    
+    color: $color_main2;
     .checkMeal-btn {
         margin: 10px auto;
         @include btn(160px, dark);
@@ -562,7 +602,8 @@ h2{
 
 // 3-3----------------------------------------------
 .createdList-wrapper {
-    margin-top: 160px;
+    margin-top: 20px;
+    color: $color_main2;
     @include roundBorder(3, 3px, $color_main1);
     h1 {
         background-color: $color_main1;
@@ -591,8 +632,9 @@ h2{
 }
 .selectedDetail-container {
     padding: $pd *2;
+    
     .selectedDetail {
-        // background-color: #ddd;
+        background-color: #fff;
         padding: $pd *2;
         @include roundBorder(3, 3px, $color_main1);
         box-shadow: 0px 0px 20px rgba(65, 65, 65, 0.418);
@@ -691,6 +733,9 @@ h2{
         }
     }
 }
+
+
+
 // 4-1----------------------------
 
 //分頁頁籤
@@ -1073,6 +1118,7 @@ h2{
         }
     }
 }
+// page-1
 .changeMeal-container {
     position: relative;
     text-align: center;
@@ -1145,7 +1191,71 @@ h2{
         }
     }
 }
-
+//popUpWindow
+.checkChange-container {
+    @include centerABS {
+        position: fixed;
+        z-index: 2;
+        height: auto;
+        top: 60px;
+    };
+    display: none;
+    max-width: 400px;
+    width: 100%;
+    // border: 2px solid $color_main2;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 6px 6px 20px rgba(73, 73, 73, 0.295);
+    overflow: hidden;
+    h2 {
+        padding: $pd;
+        font-size: $fontSize_S;
+    }
+    table {
+        width: 100%;
+        // text-align: center;
+        text-align: left;
+        
+        th,td {
+            padding: $pd;
+        }
+        th {
+            border-bottom: 1px solid #aaa;
+            padding: $pd * 2;
+            padding-left: $pd * 6;
+            color: #777;
+        }
+        td {
+            font-size: $fontSize_S;
+            font-weight: 900;
+            padding-left: $pd * 6;
+        }
+        .method {
+            padding-top: $pd * 3;
+            padding-left: 0;
+            color: #aaa;
+            text-align: center;
+        }
+    }
+    .btn-container {
+        margin: 20px 0 10px;
+        .nextBTN, .cancelBTN {
+            width: calc(50% - 20px);
+        }
+    }
+}
+#checkChange-container_bg {
+    @include centerABS(100%, 100vh) {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -10000px;
+        opacity: 0;
+        transition: opacity .4s;
+    };
+    // display: none;
+    background-color: rgba(17, 17, 17, 0.452);
+}
 
 
 
@@ -1173,7 +1283,7 @@ h2{
         // height: 100%;
         padding: $pd *1;
         background-color: $color_main2;
-        box-shadow: 0px 6px 20px #ccc;
+        box-shadow: 0px 6px 20px rgba(105, 105, 105, 0.562);
         h2 {
             color: #fff;
             text-align: left;
@@ -1750,7 +1860,6 @@ h2{
                     }
                 }
             }
-            
         }
     }
     .chickPic {
@@ -1783,9 +1892,11 @@ h2{
             height: auto;
             background-color: #fff;
             border: 3px solid $color_main1;
+            padding-left: 0px;
             @include rwdSys(pad) {
                 height: 520px;
                 margin: -60px -20px auto 0;
+                padding-left: 60px;
                 background-color: transparent;
                 border: none;
                 background-image: url("../asset/tableCloth_and_curryRice-02.png");
@@ -1856,6 +1967,155 @@ h2{
         }
     } 
 }
+
+// 3-4----------------------------
+.step-wrapper.create3_4 {
+    position: relative;
+    padding: $pd * 2;
+    margin-top: 200px;
+    background-size: cover;
+    .forkSpoonSucc-container {
+        position: absolute;
+        top: -140px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        text-align: center;
+        .fork, .spoon {
+            width: 50px;
+            display: inline-block;
+            filter: invert(0.2);
+        }
+        .fork {
+            transform: rotate(45deg) translateX(30px);
+        }
+        .spoon {
+            transform: rotate(-45deg) translateX(-30px);
+        }
+    }
+}
+.woodTemp.create3_4 {
+    // background-size: auto;
+    padding: 10px;
+    @include rwdSys(PC) {
+        padding: 0px  $pd * 10;
+    }
+    .grouponTitle-wrapper {
+        max-width: 960px;
+        width: 100%;
+        margin-bottom: 30px;
+        @include rwdSys(PC) {
+            margin: 30px auto;
+        }      
+        .userInfo-wrapper {
+            display: none;
+            @include rwdSys(PC) {
+               display: block;
+            }
+        }
+        .grouponUser {
+            color: #fff;
+        }
+    }
+    .shareInfo-wrapper {
+        h2 {
+            font-size: $fontSize_L;
+            font-weight: bolder;
+            // max-width: 500px;
+            margin: auto;
+            padding: $pd;
+            // color: #fff;
+            color: $color_main2;
+            // border-bottom: 5px solid #fff;
+            background-color: #fff;
+            border-radius: 10px;
+        }
+        h2 + p {
+            padding: $pd * 2;
+            text-align: center;
+            border-bottom: 1px solid #fff;
+        }
+        h3 {
+            font-size: $fontSize_M;
+            font-weight: bolder;
+            @include textPD($pd*2);
+        }
+        h3 + p {
+            @include textPD($pd*1);
+        }
+        h3 + span {
+            display: inline-block;
+            @include textPD($pd*1);
+        }
+        .shareInfo-wrapper {
+            max-width: 660px;
+            margin: 60px auto;
+            line-height: 1.6;
+        }
+        .QRcode, .shareCode {
+            margin-bottom: 20px;
+            text-align: center;
+            @include rwdSys(PC) {
+                text-align: left;
+            }
+        }
+        .QR-container {
+            width: 160px;
+            height: 160px;
+            margin: auto;
+            border-radius: 10px;
+            overflow: hidden;
+            @include rwdSys(PC) {
+                margin-left: 0px;
+            }
+        }
+        .codeHere {
+            position: relative;
+            display: flex;
+            align-items: center;
+            
+            padding: 10px 0;
+            border: 2px solid #fff;
+            border-radius: 6px;
+            .hint {
+                display: none;
+                @include hint(200px, 60px, $color_txt) {
+                    top: 70px;
+                }
+                animation: fadeOut 2s forwards 1;
+            }
+        }
+        #groupon_shareCode {
+            // width: 80%;
+            // margin: 30px auto;
+            padding-left: $pd;
+            font-size: $fontSize_S;
+            background-color: transparent;
+            border: none;
+            color: #fff;
+            &+span {
+                cursor: pointer;
+                border-left: 1px solid #fff;
+                &:hover {
+                    color: $color_main2;
+                }
+            }
+        }
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
 
 //通用按鈕設定
 @include nextAndCancel-BTN(120px);
