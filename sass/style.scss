@@ -28,6 +28,7 @@ $pd: 10px;
 }
 button {
     border: none;
+    cursor: pointer;
 }
 body {
     font-family: $fmy;
@@ -256,10 +257,19 @@ h2{
     }
 }
 .btn-container {
+    margin: 20px 0 10px;
+    
+}
+.btn-container {
     margin: 60px auto 50px;
     text-align: center;
     font-size: 0;
-    @include nextAndCancel-BTN(240px);
+    .nextBTN, .cancelBTN {
+        width: calc(50% - 20px);
+    }
+    @include rwdSys(pad) {
+        @include nextAndCancel-BTN(240px);
+    }
 }
 
 // 3-2----------------------------------------------
@@ -267,22 +277,18 @@ h2{
 
 .settingThreshold-container {
     // max-width: 960px;
-    @include rwdSys(pad) {
-        margin: 60px auto;
-    }
-    width: calc(100% - 120px);
     float: none;
-    margin: 60px;
-    padding: 30px;
-    // background-color: $color_main2;
+    margin: 30px 0px 0px;
+    padding: $pd;
     border: 3px solid $color_main2;
     border-top: 20px solid $color_main4;
     border-radius: 30px;
-    // background-image: url('../asset/woodTemplate-01.png');
-    // background-color: #aaa;
     background-position: center;
-    // background-size: cover;
-    // background-size: auto 160%;
+    @include rwdSys(pad) {
+        width: calc(100% - 120px);
+        margin: 60px auto;
+        padding: $pd * 3;
+    }
     .setting {
         margin: 20px 0;
         padding: 20px;
@@ -303,11 +309,21 @@ h2{
         color: $color_hot;
         text-align: center;
         p {
-            padding: 40px;
+            // padding: 40px;
             span {
                 font-size: $fontSize_XL; 
                 font-weight: 600;   
             }
+        }
+        .pic {
+            position: relative;
+        }
+        .bonus-coin {
+            display: block;
+            @include coverTextBG(#fff) {
+                font-weight: 900;
+            };
+            font-size: $fontSize_L;
         }
     }
     
@@ -330,7 +346,7 @@ h2{
 }
 .addMeal-container {
     position: relative;
-    padding: 30px;
+    
     border-radius: 30px;
     // background-color: $color_main4;
     // background-image: url("../asset/natural-wooden-paneling-texture.jpg");
@@ -338,7 +354,6 @@ h2{
     background-position: center;
     // background-color: #ddd;
     // @include border(2px, $color_main4);
-    
     color: $color_main2;
     .checkMeal-btn {
         margin: 10px auto;
@@ -346,8 +361,7 @@ h2{
     }
     @include rwdSys(pad) {
         width: 90%;
-    }
-    @include rwdSys(pad) {
+        padding: 30px;
         .checkMeal-btn {display: none;}
     }
     .checkMeal-bg {
@@ -596,9 +610,9 @@ h2{
             content: '點此增加餐點';
             font-size: $fontSize_text;
         }
-        
     }
 }
+
 
 // 3-3----------------------------------------------
 .createdList-wrapper {
@@ -626,6 +640,10 @@ h2{
             .addedMeal-wrapper {
                 height: 536px;
                 overflow-y: scroll;
+                text-align: center;
+                @include rwdSys(pad) {
+                    text-align: left;
+                }
             }
         }
     }
@@ -708,9 +726,10 @@ h2{
                 position: relative;
             }
             .bonus-coin {
+                font-size: $fontSize_L;
                 display: block;
                 @include coverTextBG(#fff) {
-                    font-size: $fontSize_L;
+                    
                     font-weight: 900;
                 };
             }
@@ -870,7 +889,7 @@ h2{
                 height: 136px;
                 margin: auto;
                 .circleDisplay {
-                    @include pieChart(136px, $color_main1, $color_main2, 6px, 48/50*360);
+                    @include pieChar(136px, $color_main1, $color_main2, 6px, 0);
                     // background-color: #fff
                 }
             }
@@ -975,10 +994,12 @@ h2{
 }
 .groupon_bottomUI {
     // background-color: #aaa;
+    display: flex;
+    align-items: center;
     border-top: 1px solid $color_main2;
     border-bottom: 16px solid $color_main2;
     border-radius: 0 0 26px 26px ;
-    padding: $pd *2;
+    padding: $pd *1;
     line-height: 1.6;
     .mealAndKcal {
         font-size: $fontSize_S;
@@ -1012,7 +1033,6 @@ h2{
         }
         @include sub-BTN(240px);
     }
-    
 }
 .almostSucc-icon {
     position: absolute;
@@ -1030,6 +1050,55 @@ h2{
     font-weight: 800;
     background-color: $color_main2;
     transform: rotate(-15deg);
+}
+
+// 用代碼找飯團
+@include popUp('.search-BTN-bg', '#search-BTN4_1', '.search-container', '.searchGroupon-wrapper');
+.searchGroupon-wrapper {
+    position: relative;
+    max-width: 1080px;
+    // height: 20px;
+    margin: auto;
+    .search4_1 {
+        position: absolute;
+        z-index: 3;
+        top: 20px;
+        right: 0px;
+        left: auto;
+        background-color: $color_main4;
+        &:active {
+            top: 23px;
+        }
+    }
+    .search-container {
+        position: absolute;
+        z-index: 4;
+        top: 80px;
+        right: 0px;
+        // left: auto;
+        // max-width: 300px;
+        padding: $pd *2;
+        line-height: 1.6;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 10px;
+        p {
+            padding-bottom: $pd * 3;
+        }
+        input, button {
+            border-radius: 3000px;
+            border: none;
+            border: 2px solid $color_main2;
+            padding: $pd;
+        }
+        button {
+            background-color: $color_main2;
+            color: #fff;
+        }
+    }
+}
+#search-BTN4_1:checked + .searchGroupon-wrapper .search-container {
+    left: auto;
 }
 
 //5-1---------------------------------------
@@ -1164,7 +1233,10 @@ h2{
             border-bottom: 2px dashed $color_main2;
         }
         .meal-container {
-            text-align: left;
+            // text-align: left;
+            @include rwdSys(pad) {
+                text-align: left;
+            }
             .meal-box {
                 &:hover {
                     border-color: $color_main2;
@@ -1210,6 +1282,8 @@ h2{
     h2 {
         padding: $pd;
         font-size: $fontSize_S;
+        background-color: $color_main2;
+        color: #fff;
     }
     table {
         width: 100%;
@@ -1231,19 +1305,20 @@ h2{
             padding-left: $pd * 6;
         }
         .method {
-            padding-top: $pd * 3;
-            padding-left: 0;
+            padding: $pd * 5 0px $pd * 2;
+            // padding-left: 0;
             color: #aaa;
             text-align: center;
         }
     }
     .btn-container {
-        margin: 20px 0 10px;
-        .nextBTN, .cancelBTN {
+        margin: 0px 0px 10px;
+        .cancelBTN, .nextBTN {
             width: calc(50% - 20px);
         }
     }
 }
+
 #checkChange-container_bg {
     @include centerABS(100%, 100vh) {
         position: fixed;
@@ -1256,7 +1331,24 @@ h2{
     // display: none;
     background-color: rgba(17, 17, 17, 0.452);
 }
-
+.changePage_container {
+    &:nth-child(n+2) {
+        display: none;
+    }
+    .share-wrapper {
+        padding: $pd;
+        .shareGroupon-BTN {
+            margin: 10px $pd;
+        }
+        .shareInfo-container {
+            top: -300px;
+            @include rwdSys(pad) {
+                position: fixed;
+                top: 100px;
+            }
+        }
+    }
+}
 
 
 
@@ -1423,10 +1515,19 @@ h2{
         transform: rotate(-15deg);
     }
 }
-.grouponDatail-container {
+.grouponDetail-container {
     // overflow: hidden;
     margin-top: 200px;
     padding: $pd;
+    .bonus-wrapper {
+        padding-left: 0px;
+        @include rwdSys(pad) {
+            padding-left: 60px;
+        }
+        .almostSucc-icon {
+            left: -40px;
+        }
+    }
     .mealDetail-wrapper {
         .meal-count {
             @include textPD($pd * 3);
@@ -1560,19 +1661,63 @@ h2{
             }
         }
     }
-    .share-wrapper {
-        text-align: center;
-        padding: $pd *3;
-        .shareGroupon-BTN {
-            margin: auto;
-            @include btn(200px) {
-                border: 3px solid $color_main2;
-                background-color: #fff;
-                color: $color_main2;
-                font-weight: 900;
-            };
+}
+.share-wrapper {
+    position: relative;
+    text-align: center;
+    padding: $pd *3;
+    .shareInfo-container {
+        @include centerABS() {
+            z-index: 3;
+            top: 90px;
+            width: auto;
+            max-width: 600px;
+            height: auto;
+            border: 4px solid $color_main4;
+            background-color: #fff;
+            box-shadow: 0px 6px 20px rgba(51, 51, 51, 0.377);
+            border-radius: 30px;
+        }
+        h2 {
+            border-radius: 30px; 
+        }
+        .shareInfo-wrapper .shareInfo-wrapper {
+            margin: 0px auto 0px;
+            padding: $pd;
+            border-top: 2px solid #ddd;
+            .codeHere {
+                border-color: $color_main2;
+            }
+            #groupon_shareCode {
+                color: $color_txt;
+            }
         }
     }
+}
+.shareFB-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid $color_main2;
+    background-color: $color_bonus;
+    border-radius: 0px 0px 20px 20px;
+    span {
+        padding: 0px $pd;
+    }
+    padding: $pd * 2;
+}
+@include popUp('.share6_1-bg', '#share6_1', '.shareInfo-container', '.share-wrapper');
+
+@include popUp('.share5_1-bg', '#share5_1', '.shareInfo-container', '.share-wrapper');
+
+.shareGroupon-BTN {
+    margin: auto;
+    @include btn(200px) {
+        border: 3px solid $color_main2;
+        background-color: #fff;
+        color: $color_main2;
+        font-weight: 900;
+    };
 }
 .recommendGroupon-wrapper {
     max-width: 1200px;
@@ -1594,10 +1739,16 @@ h2{
         @include rwdSys(pad) {
             width: 500px;
         }
-        
-        margin-top: 110px;
+        // margin-top: 110px;
         border: 3px solid $color_main2;
         border-radius: 30px;
+        .groupon_bottomUI {
+            display: block;
+            .btn-container {
+                margin: 20px auto 0px;
+                text-align: center;
+            }
+        }
     }
     .meal-box {
         width: 120px;
@@ -1805,6 +1956,7 @@ h2{
         position: relative;
         margin: 100px auto;
         background-image: url(../asset/tableCloth_and_curryRice_03.png);
+        background-position: center;
         // background-color: #fff;
         // box-shadow: 0px 0px 20px #aaa;
         &:before {
@@ -1864,7 +2016,10 @@ h2{
     }
     .chickPic {
         @include centerABS(200px, auto) {
-            top: -60px;
+            top: -104px;
+            @include rwdSys(pad) {
+                top: -60px;
+            }
         };
     }
     .fork, .spoon {
@@ -1884,6 +2039,11 @@ h2{
             margin-top: 0px;
             color: #fff;
         }
+        .userInfo-wrapper {
+            span {
+                color: #fff;
+            }
+        }
     }
     .grouponSimpleInfo-wrapper {
         margin-top: 120px;
@@ -1897,13 +2057,12 @@ h2{
                 height: 520px;
                 margin: -60px -20px auto 0;
                 padding-left: 60px;
+                padding-right: 60px;
                 background-color: transparent;
                 border: none;
                 background-image: url("../asset/tableCloth_and_curryRice-02.png");
             }
-            
             padding-right: $pd * 3;
-            
             // border-radius: 30px;
             color: $color_main2;
             background-repeat: no-repeat;
@@ -2017,88 +2176,89 @@ h2{
             color: #fff;
         }
     }
+    
+}
+.shareInfo-wrapper {
+    h2 {
+        font-size: $fontSize_L;
+        font-weight: bolder;
+        // max-width: 500px;
+        margin: auto;
+        padding: $pd;
+        // color: #fff;
+        color: $color_main2;
+        // border-bottom: 5px solid #fff;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+    h2 + p {
+        padding: $pd * 2;
+        text-align: center;
+        border-bottom: 1px solid #fff;
+    }
+    h3 {
+        font-size: $fontSize_M;
+        font-weight: bolder;
+        @include textPD($pd*2);
+    }
+    h3 + p {
+        @include textPD($pd*1);
+    }
+    h3 + span {
+        display: inline-block;
+        @include textPD($pd*1);
+    }
     .shareInfo-wrapper {
-        h2 {
-            font-size: $fontSize_L;
-            font-weight: bolder;
-            // max-width: 500px;
-            margin: auto;
-            padding: $pd;
-            // color: #fff;
-            color: $color_main2;
-            // border-bottom: 5px solid #fff;
-            background-color: #fff;
-            border-radius: 10px;
+        max-width: 660px;
+        margin: 60px auto;
+        line-height: 1.6;
+    }
+    .QRcode, .shareCode {
+        margin-bottom: 20px;
+        text-align: center;
+        @include rwdSys(PC) {
+            text-align: left;
         }
-        h2 + p {
-            padding: $pd * 2;
-            text-align: center;
-            border-bottom: 1px solid #fff;
+    }
+    .QR-container {
+        width: 160px;
+        height: 160px;
+        margin: auto;
+        border-radius: 10px;
+        overflow: hidden;
+        @include rwdSys(PC) {
+            margin-left: 0px;
         }
-        h3 {
-            font-size: $fontSize_M;
-            font-weight: bolder;
-            @include textPD($pd*2);
-        }
-        h3 + p {
-            @include textPD($pd*1);
-        }
-        h3 + span {
-            display: inline-block;
-            @include textPD($pd*1);
-        }
-        .shareInfo-wrapper {
-            max-width: 660px;
-            margin: 60px auto;
-            line-height: 1.6;
-        }
-        .QRcode, .shareCode {
-            margin-bottom: 20px;
-            text-align: center;
-            @include rwdSys(PC) {
-                text-align: left;
+    }
+    .codeHere {
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        padding: 10px 0;
+        border: 2px solid #fff;
+        border-radius: 6px;
+        .hint {
+            display: none;
+            @include hint(200px, 60px, $color_txt) {
+                top: 70px;
             }
+            animation: fadeOut 2s forwards 1;
         }
-        .QR-container {
-            width: 160px;
-            height: 160px;
-            margin: auto;
-            border-radius: 10px;
-            overflow: hidden;
-            @include rwdSys(PC) {
-                margin-left: 0px;
-            }
-        }
-        .codeHere {
-            position: relative;
-            display: flex;
-            align-items: center;
-            
-            padding: 10px 0;
-            border: 2px solid #fff;
-            border-radius: 6px;
-            .hint {
-                display: none;
-                @include hint(200px, 60px, $color_txt) {
-                    top: 70px;
-                }
-                animation: fadeOut 2s forwards 1;
-            }
-        }
-        #groupon_shareCode {
-            // width: 80%;
-            // margin: 30px auto;
-            padding-left: $pd;
-            font-size: $fontSize_S;
-            background-color: transparent;
-            border: none;
-            color: #fff;
-            &+span {
-                cursor: pointer;
-                border-left: 1px solid #fff;
-                &:hover {
-                    color: $color_main2;
-                }
+    }
+    #groupon_shareCode {
+        // width: 80%;
+        // margin: 30px auto;
+        padding-left: $pd;
+        font-size: $fontSize_S;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        &+span {
+            cursor: pointer;
+            border-left: 1px solid #fff;
+            &:hover {
+                color: $color_main2;
             }
         }
     }

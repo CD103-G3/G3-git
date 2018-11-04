@@ -325,31 +325,68 @@ $lgPC: 1200px;
     @content;
 };
 
-@mixin pieChart($w:100px, $c1:#111, $c2:#fff, $bw: 6px , $deg: 45) {
+@mixin pieChar($w:100px, $c1:#111, $c2:#fff, $bw: 6px , $deg: 45) {
     position: relative;
     width: $w;
     height: $w;
     background: $c2;
     background-image: linear-gradient(to right, transparent 50%, $c1 0);
     border-radius: 1000px;
-    &:before {
+    & :nth-child(1) {
         @include BfAf;
         margin-left: 50%;
         height: 100%;
-        background: $c2;
+        background-color: $c2;
         @if($deg > 180 ) {
-            background: $c1;
-            // $deg: $deg-180;
             $deg180: $deg - 180;
+            // @keyframes rotate1 {
+            //     0% {
+            //         transform: rotate(0deg);
+            //         background: $c2;
+            //     }
+            //     50% {
+            //         transform: rotate(180deg);
+            //         background: $c2;
+            //     }
+            //     51% {
+            //         transform: rotate(0deg);
+            //         background: $c1;
+            //     }
+            //     100% {
+            //         transform: rotate($deg180);
+            //         background: $c1;
+            //     }
+            // }
+            // @keyframes rotate2 {
+            //     0% {
+            //         transform: rotate(0deg);
+            //         background: $c1;
+            //     }
+            //     100% {
+            //         transform: rotate($deg180);
+            //         background: $c1;
+            //     }
+            // }
+            background-color: $c1;
             transform: rotate(#{$deg180}deg);
+            // animation: rotate1 1.5s linear 1 forwards;
+            // animation: rotate2  2.5s 2.5s 1 forwards;
         } @else {
+            @keyframes rotate {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate($deg);
+                }
+            }
             transform: rotate(#{$deg}deg);
+            // animation: rotate 1.5s 1;
         }
         border-radius: 0 100% 100% 0/50%;
         transform-origin: left;
-        
     }
-    &:after {
+    & :nth-child(2) {
         @include BfAf;
         width: $w - ($bw*2);
         height: $w - ($bw*2);
@@ -359,6 +396,7 @@ $lgPC: 1200px;
         background-color: #fff;
         border-radius: 100%;
     }
+    
 }
 @mixin centerABS($w:100px, $h:30px, $t:0px) {
     @include BfAf;
@@ -397,4 +435,48 @@ $lgPC: 1200px;
     }
 }
 
-// @mixin 
+@mixin popUp($bg:null, $btn:null, $el:null ,$container:null, $transi: 0.3s) {
+    //gray background
+    #{$container} #{$el} {
+        opacity: 0;
+        left: -10000px;
+        transition: opacity $transi;
+    }
+    #{$bg} {
+        opacity: 0;
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        left: -10000px;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(70, 70, 70, 0.281);
+        transition: opacity $transi;
+    }
+    //checkbox btn
+    #{$btn} { 
+        display: none; 
+        &:checked {
+            &+#{$container} #{$el} {
+                opacity: 1;
+                left: 0;
+                transition: opacity $transi;
+            }
+            &+#{$container} + #{$bg} {
+                opacity: 1;
+                left: 0;
+                transition: opacity $transi;
+            }
+        } 
+    }
+    @content;
+};
+// <input type="checkbox" id="share6_1">
+// <div class="share-wrapper">
+//     <label class="shareGroupon-BTN" for="share6_1">
+//         分享此飯團
+//     </label>
+//     <div class="shareInfo-container">
+//     </div>
+// </div>
+// <label class="share6_1-bg" for="share6_1"></label>

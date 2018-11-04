@@ -9,7 +9,7 @@ function $all(all) {
 }
 function randomOneNum(min, max) {
     var length = max - min+1;
-    var rand = min + Math.floor(Math.random() * length)
+    var rand = min + Math.floor(Math.random() * length);
     return rand;
 }
 var storage = sessionStorage;
@@ -18,8 +18,7 @@ var storage = sessionStorage;
 
 
 //初始化註冊or產生東西
-function init() {
-
+function initDayCook() {
     // sessionStorage設定
     // 發起飯團的sessionStorage
     if(storage.addMealList == null) {
@@ -110,7 +109,7 @@ function init() {
         }
     }
     
-
+    
     // 產生從今天開始的後七天
     if($class('chooseDay-wrapper').length) {
         cal7days();
@@ -152,7 +151,7 @@ function init() {
             // storage.grouponInfo +=
             // 檢查input輸入 
             
-        }
+        };
     }
 
     // 註冊3-3確定發起的按鈕
@@ -164,7 +163,7 @@ function init() {
             alert('已成功發起飯團!!');
             storage.clear();
             
-        }
+        };
     }
     
     //3-4
@@ -182,6 +181,12 @@ function init() {
         };
         animate3_4();
     }
+    
+    //4-1 
+    if($all('.circleChart').length > 0) {
+        circleChart();
+    }
+
     
     //add meal function
     var addThisMeal_btn = document.getElementsByClassName('addThis');
@@ -207,21 +212,25 @@ function init() {
                 this.className += ' active';
                 $all('.changePage_container').forEach(function(e) {
                     e.style.display = 'none';
-                })
+                });
                 $all('.changePage_container')[w].style.display = 'block';
             };
         });
     }
-
+    
     //6-1
-    if($class('grouponDatail-container').length > 0) {
+    if($all('.grouponDetail-container').length > 0) {
         var smallPicChange = $all('.mealSmallPic-container .meal-box');
         for(let i in smallPicChange) {
-            smallPicChange[i].onmouseover = changeMealInfo;
+            smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
         }
     }
     if($class('scoreEgg-container').length > 0) {
-        getScoreEgg();
+        eggScore.egg({
+            container: $all('.score-wrapper'),
+            whiteEgg: 'asset/scoreEgg_w.svg',
+            blackEgg: 'asset/scoreEgg_y.svg',
+        });
     }
 
     //6-2
@@ -231,7 +240,7 @@ function init() {
             paymentMethod[y].oninput = function() {
                 $id('selectedResult').innerHTML = 
                 this.nextElementSibling.getElementsByTagName('h3')[0].innerText;
-            }
+            };
         }
     }
 
@@ -552,15 +561,38 @@ function changeMealInfo(e) {
     //保留用
     var thisScore = parseFloat(this.getAttribute('score'));
      $id('grouponDetail_score').innerHTML = thisScore;
-     console.log($all('.scoreEgg-container ul li'));
-     for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
-        $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
-     }
-     $class('scoreEgg-container')[0].setAttribute('score', thisScore);
-     getScoreEgg();
+    //  console.log($all('.scoreEgg-container ul li'));
+    for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
+    $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
+    }
+    $class('scoreEgg-container')[0].setAttribute('score', thisScore);
+    eggScore.egg({
+        container: $all('.score-wrapper'),
+        whiteEgg: 'asset/scoreEgg_w.svg',
+        blackEgg: 'asset/scoreEgg_y.svg',
+    });
     // $id('grouponDetail_score').innerHTML = ;
     // $id('grouponDetail_kcal').innerHTML = ;
 
+}
+
+const eggScore = {
+    egg(egg) {
+        egg.container.forEach(function(e,w) {
+            var score = Math.round(e.children[1].innerText);
+            // console.log(score);
+            
+            var li = e.children[2].children[0].getElementsByTagName('li');
+            for(let i = 0; i < li.length ; i ++) {
+                let img = li[i].children[0].getElementsByTagName('img')[0];
+                img.src = egg.whiteEgg;
+            }
+            for(let i = 0; i < score ; i ++) {
+                let img = li[i].children[0].getElementsByTagName('img')[0];
+                img.src = egg.blackEgg;
+            }
+        })
+    }
 }
 
 function getScoreEgg(e) {
@@ -615,6 +647,57 @@ function animate3_4() {
         scale: 1,
     });
 
+}
+
+// 4-1
+function circleChart(e) {
+    $all('.circleChart').forEach(function(e, w) {
+        var pNow = parseInt($all('.peopleNow')[w].innerText);
+        var pNeed = parseInt($all('.peopleNeeded')[w].innerText);
+        var degree = Math.round(pNow / pNeed * 360 * 10) / 10;
+        // alert(degree);
+        console.log(e);
+        console.log(degree);
+        // var rotation = window.getComputedStyle($class('circleDisplay')[0], 'before').getPropertyValue('transform');
+        
+        $all('.circleDisplayB')[w].style.transform = 'rotate(' + degree + 'deg)';
+
+        // console.log(rotation);
+        if(degree > 180) {
+            
+            var deg180 = degree - 180;
+            var tl = new TimelineMax();
+            console.log(w);
+            $all('.circleDisplayB')[w].style.backgroundColor = '#76391B';
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1.5,
+            {
+                rotation: 0,
+                backgroundColor: '#76391B',
+            },{
+                rotation: 180,
+                backgroundColor: '#76391B',
+                ease: Power0.easeNone,
+            });
+            // $all('.circleDisplayB')[w].style.backgroundColor = '#FCE444';
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1,{
+                rotation: 0,
+                backgroundColor: '#FCE444',
+            },{
+                rotation: deg180,
+                // ease: Power4.easeOut,
+            });
+        } else {
+            var tl = new TimelineMax();
+            console.log(w);
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',3,
+            {
+                rotation: 0,
+            },{
+                rotation: degree,
+                ease: Power4.easeOut,
+            });
+        }
+    });
 }
 
 // 6-3 tweenMax
@@ -769,4 +852,4 @@ function displayPopUp5_1() {
         bgStyle.opacity = 1;
     }
 }
-window.addEventListener('load',init);
+window.addEventListener('load',initDayCook);
