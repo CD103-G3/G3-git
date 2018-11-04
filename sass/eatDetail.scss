@@ -1,6 +1,7 @@
 @import "daycookMixin";
 @import "daycookVar";
-// @import "nav";
+@import "general_mixins";
+@import "nav";
 
 // 共用
 //間距
@@ -142,24 +143,23 @@ body{
         input{ 
             margin-right: 10px;
             height: ($fontSize_S + 5px) * $lineHeight; 
+            display: inline-block;
+            vertical-align: middle;
         }
 
-        .qty-width{ 
-            width: ($fontSize_S + 5px) * $lineHeight;
-            border-radius: 25px;
-            background-color: $color_main1;
-            box-shadow: 0 4px $color_main4;
-
-            &:hover{
-                box-shadow: 0 2px $color_main4;
-                transform: translateY(2px);
-                transition: box-shadow 0.3s , transform 0.3s;
-            }
+        .plusAndMinus {
+            @include roundBtn(40px, $color_main4) {
+                font-size: 40px;
+                font-weight: 900;
+                color: $color_main3;
+            };
         }
 
         .qty{ 
             width: 100px;
             border: 1px solid #aaa;
+            font-size: $fontSize_S;
+            font-weight: bold;
             text-align: center; 
 
             &:focus{ background-color:$color_main3; }
@@ -204,7 +204,7 @@ body{
 //產品介紹結束
 
 //留言板
-.title{
+.member-title{
     margin: 80px 0 50px;
     font-size: $fontSize_XL; 
     text-align: center
@@ -290,10 +290,6 @@ body{
 
         .count-input{
             input{ height: ($fontSize_S + 10px) * $lineHeight; }
-
-            .qty-width{ width: ($fontSize_S + 10px) * $lineHeight; }
-
-            .qty{ width: 100px; }
         }
     
         .count-button{
@@ -306,7 +302,7 @@ body{
     //產品介紹結束
 
     //留言板
-    .title{ margin: 100px 0 80px; }
+    .member-title{ margin: 100px 0 80px; }
 
     .member-msg{
         .member-txt{
@@ -357,8 +353,6 @@ body{
                 height: ($fontSize_S + 5px) * $lineHeight;  
             }
 
-            .qty-width{ width: ($fontSize_S + 5px) * $lineHeight; }
-
             .qty{ width: 50px; }
         }
 
@@ -384,3 +378,4 @@ body{
         }
     }
 }
+

@@ -1,12 +1,12 @@
 // 數字增減
 window.onload = function(){
     var qty = document.getElementById("qty");
-    var qty_add = document.getElementById("qty_add");
-    var qty_cut = document.getElementById("qty_cut");
+    var qtyAdd = document.getElementById("qty-add");
+    var qtyCut = document.getElementById("qty-cut");
     var min = 0;
     var max = 100;
 
-    qty_add.onclick = function(){
+    qtyAdd.onclick = function(){
         if(qty.value == max || qty.value > max){  
             qty.value = max;  
         }else{  
@@ -14,7 +14,7 @@ window.onload = function(){
         }   
     };
 
-    qty_cut.onclick = function(){
+    qtyCut.onclick = function(){
         if(qty.value == min || qty < min){  
             qty.value = min;  
         }else{  
