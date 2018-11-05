@@ -446,7 +446,7 @@ h2{
 .mealPointer {
     position: absolute;
     top: 250px;
-    left: 55%;
+    left: 56.5%;
     text-align: center;
     h3 { width: 100px; }
     .pic {
@@ -586,7 +586,7 @@ h2{
     } 
     @include rwdSys(pad) {
         float: left;
-        right: -100px;
+        right: -118px;
     }
     .addMeal-btn {
         @include roundBtn(60px, #fff) {
@@ -622,7 +622,7 @@ h2{
     h1 {
         background-color: $color_main1;
         padding: 30px;
-        font-size: $fontSize_M;
+        font-size: $fontSize_L;
     }
     .selectedMealList-container {
         // margin: -40px 0 0;
@@ -1487,16 +1487,13 @@ h2{
             margin: 10px auto;
             border-radius: 100px; 
             background-color: $color_main1;
-            &:after {
+            .progressBar_B {
                 @include BfAf;
                 position: absolute;
-                width: 90%;
+                // width: 90%;
                 height: 6px;
                 border-radius: 100px; 
                 background-color: $color_main2;
-                // @include uptoMax;
-                // animation: uptoMax 2s 1;
-                @include uptoMax(2s);
             }
         }
     }
@@ -1720,7 +1717,7 @@ h2{
     };
 }
 .recommendGroupon-wrapper {
-    max-width: 1200px;
+    // max-width: 1200px;
     margin-top: 200px;
     margin-bottom: 60px;
     width: 100%;
@@ -1737,17 +1734,35 @@ h2{
         position: relative;
         width: 360px;
         @include rwdSys(pad) {
-            width: 500px;
+            width: 476px;
         }
         // margin-top: 110px;
         border: 3px solid $color_main2;
         border-radius: 30px;
+        .groupon_topUI  {
+            .leftUI {
+                padding: 0px;
+                .titleTag {
+                    left: -26px;
+                }
+            }
+            .meal-container {
+                padding-bottom: 0px;
+            }
+        }
         .groupon_bottomUI {
             display: block;
+            .avgPrice {
+                text-align: center;
+            }
             .btn-container {
                 margin: 20px auto 0px;
                 text-align: center;
             }
+        }
+        .almostSucc-icon {
+            top: 2px;
+            left: 386px;
         }
     }
     .meal-box {
@@ -1840,9 +1855,16 @@ h2{
         width: 48px;
         height: auto;
     }
+    .card-wrapper {
+        display: flex;
+        flex-flow: column;
+    }
     .selectPayment  {
-        display: inline-block;
-        width: 33.33%;
+        display: flex;
+        // align-self: space-between;
+        flex-flow: row;
+        // width: 33.33%;
+        // height: 200px;
         padding: 0px $pd * 3;
         &:hover label .radioCircle {
             background-color: $color_main1;
@@ -1864,11 +1886,19 @@ h2{
             }
         }
     }
+    .cardPay {
+        display: flex;
+        // align-content: space-around;
+    }
     label {
         position: relative;
-        display: inline-block;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
         padding: 0px $pd;
+        margin: auto;
         vertical-align: middle;
+        text-align: center;
         cursor: pointer;
         .pic {
             margin: auto;
@@ -1896,8 +1926,14 @@ h2{
             
         }
     }
+    label.card {
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+    }
     h3 {
         display: inline-block;
+        text-align: center;
         @include textPD($pd);
     }
     .paymentRslt {
@@ -1917,14 +1953,17 @@ h2{
         color: $color_hot;
     }
     .selectPayment--ATM {
+        text-align: center;
         .radioCircle {
             top: 10px;
         }
         .selectPayment  {
+            text-align: center;
             width: 100%;
             padding-top: $pd * 2;
             @include rwdSys(pad) {
-                width: 40%;
+                display: inline-block;
+                width: 48%;
             }
         }
     }
@@ -1934,7 +1973,10 @@ h2{
 
 .maxWidthWrapper.success {
     max-width: 100%;
-    background-image: url("../asset/tableCloth_and_curryRice_01.png");
+    
+    @include rwdSys(pad) {
+        background-image: url("../asset/tableCloth_and_curryRice_01.png");
+    }
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -1947,18 +1989,23 @@ h2{
     .dish-container {
         position: relative;
         
+       
+        width: 100%;
+        margin: 100px auto;
+        padding-bottom: 100px;
+        overflow: unset;
+        position: relative;
+        
+        background-image: url(../asset/tableCloth_and_curryRice_03.png);
+        background-position: center 100px;
+        background-repeat: no-repeat;
+        // background-color: #fff;
+        // box-shadow: 0px 0px 20px #aaa;
         @include rwdSys(pad) {
             @include round(766px);
             overflow: unset;
+            background-position: center;
         };
-        width: 100%;
-        overflow: unset;
-        position: relative;
-        margin: 100px auto;
-        background-image: url(../asset/tableCloth_and_curryRice_03.png);
-        background-position: center;
-        // background-color: #fff;
-        // box-shadow: 0px 0px 20px #aaa;
         &:before {
             @include BfAf;
             position: absolute;
@@ -2029,7 +2076,7 @@ h2{
            filter: invert(1);
        }
        display: none;
-        @include rwdSys(pad) {
+        @include rwdSys(PC) {
             display: block;
         }
     }
@@ -2041,6 +2088,9 @@ h2{
         }
         .userInfo-wrapper {
             span {
+                font-weight: 900;
+            }
+            @include rwdSys(pad) {
                 color: #fff;
             }
         }
@@ -2055,12 +2105,15 @@ h2{
             padding-left: 0px;
             @include rwdSys(pad) {
                 height: 520px;
-                margin: -60px -20px auto 0;
+                margin: -60px 0px auto 0;
                 padding-left: 60px;
                 padding-right: 60px;
                 background-color: transparent;
                 border: none;
                 background-image: url("../asset/tableCloth_and_curryRice-02.png");
+            }
+            @include rwdSys(PC) {
+                margin: -60px 0px auto 0;
             }
             padding-right: $pd * 3;
             // border-radius: 30px;
@@ -2081,8 +2134,6 @@ h2{
                         color: #fff;
                     }
                 }
-                
-                // background-color: $color_main1;
                 padding: $pd;
                 border-radius: 3440px;
             }
@@ -2095,16 +2146,14 @@ h2{
                         color: #fff;
                     }
                 }
-                // background-color: $color_main1;
-                // background-color: #fff;
                 border-radius: 3440px;
             }
             .bonus-container {
-                width: 80%;
+                
                 border: 2px solid #fff;
-                // background-color: $color_main1;
                 border-radius: 3440px;
                 @include rwdSys(pad) {
+                    width: 80%;
                     color: #fff;
                     p {
                         color: #fff;
@@ -2116,7 +2165,6 @@ h2{
                 left: 0;
             }
             @include rwdSys(pad) {
-                // box-shadow: inset 0px -6px 80px rgba(255, 123, 0, 0.822), 0px 6px 20px #ddd;
                 border-radius: 3440px;
                 .almostSucc-icon {
                     top: 20px;

@@ -224,6 +224,7 @@ function initDayCook() {
         for(let i in smallPicChange) {
             smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
         }
+        progressBar();
     }
     if($class('scoreEgg-container').length > 0) {
         eggScore.egg({
@@ -608,6 +609,19 @@ function getScoreEgg(e) {
     }
     // console.log(score);
 
+}
+
+function progressBar() {
+    var pNow = parseInt($all('.peopleNow')[0].innerText);
+    var pNeed = parseInt($all('.peopleNeeded')[0].innerText);
+    // console.log(pNeed);
+    tl = new TimelineMax();
+    tl.fromTo('.progressBar_B', 2.5 ,{
+        width: '0px',
+    },{
+        width: (pNow / pNeed)*100 + '%',
+    });
+    // $all('.progressBar_B')[0].style.width = (pNow / pNeed)*100 + '%';
 }
 // 3-4 tweenMax
 function animate3_4() {

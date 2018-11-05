@@ -615,7 +615,7 @@ h2 {
 .mealPointer {
   position: absolute;
   top: 250px;
-  left: 55%;
+  left: 56.5%;
   text-align: center; }
   .mealPointer h3 {
     width: 100px; }
@@ -776,7 +776,7 @@ h2 {
   @media screen and (min-width: 768px) {
     .addedList {
       float: left;
-      right: -100px; } }
+      right: -118px; } }
   .addedList .addMeal-btn {
     position: relative;
     width: 60px;
@@ -820,7 +820,7 @@ h2 {
   .createdList-wrapper h1 {
     background-color: #FCE444;
     padding: 30px;
-    font-size: 24px; }
+    font-size: 30px; }
   .createdList-wrapper .selectedMealList-container {
     padding: 20px; }
     .createdList-wrapper .selectedMealList-container .mealList {
@@ -1723,21 +1723,13 @@ h2 {
       margin: 10px auto;
       border-radius: 100px;
       background-color: #FCE444; }
-      .bonus-wrapper .progress-container .progressBar:after {
+      .bonus-wrapper .progress-container .progressBar .progressBar_B {
         content: '';
         display: block;
         position: absolute;
-        width: 90%;
         height: 6px;
         border-radius: 100px;
-        background-color: #76391B;
-        animation: uptoMax 2s 1; }
-
-@keyframes uptoMax {
-  0% {
-    width: 0px; }
-  100% {
-    width: 100%; } }
+        background-color: #76391B; }
   .bonus-wrapper .bonus-container {
     width: auto;
     max-width: 300px;
@@ -1995,7 +1987,6 @@ h2 {
     top: 2px; }
 
 .recommendGroupon-wrapper {
-  max-width: 1200px;
   margin-top: 200px;
   margin-bottom: 60px;
   width: 100%;
@@ -2013,12 +2004,23 @@ h2 {
     border-radius: 30px; }
     @media screen and (min-width: 768px) {
       .recommendGroupon-wrapper .groupon-box {
-        width: 500px; } }
+        width: 476px; } }
+    .recommendGroupon-wrapper .groupon-box .groupon_topUI .leftUI {
+      padding: 0px; }
+      .recommendGroupon-wrapper .groupon-box .groupon_topUI .leftUI .titleTag {
+        left: -26px; }
+    .recommendGroupon-wrapper .groupon-box .groupon_topUI .meal-container {
+      padding-bottom: 0px; }
     .recommendGroupon-wrapper .groupon-box .groupon_bottomUI {
       display: block; }
+      .recommendGroupon-wrapper .groupon-box .groupon_bottomUI .avgPrice {
+        text-align: center; }
       .recommendGroupon-wrapper .groupon-box .groupon_bottomUI .btn-container {
         margin: 20px auto 0px;
         text-align: center; }
+    .recommendGroupon-wrapper .groupon-box .almostSucc-icon {
+      top: 2px;
+      left: 386px; }
   .recommendGroupon-wrapper .meal-box {
     width: 120px;
     height: 120px; }
@@ -2119,9 +2121,12 @@ h2 {
   .grouponPayment-wrapper .pic {
     width: 48px;
     height: auto; }
+  .grouponPayment-wrapper .card-wrapper {
+    display: flex;
+    flex-flow: column; }
   .grouponPayment-wrapper .selectPayment {
-    display: inline-block;
-    width: 33.33%;
+    display: flex;
+    flex-flow: row;
     padding: 0px 30px; }
     .grouponPayment-wrapper .selectPayment:hover label .radioCircle {
       background-color: #FCE444; }
@@ -2139,11 +2144,17 @@ h2 {
       background-color: #FCE444; }
       .grouponPayment-wrapper input[type='radio']:checked + label .radioCircle:after {
         opacity: 1; }
+  .grouponPayment-wrapper .cardPay {
+    display: flex; }
   .grouponPayment-wrapper label {
     position: relative;
-    display: inline-block;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
     padding: 0px 10px;
+    margin: auto;
     vertical-align: middle;
+    text-align: center;
     cursor: pointer; }
     .grouponPayment-wrapper label .pic {
       margin: auto; }
@@ -2166,8 +2177,13 @@ h2 {
         color: #76391B;
         font-size: 20px;
         font-weight: 900; }
+  .grouponPayment-wrapper label.card {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between; }
   .grouponPayment-wrapper h3 {
     display: inline-block;
+    text-align: center;
     padding: 10px;
     padding-left: 0px;
     padding-right: 0px; }
@@ -2183,20 +2199,26 @@ h2 {
         width: 50%; } }
   .grouponPayment-wrapper #selectedResult {
     color: #FF5000; }
-  .grouponPayment-wrapper .selectPayment--ATM .radioCircle {
-    top: 10px; }
-  .grouponPayment-wrapper .selectPayment--ATM .selectPayment {
-    width: 100%;
-    padding-top: 20px; }
-    @media screen and (min-width: 768px) {
-      .grouponPayment-wrapper .selectPayment--ATM .selectPayment {
-        width: 40%; } }
+  .grouponPayment-wrapper .selectPayment--ATM {
+    text-align: center; }
+    .grouponPayment-wrapper .selectPayment--ATM .radioCircle {
+      top: 10px; }
+    .grouponPayment-wrapper .selectPayment--ATM .selectPayment {
+      text-align: center;
+      width: 100%;
+      padding-top: 20px; }
+      @media screen and (min-width: 768px) {
+        .grouponPayment-wrapper .selectPayment--ATM .selectPayment {
+          display: inline-block;
+          width: 48%; } }
 
 .maxWidthWrapper.success {
   max-width: 100%;
-  background-image: url("../asset/tableCloth_and_curryRice_01.png");
   background-size: contain;
   background-repeat: no-repeat; }
+  @media screen and (min-width: 768px) {
+    .maxWidthWrapper.success {
+      background-image: url("../asset/tableCloth_and_curryRice_01.png"); } }
 
 .success-wrapper {
   display: flex;
@@ -2207,18 +2229,21 @@ h2 {
   .success-wrapper .dish-container {
     position: relative;
     width: 100%;
+    margin: 100px auto;
+    padding-bottom: 100px;
     overflow: unset;
     position: relative;
-    margin: 100px auto;
     background-image: url(../asset/tableCloth_and_curryRice_03.png);
-    background-position: center; }
+    background-position: center 100px;
+    background-repeat: no-repeat; }
     @media screen and (min-width: 768px) {
       .success-wrapper .dish-container {
         width: 766px;
         height: 766px;
         border-radius: 300000px;
         overflow: hidden;
-        overflow: unset; } }
+        overflow: unset;
+        background-position: center; } }
     .success-wrapper .dish-container:before {
       content: '';
       display: block;
@@ -2313,7 +2338,7 @@ h2 {
     display: none; }
     .success-wrapper .fork img, .success-wrapper .spoon img {
       filter: invert(1); }
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 1024px) {
       .success-wrapper .fork, .success-wrapper .spoon {
         display: block; } }
   .success-wrapper .grouponTitle-wrapper h2 {
@@ -2321,7 +2346,10 @@ h2 {
     margin-top: 0px;
     color: #fff; }
   .success-wrapper .grouponTitle-wrapper .userInfo-wrapper span {
-    color: #fff; }
+    font-weight: 900; }
+  @media screen and (min-width: 768px) {
+    .success-wrapper .grouponTitle-wrapper .userInfo-wrapper {
+      color: #fff; } }
   .success-wrapper .grouponSimpleInfo-wrapper {
     margin-top: 120px; }
     .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper {
@@ -2339,12 +2367,15 @@ h2 {
       @media screen and (min-width: 768px) {
         .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper {
           height: 520px;
-          margin: -60px -20px auto 0;
+          margin: -60px 0px auto 0;
           padding-left: 60px;
           padding-right: 60px;
           background-color: transparent;
           border: none;
           background-image: url("../asset/tableCloth_and_curryRice-02.png"); } }
+      @media screen and (min-width: 1024px) {
+        .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper {
+          margin: -60px 0px auto 0; } }
       .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper .endDate {
         display: flex;
         align-items: center;
@@ -2365,11 +2396,11 @@ h2 {
             .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper .progress-container span {
               color: #fff; } }
       .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper .bonus-container {
-        width: 80%;
         border: 2px solid #fff;
         border-radius: 3440px; }
         @media screen and (min-width: 768px) {
           .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper .bonus-container {
+            width: 80%;
             color: #fff; }
             .success-wrapper .grouponSimpleInfo-wrapper .bonus-wrapper .bonus-container p {
               color: #fff; } }

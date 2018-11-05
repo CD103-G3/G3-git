@@ -161,39 +161,42 @@
             </h1>
             <div class="payment-container">
                 <form action="###" class="clearfix">
-                    <div class="grid-12 grid-md-6">
-                        <h2>
+                    
+                    <div class="grid-12 grid-md-6 card-wrapper">
+                        <h2 class=" grid-md-6">
                             信用卡付款
                         </h2>
-                        <div class="selectPayment grid-12">
-                            <input type="radio" class="paymentMethod" id="visaCard" name="payment">
-                            <label for="visaCard">
-                                <h3 class="">VISA信用卡</h3>
-                                <div class="pic">
-                                    <img src="asset/creditCard-02.png" alt="">
+                        <div class="cardPay">
+                            <div class="selectPayment grid-12">
+                                    <input type="radio" class="paymentMethod" id="visaCard" name="payment">
+                                    <label for="visaCard" class="card">
+                                        <h3 class="">VISA信用卡</h3>
+                                        <div class="pic">
+                                            <img src="asset/creditCard-02.png" alt="">
+                                        </div>
+                                        <span class="radioCircle"></span>
+                                    </label>
                                 </div>
-                                <span class="radioCircle"></span>
-                            </label>
-                        </div>
-                        <div class="selectPayment grid-12">
-                            <input type="radio" class="paymentMethod" id="masterCard" name="payment">
-                            <label for="masterCard">
-                                <h3>master信用卡</h3>
-                                <div class="pic">
-                                    <img src="asset/creditCard-02.png" alt="">
+                                <div class="selectPayment grid-12">
+                                    <input type="radio" class="paymentMethod" id="masterCard" name="payment">
+                                    <label for="masterCard" class="card">
+                                        <h3>master信用卡</h3>
+                                        <div class="pic">
+                                            <img src="asset/creditCard-02.png" alt="">
+                                        </div>
+                                        <span class="radioCircle"></span>
+                                    </label>
                                 </div>
-                                <span class="radioCircle"></span>
-                            </label>
-                        </div>
-                        <div class="selectPayment">
-                            <input type="radio" class="paymentMethod" id="payPal" name="payment">
-                            <label for="payPal">
-                                <h3>payPal</h3>
-                                <div class="pic">
-                                    <img src="asset/creditCard-02.png" alt="">
+                                <div class="selectPayment grid-12">
+                                    <input type="radio" class="paymentMethod" id="payPal" name="payment">
+                                    <label for="payPal" class="card">
+                                        <h3>JCB信用卡</h3>
+                                        <div class="pic">
+                                            <img src="asset/creditCard-02.png" alt="">
+                                        </div>
+                                        <span class="radioCircle"></span>
+                                    </label>
                                 </div>
-                                <span class="radioCircle"></span>
-                            </label>
                         </div>
                     </div>
                     <div class="grid-12 grid-md-6">
@@ -207,9 +210,7 @@
                                     <h3>
                                         ATM線上轉帳付款
                                     </h3>
-                                    <div class="pic">
-                                        <!-- <img src="asset/creditCard-02.png" alt=""> -->
-                                    </div>
+                                    
                                     <span class="radioCircle"></span>
                                 </label>
                             </div>
@@ -219,9 +220,7 @@
                                     <h3>
                                         ATM臨櫃轉帳付款
                                     </h3>
-                                    <div class="pic">
-                                        <!-- <img src="asset/creditCard-02.png" alt=""> -->
-                                    </div>
+                                    
                                     <span class="radioCircle"></span>
                                 </label>
                             </div>
