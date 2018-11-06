@@ -1,381 +1,303 @@
+@import "layout/reset";
 @import "daycookMixin";
 @import "daycookVar";
 @import "general_mixins";
-@import "nav";
+// @import "nav";
 
-// 共用
-//間距
+//共用
 $space_lr: 0 16px;     //手機左右
 $space_sm_lr: 0 30px;  //平板左右
 
-*{ 
-    // outline: 1px solid #f00;
-    font-size: $fontSize_text;
-    color: $color_txt;
-    box-sizing: border-box;
-}
+.eatDetail{
+        font-size: $fontSize_text; 
+        font-family: $fmy; 
+//共用
+    *{ 
+        outline: 1px solid #f00;
+        font-size: $fontSize_text;
+        color: $color_txt;
+        box-sizing: border-box;
+    }
+    .wrap{ 
+        width: 100%; 
+        padding: $space_lr;
+        margin-bottom: 30px;
+        line-height: $lineHeight;
+        img,a,span{ display: block; }
+        img{ width: 100%; }
+        a{ text-decoration: none; }
+        .fl{ float: left; }
+        .font-blod{ font-weight: bold; }
+        input,button{ 
+            border: none; 
+            font-family: $fmy; 
+        }
+        h2{ font-size: $fontSize_L; }
+        i{ margin-right: 5px; }
+    }
 
-body{ 
-    font-size: $fontSize_text;
-    font-family: $fmy; 
-}
+    @include rwd(sm,float) {  //768px
+        .wrap{ 
+            padding: $space_sm_lr;
+            margin-bottom: 50px;
+        }
+    }
 
-.wrapper{ 
-    width: 100%; 
-    padding: $space_lr;
-    margin-bottom: 30px;
-    line-height: $lineHeight;
-
-    img,a,span{ display: block; }
-
-    img{ width: 100%; }
-
-    a{ text-decoration: none; }
-
-    .fl{ float: left; }
-
-    .font_blod{ font-weight: bold; }
-
-    input,button{ border: none; }
-    
-    h2{ font-size: $fontSize_L; }
-
-    .font-blod{ font-weight: bold;}
-}
-
-// 共用結束
+    @include rwd(lg,float) { //1200px
+        .wrap{ 
+            width: 1200px; 
+            padding: 0;
+            margin: auto;
+            margin-bottom: 50px;
+        } 
+    }
+//共用結束
 
 // 麵包屑
-.breadcrumbs{
-    margin-top: 60px;
-    a{
-        vertical-align: middle;
-
-        &:hover{ color: $color_main4; }
-        &:before{
-            content: '\203A';
-            padding: 0 5px;
-            color: $color_txt;
+    .breadcrumbs{ 
+        margin-top: 110px; 
+        a{
+            &:hover{ color: $color_hot2; }
+            &:before{
+                content: '\203A';
+                padding: 0 5px;
+                color: $color_txt;
+            }
+            &:first-child:before{ display: none; }
         }
-        
-        &:first-child:before{ display: none; }
     }
-}
+
+    @include rwd(lg,float) { //1200px
+        .breadcrumbs{ 
+            margin-top: 120px;
+            a{
+                &:before{ padding: 0 10px; }
+            }
+        }
+    }
 // 麵包屑結束
 
 //產品介紹
-.banner-pic{
-    position: relative;
-    z-index: -1;
-
-    .like{
-        background-color: transparent;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-
-    }
-}
-
-.banner-txt{
-    margin-top: 25px;
-
-    .product{
-        span{ margin-left: 20px; }
-    }
-}
-
-.score{
-    margin-top: 15px;
-
-    .score-text{ 
-        margin-right: 25px;
-        font-size: $fontSize_S; 
-    }
-
-    .grade{
-        span{ 
-            width: 25px; 
-            margin-right: 10px;
-        }
-    }
-}
-
-.price{ 
-    margin-top: 20px;
-    font-size: $fontSize_M;
-}
-
-.content{ 
-    margin-top: 20px; 
-
-    .content-top{
-        span{ 
-            margin-right: 25px; 
-            font-size: $fontSize_S;
-        }
-
-        .kcal{
-            span{ 
-                margin-right: 10px; 
-                font-size: $fontSize_text;
-                line-height: $fontSize_S * $lineHeight;
-            }
-        }
-    }
-
-    p{ margin-top: 15px; }
-}
-
-.count{
-    margin-top: 50px; 
-
-    .count-qty{
-        span{ 
-            height: ($fontSize_S + 5px) * $lineHeight;
-            margin-right: 25px;
-            font-size: $fontSize_S; 
-            line-height: ($fontSize_S + 5px) * $lineHeight;
-        }
-    }
-
-    .count-input{
-        input{ 
-            margin-right: 10px;
-            height: ($fontSize_S + 5px) * $lineHeight; 
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .plusAndMinus {
-            @include roundBtn(40px, $color_main4) {
-                font-size: 40px;
-                font-weight: 900;
-                color: $color_main3;
-            };
-        }
-
-        .qty{ 
-            width: 100px;
-            border: 1px solid #aaa;
-            font-size: $fontSize_S;
-            font-weight: bold;
-            text-align: center; 
-
-            &:focus{ background-color:$color_main3; }
-        }
-
-        .qty-add{ margin-right: 0px; }
-    }
-
-    .count-button{
-        margin-top: 50px;
+    .banner-pic{
         position: relative;
-
-        button{
-            width: 45%;
-            height: ($fontSize_S + 5px) * $lineHeight; 
-            border-radius: 25px;
-            background-color: $color_main1;
-            box-shadow: 0 4px $color_main4; 
-
-            &:hover{
-                box-shadow: 0 2px $color_main4;
-                transform: translateY(2px);
-                transition: box-shadow 0.3s , transform 0.3s;
-            }
-        }
-
-        .add-cart{
-            position: relative;
-            bottom: 0;
-            left: 0;
-            margin: auto;
-        }
-
-        .go-cart{
+        z-index: -1;
+        .like{
+            background-color: transparent;
             position: absolute;
             right: 0;
             bottom: 0;
-            margin: auto;
         }
     }
-}
+    .banner-txt{
+        margin-top: 25px;
+        .product{
+            figure{ 
+                margin-left: 10px; 
+                margin-top: 8px;
+                width: 15px;
+            }
+        }
+        .score,.price,.content{ margin-top: 15px; }
+        .score{
+            .score-text{ 
+                margin-right: 10px;
+                font-size: $fontSize_S; 
+            }
+            .grade{
+                span{ 
+                    margin-right: 25px;
+                    font-size: $fontSize_S; 
+                }
+                figure{ 
+                    width: 25px; 
+                    margin-right: 10px;
+                }
+            }
+        }
+        .price{ font-size: $fontSize_M; }
+        .content{ 
+            .content-top{
+                span{ 
+                    margin-right: 25px; 
+                    font-size: $fontSize_S;
+                }
+                .kcal{
+                    span{ 
+                        margin-right: 10px; 
+                        font-size: $fontSize_text;
+                        line-height: $fontSize_S * $lineHeight;
+                    }
+                }
+            }
+            p{ margin-top: 10px; }
+        }
+        .count{
+            margin-top: 50px; 
+            .count-qty{
+                span{ 
+                    margin-right: 25px;
+                    font-size: $fontSize_S; 
+                    line-height: ($fontSize_S + 5px) * $lineHeight;
+                }
+                .count-input{
+                    input{ 
+                        margin-right: 15px;
+                        height: ($fontSize_S + 5px) * $lineHeight; 
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                    .plusAndMinus {
+                        @include roundBtn(($fontSize_S + 5px) * $lineHeight, $color_main4) {   
+                            margin-right: 15px;
+                            font-size: $fontSize_S;
+                            font-weight: 900;
+                            color: $color_main3;
+                        }
+                    }
+                    .qty{ 
+                        width: 100px;
+                        border: 1px solid #aaa;
+                        font-size: $fontSize_S;
+                        font-weight: 900;
+                        text-align: center; 
+                        &:focus{ background-color:$color_main3; }
+                    }
+                    .qty-add{ margin-right: 0px; }
+                }
+            }
+            .count-button{
+                padding-top: 100px;
+                .mainBTN {
+                    @include btn(100%, light) {
+                        max-width: 45%;
+                        height: ($fontSize_S + 5px) * $lineHeight; 
+                        font-size: $fontSize_S;
+                    }
+                }
+                .subBTN {
+                    @include btn(100%) {
+                        max-width: 45%;
+                        height: ($fontSize_S + 5px) * $lineHeight; 
+                        font-size: $fontSize_S;
+                    }
+                    i{ color: #fff; }
+                }
+                .add-cart{ float:left; }
+                .go-cart{ float:right; }
+            }
+        }
+    }
+
+    @include rwd(sm,float) {  //768px
+        .banner-pic{
+            .like,.like i{ font-size: $fontSize_S; }
+        }
+        .banner-txt{ 
+            margin-top: 50px; 
+            .product{
+                figure{ 
+                    margin-left: 15px; 
+                    width: 20px;
+                }
+            }
+            .score{
+                .grade{
+                    span{ margin-right: 40px; }
+                }
+            }
+            .content{ 
+                .content-top{
+                    span{ margin-right: 40px;  }
+                }
+            }
+            .count{
+                .count-qty{
+                    padding: 0;
+                    span{ 
+                        margin-right: 40px; 
+                        line-height:($fontSize_S + 10px) * $lineHeight;
+                    }
+                    .count-input{
+                        input{ height: ($fontSize_S + 10px) * $lineHeight; }
+                        .plusAndMinus {
+                            @include roundBtn(($fontSize_S + 10px) * $lineHeight, $color_main4) { }
+                        }
+                    }
+                }
+                .count-button{
+                    padding: 0;  
+                    .mainBTN {
+                        @include btn(100%, light) { height: ($fontSize_S + 10px) * $lineHeight; }
+                    }
+                    .subBTN {
+                        @include btn(100%) { height: ($fontSize_S + 10px) * $lineHeight; }
+                    }
+                }
+            }
+        }
+    }
+
+    @include rwd(md,float) {  //1024px
+        .banner-pic{
+            padding: 0 20px 0 0;
+            position: static;
+            .like{ 
+                position: static;
+                float: right;
+            }
+        }
+        .banner-txt{ 
+            margin-top: 0px; 
+            padding: 0 0 0 20px;
+            .count{
+                margin-top: 30px; 
+                .count-button{ padding-top: 50px; }
+            }
+        }
+    }
+
+    @include rwd(lg,float) { //1200px
+        .banner-pic.part-md-6.part-lg-6{ padding: 0 30px 0 0; }
+        .banner-txt.part-md-6.part-lg-6{ padding: 0 0 0 30px; }
+    }
 //產品介紹結束
 
 //留言板
-.member-title{
-    margin: 80px 0 50px;
-    font-size: $fontSize_XL; 
-    text-align: center
-}
-
-.member-msg{
-    margin-top: 30px;
-        padding: 10px;
-    border: 1px solid #aaa;
-    border-radius: 10px;
-
-    .member-txt{
-        .member-letter{ 
-            width: 100%; 
-            height: ($fontSize_S + 5px) * $lineHeight;
-            margin-top: 15px;
-            border: 1px solid #aaa;
-        }
-
-        .comments{
-            padding: 0 10px;
-            height: ($fontSize_S + 5px) * $lineHeight; 
-            margin-top: 20px;
-            border-radius: 25px;
-            background-color: $color_main1;
-            box-shadow: 0 4px $color_main4; 
-            float: right;
-            
-            &:hover{
-                box-shadow: 0 2px $color_main4;
-                transform: translateY(2px);
-                transition: box-shadow 0.3s , transform 0.3s;
-            }
-        }
+    .member-title{
+        margin: 80px 0 30px;
+        font-size: $fontSize_XL; 
+        text-align: center
     }
-}
-//留言板結束
-
-@include rwd(sm,float) {  //768px
-    // 共用
-    .wrapper{ 
-        padding: $space_sm_lr;
-        margin-bottom: 50px;
-    }
-    // 共用結束
-
-    //產品介紹
-    .banner-pic{
-        .like{ font-size: $fontSize_M; }
-    }
-
-    .banner-txt{ margin-top: 35px; }
-
-    .score{
-        margin-top: 25px;
-
-        .score-text{ margin-right: 40px; }
-
-        .grade span{ margin-right: 20px; }
-    }
-
-    .price{ margin-top: 30px; }
-
-    .content{ 
-        margin-top: 30px; 
-
-        .content-top{
-            span{ margin-right: 40px;  }
-        }
-
-        p{ margin-top: 25px; }
-    }
-
-    .count{
-        .count-qty{
-            padding: 0;
-            span{ 
-                height:($fontSize_S + 10px) * $lineHeight;
-                margin-right: 40px; 
-                line-height:($fontSize_S + 10px) * $lineHeight;
-            }
-        }
-
-        .count-input{
-            input{ height: ($fontSize_S + 10px) * $lineHeight; }
-        }
-    
-        .count-button{
-            margin-top: 0px;
-            padding: 0;
-    
-            button{ height: ($fontSize_S + 10px) * $lineHeight; }
-        }
-    }
-    //產品介紹結束
-
-    //留言板
-    .member-title{ margin: 100px 0 80px; }
-
     .member-msg{
+        margin-top: 30px;
+        border: 1px solid #aaa;
+        border-radius: 10px;
         .member-txt{
-            .member-letter,.comments{ margin-top: 15px;}
-        }
-    }
-    //留言板結束
-}
-
-@include rwd(md,float) {  //1024px
-    //產品介紹
-    .banner-pic{
-        padding: 0 15px 0 0;
-
-        .like{ right: 30px; }
-    }
-    
-    .banner-txt{ 
-        margin-top: 0px; 
-        padding: 0 0 0 15px;
-    }
-    
-    .score{
-        margin-top: 15px;
-    
-        .score-text{ margin-right: 25px; }
-    }
-    
-    .price{ margin-top: 20px; }
-    
-    .content{ 
-        margin-top: 20px; 
-    
-        p{ margin-top: 15px; }
-    }
-
-    .count{
-        .count-qty{
-            span{ 
-                height:($fontSize_S + 5px) * $lineHeight;
-                margin-right: 25px; 
-                line-height:($fontSize_S + 5px) * $lineHeight;
+            .member-letter{ 
+                width: 100%; 
+                margin-top: 15px;
+                border: 1px solid #aaa;
+                overflow: auto;
+            }
+            .nextBTN {
+                @include btn(auto);
+                margin-top: 10px;
+                padding: 0 10px;
+                font-size: $fontSize_text;
+                background-color: $color_main4;
+                color: #fff;
+                float: right;
             }
         }
-        .count-input{
-            input{ 
-                margin-right: 5px;
-                height: ($fontSize_S + 5px) * $lineHeight;  
-            }
-
-            .qty{ width: 50px; }
-        }
-
-        .count-button{
-            button{ 
-                height: ($fontSize_S + 5px) * $lineHeight; 
-                font-size: 15px;
-            }
+        .comments-time{ 
+            margin-top: 5px;
+            font-size: 12px; 
         }
     }
-}
-@include rwd(lg,float) { //1200px
-    .wrapper{ 
-        width: 1200px; 
-        padding: 0;
-        margin: auto;
-        margin-bottom: 50px;
-    }    
-    
-    .count{
-        .count-button{
-            button{ font-size: $fontSize_text; }
+    @include rwd(lg,float) {  
+        .member-title{
+            margin: 80px 0 50px;
         }
     }
+//留言板結束
 }
-

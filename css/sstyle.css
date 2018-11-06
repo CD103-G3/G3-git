@@ -1775,7 +1775,7 @@ h2 {
         top: 2px; }
 
 .recommendGroupon-wrapper {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin-top: 200px;
   margin-bottom: 60px;
   margin: auto;

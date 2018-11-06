@@ -1,5 +1,5 @@
 // 數字增減
-window.onload = function(){
+function detailQty(){
     var qty = document.getElementById("qty");
     var qtyAdd = document.getElementById("qty-add");
     var qtyCut = document.getElementById("qty-cut");
@@ -31,11 +31,42 @@ window.onload = function(){
         }
     };
 };
+window.addEventListener('load',detailQty)
 //數字增減結束
 
 //加入購物車
 //加入購物車結束
 
 //新增留言
+function eatDetailMsg() {
+    
+    document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後新增留言
+        
+        var text = document.getElementById('memberLetter');  //找到textarea中的字
 
+        var today = new Date();  //建立物件
+        var year = today.getFullYear();
+        var mon = today.getMonth()+1;
+        var day = today.getDate();
+
+        var memberImg = "images/logo.png";  //變更圖片路徑
+
+        var textDiv = `<div class="member-msg clearfix">     
+                            <div class="member-msg clearfix">
+                                <figure class="member-img part-2 part-md-2 part-lg-1">
+                                    <img src=${memberImg}>
+                                </figure>
+                                <div class="member-txt part-10 part-md-10 part-lg-11 clearfix">
+                                    <div class="member-id">訪客</div>
+                                    <div class="comments-time">${year}/${mon}/${day}</div>
+                                    <p>${text.value}</p>
+                                    <input type="submit" name="comments" id="commentsBtn" class="comments nextBTN" value="檢舉">
+                                </div>
+                            </div>
+                        </div>`;    //把留言內容用要包的div名稱包起來
+        document.getElementsByClassName('text-container')[0].innerHTML += textDiv;  //新增留言到留言區
+        text.value = '';  //清空textarea中的字
+    }
+};
+window.addEventListener('load', eatDetailMsg);
 //新增留言結束

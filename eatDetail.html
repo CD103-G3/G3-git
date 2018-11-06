@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/meyerweb_reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/sstyle.css">
@@ -13,717 +12,107 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
-    <title>eatDetail</title>
+    <title>餐點介紹</title>
 </head>
-<body>
-    <header>
-        <input type="checkbox" id="navctrl">
-        <div class="phone-nav">
-            <div id="view1"></div>
-            <div class="nav-left">
-                <label class="hb" for="navctrl">
-                    <span class="line"></span>
-                </label>
-            </div>
-            <div class="logo">
-                <a href="javascript:void(0)">
-                    <img src="images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="nav-right">			
-                <span class="seach-button">
-                    <img src="images/icon/search.svg" width="25" alt="seach">
-                    搜尋
-                </span>
-            </div>
-        </div>
-        <nav>
-            <ul>
-                <li class="logo">
-                    <div id="view4"></div>
-                    <a href="javascript:void(0)">
-                        <img src="images/logo.png" alt="logo">
-                    </a>
-                </li>
-                <li class="index-member">
-                    <div id="view6"></div>
-                    <div class="before-login">
-                        <a href="javascript:void(0)">註冊</a>
-                        <a href="javascript:void(0)">登入</a>
-                    </div>
-                    <div class="after-login">
-                        <div>
-                            <img src="images/icon/user.svg" alt="member-Pic" class="member-Pic">
-                        </div>
-                        <div>
-                            <span><img src="images/icon/riceball.svg" width="30" alt="achievement-Pic" class="achievement-Pic">300積分</span><br>
-                            <span>Sara. always</span>
-                        </div>
-                    </div>
-                </li>
-                <li class="meals">
-                        <div id="view5"></div>
-                    <a href="javascript:void(0)">日食餐點</a>
-                </li>
-                <li class="initiate">			
-                    <div id="view2"></div>
-                    <a href="javascript:void(0)">發起飯團</a>
-                </li>
-                <li class="participate">
-                    <div id="view3"></div>
-                    <a href="javascript:void(0)">參加飯團</a>
-                </li>
-                <li class="table-hidden"><a href="javascript:void(0)">會員中心</a></li>
-                <li class="table-hidden"><a href="javascript:void(0)">客服雞器人</a></li>
-            </ul>
-        </nav>
-        <label class="white-Point floaty" for="white-Point-control">
-            <ul>
-                <div id="view7"></div>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img src="images/icon/cart.svg" alt="cart"><br>
-                        購物車
-                        <span>3</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)">
-                        <img src="images/icon/qrcode.svg" alt="qrcode"><br>
-                        快速取餐
-                        <span>2</span>
-                    </a>
-                </li>
-                <li class="table-hidden">
-                    <a href="javascript:void(0)">
-                        <img src="images/icon/game.svg" alt="game"><br>
-                        想吃什麼？
-                    </a>
-                </li>
-                <li class="table-hidden">
-                    <a href="javascript:void(0)">
-                        <img src="images/icon/if_General_-_Office_54_1471106.svg" alt="mc"><br>
-                        我的收藏
-                    </a>
-                </li>
-                <li class="table-hidden">
-                    <a href="javascript:void(0)">
-                        <img src="images/icon/riceball.svg" alt="riceball"><br>
-                        我的飯團
-                    </a>
-                </li>		
-            </ul>
-        </label>
-    </header>
-    
-    <div class="nav_height"></div>
+<body class="eatDetail">
+
 <!-- 麵包屑 -->
-    <div class="wrapper">
+    <div class="wrap">
         <div class="breadcrumbs clearfix">
             <a class="fl" href="index.php">首頁</a>
             <a class="fl" href="dishes.php">日食餐點</a>
             <a class="fl" href="#">丼飯</a>
         </div>
     </div>
+
 <!-- 產品介紹 -->
-    <div class="wrapper clearfix">
-        <div class="banner banner-pic part-md-6 part-lg-6">
+    <div class="wrap clearfix">
+        <div class="banner-pic part-md-6 part-lg-6">
             <img src="images/丼1.png" alt="特級海鮮丼">
-            <button class="like">
+            <span class="like">
                 <i class="far fa-heart"></i>
-            </button>
+            收藏</span>
         </div>
-        <div class="banner banner-txt part-md-6 part-lg-6">
+        <div class="banner-txt part-md-6 part-lg-6">
             <div class="product clearfix">
                 <h2 class="font-blod fl">(生)特級海鮮丼</h2>
-                <span class="fl">辛</span>
-                <span class="fl">素</span>
+                <figure class="fl"><img src="/images/icon/chili.svg"></figure>
+                <figure class="fl"><img src="/images/icon/lettuce.svg"></figure>
             </div>
             <div class="score clearfix">
-                <span class="score-text fl font-blod">評分</span>   
-                <div class="grade fl clearfix">
-                    <span class="fl"><img src="images/scoreEgg_y.jpg"></span>
-                    <span class="fl"><img src="images/scoreEgg_y.jpg"></span>
-                    <span class="fl"><img src="images/scoreEgg_y.jpg"></span>
-                    <span class="fl"><img src="images/scoreEgg_y.jpg"></span>
-                    <span class="fl"><img src="images/scoreEgg_y.jpg"></span>
+                <div class="score-text fl font-blod">評分</div>   
+                <div class="grade fl">
+                    <span class="fl font-blod">3.5</span>
+                    <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
+                    <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
+                    <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
+                    <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
+                    <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
                 </div>
             </div>
             <span class="price font-blod">NT680元</span>
             <div class="content">
                 <div class="content-top clearfix">
                     <span class="fl font-blod">餐點介紹</span>
-                    <div class="kcal fl clearfix">
+                    <div class="kcal fl">
                         <span class="fl">卡路里：</span>
                         <span class="fl">300kcal</span>
                     </div>
                 </div>
                 <p>海膽、干貝、牡丹蝦、鮭魚肚、鮪魚、紅甘肚、鮭魚卵等外加多款現流生魚片，滿滿的新鮮海味，隱藏首推的頂級美食。</p>
             </div>
-           
             <div class="count clearfix">
-                <div class="count-qty part-sm-6 part-md-6 part-lg-5 clearfix">
+                <div class="count-qty part-sm-6 part-md-12 part-lg-12">
                     <span class="font-blod fl">數量</span>
                     <div class="count-input fl">
-                        <input type="button" class="qty-cut plusAndMinus" id="qty-cut" name="qty-cut" value="-">
+                        <button class="qty-cut plusAndMinus" id="qty-cut" name="qty-cut">-</button>
                         <input type="text" class="qty" id="qty" name="quantity" value="1">
-                        <input type="button" class="qty-add plusAndMinus" id="qty-add" name="qty-add" value="+">
+                        <button class="qty-add plusAndMinus" id="qty-add" name="qty-add">+</button>
                     </div>    
                 </div>
-                <div class="count-button part-sm-6 part-md-6 part-lg-7">
-                    <button type="submit" class="add-cart mainBTN" name="add-cart"><i class="fas fa-shopping-cart"></i>加入購物車</button>
-                    <button type="submit" class="go-cart mainBTN" name="go-cart"><a href="cart.html"><i class="fas fa-shopping-bag"></i>立即預訂</a></button>
+                <div class="count-button part-sm-6 part-md-12 part-lg-12 clearfix">
+                    <button class="add-cart mainBTN" name="add-cart"><i class="fas fa-shopping-cart"></i>加入購物車</button>
+                    <button type="submit" class="go-cart subBTN" name="go-cart"><i class="fas fa-shopping-bag"></i>立即預訂</button>
                 </div>
             </div>
         </div>
     </div>
 
 <!-- 留言板 -->
-    <div class="wrapper">
+    <div class="wrap">
         <div class="member-title">菜友留言</div>
         <div class="member-msg clearfix">
-            <div class="member-img part-2 part-md-2 part-lg-1">
+            <figure class="member-img part-2 part-md-2 part-lg-1">
                 <img src="images/icon7.png">
-            </div>
+            </figure>
             <div class="member-txt part-10 part-md-10 part-lg-11 clearfix">
                 <div class="member-id">訪客</div>
                 <!-- <div class="comments-time">留言時間</div> -->
-                <input type="text" class="member-letter" name="member-letter" value="請輸入留言...">
-                <input type="submit" class="comments" name="comments" value="留言">
+                <textarea placeholder="請輸入留言..." name="member-letter" id="memberLetter" class="member-letter" rows="3"></textarea>
+                <input type="submit" name="comments" id="commentsBtn" class="comments nextBTN" value="送出">
             </div>
         </div>
-
-        <div class="member-msg clearfix ">
-            <div class="member-img part-2 part-md-2 part-lg-1">
+        <div class="member-msg clearfix">
+            <figure class="member-img part-2 part-md-2 part-lg-1">
                 <img src="images/icon7.png">
-            </div>
+            </figure>
             <div class="member-txt part-10 part-md-10 part-lg-11 clearfix">
-                <div class="member-id">wuxia009827</div>
-                <div class="comments-time">2018/1/1</div>
-                <div class="text">真是太好吃了阿</div>
-                <input type="submit" class="comments" name="comments" value="檢舉">
+                <div class="member-id">董董</div>
+                <div class="comments-time">2018/09/01</div>
+                <p>好鮮阿~~~好像魚兒在我嘴裡游動!!</p>
+                <input type="submit" name="comments" id="commentsBtn" class="comments nextBTN" value="檢舉">
             </div>
         </div>
+        <div class="text-container"></div>
     </div>
 
-<!-- 推薦飯團 -->
-<div class="grouponDatail-container">
-    <div class="recommendGroupon-wrapper">
-        <h2>其他推薦飯團</h2>
-        <div class="owl-carousel">
-            <div class="groupon-box">
-                <div class="userInfo-wrapper clearfix">
-                    <div class="grouponUser">
-                        <span>發起人: </span>
-                    </div>
-                    <div class="userPic">
-                        <div class="pic">
-                            <img src="asset/user01.png" alt="user">
-                        </div>
-                    </div>
-                    <div class="user grid-9">
-                        <h3 class="userId">
-                            Arthur00234
-                        </h3>
-                        <div class="userExp clearfix">
-                            <div class="achievePic grid-4">
-                                <div class="pic">
-                                    <img src="asset/achieve01.png" alt="">
-                                </div>
-                            </div>
-                            <div class="achStatus grid-8 clearfix">
-                                <h3>
-                                    小菜蟲
-                                </h3>
-                                <p>
-                                    <span>300 </span> EXP
-                                </p>
-                            </div>
-                            <div class="hint">
-                                <div class="pic grid-6">
-                                    <img src="asset/achieve01.png" alt="">
-                                </div>
-                                <p>
-                                    <span class="achName">小菜蟲成就</span> <br> 吃完10餐後可獲得，可拿到<span>10</span>元折價券
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_topUI clearfix">
-                    <div class="leftUI grid-12">
-                        <div class="titleTag grid-12">
-                            <span class="tag">#超滿足</span>
-                            <h3>日式和食小資飯團</h3>
-                        </div>
-                        <div class="meal-container grid-12 clearfix">
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="meal-box">
-                                <div class="price">
-                                    75元
-                                </div>
-                                <div class="pic">
-                                    <img src="asset/bentou01.jpg" alt="">
-                                </div>
-                                <div class="title">
-                                    豪華便當組
-                                </div>
-                            </div>
-                            <div class="andMoreMeal-counter">
-                                ...總共 <span>5</span>個餐點
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="groupon_bottomUI clearfix">
-                    <div class="mealAndKcal grid-6">
-                        <div class="avgPrice grid-6">平均
-                            <span>72</span>
-                            元 / 餐
-                        </div>
-                        <div class="avgKcal grid-6">
-                            平均<span>
-                                700
-                            </span>
-                            大卡 / 餐
-                        </div>
-                    </div>
-                    <div class="price grid-5">
-                        <div class="grouponPrice">
-                            飯團價(6折) <span>
-                                640元
-                            </span>
-                        </div>
-                    </div>
-                    <div class="callToAction grid-12">
-                        <a href="##" class="subBTN">
-                            查看此飯團
-                        </a>
-                    </div>
-                </div>
-                <div class="almostSucc-icon">
-                    即將達標
-                </div>
-            </div>
-            <div class="groupon-box">
-                    <div class="user-info"></div>
-                    <div class="groupon_topUI clearfix">
-                        <div class="leftUI grid-12">
-                            <div class="titleTag grid-12">
-                                <span class="tag">#超滿足</span>
-                                <h3>日式和食小資飯團</h3>
-                            </div>
-                            <div class="meal-container grid-12 clearfix">
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="andMoreMeal-counter">
-                                    ...總共 <span>5</span>個餐點
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="groupon_bottomUI clearfix">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-6">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                            <div class="avgKcal grid-6">
-                                平均<span>
-                                    700
-                                </span>
-                                大卡 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-5">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                        <div class="callToAction grid-12">
-                            <a href="##" class="subBTN">
-                                查看此飯團
-                            </a>
-                        </div>
-                    </div>
-                    <div class="almostSucc-icon">
-                        即將達標
-                    </div>
-            </div>
-            <div class="groupon-box">
-                    <div class="user-info"></div>
-                    <div class="groupon_topUI clearfix">
-                        <div class="leftUI grid-12">
-                            <div class="titleTag grid-12">
-                                <span class="tag">#超滿足</span>
-                                <h3>日式和食小資飯團</h3>
-                            </div>
-                            <div class="meal-container grid-12 clearfix">
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="andMoreMeal-counter">
-                                    ...總共 <span>5</span>個餐點
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="groupon_bottomUI clearfix">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-6">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                            <div class="avgKcal grid-6">
-                                平均<span>
-                                    700
-                                </span>
-                                大卡 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-5">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                        <div class="callToAction grid-12">
-                            <a href="##" class="subBTN">
-                                查看此飯團
-                            </a>
-                        </div>
-                    </div>
-                    <div class="almostSucc-icon">
-                        即將達標
-                    </div>
-            </div>
-            <div class="groupon-box">
-                    <div class="user-info"></div>
-                    <div class="groupon_topUI clearfix">
-                        <div class="leftUI grid-12">
-                            <div class="titleTag grid-12">
-                                <span class="tag">#超滿足</span>
-                                <h3>日式和食小資飯團</h3>
-                            </div>
-                            <div class="meal-container grid-12 clearfix">
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="andMoreMeal-counter">
-                                    ...總共 <span>5</span>個餐點
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="groupon_bottomUI clearfix">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-6">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                            <div class="avgKcal grid-6">
-                                平均<span>
-                                    700
-                                </span>
-                                大卡 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-5">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                        <div class="callToAction grid-12">
-                            <a href="##" class="subBTN">
-                                查看此飯團
-                            </a>
-                        </div>
-                    </div>
-                    <div class="almostSucc-icon">
-                        即將達標
-                    </div>
-                </div>
-            <div class="groupon-box">
-                    <div class="user-info"></div>
-                    <div class="groupon_topUI clearfix">
-                        <div class="leftUI grid-12">
-                            <div class="titleTag grid-12">
-                                <span class="tag">#超滿足</span>
-                                <h3>日式和食小資飯團</h3>
-                            </div>
-                            <div class="meal-container grid-12 clearfix">
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="andMoreMeal-counter">
-                                    ...總共 <span>5</span>個餐點
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="groupon_bottomUI clearfix">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-6">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                            <div class="avgKcal grid-6">
-                                平均<span>
-                                    700
-                                </span>
-                                大卡 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-5">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                        <div class="callToAction grid-12">
-                            <a href="##" class="subBTN">
-                                查看此飯團
-                            </a>
-                        </div>
-                    </div>
-                    <div class="almostSucc-icon">
-                        即將達標
-                    </div>
-            </div>
-            <div class="groupon-box">
-                    <div class="user-info"></div>
-                    <div class="groupon_topUI clearfix">
-                        <div class="leftUI grid-12">
-                            <div class="titleTag grid-12">
-                                <span class="tag">#超滿足</span>
-                                <h3>日式和食小資飯團</h3>
-                            </div>
-                            <div class="meal-container grid-12 clearfix">
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="豪華便當組"  title="豪華便當組">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="meal-box">
-                                    <div class="price">
-                                        75元
-                                    </div>
-                                    <div class="pic">
-                                        <img src="asset/bentou01.jpg" alt="">
-                                    </div>
-                                    <div class="title">
-                                        豪華便當組
-                                    </div>
-                                </div>
-                                <div class="andMoreMeal-counter">
-                                    ...總共 <span>5</span>個餐點
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="groupon_bottomUI clearfix">
-                        <div class="mealAndKcal grid-6">
-                            <div class="avgPrice grid-6">平均
-                                <span>72</span>
-                                元 / 餐
-                            </div>
-                            <div class="avgKcal grid-6">
-                                平均<span>
-                                    700
-                                </span>
-                                大卡 / 餐
-                            </div>
-                        </div>
-                        <div class="price grid-5">
-                            <div class="grouponPrice">
-                                飯團價(6折) <span>
-                                    640元
-                                </span>
-                            </div>
-                        </div>
-                        <div class="callToAction grid-12">
-                            <a href="##" class="subBTN">
-                                查看此飯團
-                            </a>
-                        </div>
-                    </div>
-                    <div class="almostSucc-icon">
-                        即將達標
-                    </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-        
+
+
+
 </body>
 
 <script src="js/eatDetail.js"></script>
+
 <script>
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
@@ -748,85 +137,5 @@
         });
     });
 </script>
-<!-- <script src="js/floaty.js"></script> -->
-<script>
 
-	for (var i = 1; i <= 7; i++) {
-	
-		var view = document.querySelector("#view" +　i);
-
-		struct1 = document.createElement("div");     
-		struct1.className = "slice s" + 3;
-	
-		for (var j = 2; j > 0; j--) {
-	
-			struct2 = document.createElement("div");     
-			struct2.className = "slice s" + j;
-	
-			struct2.appendChild(struct1);
-
-			struct1 = struct2;
-		}
-	
-		view.appendChild(struct2);
-		
-	}
-
-	var whitePoint = document.querySelector('.white-Point');
-
-	whitePoint.addEventListener('click', whitePointToggle);
-
-	window.addEventListener("resize", function(){
-    	whitePointToggle();
-	});
-
-	var isOpen = false;
-
-	function whitePointToggle(){
-		
-		var w = window.innerWidth,
-			h = window.innerHeight,
-			minwh = w > h ? h : w;
-
-		isOpen = !isOpen;
-
-		if(isOpen&&w<768){
-			var classVal = whitePoint.getAttribute("class").replace("floaty","");
-			whitePoint.setAttribute("class",classVal);//删除floaty
-			alert(classVal);
-			whitePoint.style.width = minwh * 0.7 + 'px';
-			whitePoint.style.height = minwh * 0.7  + 'px';
-			
-			whitePoint.style.top = (h / 2) - (minwh * 0.35) + 'px';
-			whitePoint.style.left = (w / 2) - (minwh * 0.35) + 'px';
-			
-			var childList = whitePoint.children[0].children;
-			
-			for(i=0;i<childList.length;i++){
-				childList[i].style.display = 'inline-block';
-			}	
-			// whitePoint.style.transition = "2s";
-
-		}else{
-
-			var classVal = whitePoint.getAttribute("class").concat(" floaty");
-			whitePoint.setAttribute("class",classVal);//添加floaty
-			alert(classVal);
-
-			whitePoint.style.width = "50px";
-			whitePoint.style.height = "50px";
-			
-			whitePoint.style.top = 'auto';
-			whitePoint.style.left = 'auto';
-			
-			var childList = whitePoint.children[0].children;
-			
-			for(i=0;i<childList.length;i++){
-				childList[i].style.display = 'none';
-			}
-			// whitePoint.style.transition = "0s";	
-		}
-	}
-
-</script>
 </html>
