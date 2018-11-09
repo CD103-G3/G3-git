@@ -9,11 +9,7 @@ function $all(all) {
 }
 function randomOneNum(min, max) {
     var length = max - min+1;
-    // var arr = [];
-    // for(let i in length) {
-    //     arr.push(min+1);
-    // }
-    var rand = min + Math.floor(Math.random() * length)
+    var rand = min + Math.floor(Math.random() * length);
     return rand;
 }
 var storage = sessionStorage;
@@ -22,8 +18,7 @@ var storage = sessionStorage;
 
 
 //初始化註冊or產生東西
-function init() {
-
+function initDayCook() {
     // sessionStorage設定
     // 發起飯團的sessionStorage
     if(storage.addMealList == null) {
@@ -90,7 +85,6 @@ function init() {
     // alert(mealArray.length);
     if($id('mealArea')) {
         if(storage.addMealList.length > 1) {
-            alert('//');
             for(let i in mealArray) {
                 mealCount++;
                 var mealId = mealArray[i];
@@ -115,7 +109,7 @@ function init() {
         }
     }
     
-
+    
     // 產生從今天開始的後七天
     if($class('chooseDay-wrapper').length) {
         cal7days();
@@ -157,7 +151,7 @@ function init() {
             // storage.grouponInfo +=
             // 檢查input輸入 
             
-        }
+        };
     }
 
     // 註冊3-3確定發起的按鈕
@@ -169,9 +163,30 @@ function init() {
             alert('已成功發起飯團!!');
             storage.clear();
             
-        }
+        };
     }
     
+    //3-4
+    if($all('.create3_4').length > 0) {
+        $id('copyCode').onclick = function() {
+            //複製code in input
+            var copyTxt = $id('groupon_shareCode');
+            copyTxt.select();
+            document.execCommand('copy');
+            $all('.hint')[1].style.display = 'block';
+            // 2秒後變display none
+            setTimeout(function() {
+                $all('.hint')[1].style.display = 'none';
+            }, 2000);
+        };
+        animate3_4();
+    }
+    
+    //4-1 
+    if($all('.circleChart').length > 0) {
+        circleChart();
+    }
+
     
     //add meal function
     var addThisMeal_btn = document.getElementsByClassName('addThis');
@@ -183,18 +198,40 @@ function init() {
         for(let i in $class('meal-box')) {
             $class('meal-box')[i].onclick = addToMenu;
         }
+        $id('checkChangBTN').onclick = displayPopUp5_1;
+        $id('cancelChangBTN').onclick = displayPopUp5_1;
+        $id('checkChange-container_bg').onclick = displayPopUp5_1;
 
+        $all('.changePage').forEach(function(pageBTN,w) {
+            // console.log(pageBTN);
+            // console.log(w);
+            pageBTN.onclick = function() {
+                $all('.changePage').forEach(function(e) {
+                    e.className = 'changePage';
+                });
+                this.className += ' active';
+                $all('.changePage_container').forEach(function(e) {
+                    e.style.display = 'none';
+                });
+                $all('.changePage_container')[w].style.display = 'block';
+            };
+        });
     }
-
+    
     //6-1
-    if($class('grouponDatail-container').length > 0) {
+    if($all('.grouponDetail-container').length > 0) {
         var smallPicChange = $all('.mealSmallPic-container .meal-box');
         for(let i in smallPicChange) {
-            smallPicChange[i].onmouseover = changeMealInfo;
+            smallPicChange.forEach(function(e) { e.addEventListener('mouseover', changeMealInfo)});
         }
+        progressBar();
     }
     if($class('scoreEgg-container').length > 0) {
-        getScoreEgg();
+        eggScore.egg({
+            container: $all('.score-wrapper'),
+            whiteEgg: 'asset/scoreEgg_w.svg',
+            blackEgg: 'asset/scoreEgg_y.svg',
+        });
     }
 
     //6-2
@@ -204,7 +241,7 @@ function init() {
             paymentMethod[y].oninput = function() {
                 $id('selectedResult').innerHTML = 
                 this.nextElementSibling.getElementsByTagName('h3')[0].innerText;
-            }
+            };
         }
     }
 
@@ -500,7 +537,6 @@ function createMealBox(meal, mealInfo) {
 
     var mealScore = document.createElement('div');
     mealScore.className = 'meal-score';
-    mealScore.innerHTML = 'AAAA';
     mealTitle.appendChild(mealScore);
 
     var title = document.createElement('div');
@@ -526,21 +562,43 @@ function changeMealInfo(e) {
     //保留用
     var thisScore = parseFloat(this.getAttribute('score'));
      $id('grouponDetail_score').innerHTML = thisScore;
-     console.log($all('.scoreEgg-container ul li'));
-     for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
-        $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
-     }
-     $class('scoreEgg-container')[0].setAttribute('score', thisScore);
-     getScoreEgg();
+    //  console.log($all('.scoreEgg-container ul li'));
+    for(let x = 0 ; x < $all('.scoreEgg-container ul li').length; x++) {
+    $all('.scoreEgg-container ul li img')[x].src = 'asset/scoreEgg_w.svg';
+    }
+    $class('scoreEgg-container')[0].setAttribute('score', thisScore);
+    eggScore.egg({
+        container: $all('.score-wrapper'),
+        whiteEgg: 'asset/scoreEgg_w.svg',
+        blackEgg: 'asset/scoreEgg_y.svg',
+    });
     // $id('grouponDetail_score').innerHTML = ;
     // $id('grouponDetail_kcal').innerHTML = ;
 
 }
 
+const eggScore = {
+    egg(egg) {
+        egg.container.forEach(function(e,w) {
+            var score = Math.round(e.children[1].innerText);
+            // console.log(score);
+            
+            var li = e.children[2].children[0].getElementsByTagName('li');
+            for(let i = 0; i < li.length ; i ++) {
+                let img = li[i].children[0].getElementsByTagName('img')[0];
+                img.src = egg.whiteEgg;
+            }
+            for(let i = 0; i < score ; i ++) {
+                let img = li[i].children[0].getElementsByTagName('img')[0];
+                img.src = egg.blackEgg;
+            }
+        })
+    }
+}
+
 function getScoreEgg(e) {
     var scoreEgg = $class('scoreEgg-container');
     for(let i = 0; i < scoreEgg.length ; i++) {
-        console.log(i);
         var score = Math.round(scoreEgg[i].getAttribute('score'));
         let j = 0;
         do{
@@ -553,22 +611,134 @@ function getScoreEgg(e) {
 
 }
 
+function progressBar() {
+    var pNow = parseInt($all('.peopleNow')[0].innerText);
+    var pNeed = parseInt($all('.peopleNeeded')[0].innerText);
+    // console.log(pNeed);
+    tl = new TimelineMax();
+    tl.fromTo('.progressBar_B', 2.5 ,{
+        width: '0px',
+    },{
+        width: (pNow / pNeed)*100 + '%',
+    });
+    // $all('.progressBar_B')[0].style.width = (pNow / pNeed)*100 + '%';
+}
+// 3-4 tweenMax
+function animate3_4() {
+    var tl = new TimelineMax();
+     // tl.fromTo('.fork', 1,{},{});
+
+    tl.fromTo('.maxWidthWrapper',1.5, {
+        opacity: 0.5,
+        y: -1111,
+    },{
+        opacity: 1,
+        y: 0,
+        ease: Circ.easeOut,
+    });
+
+    tl.fromTo('.fork', 1,{
+        opacity: 0,
+        x: -100,
+    },{
+        opacity: 1,
+        x: 20,
+    });
+
+    tl.fromTo('.spoon', 1,{
+        opacity: 0,
+        x: 100,
+    },{
+        opacity: 1,
+        x: -20,
+    }, '-=1');
+
+    tl.fromTo('.shareInfo-wrapper', .7,{
+        opacity: 0,
+        scale: 1.3,
+    },{
+        opacity: 1,
+        scale: 1,
+    });
+
+}
+
+// 4-1
+function circleChart(e) {
+    $all('.circleChart').forEach(function(e, w) {
+        var pNow = parseInt($all('.peopleNow')[w].innerText);
+        var pNeed = parseInt($all('.peopleNeeded')[w].innerText);
+        var degree = Math.round(pNow / pNeed * 360 * 10) / 10;
+        // alert(degree);
+        console.log(e);
+        console.log(degree);
+        // var rotation = window.getComputedStyle($class('circleDisplay')[0], 'before').getPropertyValue('transform');
+        
+        $all('.circleDisplayB')[w].style.transform = 'rotate(' + degree + 'deg)';
+
+        // console.log(rotation);
+        if(degree > 180) {
+            
+            var deg180 = degree - 180;
+            var tl = new TimelineMax();
+            console.log(w);
+            $all('.circleDisplayB')[w].style.backgroundColor = '#76391B';
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1.5,
+            {
+                rotation: 0,
+                backgroundColor: '#76391B',
+            },{
+                rotation: 180,
+                backgroundColor: '#76391B',
+                ease: Power0.easeNone,
+            });
+            // $all('.circleDisplayB')[w].style.backgroundColor = '#FCE444';
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',1,{
+                rotation: 0,
+                backgroundColor: '#FCE444',
+            },{
+                rotation: deg180,
+                // ease: Power4.easeOut,
+            });
+        } else {
+            var tl = new TimelineMax();
+            console.log(w);
+            tl.fromTo('.groupon-wrapper:nth-child('+ (w+1) + ') .circleDisplayB',3,
+            {
+                rotation: 0,
+            },{
+                rotation: degree,
+                ease: Power4.easeOut,
+            });
+        }
+    });
+}
+
 // 6-3 tweenMax
 function anime6_3() {
     var tl = new TimelineMax();
 
     tl.fromTo(".dish-container", 1.2, {
         // x: 220,
-        // y: 100,
+        x: -300,
         alpha: 0.2,
-        scale: 1.3,
+        // scale: 1.3,
     },{
+        x: 0,
         alpha: 1,
         scale: 1,
         delay: 0.3,
+        // ease: CustomEase.create("custom", "M0,0 C0.14,0 0.242,0.438 0.272,0.561 0.313,0.728 0.354,0.963 0.362,1 0.37,0.985 0.406,0.922 0.466,0.878 0.53,0.83 0.609,0.855 0.622,0.864 0.698,0.914 0.741,0.993 0.748,1.01 0.82,0.95 0.84,0.946 0.859,0.96 0.878,0.974 0.897,0.985 0.911,0.998 0.922,0.994 0.939,0.984 0.954,0.984 0.969,0.984 1,1 1,1"),
+    });
+    tl.fromTo('.bonus-wrapper', 1.4, {
+        alpha: 0,
+        scale: 1.5
+    },{
+        alpha: 1,
+        scale: 1,
+        // ease: Circ.easeOut,
         ease: CustomEase.create("custom", "M0,0 C0.14,0 0.242,0.438 0.272,0.561 0.313,0.728 0.354,0.963 0.362,1 0.37,0.985 0.406,0.922 0.466,0.878 0.53,0.83 0.609,0.855 0.622,0.864 0.698,0.914 0.741,0.993 0.748,1.01 0.82,0.95 0.84,0.946 0.859,0.96 0.878,0.974 0.897,0.985 0.911,0.998 0.922,0.994 0.939,0.984 0.954,0.984 0.969,0.984 1,1 1,1"),
     });
-
     tl.fromTo(".chickPic", .1, {
         y: 10,
     },{
@@ -682,4 +852,18 @@ function addToMenu(e) {
     // 尚無餐點的顯示
     noMeal();
 }
-window.addEventListener('load',init);
+
+function displayPopUp5_1() {
+    var bgStyle = $id('checkChange-container_bg').style;
+    var popStyle = $id('popUpChange').style;
+    if(popStyle.display == 'block') {
+        popStyle.display = 'none';
+        bgStyle.left = '-10000px';
+        bgStyle.opacity = 0;
+    } else {
+        $id('popUpChange').style.display = 'block';
+        bgStyle.left = '0px';
+        bgStyle.opacity = 1;
+    }
+}
+window.addEventListener('load',initDayCook);

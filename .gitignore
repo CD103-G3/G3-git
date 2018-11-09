@@ -1,2 +1,7 @@
 node_modules
 libs
+bower.json
+gulpfile.js
+package.json
+package-lock.json
+.bowerrc

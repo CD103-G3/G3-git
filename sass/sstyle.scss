@@ -1,0 +1,392 @@
+// @import 
+@import "daycookVar";
+@import "layout/grid";
+@import "mixins/mixins";
+@import "animation/anime";
+@import "general_mixins";
+
+
+// gridSystem
+@include gridSys(12);
+@include gridSys(12, md, 768px);
+@include gridSys(12, lg, 1024px);
+
+// media query
+$pad: 768px;
+$PC: 1024px; 
+$lgPC: 1200px;
+// @include rwdSys() {
+// };
+$pd: 10px;
+@include scrollBar(8px, $color_main2, $color_main3);
+* {
+    // outline: 1px solid #345;
+    box-sizing: border-box;
+    // line-height: 1.6;
+}
+button {
+    border: none;
+    cursor: pointer;
+}
+body {
+    font-family: $fmy;
+    font-size: $fontSize_text;
+}
+.owl-dots {
+    text-align: center;
+    button.owl-dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 10px;
+        border-radius: 10px;
+        background-color: $color_main1;
+        &.active {
+            background-color: $color_main2;
+        }
+    }
+}
+a { text-decoration: none; }
+h1 {
+    font-weight: 800;
+    font-size: $fontSize_L;
+    padding: 10px;
+    // color: $color_main2;
+    text-align: center;
+}
+h2{
+    font-weight: 600;
+    font-size: $fontSize_M;
+    color: $color_main2;
+    text-align: center;
+}
+@include picSetting;
+.btn-container { margin: 20px 0 10px; }
+.btn-container {
+    margin: 60px auto 50px;
+    text-align: center;
+    font-size: 0;
+    .nextBTN, .cancelBTN {
+        width: calc(50% - 20px);
+    }
+    @include rwdSys(pad) {
+        @include nextAndCancel-BTN(240px);
+    }
+}
+//篩選checkbox
+@include filter($color_main2);
+.groupon-wrapper {
+    position: relative;
+    display: inline-block;
+    border-radius: 30px;
+    border: 3px solid $color_main2;
+    // max-width: 600px;
+    max-width: 500px;
+    margin: 0px 30px 60px;
+    transition: .3s;
+    .originalPrice {
+        display: none;
+    }
+    @include rwdSys(PC) {
+        max-width: 90%;
+        width: 100%;
+        .originalPrice {
+            display: block;
+        }
+    }
+    &:hover {
+        box-shadow: 0px 6px 20px #aaa;
+        transition: .3s;
+    }
+    // overflow: hidden;
+}
+.groupon_topUI {
+    // background-color: #ddd;
+    border-radius: 30px 30px 0px 0px;
+    //temp
+    .leftUI {
+        padding: $pd;
+        margin: 10px 0;
+        text-align: left;
+        .titleTag {
+            position: relative;
+            left: -32px;
+            padding: 20px;
+            padding-left: 40px;
+            background-color: $color_main1;
+            box-shadow: 0px 6px 20px rgba(80, 80, 80, 0.123);
+            &:before {
+                top: 90px;
+                left: 0px;
+                @include decoTri(12px, 0px, 0px, 23px, 
+                $color_main2, transparent, $color_main2, transparent)
+            }
+            &:after {
+                top: 0;
+                right: -40px;
+                @include decoTri(45px, 40px, 45px, 0px, 
+                $color_main1, transparent, $color_main1, transparent);
+            }
+            h3 {
+                padding-top: $pd;
+                font-size: $fontSize_M;
+                font-weight: 600;
+            }
+        }
+        .mealAndScore-container {
+            display: flex;
+            align-items: center;
+            height: 90px;
+            .meal-counter {
+                font-size: $fontSize_L;
+                font-weight: 600;
+                text-align: center;
+            }
+        }
+        .meal-container {
+            padding: $pd * 0;
+            padding-bottom: 0;
+            .meal-box {
+                width: 120px;
+                height: 120px;
+            }
+            .meal-box:nth-child(4) {
+                display: none;
+            }
+            @include rwdSys(lgPC) {
+                padding: $pd * 2;
+                .meal-box:nth-child(4) {
+                    display: inline-block;
+                }
+            }
+            text-align: center;
+            .andMoreMeal-counter {
+                margin: auto;
+                padding: $pd;
+                text-align: center;
+                color: $color_main2;
+                font-size: $fontSize_M;
+                font-weight: 800;
+            }
+        }
+    }
+    .rightUI {
+        padding: $pd;
+        margin: 10px 0;
+        border-left: 2px solid $color_main2;
+        .endDate-container {
+            text-align: center;
+            span {
+                font-size: $fontSize_M;
+                font-weight:800;
+                color: $color_hot;
+            }
+            .day {
+                // text-align: left;
+            }
+        }
+        .threshold {
+            padding: $pd*2;
+            padding-bottom: 0;
+            text-align: center;
+            h3 { padding: $pd; }
+            .circleChart {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 136px;
+                height: 136px;
+                margin: auto;
+                .circleDisplay {
+                    @include pieChar(136px, $color_main1, $color_main2, 6px, 0);
+                    // background-color: #fff
+                }
+            }
+            .people-container {
+                position: absolute;
+                z-index: 3;
+                font-size: $fontSize_M;
+            }
+            .peopleNow {
+                position: relative;
+                top: -10px;
+                font-size: $fontSize_L;
+                font-weight: 800;
+                color: $color_hot;
+            }
+            .peopleNeeded {
+                position: relative;
+                top: 20px;
+                font-weight: 800;
+                &:before {
+                    position: absolute;
+                    top: -38px;
+                    left: -6px;
+                    display: inline;
+                    @include BfAf;
+                    width: 2px;
+                    height:76px;
+                    transform: rotate(45deg);
+                    background-color: $color_main2;
+                }
+            }
+        }
+        
+    } 
+}
+.meal-box {
+    position: relative;
+    display: inline-block;
+    border-radius: 20px;
+    border: 4px solid transparent;
+    transition: .3s;
+    overflow: hidden;
+    width: 136px;
+    height: 136px;
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px #aaa;
+    cursor: pointer;
+    .price {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 6px;
+        font-size: $fontSize_S;
+        border-radius: 0 0 0 20px;
+        color: #fff;
+        background-color: $color_main2;
+    }
+    .title {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        padding: 6px;
+        background-color: $color_main1;
+    }
+    
+}
+.groupon_bottomUI {
+    // background-color: #aaa;
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $color_main2;
+    border-bottom: 16px solid $color_main2;
+    border-radius: 0 0 26px 26px ;
+    padding: $pd *1;
+    line-height: 1.6;
+    .mealAndKcal {
+        font-size: $fontSize_S;
+        
+        span {
+            font-size: $fontSize_L;
+            font-weight: 800;
+            color: $color_hot;
+        }
+    }
+    .price {
+        border-left: 1px solid $color_main2;
+        padding: 0px $pd;
+        .originalPrice {
+            text-decoration: line-through;
+        }
+        .grouponPrice {
+            font-size: $fontSize_S;
+            font-weight: 800;
+            color: $color_hot;
+            span {
+                font-size: $fontSize_L;
+            }
+        }
+    }
+    .callToAction {
+        text-align: center;
+        margin-top: 30px;
+        @include rwdSys(PC) {
+            margin-top: 0px;
+        }
+        @include sub-BTN(240px);
+    }
+}
+@include popUp('.share6_1-bg', '#share6_1', '.shareInfo-container', '.share-wrapper');
+@include popUp('.share5_1-bg', '#share5_1', '.shareInfo-container', '.share-wrapper');
+.recommendGroupon-wrapper {
+    // max-width: 1200px;
+    margin-top: 200px;
+    margin-bottom: 60px;
+    width: 100%;
+    overflow: hidden;
+    h2 {
+        padding: $pd;
+        margin: $pd * 4;
+        border-bottom: 4px solid $color_main2;
+    }
+    .owl-carousel {
+        box-shadow: inset 10px 0px 20px rgba(119, 119, 119, 0.151), ;
+    }
+    .groupon-box {
+        position: relative;
+        width: 360px;
+        @include rwdSys(pad) {
+            width: 476px;
+        }
+        // margin-top: 110px;
+        border: 3px solid $color_main2;
+        border-radius: 30px;
+        .groupon_topUI  {
+            .leftUI {
+                padding: 0px;
+                .titleTag {
+                    left: -26px;
+                }
+            }
+            .meal-container {
+                padding-bottom: 0px;
+            }
+        }
+        .groupon_bottomUI {
+            display: block;
+            .avgPrice {
+                text-align: center;
+            }
+            .btn-container {
+                margin: 20px auto 0px;
+                text-align: center;
+            }
+        }
+        .almostSucc-icon {
+            top: 2px;
+            left: 386px;
+        }
+    }
+    .meal-box {
+        width: 120px;
+        height: 120px;
+    }
+    .meal-box:nth-child(3) {
+        display: none;
+        @include rwdSys(pad) {
+            display: inline-block;
+        }
+    }
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+//通用按鈕設定
+@include nextAndCancel-BTN(120px);
+@include main-BTN(200px);
+@include sub-BTN(200px);
+@include plusAndMinus-BTN;
+
+

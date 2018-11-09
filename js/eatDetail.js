@@ -70,3 +70,19 @@ function eatDetailMsg() {
 };
 window.addEventListener('load', eatDetailMsg);
 //新增留言結束
+
+//隨機產生留言
+function msg() {
+
+    document.getElementById('commentsChange').onclick = function() {
+        var title = document.getElementById('memberLetter');
+        var n = ['太好吃了吧!!!','天啊!這麼好吃的東西!我要感謝媽媽!','我一定要帶妹妹17來吃!阿~我沒有妹妹'];
+        var max  =2;
+        var min = 0;
+        var title = n[Math.floor(Math.random()*(max-min+1)+min)];
+
+        grouponTitle.value = title;
+    }
+}
+
+window.addEventListener('load',msg);
