@@ -41,29 +41,31 @@ window.addEventListener('load',detailQty)
 function eatDetailMsg() {
     
     document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後新增留言
-        
         var text = document.getElementById('memberLetter');  //找到textarea中的字
-
         var today = new Date();  //建立物件
         var year = today.getFullYear();
         var mon = today.getMonth()+1;
         var day = today.getDate();
-
         var memberImg = "images/logo.png";  //變更圖片路徑
 
-        var textDiv = `<div class="member-msg clearfix">     
-                            <div class="member-msg clearfix">
-                                <figure class="member-img part-2 part-md-2 part-lg-1">
+        var textDiv = `<div class="member-msg">           
+                            <div class="member-pic clearfix">
+                                <figure class="member-img fl">
                                     <img src=${memberImg}>
                                 </figure>
-                                <div class="member-txt part-10 part-md-10 part-lg-11 clearfix">
+                                <div class="member-txt fl">
                                     <div class="member-id">訪客</div>
                                     <div class="comments-time">${year}/${mon}/${day}</div>
-                                    <p>${text.value}</p>
-                                    <input type="submit" name="comments" id="commentsBtn" class="comments nextBTN" value="檢舉">
+                                </div>
+                            </div>
+                            <div class="comments clearfix">
+                                <p>${text.value}</p>
+                                <div class="msg-btn"> 
+                                    <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
                                 </div>
                             </div>
                         </div>`;    //把留言內容用要包的div名稱包起來
+
         document.getElementsByClassName('text-container')[0].innerHTML += textDiv;  //新增留言到留言區
         text.value = '';  //清空textarea中的字
     }
@@ -75,14 +77,30 @@ window.addEventListener('load', eatDetailMsg);
 function msg() {
 
     document.getElementById('commentsChange').onclick = function() {
-        var title = document.getElementById('memberLetter');
+        var title=document.getElementById('memberLetter');
         var n = ['太好吃了吧!!!','天啊!這麼好吃的東西!我要感謝媽媽!','我一定要帶妹妹17來吃!阿~我沒有妹妹'];
-        var max  =2;
-        var min = 0;
+        var max=2;
+        var min=0;
         var title = n[Math.floor(Math.random()*(max-min+1)+min)];
 
-        grouponTitle.value = title;
+        memberLetter.value = title;
     }
 }
-
 window.addEventListener('load',msg);
+//隨機產生留言結束
+
+// 人數條
+// function peopleLine() {
+//     var pNow = parseInt(document.querySelectorAll('.people')[0].innerText);
+//     var pNeed = parseInt(document.querySelectorAll('.people-total')[0].innerText);
+//     // console.log(pNeed);
+//     tl = new TimelineMax();
+//     tl.fromTo('.peopleLine', 2.5 ,{
+//         width: '0px',
+//     },{
+//         width: (pNow / pNeed)*100 + '%',
+//     });
+// }
+
+
+// window.addEventListener('load',peopleLine);
