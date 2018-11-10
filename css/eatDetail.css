@@ -498,6 +498,7 @@ header {
   font-family: 微軟正黑體, arial, "sans serif";
   background-image: url("../images/eatDetail_bg.jpg"); }
   .eatDetail * {
+    outline: 1px solid #f00;
     font-size: 16px;
     color: #333333;
     box-sizing: border-box; }
@@ -710,54 +711,70 @@ header {
           transition: .2s; }
         .eatDetail .msg-board .member-msg .comments .msg-btn .nextBTN:active {
           top: 2px; }
-  .eatDetail .scorpion .groupon {
-    margin: 20px 10px;
+  .eatDetail .scorpion .groupon .groupon-box {
+    margin: 0 15px;
     padding: 10px;
-    border: 1px solid #425075;
+    border: 2px solid #76391B;
+    border-bottom: 10px solid #76391B;
     border-radius: 25px; }
-    .eatDetail .scorpion .groupon .groupon-title {
-      margin: 5px 0 0 -20px;
-      padding: 10px;
-      background-color: #FCE444;
+    .eatDetail .scorpion .groupon .groupon-box .groupon-title {
+      margin: 5px 0 0 -25px;
+      padding: 10px 0 10px 25px;
       font-weight: bold;
+      background-color: #FCE444;
       position: relative; }
-      .eatDetail .scorpion .groupon .groupon-title h3 {
-        font-size: 24px; }
-      .eatDetail .scorpion .groupon .groupon-title span {
-        width: 100px;
-        text-align: center;
-        font-size: 24px;
-        background-color: #f7a800;
-        border-radius: 10px;
-        padding: 5px;
-        color: #fff;
+      .eatDetail .scorpion .groupon .groupon-box .groupon-title::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 14px 8px 0;
+        border-color: transparent #76391B transparent transparent;
         position: absolute;
-        right: -15px;
-        top: 5px; }
-    .eatDetail .scorpion .groupon .groupon-meals .groupon-item {
-      background-image: url(../images/dayeatDetail_item_bg.png);
-      background-size: 100% 100%;
-      width: 130px;
-      height: 130px;
-      margin: 30px 0;
-      padding: 10px;
-      border: 5px solid #fff;
-      border-radius: 15px;
-      position: relative; }
-      .eatDetail .scorpion .groupon .groupon-meals .groupon-item .meals-price {
+        bottom: -8px;
+        left: 0px; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-title p {
+        font-size: 20px; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-title span {
+        width: 80px;
         padding: 5px;
-        border-radius: 0 15px 0 15px;
-        background-color: #76391B;
+        border-radius: 10px;
+        font-size: 24px;
+        text-align: center;
         color: #fff;
+        background-color: #f7a800;
         position: absolute;
         top: 0;
-        right: 0; }
-      .eatDetail .scorpion .groupon .groupon-meals .groupon-item .meals-title {
-        padding: 5px 0;
-        border-radius: 0 0 15px 15px;
-        background-color: #FCE444;
-        text-align: center;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        left: 0; }
+        right: -25px;
+        bottom: 0; }
+    .eatDetail .scorpion .groupon .groupon-box .groupon-meals {
+      margin: 20px 0; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item {
+        width: 120px;
+        height: 120px;
+        margin: 0 5px 10px;
+        box-shadow: 3px 3px 3px #aaa;
+        border-radius: 15px;
+        position: relative;
+        display: inline-block; }
+        .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-img, .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
+          padding: 3px 0; }
+        .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
+          border-radius: 0 0 15px 15px;
+          background-color: #FCE444;
+          text-align: center;
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          left: 0; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item:nth-child(3) {
+        display: none; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-more {
+        font-size: 20px;
+        text-align: center; }
+    .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-day, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-money, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-people, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-date {
+      margin: 10px; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-day span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-money span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-people span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-date span:first-child {
+        margin-right: 15px;
+        padding-right: 15px;
+        border-right: 2px solid #76391B; }
