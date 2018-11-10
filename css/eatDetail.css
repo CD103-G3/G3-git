@@ -535,7 +535,16 @@ header {
       vertical-align: middle; }
     .eatDetail .banner .banner-pic .heart_icon img {
       width: 25px;
-      margin-right: 5px; }
+      margin-right: 8px; }
+  .eatDetail .banner .banner-pic path {
+    fill: #f35186; }
+  .eatDetail .banner .banner-pic svg {
+    margin-right: 8px;
+    width: 20px;
+    vertical-align: middle;
+    transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1); }
+    .eatDetail .banner .banner-pic svg path {
+      fill: #bbb; }
   .eatDetail .banner .banner-txt {
     padding: 25px 0; }
     .eatDetail .banner .banner-txt .product h2 {
@@ -600,6 +609,24 @@ header {
           background-color: #FCF2CA; }
     .eatDetail .banner .banner-txt .count-btn {
       margin-top: 50px; }
+      .eatDetail .banner .banner-txt .count-btn .cart_icon {
+        float: right; }
+        .eatDetail .banner .banner-txt .count-btn .cart_icon img, .eatDetail .banner .banner-txt .count-btn .cart_icon span {
+          display: inline-block;
+          vertical-align: middle;
+          font-size: 20px; }
+        .eatDetail .banner .banner-txt .count-btn .cart_icon img {
+          width: 25px;
+          margin-right: 8px; }
+      .eatDetail .banner .banner-txt .count-btn path {
+        fill: #FD7932; }
+      .eatDetail .banner .banner-txt .count-btn svg {
+        margin-right: 5px;
+        width: 20px;
+        vertical-align: middle;
+        transition-timing-function: cubic-bezier(0.1, 2, 1, 0.1); }
+        .eatDetail .banner .banner-txt .count-btn svg path {
+          fill: #76391B; }
       .eatDetail .banner .banner-txt .count-btn .mainBTN {
         position: relative;
         display: inline-block;
@@ -615,8 +642,7 @@ header {
         transition: .2s;
         cursor: pointer;
         max-width: 45%;
-        height: 40px;
-        font-size: 20px; }
+        height: 40px; }
         .eatDetail .banner .banner-txt .count-btn .mainBTN:hover {
           opacity: .7;
           transition: .2s; }
@@ -652,7 +678,6 @@ header {
   .eatDetail .msg-board .member-msg {
     margin-bottom: 20px;
     padding: 20px;
-    background-image: url("../images/33/bg_content3.png");
     background-size: 100% 100%; }
     .eatDetail .msg-board .member-msg .member-pic .member-img {
       width: 20%; }
@@ -1135,7 +1160,7 @@ header {
   .eatDetail .msg-board .wrap {
     padding: 50px 0; }
   .eatDetail .msg-board .member-msg {
-    margin: 0 50px; }
+    margin: 0 50px 30px; }
     .eatDetail .msg-board .member-msg .member-pic .member-img {
       width: 10%; } }
 

@@ -58,9 +58,17 @@ $space_sm_lr: 0 30px;  //平板左右
                 }
                 img{ 
                     width: 25px; 
-                    margin-right: 5px;
+                    margin-right: 8px;
                 }
             }
+            path{ fill:#f35186; } 
+            svg{
+                margin-right: 8px;
+                width: 20px;
+                vertical-align: middle;
+                transition-timing-function: cubic-bezier(0.1, 2, 1.0, 0.1);
+                path{ fill:#bbb; }
+            } 
         }
         .banner-txt{
             padding: 25px 0;
@@ -126,11 +134,31 @@ $space_sm_lr: 0 30px;  //平板左右
             .count-btn{
                 margin-top: 50px;
 
+                .cart_icon{
+                    float: right;
+                    img,span{ 
+                        display: inline-block; 
+                        vertical-align: middle;
+                        font-size: $fontSize_S;
+                    }
+                    img{ 
+                        width: 25px; 
+                        margin-right: 8px;
+                    }
+                }
+                path{ fill:#FD7932; } 
+                svg{
+                    margin-right: 5px;
+                    width: 20px;
+                    vertical-align: middle;
+                    transition-timing-function: cubic-bezier(0.1, 2, 1.0, 0.1);
+                    path{ fill:$color_main2; }
+                } 
+
                 .mainBTN {
                     @include btn(100%, light) {
                         max-width: 45%;
                         height: ($fontSize_S + 5px) * $lineHeight; 
-                        font-size: $fontSize_S;
                     }
                 }
                 .subBTN {
@@ -152,7 +180,7 @@ $space_sm_lr: 0 30px;  //平板左右
         .member-msg{
             margin-bottom: 20px;
             padding: 20px;
-            background-image: url("../images/33/bg_content3.png");
+            // background-image: url("../images/33/bg_content3.png");
             background-size: 100% 100%;
             .member-pic{ 
                 .member-img{ width: 20%; }
@@ -504,7 +532,7 @@ $space_sm_lr: 0 30px;  //平板左右
     .msg-board{
         .wrap{ padding: 50px 0; }
         .member-msg{
-            margin: 0 50px;
+            margin: 0 50px 30px;
             .member-pic{ 
                 .member-img{ width: 10%; }
             }

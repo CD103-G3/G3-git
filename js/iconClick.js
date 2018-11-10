@@ -3,7 +3,7 @@ const circle1 = new mojs.Shape({
   type: 'circle',
   left: '0',
   top: '-45',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {35:0},
   fill: 'transparent',
   radius: {0: 40},
@@ -17,7 +17,7 @@ const circle2 = new mojs.Shape({
   type: 'circle',
   left: '40',
   top: '-60',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {5:0},
   fill: 'transparent',
   radius: {0: 20},
@@ -32,7 +32,7 @@ const circle3 = new mojs.Shape({
   type: 'circle',
   left: '-10', 
   top: '-80',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {5:0},
   fill: 'transparent',
   radius: {0: 10},
@@ -48,7 +48,7 @@ const circle4 = new mojs.Shape({
   type: 'circle',
   left: '-70', 
   top: '-10',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {5:0},
   fill: 'transparent',
   radius: {0: 20},
@@ -63,7 +63,7 @@ const circle5 = new mojs.Shape({
   type: 'circle',
   left: '80', 
   top: '-50',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {5:0},
   fill: 'transparent',
   radius: {0: 20},
@@ -78,7 +78,7 @@ const circle6 = new mojs.Shape({
   type: 'circle',
   left: '20', 
   top: '-100',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {5:0},
   fill: 'transparent',
   radius: {0: 15},
@@ -93,7 +93,7 @@ const circle7 = new mojs.Shape({
   type: 'circle',
   left: '-40', 
   top: '-90',
-  stroke: '#44433f',
+  stroke: '#0766ff',
   strokeWidth: {5:0},
   fill: 'transparent',
   radius: {0: 25},
@@ -308,42 +308,131 @@ for(i=0; i<heart_icon.length; i++){
 
 // --------------------cart_icon-------------------- //
 
-var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var RADIUS = 28;
-var circle = new mojs.Shape({
+class Start extends mojs.CustomShape {
+  getShape() {
+      return '<path d="M5.51132201,34.7776271 L33.703781,32.8220808 L44.4592855,6.74813038 C45.4370587,4.30369752 47.7185293,3 50,3 C52.2814707,3 54.5629413,4.30369752 55.5407145,6.74813038 L66.296219,32.8220808 L94.488678,34.7776271 C99.7034681,35.1035515 101.984939,41.7850013 97.910884,45.2072073 L75.9109883,63.1330483 L82.5924381,90.3477341 C83.407249,94.4217888 80.4739296,97.6810326 77.0517236,97.6810326 C76.0739505,97.6810326 74.9332151,97.3551083 73.955442,96.7032595 L49.8370378,81.8737002 L26.044558,96.7032595 C25.0667849,97.3551083 23.9260495,97.6810326 22.9482764,97.6810326 C19.3631082,97.6810326 16.2668266,94.4217888 17.4075619,90.3477341 L23.9260495,63.2960105 L2.08911601,45.2072073 C-1.98493875,41.7850013 0.296531918,35.1035515 5.51132201,34.7776271 Z" />';
+  }
+  getLength() {
+      return 200;
+  }
+}
+mojs.addShape('start', Start);
+
+const start1 = new mojs.Shape({
+  shape: 'start',
   className: 'c',
-  left: 0, 
-  top: 0,
-  stroke: '#FF9C00',
-  strokeWidth: _defineProperty({}, 28, 0),
-  fill: 'none',
-  scale: { 0: 1, easing: 'quad.out' },
-  radius: 35,
-  duration: 450 
+  type: 'circle',
+  left: '0',
+  top: '-45',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 40},
+  opacity: 0.2,
+  duration: 750,
+  easing: mojs.easing.bezier(0, 1, 0.5, 1)
 });
 
-var burst = new mojs.Burst({
+const start2 = new mojs.Shape({
+  shape: 'start',
   className: 'c',
-  left: 0, 
-  top: 0,
-  radius: { 13: 28 },
-  angle: 225,
-  children: {
-    shape: 'line',
-    radius: 28 / 7.3,
-    scale: 1,
-    stroke: '#FD7932',
-    strokeDasharray: '100%',
-    strokeDashoffset: { '-100%': '100%' },
-    degreeShift: 'stagger(0,-5)',
-    duration: 700,
-    delay: 200,
-    easing: 'quad.out' 
-  } 
+  type: 'circle',
+  left: '40',
+  top: '-60',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 20},
+  opacity: 0.2,
+  duration: 500,
+  delay: 100,
+  easing: mojs.easing.sin.out
 });
 
-var cart_timeline = new mojs.Timeline({ speed: 1.5 });
+const start3 = new mojs.Shape({
+  shape: 'start',
+  className: 'c',
+  type: 'circle',
+  left: '-10', 
+  top: '-80',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 10},
+  opacity: 0.5,
+  duration: 500,
+  delay: 180,
+  isRunLess: true,
+  easing: mojs.easing.sin.out
+});
 
-cart_timeline.add(burst, circle);
+const start4 = new mojs.Shape({
+  shape: 'start',
+  className: 'c',
+  type: 'circle',
+  left: '-70', 
+  top: '-10',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 20},
+  opacity: 0.3,
+  duration: 800,
+  delay: 240,
+  easing: mojs.easing.sin.out
+});
+
+const start5 = new mojs.Shape({
+  shape: 'start',
+  className: 'c',
+  type: 'circle',
+  left: '80', 
+  top: '-50',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 20},
+  opacity: 0.4,
+  duration: 800,
+  delay: 240,
+  easing: mojs.easing.sin.out
+});
+
+const start6 = new mojs.Shape({
+  shape: 'start',
+  className: 'c',
+  type: 'circle',
+  left: '20', 
+  top: '-100',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 15},
+  opacity: 0.2,
+  duration: 1000,
+  delay: 300,
+  easing: mojs.easing.sin.out
+});
+
+const start7 = new mojs.Shape({
+  shape: 'start',
+  className: 'c',
+  type: 'circle',
+  left: '-40', 
+  top: '-90',
+  stroke: '#FD7932',
+  fill: '#FD7932',
+  strokeWidth: {5:0},
+  radius: {0: 25},
+  opacity: 0.4,
+  duration: 600,
+  delay: 330,
+  easing: mojs.easing.sin.out
+});
+
+const cart_timeline = new mojs.Timeline({ speed: 0.5 });
+
+cart_timeline.add(start1, start2, start3, start4, start5, start6, start7);
 
 var cart_icon = document.querySelectorAll('.cart_icon');
 var c = document.querySelectorAll('.c');
@@ -355,10 +444,15 @@ for(i=0; i<cart_icon.length; i++){
       // alert(a[j]);
       c[j].style.display = "block";
     }
-
-    var coords = { x: e.pageX, y: e.pageY };
-    burst.tune(coords);
-    circle.tune(coords);
+    
+    const coords = { x: e.pageX, y: e.pageY };
+    start1.tune(coords);
+    start2.tune(coords);
+    start3.tune(coords);
+    start4.tune(coords);
+    start5.tune(coords);
+    start6.tune(coords);
+    start7.tune(coords);
     cart_timeline.replay();
 
     setTimeout(function(){
@@ -368,6 +462,80 @@ for(i=0; i<cart_icon.length; i++){
         c[j].style.display = "none";
       }
       
-      }, 350);
+      }, 1000);
   });
+}
+
+//icon點擊事件
+
+var trashIconList = document.querySelectorAll('.trash_icon');
+var heartIconList = document.querySelectorAll('.heart_icon');
+var cartIconList = document.querySelectorAll('.cart_icon');
+var isSwitch;
+
+for(i=0; i<trashIconList.length ;i++){
+    trashIconList[i].addEventListener('click',function(){
+        isSwitch = iconSwitch(this, "a", "0766ff", isSwitch);
+    });
+}
+
+for(i=0; i<heartIconList.length ;i++){
+    heartIconList[i].addEventListener('click',function(){
+        isSwitch = iconSwitch(this, "b", "f35186", isSwitch);
+    });
+}
+
+for(i=0; i<cartIconList.length ;i++){
+    cartIconList[i].addEventListener('click',function(){
+        isSwitch = iconSwitch(this, "c", "FD7932", isSwitch);
+    });
+}
+
+function iconSwitch(obj, animationClass, color, isSwitch){
+    var anClass = document.querySelectorAll('.' + animationClass),
+            svg = obj.children[0],
+            pathList = obj.children[0].children[0].children;
+
+    svg.style.transition =  '0s';
+    svg.style.transform =  'scale(0)';
+
+    isSwitch = !isSwitch;      
+
+    if(isSwitch){
+        for(j=0; j<anClass.length; j++){
+            anClass[j].style.display = "none";
+        }
+
+        for(i=0 ; i<pathList.length ; i++){
+            svg.style.transition =  '0.1s';
+            svg.style.transform =  'scale(1)';
+            pathList[i].style.fill = "#ddd";
+        }
+    }else{
+        for(i=0 ; i<pathList.length ; i++){
+            
+            setTimeout(() => {
+                svg.style.transition =  '0.3s';
+                svg.style.transform =  'scale(1.15)';
+            }, 10);
+
+            setTimeout(() => {
+                svg.style.transition =  '0.1s';
+                svg.style.transform =  'scale(0.9)';
+            }, 300);
+            
+            setTimeout(() => {
+                svg.style.transition =  '0.1s';
+                svg.style.transform =  'scale(1)';
+            }, 400);
+
+            pathList[i].style.fill = "#" + color;
+        }
+
+        for(j=0; j<anClass.length; j++){
+            anClass[j].style.display = "block";
+        }
+    }
+
+    return isSwitch;
 }
