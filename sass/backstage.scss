@@ -11,14 +11,47 @@
 
 //共用
     *{
-        outline: 1px solid #f00;
+        // outline: 1px solid #f00;
         font-size: $fontSize_text;
         text-align: center;
+        .modal{
+            .modal-dialog{
+                .modal-content{
+                    border-radius: 10px;
+                    top: 100px;
+                    .modal-img{
+                        width: 40%;
+                        position: absolute;
+                        top: -100px;
+                        right: 40%;
+                        left: 40%;
+                        img{ width: 100%; }
+                    }
+                    // .modal-header{
+                    //     .modal-title{}
+                    //     .close{}
+                    // }
+                    // .modal-footer{
+                    //     .btn{}
+                    // }
+                }
+            }
+        }
+    
+        .form-group input,.form-group textarea{ text-align: left; }
+        .title-width{ 
+            width: 180px; 
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+            margin-bottom: 0;
+        }
     }
     a{ 
         text-decoration: none; 
         color: $color_main2;
     }
+    .focus-color{ background-color: $color_main1; }
     .d-flex{
         height: 100%;
         .container{
@@ -56,6 +89,7 @@
                     width: 100%;
                     height: 25vh;
                     padding-top: 20px;
+                    border-radius: 10px;
                     background-image: url("../images/客服G8稜-01.jpg");
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -69,41 +103,6 @@
                             right: 0;
                             bottom: 0;
                             &:active { top: auto; }
-                    }
-                }
-                .modal{
-                    .modal-dialog{
-                        .modal-content{
-                            top: 150px;
-                            .modal-img{
-                                width: 50%;
-                                position: absolute;
-                                top: -150px;
-                                right: 25%;
-                                left: 25%;
-                                img{ width: 100%; }
-                            }
-                            .modal-header{
-                                .modal-title{}
-                                .close{}
-                            }
-                            .modal-body{
-                                form{
-                                    .form-group{
-                                        .title-width{ 
-                                            width: 300px; 
-                                            display: flex;
-                                            justify-content: center;
-                                            align-items: center; 
-                                            margin-bottom: 0;
-                                        }
-                                    }
-                                }
-                            }
-                            .modal-footer{
-                                .btn{}
-                            }
-                        }
                     }
                 }
                 .table{
@@ -120,11 +119,13 @@
                             td{
                                 padding: 3px; 
                                 img{ height: 50px; }
+                                i{ cursor: pointer; }
                             }
                         }
                     }
                 }
                 .back-page{
+                    display: none;
                     li{ padding: 10px; }
                 }
             }

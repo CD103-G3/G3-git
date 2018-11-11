@@ -4,12 +4,32 @@
   height: 100vh;
   font-family: 微軟正黑體, arial, "sans serif"; }
   .out * {
-    outline: 1px solid #f00;
     font-size: 16px;
     text-align: center; }
+    .out * .modal .modal-dialog .modal-content {
+      border-radius: 10px;
+      top: 100px; }
+      .out * .modal .modal-dialog .modal-content .modal-img {
+        width: 40%;
+        position: absolute;
+        top: -100px;
+        right: 40%;
+        left: 40%; }
+        .out * .modal .modal-dialog .modal-content .modal-img img {
+          width: 100%; }
+    .out * .form-group input, .out * .form-group textarea {
+      text-align: left; }
+    .out * .title-width {
+      width: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0; }
   .out a {
     text-decoration: none;
     color: #76391B; }
+  .out .focus-color {
+    background-color: #FCE444; }
   .out .d-flex {
     height: 100%; }
     .out .d-flex .container .back-nav .back-logo {
@@ -39,6 +59,7 @@
         width: 100%;
         height: 25vh;
         padding-top: 20px;
+        border-radius: 10px;
         background-image: url("../images/客服G8稜-01.jpg");
         background-repeat: no-repeat;
         background-size: cover;
@@ -75,22 +96,6 @@
           bottom: 0; }
           .out .d-flex .container .back-text .banner .mainBTN:active {
             top: auto; }
-      .out .d-flex .container .back-text .modal .modal-dialog .modal-content {
-        top: 150px; }
-        .out .d-flex .container .back-text .modal .modal-dialog .modal-content .modal-img {
-          width: 50%;
-          position: absolute;
-          top: -150px;
-          right: 25%;
-          left: 25%; }
-          .out .d-flex .container .back-text .modal .modal-dialog .modal-content .modal-img img {
-            width: 100%; }
-        .out .d-flex .container .back-text .modal .modal-dialog .modal-content .modal-body form .form-group .title-width {
-          width: 300px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          margin-bottom: 0; }
       .out .d-flex .container .back-text .table thead tr th, .out .d-flex .container .back-text .table thead tr td, .out .d-flex .container .back-text .table tbody tr th, .out .d-flex .container .back-text .table tbody tr td {
         border-bottom: 1px solid rgba(0, 0, 0, 0.125);
         vertical-align: middle; }
@@ -98,5 +103,9 @@
         padding: 3px; }
         .out .d-flex .container .back-text .table tbody tr td img {
           height: 50px; }
-      .out .d-flex .container .back-text .back-page li {
-        padding: 10px; }
+        .out .d-flex .container .back-text .table tbody tr td i {
+          cursor: pointer; }
+      .out .d-flex .container .back-text .back-page {
+        display: none; }
+        .out .d-flex .container .back-text .back-page li {
+          padding: 10px; }
