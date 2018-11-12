@@ -4,6 +4,7 @@
   height: 100vh;
   font-family: 微軟正黑體, arial, "sans serif"; }
   .out * {
+    outline: 1px solid #f00;
     font-size: 16px;
     text-align: center; }
     .out * .modal .modal-dialog .modal-content {
@@ -69,7 +70,7 @@
     .out * .form-group input, .out * .form-group textarea {
       text-align: left; }
     .out * .title-width {
-      width: 180px;
+      width: 200px;
       display: flex;
       justify-content: center;
       align-items: center;

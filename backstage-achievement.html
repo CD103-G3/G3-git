@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/backstage.css">
-    <title>餐點資料後台</title>
+    <title>成就管理後台</title>
 </head>
 <body class="out">
     <div class="d-flex">
@@ -19,11 +19,11 @@
                     <span>登入者</span>
                     <a href="#">登出</a>
                 </div>
-                <a href="backstage-meal.html" class="list-group-item list-group-item-action back-change focus-color">餐點資訊</a>
+                <a href="backstage-meal.html" class="list-group-item list-group-item-action back-change">餐點資訊</a>
                 <a href="backstage-groupon.html" class="list-group-item list-group-item-action back-change">飯團管理</a>
                 <a href="backstage-message.html" class="list-group-item list-group-item-action back-change">留言審核</a>
                 <a href="backstage-chatBot.html" class="list-group-item list-group-item-action back-change">客服雞器人</a>
-                <a href="backstage-achievement.html" class="list-group-item list-group-item-action back-change">成就管理</a>
+                <a href="backstage-achievement.html" class="list-group-item list-group-item-action back-change focus-color">成就管理</a>
                 <a href="backstage-memberOrder.html" class="list-group-item list-group-item-action back-change">訂單管理</a>
                 <a href="backstage-manager.html" class="list-group-item list-group-item-action back-change">管理員帳號</a>
             </div>
@@ -31,8 +31,8 @@
     
         <div class="container col-xl-10">
             <div class="back-text">
-                <div class="banner"><button type="button" class="mainBTN" tabindex="-1" data-toggle="modal" data-target="#Meal">新增</button></div>
-                <div class="modal fade" id="Meal" tabindex="-1" role="dialog" aria-labelledby="MealTitle" aria-hidden="true">
+                <div class="banner"><button type="button" class="mainBTN" tabindex="-1" data-toggle="modal" data-target="#achievement">新增</button></div>
+                <div class="modal fade" id="achievement" tabindex="-1" role="dialog" aria-labelledby="achievementTitle" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <!-- 新增跳窗 -->
                         <div class="modal-content">
@@ -40,7 +40,7 @@
                                 <img src="/images/dayCookIndex_whiteBG-01.png" alt="">
                             </figure>
                             <div class="modal-header">
-                                <h5 class="modal-title" id="MealTitle">新增餐點資料</h5>
+                                <h5 class="modal-title" id="achievementTitle">新增成就資料</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -48,42 +48,27 @@
                             <div class="modal-body">
                                 <form>
                                     <div class="d-flex form-group">
-                                        <label for="mealGenre" class="title-width">餐點類別</label>
-                                        <select class="form-control" id="mealGenre">
-                                            <option>拉麵</option>
-                                            <option>丼飯</option>
-                                            <option>鍋物</option>
-                                            <option>定食</option>
-                                            <option>便當</option>
-                                            <option>素食</option>
-                                        </select>
+                                        <label for="achievementName" class="col-form-label title-width">成就名稱</label>
+                                        <input type="text" class="form-control" id="achievementName">
                                     </div>
                                     <div class="d-flex form-group">
-                                        <label for="mealName" class="col-form-label title-width">餐點名稱</label>
-                                        <input type="text" class="form-control" id="mealName">
+                                        <label for="achievementBonus" class="col-form-label title-width">成就完成獎勵(元)</label>
+                                        <input type="text" class="form-control" id="achievementBonus">
                                     </div>
                                     <div class="d-flex form-group">
-                                        <label for="mealPrice" class="col-form-label title-width">餐點單價</label>
-                                        <input type="text" class="form-control" id="mealPrice">
+                                        <label for="achievementMealTotal" class="col-form-label title-width">達成餐點數量</label>
+                                        <input type="text" class="form-control" id="achievementMealTotal">
                                     </div>
                                     <div class="d-flex form-group">
-                                        <label for="mealInfo" class="col-form-label title-width">餐點介紹</label>
-                                        <textarea class="form-control" id="mealInfo" rows="3"></textarea>
-                                    </div>
-                                    <div class="d-flex form-group">
-                                        <label for="mealCal" class="col-form-label title-width">餐點卡路里</label>
-                                        <input type="text" class="form-control" id="mealCal">
-                                    </div>
-                                    <div class="d-flex form-group">
-                                            <label for="mealSold" class="title-width">餐點狀態</label>
-                                            <select class="form-control" id="mealSold">
-                                                <option>上架</option>
-                                                <option>下架</option>
+                                            <label for="achievementAchievable" class="title-width">成就狀態</label>
+                                            <select class="form-control" id="achievementAchievable">
+                                                <option>使用中</option>
+                                                <option>取消使用</option>
                                             </select>
                                         </div>
                                     <div class="d-flex form-group">
-                                        <label for="mealPic" class="title-width">上傳餐點圖片</label>
-                                        <input type="file" class="form-control-file" id="mealPic">
+                                        <label for="achievementPic" class="title-width">上傳勳章圖片</label>
+                                        <input type="file" class="form-control-file" id="achievementPic">
                                     </div>
                                 </form>
                             </div>
@@ -97,27 +82,25 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">餐點編號</th>
-                            <th scope="col">餐點類別</th>
-                            <th scope="col">餐點名稱</th>
-                            <th scope="col">餐點圖片</th>
-                            <th scope="col">餐點單價</th>
-                            <th scope="col">餐點卡路里</th>
-                            <th scope="col">餐點狀態</th>
+                            <th scope="col">成就編號</th>
+                            <th scope="col">成就名稱</th>
+                            <th scope="col">勳章圖片</th>
+                            <th scope="col">成就完成獎勵(元)</th>
+                            <th scope="col">達成餐點數量</th>
+                            <th scope="col">成就狀態</th>
                             <th scope="col">修改</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td scope="row">1</td>
-                            <td>丼飯</td>
-                            <td>(生)特級海鮮丼</td>
+                            <td>小菜蟲</td>
                             <td><img src="images/丼1.png" alt=""></td>
-                            <td>680</td>
-                            <td>300</td>
+                            <td>50</td>
+                            <td>5</td>
                             <td>上架</td>
-                            <td><i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#viewMeal"></i></td>
-                            <div class="modal fade" id="viewMeal" tabindex="-1" role="dialog" aria-labelledby="viewAddMealTitle" aria-hidden="true">
+                            <td><i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#viewAchievement"></i></td>
+                            <div class="modal fade" id="viewAchievement" tabindex="-1" role="dialog" aria-labelledby="viewAddAchievementTitle" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <!-- 新增跳窗 -->
                                     <div class="modal-content">
@@ -125,7 +108,7 @@
                                             <img src="/images/dayCookIndex_whiteBG-01.png" alt="">
                                         </figure>
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="viewAddMealTitle">餐點資料</h5>
+                                            <h5 class="modal-title" id="viewAddAchievementTitle">成就資料</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -133,54 +116,31 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewMealNo" class="col-form-label title-width">餐點編號</label>
-                                                    <input type="text" class="form-control" id="viewMealNo" value="1" readonly>
+                                                    <label for="viewAchievementNo" class="col-form-label title-width">成就編號</label>
+                                                    <input type="text" class="form-control" id="viewAchievementNo" value="1" readonly>
                                                 </div>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewMealGenre" class="title-width">餐點類別</label>
-                                                    <select class="form-control change-select" id="viewMealGenre" >
-                                                        <option>拉麵</option>
-                                                        <option>丼飯</option>
-                                                        <option>鍋物</option>
-                                                        <option>定食</option>
-                                                        <option>便當</option>
-                                                        <option>素食</option>
+                                                    <label for="viewAchievementName" class="col-form-label title-width">成就名稱</label>
+                                                    <input type="text" class="form-control change" id="viewAchievementName" value="小菜蟲" >
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="viewAchievementBonus" class="col-form-label title-width">成就完成獎勵(元)</label>
+                                                    <input type="text" class="form-control change" id="viewAchievementBonus" value="50" >
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="viewAchievementMealTotal" class="col-form-label title-width">達成餐點數量</label>
+                                                    <input type="text" class="form-control change" id="viewAchievementMealTotal" value="5" >
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="viewAchievementAchievable" class="title-width">成就狀態</label>
+                                                    <select class="form-control change-select" id="viewAchievementAchievable">
+                                                        <option>使用中</option>
+                                                        <option>取消使用</option>
                                                     </select>
                                                 </div>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewMealName" class="col-form-label title-width">餐點名稱</label>
-                                                    <input type="text" class="form-control change" id="viewMealName" value="(生)特級海鮮丼" >
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealPrice" class="col-form-label title-width">餐點單價</label>
-                                                    <input type="text" class="form-control change" id="viewMealPrice" value="680" >
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealInfo" class="col-form-label title-width">餐點介紹</label>
-                                                    <textarea class="form-control change" id="viewMealInfo" rows="3" >海膽、干貝、牡丹蝦、鮭魚肚、鮪魚、紅甘肚、鮭魚卵等外加多款現流生魚片，滿滿的新鮮海味，隱藏首推的頂級美食。(附三品小菜及熱湯) •本店均採用當日現流魚，若當日海膽不足將以同等食材替換，請見諒。</textarea>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealCal" class="col-form-label title-width">餐點卡路里</label>
-                                                    <input type="text" class="form-control change" id="viewMealCal" value="300" >
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealSold" class="title-width">餐點狀態</label>
-                                                    <select class="form-control change-select" id="viewMealSold">
-                                                        <option>上架</option>
-                                                        <option>下架</option>
-                                                    </select>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealCount" class="col-form-label title-width">評分次數</label>
-                                                    <input type="text" class="form-control" id="viewMealCount" value="2" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealTotal" class="col-form-label title-width">評分總分</label>
-                                                    <input type="text" class="form-control" id="viewMealTotal" value="4.5" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="viewMealPic" class="title-width">修改餐點圖片</label>
-                                                    <input type="file" class="form-control-file change" id="viewMealPic">
+                                                    <label for="viewAchievementPic" class="title-width">修改勳章圖片</label>
+                                                    <input type="file" class="form-control-file change" id="viewAchievementPic">
                                                 </div>
                                             </form>
                                         </div>
