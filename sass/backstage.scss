@@ -18,13 +18,13 @@
             .modal-dialog{
                 .modal-content{
                     border-radius: 10px;
-                    top: 110px;
+                    top: 140px;
                     .modal-img{
-                        width: 40%;
+                        width: 30%;
                         position: absolute;
-                        top: -148px;
-                        right: 30%;
-                        left: 30%;
+                        top: -134px;
+                        right: 35%;
+                        left: 35%;
                         img{ width: 100%; }
                     }
                     // .modal-header{
@@ -103,7 +103,6 @@
             }
 //右邊資料明細
             .back-text{
-                height: 100%;
                 border: 1px solid rgba(0,0,0,.125);
                 border-radius: 10px;
                 .banner{ 
@@ -111,7 +110,7 @@
                     height: 25vh;
                     padding-top: 20px;
                     border-radius: 10px;
-                    background-image: url("../images/客服G8稜-01.png");
+                    background-image: url("../images/客服G8稜\(改\)-01.svg");
                     background-repeat: no-repeat;
                     background-size: cover;
                     font-size: $fontSize_L; 

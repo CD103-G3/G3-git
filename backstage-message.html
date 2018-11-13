@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/backstage.css">
-    <title>管理員帳號</title>
+    <title>留言審核</title>
 </head>
 <body class="out">
     <div class="d-flex">
@@ -21,74 +21,43 @@
                 </div>
                 <a href="backstage-meal.html" class="list-group-item list-group-item-action back-change">餐點資訊</a>
                 <a href="backstage-groupon.html" class="list-group-item list-group-item-action back-change">飯團管理</a>
-                <a href="backstage-message.html" class="list-group-item list-group-item-action back-change">留言審核</a>
+                <a href="backstage-message.html" class="list-group-item list-group-item-action back-change focus-color">留言審核</a>
                 <a href="backstage-chatBot.html" class="list-group-item list-group-item-action back-change">客服雞器人</a>
                 <a href="backstage-achievement.html" class="list-group-item list-group-item-action back-change">成就管理</a>
                 <a href="backstage-memberOrder.html" class="list-group-item list-group-item-action back-change">訂單管理</a>
-                <a href="backstage-manager.html" class="list-group-item list-group-item-action back-change focus-color">管理員帳號</a>
+                <a href="backstage-manager.html" class="list-group-item list-group-item-action back-change">管理員帳號</a>
             </div>
         </div>
     
         <div class="container col-xl-10">
             <div class="back-text">
-                <div class="banner"><button type="button" class="mainBTN" tabindex="-1" data-toggle="modal" data-target="#manager">新增</button></div>
-                <div class="modal fade" id="manager" tabindex="-1" role="dialog" aria-labelledby="managerTitle" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <!-- 新增跳窗 -->
-                        <div class="modal-content">
-                            <figure class="modal-img">
-                                <img src="images/dayCookIndex_whiteBG1.svg" alt="">
-                            </figure>
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="managerTitle">新增管理員</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="d-flex form-group">
-                                        <label for="managerId" class="col-form-label title-width">管理員帳號</label>
-                                        <input type="text" class="form-control" id="managerId">
-                                    </div>
-                                    <div class="d-flex form-group">
-                                        <label for="managerPsw" class="col-form-label title-width">管理員密碼</label>
-                                        <input type="text" class="form-control" id="managerPsw">
-                                    </div>
-                                    <div class="d-flex form-group">
-                                            <label for="managerAuth" class="title-width">管理員權限</label>
-                                            <select class="form-control" id="managerAuth">
-                                                <option>自己設</option>
-                                                <option>自己設</option>
-                                            </select>
-                                        </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer justify-content-center">
-                                <button type="button" class="btn btn-primary mainBTN">存檔</button>
-                                <button type="button" class="btn btn-secondary subBTN" data-dismiss="modal">取消</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="banner"></div>
                 <table class="table">
                     <thead>
                         <tr>
-                            <th scope="col">管理員編號</th>
-                            <th scope="col">管理員帳號</th>
-                            <th scope="col">管理員密碼</th>
-                            <th scope="col">管理員權限</th>
+                            <th scope="col">檢舉編號</th>
+                            <th scope="col">檢舉日期</th>
+                            <th scope="col">被檢舉會員</th>
+                            <th scope="col">餐點名稱</th>
+                            <th scope="col">留言內容</th>
+                            <th scope="col">檢舉次數</th>
+                            <th scope="col">審核狀態</th>
+                            <th scope="col">審核結果</th>
                             <th scope="col">修改</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
-                            <td>gogo</td>
-                            <td>nice</td>
-                            <td>自己設</td>
-                            <td><i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#viewManager"></i></td>
-                            <div class="modal fade" id="viewManager" tabindex="-1" role="dialog" aria-labelledby="viewManagerTitle" aria-hidden="true">
+                            <td scope="row">1</td>
+                            <td>2018-11-12</td>
+                            <td>ABC123</td>
+                            <td>(生)特級海鮮丼</td>
+                            <td>這是能吃的東西嗎</td>
+                            <td>2</td>
+                            <td>未審核</td>
+                            <td>下架留言</td>
+                            <td><i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#message"></i></td>
+                            <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="messageTitle" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <!-- 新增跳窗 -->
                                     <div class="modal-content">
@@ -96,7 +65,7 @@
                                             <img src="images/dayCookIndex_whiteBG1.svg" alt="">
                                         </figure>
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="viewManagerTitle">管理員資料</h5>
+                                            <h5 class="modal-title" id="messageTitle">留言審核</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -104,22 +73,38 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewMealNo" class="col-form-label title-width">管理員編號</label>
-                                                    <input type="text" class="form-control" id="viewMealNo" value="1" readonly>
+                                                    <label for="reportNo" class="col-form-label title-width">檢舉編號</label>
+                                                    <input type="text" class="form-control" id="reportNo" value="1" readonly>
                                                 </div>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewManagerNo" class="col-form-label title-width">管理員帳號</label>
-                                                    <input type="text" class="form-control change" id="viewManagerNo" value="gogo" >
+                                                    <label for="reportDate" class="col-form-label title-width">檢舉日期</label>
+                                                    <input type="text" class="form-control" id="reportDate" value="2018-11-12" readonly>
                                                 </div>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewManagerId" class="col-form-label title-width">管理員密碼</label>
-                                                    <input type="text" class="form-control change" id="viewManagerId" value="nice" >
+                                                    <label for="reportMem" class="col-form-label title-width">被檢舉會員</label>
+                                                    <input type="text" class="form-control" id="reportMem" value="ABC123" readonly>
                                                 </div>
                                                 <div class="d-flex form-group">
-                                                    <label for="viewMealSold" class="title-width">管理員權限</label>
-                                                    <select class="form-control change-select" id="viewMealSold">
-                                                        <option>自己設</option>
-                                                        <option>自己設</option>
+                                                    <label for="mealName" class="col-form-label title-width">餐點名稱</label>
+                                                    <input type="text" class="form-control" id="mealName" value="(生)特級海鮮丼" readonly>
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="messageContent" class="col-form-label title-width">留言內容</label>
+                                                    <input type="text" class="form-control" id="messageContent" value="這是能吃的東西嗎" readonly>
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="reportQty" class="col-form-label title-width">檢舉次數</label>
+                                                    <input type="text" class="form-control" id="reportQty" value="2" readonly>
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="reportStatus" class="col-form-label title-width">審核狀態</label>
+                                                    <input type="text" class="form-control" id="reportStatus" value="未審核" readonly>
+                                                </div>
+                                                <div class="d-flex form-group">
+                                                    <label for="reportResult" class="title-width">審核結果</label>
+                                                    <select class="form-control change-select" id="reportResult">
+                                                        <option>留言保留</option>
+                                                        <option>留言下架</option>
                                                     </select>
                                                 </div>
                                             </form>
@@ -156,15 +141,15 @@
     <script>
         $(".touch").click(function(){
 
-            $(".change").attr("readonly",true);
+            // $(".change").attr("readonly",true);
             $(".change-select").attr("disabled",true);
             $('.btn-touch').click(function(){
-                $(".change").attr("readonly",false);
+                // $(".change").attr("readonly",false);
                 $(".change-select").attr("disabled",false);
                 //..........
                 if($(".btn-touch").html() == "確認"){ //update to db;
                     $('.btn-touch').html("修改");
-                    $(".change").attr("readonly",true);
+                    // $(".change").attr("readonly",true);
                     $(".change-select").attr("disabled",true);
                 }else{
                     $('.btn-touch').html("確認");
