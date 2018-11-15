@@ -497,10 +497,18 @@ header {
   font-family: 微軟正黑體, arial, "sans serif";
   background-image: url("../images/eatDetail_bg.jpg"); }
   .eatDetail * {
-    outline: 1px solid #f00;
     font-size: 16px;
     color: #333333;
     box-sizing: border-box; }
+    .eatDetail * a {
+      text-decoration: none; }
+    .eatDetail * .fl {
+      float: left; }
+    .eatDetail * .tb-width {
+      width: 60px; }
+    .eatDetail * .color {
+      color: #76391B;
+      font-weight: bold; }
   .eatDetail .wrap {
     width: calc(100% - $space_lr*2);
     margin: 0 16px;
@@ -512,28 +520,19 @@ header {
       display: block; }
     .eatDetail .wrap img {
       width: 100%; }
-    .eatDetail .wrap a {
-      text-decoration: none; }
     .eatDetail .wrap input, .eatDetail .wrap button {
       border: none;
       font-family: 微軟正黑體, arial, "sans serif";
       cursor: pointer; }
     .eatDetail .wrap i {
       margin-right: 5px; }
-    .eatDetail .wrap .fl {
-      float: left; }
-    .eatDetail .wrap .tb-width {
-      width: 60px; }
-    .eatDetail .wrap .color {
-      color: #76391B;
-      font-weight: bold; }
     .eatDetail .wrap .title, .eatDetail .wrap .title-img {
       display: block; }
     .eatDetail .wrap .title img {
       height: 48px; }
     .eatDetail .wrap .title-img {
       margin-bottom: 20px;
-      padding-top: 20px; }
+      padding: 20px 10px 0; }
   .eatDetail .banner .banner-pic, .eatDetail .banner .banner-txt {
     padding: 0 10px; }
   .eatDetail .banner .banner-pic .heart_icon {
@@ -562,6 +561,7 @@ header {
       background-image: url("../images/bg111 (7).png"); }
     .eatDetail .banner .banner-txt .product figure {
       width: 20px;
+      padding: 25px 0;
       margin-left: 10px; }
   .eatDetail .banner .banner-txt .score, .eatDetail .banner .banner-txt .sort, .eatDetail .banner .banner-txt .kcal, .eatDetail .banner .banner-txt .content p {
     margin: 10px 0; }
@@ -569,7 +569,7 @@ header {
     margin-right: 10px; }
   .eatDetail .banner .banner-txt .score .grade figure {
     width: 18px;
-    margin-right: 8px; }
+    margin-right: 5px; }
   .eatDetail .banner .banner-txt .content {
     margin: 15px 0; }
     .eatDetail .banner .banner-txt .content span {
@@ -678,9 +678,11 @@ header {
       float: left; }
     .eatDetail .banner .banner-txt .count-btn .go-cart {
       float: right; }
+  .eatDetail .msg-board .wrap {
+    padding-bottom: 43px; }
   .eatDetail .msg-board .member-msg {
     margin-top: 20px;
-    padding: 0 20px 10px; }
+    padding: 0 20px; }
     .eatDetail .msg-board .member-msg .member-data .member-pic .member-img {
       width: 50px;
       padding-left: 5px; }
@@ -750,11 +752,12 @@ header {
           top: 2px; }
   .eatDetail .scorpion {
     background-image: url("../images/tableCloth.png");
-    background-size: 100%;
-    position: relative;
-    width: calc(100% - 32px);
-    left: 16px; }
+    background-size: calc(100% - 32px);
+    background-repeat-x: no-repeat;
+    background-position-x: center;
+    position: relative; }
     .eatDetail .scorpion .wrap {
+      padding-top: 57px;
       padding-bottom: 0px;
       background-image: none; }
       .eatDetail .scorpion .wrap .title-img {
@@ -780,7 +783,7 @@ header {
       border: 2px solid #76391B;
       border-bottom: 10px solid #76391B;
       border-radius: 25px;
-      background-color: #fffdf4; }
+      background-color: #f7f4e7; }
       .eatDetail .scorpion .groupon .groupon-box .groupon-title {
         margin: 5px 0 0 -25px;
         padding: 10px 0 10px 25px;
@@ -816,29 +819,34 @@ header {
           width: 120px;
           height: 120px;
           margin: 0 5px 10px;
-          box-shadow: 3px 3px 3px #aaa;
           border-radius: 15px;
           position: relative;
           display: inline-block; }
           .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-img, .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
             padding: 3px 0; }
+          .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-img {
+            border-radius: 15px;
+            background-color: #FCF2CA; }
           .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
             border-radius: 0 0 15px 15px;
             background-color: #FCE444;
             text-align: center;
             position: absolute;
             right: 0;
-            bottom: 0;
+            bottom: -5px;
             left: 0; }
         .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-more {
+          padding: 15px 0;
           font-size: 20px;
           text-align: center; }
-      .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-day, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-money, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-people, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-date {
-        margin: 10px; }
-        .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-day span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-money span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-people span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-date span:first-child {
-          margin-right: 15px;
-          padding-right: 15px;
-          border-right: 2px solid #76391B; }
+      .eatDetail .scorpion .groupon .groupon-box .groupon-detail {
+        padding: 0 20px; }
+        .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-day, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-money, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-date {
+          margin: 15px; }
+          .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-day span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-money span:first-child, .eatDetail .scorpion .groupon .groupon-box .groupon-detail .groupon-date span:first-child {
+            margin-right: 15px;
+            padding-right: 15px;
+            border-right: 2px solid #76391B; }
       .eatDetail .scorpion .groupon .groupon-box .subBTN {
         position: relative;
         display: inline-block;
@@ -893,19 +901,29 @@ header {
     float: left;
     box-sizing: border-box;
     padding: 10px; }
+  .eatDetail * {
+    font-size: 20px; }
+    .eatDetail * .tb-width {
+      width: 80px; }
   .eatDetail .wrap {
     width: calc(100% - $space_sm_lr*2);
     margin: 0 30px;
     padding: 50px 30px; }
+    .eatDetail .wrap .title img {
+      height: 60px; }
     .eatDetail .wrap .title-img {
       margin-bottom: 30px;
-      padding-top: 30px; }
-  .eatDetail .banner .banner-pic .heart_icon {
-    margin-right: 20px; }
+      padding-right: 20px;
+      padding-left: 20px; }
+  .eatDetail .banner .banner-pic {
+    padding: 0 30px; }
+    .eatDetail .banner .banner-pic .heart_icon {
+      margin-right: 20px; }
   .eatDetail .banner .banner-txt {
-    padding: 0 15px; }
+    padding: 0 50px; }
     .eatDetail .banner .banner-txt .product h2 {
-      margin: 15px 0; }
+      margin: 15px 0;
+      font-size: 36px; }
     .eatDetail .banner .banner-txt .product figure {
       width: 25px;
       margin: 15px 0 0 15px; }
@@ -913,8 +931,15 @@ header {
       margin: 15px 0; }
     .eatDetail .banner .banner-txt .score .grade span {
       margin-right: 15px; }
+    .eatDetail .banner .banner-txt .score .grade figure {
+      width: 23px;
+      margin-right: 10px; }
     .eatDetail .banner .banner-txt .content, .eatDetail .banner .banner-txt .price {
       margin: 30px 0; }
+    .eatDetail .banner .banner-txt .content span {
+      font-size: 24px; }
+    .eatDetail .banner .banner-txt .price {
+      font-size: 36px; }
     .eatDetail .banner .banner-txt .count-buy {
       margin: 50px 0; }
       .eatDetail .banner .banner-txt .count-buy span {
@@ -932,7 +957,8 @@ header {
         border-radius: 50%;
         background-color: #BB7232;
         box-shadow: 0px 4px 0px #76391B;
-        cursor: pointer; }
+        cursor: pointer;
+        font-size: 30px; }
         .eatDetail .banner .banner-txt .count-buy .count-qty .plusAndMinus:hover {
           opacity: .6;
           transition: .3s; }
@@ -988,12 +1014,14 @@ header {
           transition: .2s; }
         .eatDetail .banner .banner-txt .count-btn .subBTN:active {
           top: 2px; }
+  .eatDetail .msg-board .wrap {
+    padding-bottom: 45px; }
   .eatDetail .msg-board .member-msg {
     margin-top: 30px;
-    padding: 20px 30px;
+    padding: 0 50px;
     padding-top: 0; }
     .eatDetail .msg-board .member-msg .member-data .member-pic .member-img {
-      width: 60px; }
+      width: 65px; }
     .eatDetail .msg-board .member-msg .member-data .member-pic .member-id, .eatDetail .msg-board .member-msg .member-data .comments-time {
       padding: 15px; }
     .eatDetail .msg-board .member-msg .comments .member-letter, .eatDetail .msg-board .member-msg .comments p {
@@ -1014,6 +1042,7 @@ header {
       cursor: pointer;
       height: 48px;
       margin-right: 15px;
+      font-size: 20px;
       background-color: #FCF2CA;
       font-weight: 900;
       color: #76391B; }
@@ -1036,6 +1065,7 @@ header {
       transition: .2s;
       cursor: pointer;
       height: 48px;
+      font-size: 20px;
       background-color: #BB7232;
       font-weight: 900;
       color: #fff; }
@@ -1043,4 +1073,144 @@ header {
         opacity: .7;
         transition: .2s; }
       .eatDetail .msg-board .member-msg .comments .msg-btn .nextBTN:active {
+        top: 2px; }
+  .eatDetail .scorpion {
+    background-size: calc(96vw - 30px); }
+    .eatDetail .scorpion .wrap .title-img {
+      padding-bottom: 30px; }
+    .eatDetail .scorpion .groupon .owl-dots {
+      padding: 30px 0; }
+    .eatDetail .scorpion .groupon .groupon-box .groupon-title p, .eatDetail .scorpion .groupon .groupon-box .groupon-title span {
+      font-size: 24px; }
+    .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-more {
+      font-size: 24px; }
+    .eatDetail .scorpion .groupon .groupon-box .subBTN {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      color: #fff;
+      background-color: #76391B;
+      box-shadow: 0px 4px 0px #FED44F;
+      border-radius: 100px;
+      transition: .2s;
+      cursor: pointer;
+      height: 48px;
+      font-size: 24px;
+      font-weight: 900; }
+      .eatDetail .scorpion .groupon .groupon-box .subBTN:hover {
+        opacity: .7;
+        transition: .2s; }
+      .eatDetail .scorpion .groupon .groupon-box .subBTN:active {
         top: 2px; } }
+
+@media screen and (min-width: 1024px) {
+  .part-md-1 {
+    width: 8.33333%; }
+  .part-md-2 {
+    width: 16.66667%; }
+  .part-md-3 {
+    width: 25%; }
+  .part-md-4 {
+    width: 33.33333%; }
+  .part-md-5 {
+    width: 41.66667%; }
+  .part-md-6 {
+    width: 50%; }
+  .part-md-7 {
+    width: 58.33333%; }
+  .part-md-8 {
+    width: 66.66667%; }
+  .part-md-9 {
+    width: 75%; }
+  .part-md-10 {
+    width: 83.33333%; }
+  .part-md-11 {
+    width: 91.66667%; }
+  .part-md-12 {
+    width: 100%; }
+  .part-md-1, .part-md-2, .part-md-3, .part-md-4, .part-md-5, .part-md-6, .part-md-7, .part-md-8, .part-md-9, .part-md-10, .part-md-11, .part-md-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  .eatDetail .wrap .title {
+    margin-top: 50px; }
+  .eatDetail .wrap .title-img {
+    padding: 20px 30px; }
+  .eatDetail .banner .banner-pic {
+    padding: 50px 20px 0; }
+    .eatDetail .banner .banner-pic .heart_icon {
+      margin-right: 0; }
+  .eatDetail .banner .banner-txt {
+    padding: 0 20px 0; }
+    .eatDetail .banner .banner-txt .product {
+      margin: 0; }
+      .eatDetail .banner .banner-txt .product h2 {
+        margin: 0; }
+      .eatDetail .banner .banner-txt .product figure {
+        margin-top: 0;
+        padding: 0; }
+    .eatDetail .banner .banner-txt .content, .eatDetail .banner .banner-txt .price {
+      margin: 20px 0; }
+    .eatDetail .banner .banner-txt .count-buy {
+      margin: 30px 0; }
+      .eatDetail .banner .banner-txt .count-buy span {
+        margin-right: 0; }
+    .eatDetail .banner .banner-txt .count-btn {
+      margin-top: 50px; }
+  .eatDetail .msg-board .wrap {
+    padding-bottom: 13px; }
+  .eatDetail .msg-board .member-msg {
+    margin: 0 50px 30px; }
+    .eatDetail .msg-board .member-msg .member-pic .member-img {
+      width: 10%; }
+  .eatDetail .scorpion {
+    background-size: calc(98vw - 40px); }
+    .eatDetail .scorpion .groupon {
+      margin: 20px 0px; } }
+
+@media screen and (min-width: 1200px) {
+  .part-lg-1 {
+    width: 8.33333%; }
+  .part-lg-2 {
+    width: 16.66667%; }
+  .part-lg-3 {
+    width: 25%; }
+  .part-lg-4 {
+    width: 33.33333%; }
+  .part-lg-5 {
+    width: 41.66667%; }
+  .part-lg-6 {
+    width: 50%; }
+  .part-lg-7 {
+    width: 58.33333%; }
+  .part-lg-8 {
+    width: 66.66667%; }
+  .part-lg-9 {
+    width: 75%; }
+  .part-lg-10 {
+    width: 83.33333%; }
+  .part-lg-11 {
+    width: 91.66667%; }
+  .part-lg-12 {
+    width: 100%; }
+  .part-lg-1, .part-lg-2, .part-lg-3, .part-lg-4, .part-lg-5, .part-lg-6, .part-lg-7, .part-lg-8, .part-lg-9, .part-lg-10, .part-lg-11, .part-lg-12 {
+    float: left;
+    box-sizing: border-box;
+    padding: 10px; }
+  .eatDetail .wrap {
+    width: 1200px;
+    margin: auto;
+    padding: 100px 40px 50px; }
+  .eatDetail .banner .banner-pic {
+    padding-right: 30px; }
+  .eatDetail .banner .banner-txt {
+    padding-left: 40px; }
+  .eatDetail .msg-board .wrap {
+    padding-bottom: 60px; }
+  .eatDetail .scorpion {
+    background-size: calc(64.5vw - 38px); }
+    .eatDetail .scorpion .groupon {
+      margin: 20px 0px; } }

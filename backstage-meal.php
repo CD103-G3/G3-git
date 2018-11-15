@@ -119,7 +119,7 @@
                             <td scope="row"><?php echo $prodRow->meal_No; ?></td>
                             <td><?php echo $prodRow->mealGenre_Name; ?></td>
                             <td><?php echo $prodRow->meal_Name; ?></td>
-                            <td><img src="images/<?php echo $prodRow->meal_Pic; ?>" alt=""></td>
+                            <td><img src="images/<?php echo $prodRow->meal_Pic; ?>" class="one-size" alt=""></td>
                             <td><?php echo $prodRow->meal_Price; ?></td>
                             <td style="display: none;"><?php echo $prodRow->meal_Info; ?></td>
                             <td><?php echo $prodRow->meal_Cal;?></td>
@@ -134,7 +134,9 @@
                                 <div class="modal-dialog" role="document">
                                     <!-- 新增跳窗 -->
                                     <div class="modal-content">
-                                        
+                                        <figure class="modal-img">
+                                            <img src="images/dayCookIndex_whiteBG1.svg" alt="">
+                                        </figure>
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="viewAddMealTitle">餐點資料</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -163,16 +165,6 @@
                     
                     </tbody>
                 </table>
-            <!-- 切換分頁 -->
-                <!-- <ul class="pagination justify-content-center back-page">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li class="disabled"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul> -->
             </div>
         </div>
     </div>   

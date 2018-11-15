@@ -89,8 +89,6 @@ $(function() {
             $(this).css('backgroundPosition', x * (zoom - 1) + 'px ' + y * (zoom - 1) + 'px');
         });
 
-
-
         // 使此設置響應
         $(window).resize(function() {
             container.css('height', $(image).height() + 'px');
@@ -98,15 +96,38 @@ $(function() {
         });
     }); 
 }); 
+// 圖片放大效果結束
 
-
-
-
-
-
-
-
-
+// 評分蛋增減
+function $all(all) {
+    return document.querySelectorAll(all);
+};
+const eggScore = {
+    egg(egg) {
+        egg.container.forEach(function(e,w) {
+            var score = Math.round(e.children[0].innerText);
+            // console.log(score);
+            
+            var figure = e.querySelectorAll('figure');
+            for(let i = 0; i < figure.length ; i ++) {
+                let img = figure[i].querySelectorAll('img')[0];
+                img.src = egg.whiteEgg;
+            }
+            for(let i = 0; i < score ; i ++) {
+                let img = figure[i].querySelectorAll('img')[0];
+                img.src = egg.blackEgg;
+            }
+        })
+    }
+}
+window.addEventListener('load', function(){
+    eggScore.egg({
+        container: $all('.grade'),
+        whiteEgg: 'images/icon/eggEmpty.svg',
+        blackEgg: 'images/icon/eggFull.svg',
+    });
+});
+// 評分蛋增減結束
 
 // 數字增減
 function detailQty(){
@@ -142,12 +163,9 @@ function detailQty(){
     };
 };
 window.addEventListener('load',detailQty)
-//數字增減結束
+// 數字增減結束
 
-//加入購物車
-//加入購物車結束
-
-//新增留言
+// 新增留言
 function eatDetailMsg() {
     
     document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後新增留言
@@ -158,19 +176,19 @@ function eatDetailMsg() {
         var day = today.getDate();
         var memberImg = "images/logo.png";  //變更圖片路徑
 
-        var textDiv = `<div class="member-msg">           
-                            <div class="member-pic clearfix">
-                                <figure class="member-img fl">
-                                    <img src=${memberImg}>
-                                </figure>
-                                <div class="member-txt fl">
-                                    <div class="member-id">訪客</div>
-                                    <div class="comments-time">${year}/${mon}/${day}</div>
+        var textDiv = `<div class="member-msg">
+                            <div class="member-data clearfix">
+                                <div class="member-pic fl">
+                                    <figure class="member-img fl">
+                                        <img src=${memberImg}>
+                                    </figure>
+                                    <div class="member-id fl color">訪客訪客訪客</div>
                                 </div>
+                                <div class="comments-time fl">${year}/${mon}/${day}</div>
                             </div>
                             <div class="comments clearfix">
                                 <p>${text.value}</p>
-                                <div class="msg-btn"> 
+                                <div class="msg-btn">   
                                     <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
                                 </div>
                             </div>
@@ -181,7 +199,7 @@ function eatDetailMsg() {
     }
 };
 window.addEventListener('load', eatDetailMsg);
-//新增留言結束
+// 新增留言結束
 
 //隨機產生留言
 function msg() {
@@ -199,18 +217,3 @@ function msg() {
 window.addEventListener('load',msg);
 //隨機產生留言結束
 
-// 人數條
-// function peopleLine() {
-//     var pNow = parseInt(document.querySelectorAll('.people')[0].innerText);
-//     var pNeed = parseInt(document.querySelectorAll('.people-total')[0].innerText);
-//     // console.log(pNeed);
-//     tl = new TimelineMax();
-//     tl.fromTo('.peopleLine', 2.5 ,{
-//         width: '0px',
-//     },{
-//         width: (pNow / pNeed)*100 + '%',
-//     });
-// }
-
-
-// window.addEventListener('load',peopleLine);

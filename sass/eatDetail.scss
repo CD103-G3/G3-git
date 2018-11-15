@@ -13,12 +13,19 @@ $space_sm_lr: 0 30px;  //平板左右
     font-size: $fontSize_text; 
     font-family: $fmy; 
     background-image: url("../images/eatDetail_bg.jpg");
-//共用
+    //共用
     *{ 
-        outline: 1px solid #f00;
+        // outline: 1px solid #f00;
         font-size: $fontSize_text;
         color: $color_txt;
         box-sizing: border-box;
+        a{ text-decoration: none; }
+        .fl{ float: left; }
+        .tb-width{ width: 60px; }
+        .color{ 
+            color: $color_main2; 
+            font-weight: bold;
+        }
     }
     .wrap{ 
         width: calc(100% - $space_lr*2); 
@@ -29,30 +36,23 @@ $space_sm_lr: 0 30px;  //平板左右
         background-size: 100%;
         img,a,span{ display: block; }
         img{ width: 100%; }
-        a{ text-decoration: none; }
         input,button{ 
             border: none; 
             font-family: $fmy; 
             cursor: pointer;
         }
         i{ margin-right: 5px; }
-        .fl{ float: left; }
-        .tb-width{ width: 60px;}
-        .color{ 
-            color: $color_main2; 
-            font-weight: bold;
-        }
         .title,.title-img{ display: block; }
         .title{ 
-            img{  height: 48px;}
+            img{ height: 48px; }
         }
         .title-img{ 
             margin-bottom: 20px;
-            padding-top: 20px;
+            padding: 20px 10px 0;
         }
     }
 
-//產品介紹
+    //產品介紹
     .banner{ 
         .banner-pic,.banner-txt{ padding: 0 10px; }
         .banner-pic{
@@ -87,6 +87,7 @@ $space_sm_lr: 0 30px;  //平板左右
                 }
                 figure{ 
                     width: 20px;
+                    padding: 25px 0;
                     margin-left: 10px;
                 }
             }
@@ -96,13 +97,13 @@ $space_sm_lr: 0 30px;  //平板左右
                     span{ margin-right: 10px; }
                     figure{ 
                         width: 18px; 
-                        margin-right: 8px;
+                        margin-right: 5px;
                     }
                 }
             }
             .content{ 
                 margin: 15px 0; 
-                span{ font-size: $fontSize_S;}
+                span{ font-size: $fontSize_S; }
             }
             .price{
                 margin: 15px 0;
@@ -151,7 +152,7 @@ $space_sm_lr: 0 30px;  //平板左右
                     width: 20px;
                     vertical-align: middle;
                     transition-timing-function: cubic-bezier(0.1, 2, 1.0, 0.1);
-                    path{ fill:$color_main2; }
+                    path{ fill: $color_main2; }
                 } 
                 .mainBTN {
                     @include btn(100%, light) {
@@ -172,11 +173,12 @@ $space_sm_lr: 0 30px;  //平板左右
         }
     }
 
-//留言板
+    //留言板
     .msg-board{
+        .wrap{ padding-bottom: 43px; }
         .member-msg{
             margin-top: 20px;
-            padding: 0 20px 10px;
+            padding: 0 20px;
             .member-data{
                 .member-pic{ 
                     .member-img{ 
@@ -226,16 +228,15 @@ $space_sm_lr: 0 30px;  //平板左右
         }
     }
 
-//推薦飯團
+    //推薦飯團
     .scorpion{
         background-image: url("../images/tableCloth.png");
-        background-size: 100%;
+        background-size: calc(100% - 32px);
+        background-repeat-x: no-repeat;
+        background-position-x: center; 
         position: relative;
-        width: calc(100% - 32px);
-        left: 16px;
-        // left:50%;
-        // transform: translateX(-50%);
         .wrap{ 
+            padding-top: 57px;
             padding-bottom: 0px;
             background-image: none;
             .title-img{ 
@@ -244,9 +245,7 @@ $space_sm_lr: 0 30px;  //平板左右
             }
         }
         .groupon{
-            .owl-nav{
-                display: none;
-            }
+            .owl-nav{ display: none; }
             .owl-dots{
                 padding: 20px 0;
                 text-align: center;
@@ -258,9 +257,7 @@ $space_sm_lr: 0 30px;  //平板左右
                     background-color: #76391B;
                     display: inline-block;
                 }
-                .active{
-                    background-color: $color_main1;
-                }
+                .active{ background-color: $color_main1; }
             }
             .groupon-box{
                 margin: 0 15px;
@@ -268,67 +265,73 @@ $space_sm_lr: 0 30px;  //平板左右
                 border: 2px solid $color_main2;
                 border-bottom: 10px solid $color_main2;
                 border-radius: 25px;
-                background-color: #fffdf4;
+                background-color: #f7f4e7;
                 .groupon-title{
-                        margin: 5px 0 0 -25px;
-                        padding: 10px 0 10px 25px;
-                        background-color: $color_main1;
-                        position: relative;
-                        &::before{
-                            content: "";
-                            width: 0;
-                            height: 0;
-                            border-style: solid;
-                            border-width: 0 14px 8px 0;
-                            border-color: transparent $color_main2 transparent transparent;
-                            position: absolute;
-                            bottom: -8px;
-                            left: 0px;
-                        }
-                        p{ font-size: $fontSize_S; }
-                        span{
-                            width: 80px;
-                            padding: 5px;
-                            border-radius: 10px;
-                            font-size: $fontSize_M;
-                            text-align: center;
-                            color: #fff;
-                            background-color: #f7a800;
-                            position: absolute;
-                            top: 0;
-                            right: -25px;
-                            bottom: 0;
-                        }
+                    margin: 5px 0 0 -25px;
+                    padding: 10px 0 10px 25px;
+                    background-color: $color_main1;
+                    position: relative;
+                    &::before{
+                        content: "";
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 0 14px 8px 0;
+                        border-color: transparent $color_main2 transparent transparent;
+                        position: absolute;
+                        bottom: -8px;
+                        left: 0px;
                     }
+                    p{ font-size: $fontSize_S; }
+                    span{
+                        width: 80px;
+                        padding: 5px;
+                        border-radius: 10px;
+                        font-size: $fontSize_M;
+                        text-align: center;
+                        color: #fff;
+                        background-color: #f7a800;
+                        position: absolute;
+                        top: 0;
+                        right: -25px;
+                        bottom: 0;
+                    }
+                }
                 .groupon-meals{
                     margin: 20px 0;
                     .groupon-item{
                         width: 120px;
                         height: 120px;
                         margin: 0 5px 10px;
-                        box-shadow: 3px 3px 3px #aaa;
+                        // box-shadow: 3px 3px 3px #aaa;
                         border-radius: 15px;
                         position: relative;
                         display: inline-block;
                         .meals-img,.meals-title{ padding: 3px 0; }
+                        .meals-img{ 
+                            border-radius: 15px;
+                            background-color: $color_main3; 
+                        }
                         .meals-title{
                             border-radius: 0 0 15px 15px;
                             background-color: $color_main1;
                             text-align: center;
                             position: absolute;
                             right: 0;
-                            bottom: 0;
+                            bottom: -5px;
                             left: 0;
                         }
                     }
                     .groupon-more{
+                        padding: 15px 0;
                         font-size: $fontSize_S;
                         text-align: center;
                     }
                 }
                 .groupon-detail{
-                    .groupon-day,.groupon-money,.groupon-people,.groupon-date{ 
-                        margin: 10px; 
+                    padding: 0 20px;
+                    .groupon-day,.groupon-money,.groupon-date{ 
+                        margin: 15px; 
                         & span:first-child{ 
                             margin-right: 15px;
                             padding-right: 15px; 
@@ -351,233 +354,242 @@ $space_sm_lr: 0 30px;  //平板左右
 }
 
 @include rwd(sm,float) {  //768px
-.eatDetail{
-//共用
-    .wrap{ 
-        width: calc(100% - $space_sm_lr*2); 
-        margin: $space_sm_lr;
-        padding: 50px 30px;
-        .title-img{ 
-            margin-bottom: 30px;
-            padding-top: 30px;
+    .eatDetail{
+        *{ 
+            font-size: $fontSize_S; 
+            .tb-width{ width: 80px; }
         }
-    }
+        //共用
+        .wrap{ 
+            width: calc(100% - $space_sm_lr*2); 
+            margin: $space_sm_lr;
+            padding: 50px 30px;
+            .title{ 
+                img{ height: 60px; }
+            }
+            .title-img{ 
+                margin-bottom: 30px;
+                padding-right: 20px;
+                padding-left: 20px;
+            }
+        }
 
-//產品介紹
-    .banner{ 
-        .banner-pic{
-            .heart_icon{ margin-right: 20px; }
-        }
-        .banner-txt{
-            padding: 0 15px;
-            .product{
-                h2{ margin: 15px 0;}
-                figure{ 
-                    width: 25px;
-                    margin: 15px 0 0 15px; 
-                }
+        //產品介紹
+        .banner{ 
+            .banner-pic{
+                padding: 0 30px;
+                .heart_icon{ margin-right: 20px; }
             }
-            .score,.sort,.kcal,.content p{ margin: 15px 0; }
-            .score{
-                .grade{
-                    span{ margin-right: 15px; }
-                }
-            }
-            .content,.price{ margin: 30px 0; }
-            .count-buy{
-                margin: 50px 0;
-                span{ 
-                    height: ($fontSize_text + 15px) * $lineHeight;
-                    margin-right: 30px;
-                    font-size: $fontSize_M;
-                }
-                .count-qty{
-                    .qty-cut,.qty{ margin-right: 25px; }
-                    .plusAndMinus {
-                        @include roundBtn(($fontSize_text + 15px) * $lineHeight, $color_main4) { }
+            .banner-txt{
+                padding: 0 50px;
+                .product{
+                    h2{ 
+                        margin: 15px 0;
+                        font-size: $fontSize_XL;
                     }
-                    .qty{ 
-                        height: ($fontSize_text + 15px) * $lineHeight; 
+                    figure{ 
+                        width: 25px;
+                        margin: 15px 0 0 15px; 
+                    }
+                }
+                .score,.sort,.kcal,.content p{ margin: 15px 0; }
+                .score{
+                    .grade{
+                        span{ margin-right: 15px; }
+                        figure{ 
+                            width: 23px; 
+                            margin-right: 10px;
+                        }
+                    }
+                }
+                .content,.price{ margin: 30px 0; }
+                .content{
+                    span{ font-size: $fontSize_M; }
+                }
+                .price{ font-size: $fontSize_XL; }
+                .count-buy{
+                    margin: 50px 0;
+                    span{ 
+                        height: ($fontSize_text + 15px) * $lineHeight;
+                        margin-right: 30px;
                         font-size: $fontSize_M;
                     }
-                }
-            }
-            .count-btn{
-                margin-top: 80px;
-                .mainBTN {
-                    span{ font-size: $fontSize_S; }
-                    @include btn(100%, light) {
-                        max-width: 40%;
-                        height: ($fontSize_S + 10px) * $lineHeight; 
+                    .count-qty{
+                        .qty-cut,.qty{ margin-right: 25px; }
+                        .plusAndMinus {
+                            @include roundBtn(($fontSize_text + 15px) * $lineHeight, $color_main4) { font-size: $fontSize_L; }
+                        }
+                        .qty{ 
+                            height: ($fontSize_text + 15px) * $lineHeight; 
+                            font-size: $fontSize_M;
+                        }
                     }
                 }
-                .subBTN {
-                    @include btn(100%) {
-                        max-width: 40%;
-                        height: ($fontSize_S + 10px) * $lineHeight; 
-                        font-size: $fontSize_S;
+                .count-btn{
+                    margin-top: 80px;
+                    .mainBTN {
+                        span{ font-size: $fontSize_S; }
+                        @include btn(100%, light) {
+                            max-width: 40%;
+                            height: ($fontSize_S + 10px) * $lineHeight; 
+                        }
+                    }
+                    .subBTN {
+                        @include btn(100%) {
+                            max-width: 40%;
+                            height: ($fontSize_S + 10px) * $lineHeight; 
+                            font-size: $fontSize_S;
+                        }
+                    }
+                }
+            }
+        }
+
+        //留言板
+        .msg-board{
+            .wrap{ padding-bottom: 45px; }
+            .member-msg{
+                margin-top: 30px;
+                padding: 0 50px;
+                padding-top: 0;
+                .member-data{
+                    .member-pic{ 
+                        .member-img{ width: 65px; }
+                    }
+                    .member-pic .member-id,.comments-time{ padding: 15px; }
+                }
+                .comments{
+                    .member-letter,p{ 
+                        margin-bottom: 15px;
+                        padding: 15px;
+                    }
+                    .msg-btn{
+                        .cancelBTN{
+                            @include btn(auto);
+                            height: ($fontSize_S + 10px) * $lineHeight; 
+                            margin-right: 15px;
+                            font-size: $fontSize_S;
+                            background-color: #FCF2CA;
+                            font-weight: 900;
+                            color: #76391B;
+                        }
+                        .nextBTN {
+                            @include btn(auto);
+                            height: ($fontSize_S + 10px) * $lineHeight; 
+                            font-size: $fontSize_S;
+                            background-color: $color_main4;
+                            font-weight: 900;
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+        }
+
+        //推薦飯團
+        .scorpion{
+            background-size: calc(96vw - 30px);
+            .wrap{
+                .title-img{ padding-bottom: 30px; }
+            }
+            .groupon{ 
+                .owl-dots{ padding: 30px 0; }
+                .groupon-box{
+                    .groupon-title{
+                        p,span{ font-size: $fontSize_M; }
+                    }
+                    .groupon-meals{
+                        .groupon-more{ font-size: $fontSize_M; }
+                    }
+                    .subBTN {
+                        @include btn(100%) {
+                            height: ($fontSize_S + 10px) * $lineHeight; 
+                            font-size: $fontSize_M;
+                            font-weight: 900;
+                        }
                     }
                 }
             }
         }
     }
+}
 
-//留言板
-    .msg-board{
-        .member-msg{
-            margin-top: 30px;
-            padding: 20px 30px;
-            padding-top: 0;
-            .member-data{
+@include rwd(md,float) {  //1024px
+    .eatDetail{
+        //共用
+        .wrap{ 
+            .title{ margin-top: 50px; }
+            .title-img{ padding: 20px 30px; } 
+        }
+
+        //產品介紹
+        .banner{ 
+            .banner-pic{ 
+                padding: 50px 20px 0; 
+                .heart_icon{ margin-right: 0; }
+            }
+            .banner-txt{
+                padding: 0 20px 0;
+                .product{
+                    margin: 0;
+                    h2{ margin: 0; }
+                    figure{ 
+                        margin-top: 0;
+                        padding: 0; 
+                    }
+                }
+                .content,.price{ margin: 20px 0; }
+                .count-buy{
+                    margin: 30px 0;
+                    span{ margin-right: 0; }
+                }
+                .count-btn{ margin-top: 50px; }
+            }
+        }
+
+        //留言板
+        .msg-board{
+            .wrap{ padding-bottom: 13px; }
+            .member-msg{
+                margin: 0 50px 30px;
                 .member-pic{ 
-                    .member-img{ width: 60px; }
-                }
-                .member-pic .member-id,.comments-time{ padding: 15px; }
-            }
-            .comments{
-                .member-letter,p{ 
-                    margin-bottom: 15px;
-                    padding: 15px;
-                }
-                .msg-btn{
-                    .cancelBTN{
-                        @include btn(auto);
-                        height: ($fontSize_S + 10px) * $lineHeight; 
-                        margin-right: 15px;
-                        background-color: #FCF2CA;
-                        font-weight: 900;
-                        color: #76391B;
-                    }
-                    .nextBTN {
-                        @include btn(auto);
-                        height: ($fontSize_S + 10px) * $lineHeight; 
-                        background-color: $color_main4;
-                        font-weight: 900;
-                        color: #fff;
-                    }
+                    .member-img{ width: 10%; }
                 }
             }
         }
+
+        //推薦飯團
+        .scorpion{
+            background-size: calc(98vw - 40px);
+            .groupon{ margin: 20px 0px; }
+        }
     }
-
-// //推薦飯團
-//     .scorpion{
-//         .wrap{ padding: 50px 0; }
-//     }
-}
 }
 
-// @include rwd(md,float) {  //1024px
-// .eatDetail{
-// //共用
-//     .wrap{ padding: 80px 10px 50px; }
+@include rwd(lg,float) { //1200px
+    .eatDetail{
+        //共用
+        .wrap{ 
+            width: 1200px; 
+            margin: auto;
+            padding: 100px 40px 50px;
+        }
 
-// //產品介紹
-//     .banner{ 
-//         .banner-pic{
-//             padding-top: 50px;
-//             .heart_icon{ padding-right: 20px; }
-//         }
-//         .banner-txt{
-//             margin: 0;
-//             padding: 0;
-//             padding-left: 15px;
-//             .product{
-//                 h2{ 
-//                     margin: 8px 0;
-//                     padding: 10px 20px;
-//                     border-radius: 50px;
-//                     font-size: $fontSize_L; 
-//                     color: $color_main2;
-//                     background-image: url("../images/33/bg111\ \(7\).png");
-//                 }
-//                 figure{ 
-//                     width: 20px;
-//                     margin: 10px 0 0 10px; 
-//                 }
-//             }
-//             .score,.sort,.kcal,.content p{ margin: 8px 0; }
-//             .score{
-//                 .grade{
-//                     span{ margin-right: 10px; }
-//                 }
-//             }
-//             .content,.price{ margin: 20px 0; }
-//             .count-buy{
-//                 margin: 30px 0;
-//                 span{ 
-//                     margin-right: 0;
-//                     font-size: $fontSize_text;
-//                 }
-//                 .count-qty{
-//                     .qty-cut,.qty{ margin-right: 15px; }
-//                     .plusAndMinus {
-//                         @include roundBtn(($fontSize_text + 5px) * $lineHeight, $color_main4) { }
-//                     }
-//                     .qty{ 
-//                         height: ($fontSize_text + 5px) * $lineHeight; 
-//                         font-size: $fontSize_S;
-//                     }
-//                 }
-//             }
-//             .count-btn{
-//                 margin-top: 50px;
+        //產品介紹
+        .banner{ 
+            .banner-pic{ padding-right: 30px; }
+            .banner-txt{ padding-left: 40px; }
+        }
 
-//                 .mainBTN {
-//                     @include btn(100%, light) {
-//                         max-width: 45%;
-//                         height: ($fontSize_S + 5px) * $lineHeight; 
-//                     }
-//                 }
-//                 .subBTN {
-//                     @include btn(100%) {
-//                         max-width: 45%;
-//                         height: ($fontSize_S + 5px) * $lineHeight; 
-//                     }
-//                 }
-//             }
-//         }
-//     }
-// //留言板
-//     .msg-board{
-//         .wrap{ padding: 50px 0; }
-//         .member-msg{
-//             margin: 0 50px 30px;
-//             .member-pic{ 
-//                 .member-img{ width: 10%; }
-//             }
-//         }
-//     }
-// }
-// }
+        //留言板
+        .msg-board{
+            .wrap{ padding-bottom: 60px; }
+        }
 
-// @include rwd(lg,float) { //1200px
-// .eatDetail{
-// //共用
-//     .wrap{ 
-//         width: 1200px; 
-//         margin: auto;
-//         padding-left: 30px;
-//         padding-right: 30px;
-//     }
-
-// //產品介紹
-//     .banner{ 
-//         .banner-pic{ padding: 60px 20px 0 0; }
-//         .banner-txt{ padding-left: 30px; }
-//     }
-
-// //留言板
-//     .msg-board{
-//         .wrap{ 
-//             padding-left: 30px;
-//             padding-right: 30px; 
-//         }
-//         .member-msg{
-//             .member-pic{ 
-//                 .member-img{ width: 10%; }
-//             }
-//         }
-//     }
-// }
-// }
+        //推薦飯團
+        .scorpion{
+            background-size: calc(64.5vw - 38px);
+            .groupon{ margin: 20px 0px; }
+        }
+    }
+}
