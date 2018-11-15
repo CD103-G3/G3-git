@@ -108,105 +108,79 @@
                         </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                        try {
+                            require_once("connectMember.php");
+                            $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No group by A1.meal_No order by meal_No";
+                            $products = $pdo -> query( $sql );
+                            while($prodRow = $products->fetchObject()){
+                        ?>
                         <tr>
-                            <td scope="row">1</td>
-                            <td>丼飯</td>
-                            <td>(生)特級海鮮丼</td>
-                            <td><img src="images/丼1.png" class="one-size" alt=""></td>
-                            <td>680</td>
-                            <td>300</td>
+                            <td scope="row"><?php echo $prodRow->meal_No; ?></td>
+                            <td><?php echo $prodRow->mealGenre_Name; ?></td>
+                            <td><?php echo $prodRow->meal_Name; ?></td>
+                            <td><img src="images/<?php echo $prodRow->meal_Pic; ?>" alt=""></td>
+                            <td><?php echo $prodRow->meal_Price; ?></td>
+                            <td style="display: none;"><?php echo $prodRow->meal_Info; ?></td>
+                            <td><?php echo $prodRow->meal_Cal;?></td>
                             <td>上架</td>
+
                             <td>
-                                <i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#viewMeal"></i>
+                                <input style="display:none;" type="text" name="mealno" id="mealno" value="<?php echo $prodRow->meal_No;?>"/>
+                                <i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#viewMeal" mealNo="<?php echo $prodRow->meal_No;?>" onclick="getDishes(<?php echo $prodRow->meal_No;?>)"  >
+                                    <!-- <input type="button"  value="mealno" /> -->
+                                </i>
                                 <div class="modal fade" id="viewMeal" tabindex="-1" role="dialog" aria-labelledby="viewAddMealTitle" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <!-- 新增跳窗 -->
-                                        <div class="modal-content">
-                                            <figure class="modal-img">
-                                                <img src="images/dayCookIndex_whiteBG1.svg" alt="">
-                                            </figure>
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="viewAddMealTitle">餐點資料</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealNo" class="col-form-label title-width">餐點編號</label>
-                                                        <input type="text" class="form-control" id="viewMealNo" value="1" readonly>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealGenre" class="title-width">餐點類別</label>
-                                                        <select class="form-control change-select" id="viewMealGenre" >
-                                                            <option>拉麵</option>
-                                                            <option>丼飯</option>
-                                                            <option>鍋物</option>
-                                                            <option>定食</option>
-                                                            <option>便當</option>
-                                                            <option>素食</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealName" class="col-form-label title-width">餐點名稱</label>
-                                                        <input type="text" class="form-control change" id="viewMealName" value="(生)特級海鮮丼" >
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealPrice" class="col-form-label title-width">餐點單價</label>
-                                                        <input type="text" class="form-control change" id="viewMealPrice" value="680" >
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealInfo" class="col-form-label title-width">餐點介紹</label>
-                                                        <textarea class="form-control change" id="viewMealInfo" rows="3" >海膽、干貝、牡丹蝦、鮭魚肚、鮪魚、紅甘肚、鮭魚卵等外加多款現流生魚片，滿滿的新鮮海味，隱藏首推的頂級美食。(附三品小菜及熱湯) •本店均採用當日現流魚，若當日海膽不足將以同等食材替換，請見諒。</textarea>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealCal" class="col-form-label title-width">餐點卡路里</label>
-                                                        <input type="text" class="form-control change" id="viewMealCal" value="300" >
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealSold" class="title-width">餐點狀態</label>
-                                                        <select class="form-control change-select" id="viewMealSold">
-                                                            <option>上架</option>
-                                                            <option>下架</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealCount" class="col-form-label title-width">評分次數</label>
-                                                        <input type="text" class="form-control" id="viewMealCount" value="2" readonly>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealTotal" class="col-form-label title-width">評分總分</label>
-                                                        <input type="text" class="form-control" id="viewMealTotal" value="4.5" readonly>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="viewMealPic" class="title-width">修改餐點圖片</label>
-                                                        <input type="file" class="form-control-file change" id="viewMealPic">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-primary mainBTN btn-touch">修改</button>
-                                                <button type="button" class="btn btn-secondary subBTN" data-dismiss="modal">取消</button>
-                                            </div>
+                                <div class="modal-dialog" role="document">
+                                    <!-- 新增跳窗 -->
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="viewAddMealTitle">餐點資料</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action=""></form>
+                                        </div>
+                                        <div class="modal-footer justify-content-center">
+                                            <button type="button" class="btn btn-primary mainBTN btn-touch">修改</button>
+                                            <button type="button" class="btn btn-secondary subBTN" data-dismiss="modal">取消</button>
                                         </div>
                                     </div>
                                 </div>
+                                </div>
                             </td>
                         </tr>
+                    <?php
+                        }
+                    } catch (PDOException $e) {
+                        echo "錯誤原因 : ", $e -> getMessage(), "<br>";
+                        echo "錯誤行號 : ", $e -> getLine(), "<br>";
+                    }
+                    ?> 
+                    
                     </tbody>
                 </table>
+            <!-- 切換分頁 -->
+                <!-- <ul class="pagination justify-content-center back-page">
+                    <li><a href="#">&laquo;</a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li class="disabled"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul> -->
             </div>
         </div>
-    </div>  
-  
-    <button type="button" id="BackTop" class="toTop-arrow"></button>
- 
+    </div>   
     
+</body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
 <!-- 按鈕切換 -->
     <script>
         $(".touch").click(function(){
@@ -228,22 +202,5 @@
             });
         });
     </script>
-
-<!-- GoTop -->
-    <script>
-        $(function(){
-            $('#BackTop').click(function(){ 
-                $('html,body').animate({scrollTop:0}, 333);
-            });
-            $(window).scroll(function() {
-                if ( $(this).scrollTop() > 300 ){
-                    $('#BackTop').fadeIn(222);
-                } else {
-                    $('#BackTop').stop().fadeOut(222);
-                }
-            }).scroll();
-        });
-    </script>
-
-</body>
+    <script src="meal.js"></script>
 </html>

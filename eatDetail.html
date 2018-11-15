@@ -127,8 +127,8 @@
     <div class="banner">
         <div class="wrap clearfix">
             <div class="banner-pic part-md-6 part-lg-6 clearfix">
-                <figure>
-                    <img src="images/丼1.png" alt="特級海鮮丼">
+                <figure class="zoom-img"></figure>
+                    <img class="sunder-img-zoom" src="images/ra_03.png" alt="特級海鮮丼">
                 </figure>
                 <p class="heart_icon">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -152,36 +152,36 @@
             </div>
             <div class="banner-txt part-md-6 part-lg-6">
                 <div class="product clearfix">
-                    <h2 class="fl">(生)特級海鮮丼</h2>
+                    <h2 class="fl color">(生)特級海鮮丼</h2>
                     <figure class="fl"><img src="/images/icon/chili.svg"></figure>
                     <figure class="fl"><img src="/images/icon/lettuce.svg"></figure>
                 </div>
                 <div class="score clearfix">
-                    <div class="tb-width fl">評分</div>   
+                    <div class="tb-width fl color">評分</div>   
                     <div class="grade fl">
                         <span class="fl">3.5</span>
-                        <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
-                        <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
-                        <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
-                        <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
-                        <figure class="fl"><img src="images/scoreEgg_y.jpg"></figure>
+                        <figure class="fl"><img src="images/scoreEgg_y.svg"></figure>
+                        <figure class="fl"><img src="images/scoreEgg_y.svg"></figure>
+                        <figure class="fl"><img src="images/scoreEgg_y.svg"></figure>
+                        <figure class="fl"><img src="images/scoreEgg_y.svg"></figure>
+                        <figure class="fl"><img src="images/scoreEgg_y.svg"></figure>
                     </div>
                 </div>
                 <div class="sort clearfix">
-                    <span class="tb-width fl">分類</span>
+                    <span class="tb-width fl color">分類</span>
                     <span class="fl">丼飯</span>
                 </div>       
                 <div class="kcal clearfix">
-                    <span class="tb-width fl">卡路里</span>
+                    <span class="tb-width fl color">卡路里</span>
                     <span class="fl">300kcal</span>
                 </div> 
                 <div class="content clearfix">
-                    <span>餐點介紹</span>
+                    <span class="color">餐點介紹</span>
                     <p>海膽、干貝、牡丹蝦、鮭魚肚、鮪魚、紅甘肚、鮭魚卵等外加多款現流生魚片，滿滿的新鮮海味，隱藏首推的頂級美食。</p>  
                 </div>
                 <span class="price">NT680元</span>
                 <div class="count-buy clearfix">
-                    <span class="tb-width fl">數量</span>
+                    <span class="tb-width fl color">數量</span>
                     <div class="count-qty line-block">
                         <button class="qty-cut plusAndMinus" id="qty-cut" name="qty-cut">-</button>
                         <input type="text" class="qty" id="qty" name="quantity" value="1">
@@ -215,22 +215,40 @@
 <!-- 留言板 -->
     <div class="msg-board">
         <div class="wrap">
-            <div class="title">菜友留言</div>
+            <figure class="title"><img src="images/messageTitle.svg" alt=""></figure>
             <figure class="title-img">
                 <img src="images/separate_line.png">
             </figure>
             <div class="member-msg">
-                <div class="member-pic clearfix">
-                    <figure class="member-img fl">
-                        <img src="images/icon7.png">
-                    </figure>
-                    <div class="member-txt fl">
-                        <div class="member-id">訪客</div>
-                        <div class="comments-time">留言時間</div>
+                <div class="member-data clearfix">
+                    <div class="member-pic fl">
+                        <figure class="member-img fl">
+                            <img src="images/icon7.png">
+                        </figure>
+                        <div class="member-id fl color">訪客訪客訪客</div>
                     </div>
+                    <!-- <div class="comments-time fl">2018-01-01</div> -->
                 </div>
                 <div class="comments clearfix">
-                    <textarea placeholder="請輸入留言..." name="member-letter" id="memberLetter" class="member-letter" rows="3"></textarea>
+                    <textarea placeholder="請輸入留言..." maxlength="50" name="member-letter" id="memberLetter" class="member-letter" rows="3"></textarea>
+                    <div class="msg-btn">   
+                        <button type="text" id="commentsChange" class="cancelBTN">隨機產生留言</button>
+                        <button type="submit" name="comments" id="commentsBtn" class="nextBTN">送出</button>
+                    </div>
+                </div>
+            </div>
+            <div class="member-msg">
+                <div class="member-data clearfix">
+                    <div class="member-pic fl">
+                        <figure class="member-img fl">
+                            <img src="images/icon7.png">
+                        </figure>
+                        <div class="member-id fl">訪客訪客訪客</div>
+                    </div>
+                    <div class="comments-time fl">2018-01-01</div>
+                </div>
+                <div class="comments clearfix">
+                    <p>佔位哥</p>
                     <div class="msg-btn">   
                         <button type="text" id="commentsChange" class="cancelBTN">隨機產生留言</button>
                         <button type="submit" name="comments" id="commentsBtn" class="nextBTN">送出</button>
@@ -244,171 +262,243 @@
 <!-- 推薦飯團 -->
     <div class="scorpion">
         <div class="wrap">
-            <p class="title">推薦飯團</p>
+            <figure class="title">
+                <img src="images/grouponTitle.svg" alt="">
+            </figure>
             <figure class="title-img">
                 <img src="images/separate_line.png">
             </figure>
-            <div class="groupon owl-carousel"> 
-                <div class="groupon-box">
-                    <div class="groupon-title">
-                        <p>有青!才敢大聲!!</p>
-                        <span>6折</span>
-                    </div>
-                    <div class="groupon-meals">
-                        <div class="groupon-item">
-                            <a href="#">
-                                <figure class="meals-img">
-                                    <img src="./images/丼1.png" alt="">
-                                </figure>
-                                <span class="meals-title">好好動吃動</span>
-                            </a>
-                        </div>
-                        <div class="groupon-item">
-                            <a href="#">
-                                <figure class="meals-img">
-                                    <img src="./images/丼1.png" alt="">
-                                </figure>
-                                <span class="meals-title">好好動吃動</span>
-                            </a>
-                        </div>
-                        <div class="groupon-more">
-                            還有5個餐點...
-                        </div>
-                    </div>
-                    <div class="groupon-detail">
-                        <div class="groupon-day clearfix">
-                            <span class="fl">飯團天數</span>
-                            <span class="fl">5天</span>
-                        </div>
-                        <div class="groupon-money clearfix">
-                            <span class="fl">平均一餐</span>
-                            <span class="fl">20元</span>
-                        </div>
-                        <div class="groupon-people clearfix">
-                            <span class="fl">參加人數</span>
-                            <div class="people-bar fl">
-                                <span class="people">45</span>
-                                <span class="gap">/</span>
-                                <span class="people-total">50</span>
-                                <div class="people-line">
-                                    <div class="peopleLine"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="groupon-date clearfix">
-                            <span class="fl">截止日期</span>
-                            <span class="fl">11/30前</span>
-                        </div>
-                    </div>
-                    <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
+        </div>
+        <div class="groupon owl-carousel"> 
+            <div class="groupon-box">
+                <div class="groupon-title">
+                    <p class="color">有青!才敢大聲!!</p>
+                    <span>6折</span>
                 </div>
-                <div class="groupon-box">
-                    <div class="groupon-title">
-                        <p>有青!才敢大聲!!</p>
-                        <span>6折</span>
+                <div class="groupon-meals">
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
                     </div>
-                    <div class="groupon-meals">
-                        <div class="groupon-item">
-                            <a href="#">
-                                <figure class="meals-img">
-                                    <img src="./images/丼1.png" alt="">
-                                </figure>
-                                <span class="meals-title">好好動吃動</span>
-                            </a>
-                        </div>
-                        <div class="groupon-item">
-                            <a href="#">
-                                <figure class="meals-img">
-                                    <img src="./images/丼1.png" alt="">
-                                </figure>
-                                <span class="meals-title">好好動吃動</span>
-                            </a>
-                        </div>
-
-                        <div class="groupon-more">
-                            還有5個餐點...
-                        </div>
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
                     </div>
-                    <div class="groupon-detail">
-                        <div class="groupon-day clearfix">
-                            <span class="fl">飯團天數</span>
-                            <span class="fl">5天</span>
-                        </div>
-                        <div class="groupon-money clearfix">
-                            <span class="fl">平均一餐</span>
-                            <span class="fl">20元</span>
-                        </div>
-                        <div class="groupon-people clearfix">
-                            <span class="fl">參加人數</span>
-                            <div class="people-bar fl">
-                                <span class="people">45</span>
-                                <span class="gap">/</span>
-                                <span class="people-total">50</span>
-                                <div class="people-line">
-                                    <div class="peopleLine"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="groupon-date clearfix">
-                            <span class="fl">截止日期</span>
-                            <span class="fl">11/30前</span>
-                        </div>
+                    <div class="groupon-more">
+                        還有5個餐點...
                     </div>
-                    <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
                 </div>
-                <div class="groupon-box">
-                    <div class="groupon-title">
-                        <p>有青!才敢大聲!!</p>
-                        <span>6折</span>
+                <div class="groupon-detail">
+                    <div class="groupon-day clearfix">
+                        <span class="fl color">飯團天數</span>
+                        <span class="fl">5天</span>
                     </div>
-                    <div class="groupon-meals">
-                        <div class="groupon-item">
-                            <a href="#">
-                                <figure class="meals-img">
-                                    <img src="./images/丼1.png" alt="">
-                                </figure>
-                                <span class="meals-title">好好動吃動</span>
-                            </a>
-                        </div>
-                        <div class="groupon-item">
-                            <a href="#">
-                                <figure class="meals-img">
-                                    <img src="./images/丼1.png" alt="">
-                                </figure>
-                                <span class="meals-title">好好動吃動</span>
-                            </a>
-                        </div>
-                        <div class="groupon-more">
-                            還有5個餐點...
-                        </div>
+                    <div class="groupon-money clearfix">
+                        <span class="fl color">平均一餐</span>
+                        <span class="fl">20元</span>
                     </div>
-                    <div class="groupon-detail">
-                        <div class="groupon-day clearfix">
-                            <span class="fl">飯團天數</span>
-                            <span class="fl">5天</span>
-                        </div>
-                        <div class="groupon-money clearfix">
-                            <span class="fl">平均一餐</span>
-                            <span class="fl">20元</span>
-                        </div>
-                        <div class="groupon-people clearfix">
-                            <span class="fl">參加人數</span>
-                            <div class="people-bar fl">
-                                <span class="people">45</span>
-                                <span class="gap">/</span>
-                                <span class="people-total">50</span>
-                                <div class="people-line">
-                                    <div class="peopleLine"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="groupon-date clearfix">
-                            <span class="fl">截止日期</span>
-                            <span class="fl">11/30前</span>
-                        </div>
+                    <div class="groupon-people clearfix">
+                        <span class="fl color">參加人數</span>
+                        <span class="people-bar fl">45/50</span>
                     </div>
-                    <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
+                    <div class="groupon-date clearfix">
+                        <span class="fl color">截止日期</span>
+                        <span class="fl">11/30前</span>
+                    </div>
                 </div>
+                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
+            </div>
+            <div class="groupon-box">
+                <div class="groupon-title">
+                    <p class="color">有青!才敢大聲!!</p>
+                    <span>6折</span>
+                </div>
+                <div class="groupon-meals">
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-more">
+                        還有5個餐點...
+                    </div>
+                </div>
+                <div class="groupon-detail">
+                    <div class="groupon-day clearfix">
+                        <span class="fl color">飯團天數</span>
+                        <span class="fl">5天</span>
+                    </div>
+                    <div class="groupon-money clearfix">
+                        <span class="fl color">平均一餐</span>
+                        <span class="fl">20元</span>
+                    </div>
+                    <div class="groupon-people clearfix">
+                        <span class="fl color">參加人數</span>
+                        <span class="people-bar fl">45/50</span>
+                    </div>
+                    <div class="groupon-date clearfix">
+                        <span class="fl color">截止日期</span>
+                        <span class="fl">11/30前</span>
+                    </div>
+                </div>
+                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
+            </div>
+            <div class="groupon-box">
+                <div class="groupon-title">
+                    <p class="color">有青!才敢大聲!!</p>
+                    <span>6折</span>
+                </div>
+                <div class="groupon-meals">
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-more">
+                        還有5個餐點...
+                    </div>
+                </div>
+                <div class="groupon-detail">
+                    <div class="groupon-day clearfix">
+                        <span class="fl color">飯團天數</span>
+                        <span class="fl">5天</span>
+                    </div>
+                    <div class="groupon-money clearfix">
+                        <span class="fl color">平均一餐</span>
+                        <span class="fl">20元</span>
+                    </div>
+                    <div class="groupon-people clearfix">
+                        <span class="fl color">參加人數</span>
+                        <span class="people-bar fl">45/50</span>
+                    </div>
+                    <div class="groupon-date clearfix">
+                        <span class="fl color">截止日期</span>
+                        <span class="fl">11/30前</span>
+                    </div>
+                </div>
+                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
+            </div>
+            <div class="groupon-box">
+                <div class="groupon-title">
+                    <p class="color">有青!才敢大聲!!</p>
+                    <span>6折</span>
+                </div>
+                <div class="groupon-meals">
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-more">
+                        還有5個餐點...
+                    </div>
+                </div>
+                <div class="groupon-detail">
+                    <div class="groupon-day clearfix">
+                        <span class="fl color">飯團天數</span>
+                        <span class="fl">5天</span>
+                    </div>
+                    <div class="groupon-money clearfix">
+                        <span class="fl color">平均一餐</span>
+                        <span class="fl">20元</span>
+                    </div>
+                    <div class="groupon-people clearfix">
+                        <span class="fl color">參加人數</span>
+                        <span class="people-bar fl">45/50</span>
+                    </div>
+                    <div class="groupon-date clearfix">
+                        <span class="fl color">截止日期</span>
+                        <span class="fl">11/30前</span>
+                    </div>
+                </div>
+                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
+            </div>
+            <div class="groupon-box">
+                <div class="groupon-title">
+                    <p class="color">有青!才敢大聲!!</p>
+                    <span>6折</span>
+                </div>
+                <div class="groupon-meals">
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-item">
+                        <a href="#">
+                            <figure class="meals-img">
+                                <img src="./images/丼1.png" alt="">
+                            </figure>
+                            <span class="meals-title">好好動吃動</span>
+                        </a>
+                    </div>
+                    <div class="groupon-more">
+                        還有5個餐點...
+                    </div>
+                </div>
+                <div class="groupon-detail">
+                    <div class="groupon-day clearfix">
+                        <span class="fl color">飯團天數</span>
+                        <span class="fl">5天</span>
+                    </div>
+                    <div class="groupon-money clearfix">
+                        <span class="fl color">平均一餐</span>
+                        <span class="fl">20元</span>
+                    </div>
+                    <div class="groupon-people clearfix">
+                        <span class="fl color">參加人數</span>
+                        <span class="people-bar fl">45/50</span>
+                    </div>
+                    <div class="groupon-date clearfix">
+                        <span class="fl color">截止日期</span>
+                        <span class="fl">11/30前</span>
+                    </div>
+                </div>
+                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
             </div>
         </div>
     </div>
@@ -611,11 +701,12 @@
     $(document).ready(function(){
         $(".owl-carousel").owlCarousel({
             center: true,
+            pagination:true,
             items: 1,
             loop: true,
-            margin: 60,
+            margin: 20,
             responsiveClass:true,
-            nav:true,
+            nav:false,
             responsive:{
                 0:{
                     items:1,

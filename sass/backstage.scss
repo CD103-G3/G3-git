@@ -138,15 +138,11 @@
                         tr{ 
                             td{
                                 padding: 3px; 
-                                img{ height: 50px; }
+                                .one-size{ height: 50px; }
                                 i{ cursor: pointer; }
                             }
                         }
                     }
-                }
-                .back-page{
-                    display: none;
-                    li{ padding: 10px; }
                 }
             }
         }

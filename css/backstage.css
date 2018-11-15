@@ -151,11 +151,7 @@
         vertical-align: middle; }
       .out .d-flex .container .back-text .table tbody tr td {
         padding: 3px; }
-        .out .d-flex .container .back-text .table tbody tr td img {
+        .out .d-flex .container .back-text .table tbody tr td .one-size {
           height: 50px; }
         .out .d-flex .container .back-text .table tbody tr td i {
           cursor: pointer; }
-      .out .d-flex .container .back-text .back-page {
-        display: none; }
-        .out .d-flex .container .back-text .back-page li {
-          padding: 10px; }

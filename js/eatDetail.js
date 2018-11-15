@@ -1,3 +1,113 @@
+// 圖片放大效果
+$(function() {
+
+    // 選擇圖片class名稱為sunder-img-zoom
+    $('img.sunder-img-zoom').each(function(index, image) {
+
+        // 設定縮放比例(默認為2倍)
+        // $.isNumeric() 判断輸入值類型
+        // data() 從被選元素中取回數據
+        var zoom = $.isNumeric($(image).data('sunder-img-zoom')) ? $(image).data('sunder-img-zoom') : 2;
+
+        // 用<figure>包圖片
+        // parent() 返回被選元素的直接父元素
+        var container = $(image).wrap('<figure></figure>').parent();
+
+        // 設定父層寬高
+        // 內部<img>保持相同大小
+        container.css('width', '100%');
+        container.css('height', $(image).height() + 'px');
+
+        // 添加<img>的源代碼作為父代的背景
+        container.css('background-image', 'url(\'' + $(image).attr('src') + '\')');
+        container.css('background-repeat', 'no-repeat');
+        container.css('background-position', '-100%');
+
+        // 在父級中按指定的縮放係數（默認為2倍）使圖像變大
+        container.css('background-size', $(image).width() * zoom + 'px ' + $(image).height() * zoom + 'px');
+
+        // 當用戶將鼠標懸停在圖像上時，將其隱藏
+        $(image).on('mouseover', function(e) { $(this).hide(); 
+            container.css('cursor', 'zoom-in');
+        });
+        $(image).on('touchstart', function(e) { $(this).hide(); });
+
+        // 當用戶離開圖像區域時，再次顯示常規尺寸的圖像
+        container.on('mouseleave', function() { $(image).show(); 
+            container.css('background-position', '-100%');
+        });
+        container.on('touchend', function() { $(image).show(); 
+            container.css('background-position', '-100%');});
+
+
+        // 當用戶在圖像區域內移動鼠標時
+        container.on('mousemove', function(e) {
+
+            // 獲取圖像中的鼠標位置
+            var x = -e.pageX + $(this).offset().left;
+            var y = -e.pageY + $(this).offset().top;
+
+            // 將緩衝區應用於圖像的外側10％
+
+            // X-軸
+            if(x > -$(this).width() / 10)        x = 0;
+            else if(x < -$(this).width() * 0.9)  x = -$(this).width();
+            else if(x > -$(this).width() / 2)    x += $(this).width() / 10 + (x + $(this).width() / 10) * ($(this).width() / 10) / ($(this).width() / 2 - $(this).width() / 10);
+            else                                 x -= $(this).width() / 10 - (x + $(this).width() * 0.9) * ($(this).width() / 10) / ($(this).width() / 2 - $(this).width() / 10);
+
+            // Y-軸
+            if(y > -$(this).height() / 10)       y = 0;
+            else if(y < -$(this).height() * 0.9) y = -$(this).height();
+            else if(y > -$(this).height() / 2)   y += $(this).height() / 10 + (y + $(this).height() / 10) * ($(this).height() / 10) / ($(this).height() / 2 - $(this).height() / 10);
+            else                                 y -= $(this).height() / 10 - (y + $(this).height() * 0.9) * ($(this).height() / 10) / ($(this).height() / 2 - $(this).height() / 10);
+
+            // 將較大的圖像移動到鼠標位置
+            $(this).css('backgroundPosition', x * (zoom - 1) + 'px ' + y * (zoom - 1) + 'px');
+        });
+
+        container.on('touchmove', function(e) {
+
+            // 獲取圖像中的觸摸位置
+            var x = -e.targetTouches[0].pageX + $(this).offset().left;
+            var y = -e.targetTouches[0].pageY + $(this).offset().top;
+
+            // 將緩衝區應用於圖像的外側10％
+
+            // X-軸
+            if(x > -$(this).width() / 10)        x = 0;
+            else if(x < -$(this).width() * 0.9)  x = -$(this).width();
+            else if(x > -$(this).width() / 2)    x += $(this).width() / 10 + (x + $(this).width() / 10) * ($(this).width() / 10) / ($(this).width() / 2 - $(this).width() / 10);
+            else                                 x -= $(this).width() / 10 - (x + $(this).width() * 0.9) * ($(this).width() / 10) / ($(this).width() / 2 - $(this).width() / 10);
+
+            // Y-軸
+            if(y > -$(this).height() / 10)       y = 0;
+            else if(y < -$(this).height() * 0.9) y = -$(this).height();
+            else if(y > -$(this).height() / 2)   y += $(this).height() / 10 + (y + $(this).height() / 10) * ($(this).height() / 10) / ($(this).height() / 2 - $(this).height() / 10);
+            else                                 y -= $(this).height() / 10 - (y + $(this).height() * 0.9) * ($(this).height() / 10) / ($(this).height() / 2 - $(this).height() / 10);
+
+            // 將較大的圖像移動到鼠標位置
+            $(this).css('backgroundPosition', x * (zoom - 1) + 'px ' + y * (zoom - 1) + 'px');
+        });
+
+
+
+        // 使此設置響應
+        $(window).resize(function() {
+            container.css('height', $(image).height() + 'px');
+            container.css('background-size', $(image).width() * zoom + 'px ' + $(image).height() * zoom + 'px');
+        });
+    }); 
+}); 
+
+
+
+
+
+
+
+
+
+
 // 數字增減
 function detailQty(){
     var qty = document.getElementById("qty");

@@ -54,97 +54,91 @@
                             <td>680</td>
                             <td>2018-11-12</td>
                             <td>已取餐</td>
-                            <td><i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#memOrder"></i></td>
-                            <div class="modal fade" id="memOrder" tabindex="-1" role="dialog" aria-labelledby="memOrderTitle" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <!-- 新增跳窗 -->
-                                    <div class="modal-content">
-                                        <figure class="modal-img">
-                                            <img src="images/dayCookIndex_whiteBG1.svg" alt="">
-                                        </figure>
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="memOrderTitle">訂單資料</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form>
-                                                <div class="d-flex form-group">
-                                                    <label for="memOrderNo" class="col-form-label title-width">訂單編號</label>
-                                                    <input type="text" class="form-control" id="memOrderNo" value="1" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="memberNo" class="col-form-label title-width">會員編號</label>
-                                                    <input type="text" class="form-control" id="memberNo" value="abc123" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="memOrderTime" class="col-form-label title-width">訂餐時間</label>
-                                                    <input type="text" class="form-control" id="memOrderTime" value="2018-11-12" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="memMealQuantity" class="col-form-label title-width">餐點數量</label>
-                                                    <input type="text" class="form-control" id="memMealQuantity" value="5" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="memOrderAmount" class="col-form-label title-width">訂單金額</label>
-                                                    <input type="text" class="form-control" id="memOrderAmount" value="680" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="memOrderTakeTime" class="col-form-label title-width">取餐時間</label>
-                                                    <input type="text" class="form-control" id="memOrderTakeTime" value="2018-11-12" readonly>
-                                                </div>
-                                                <div class="d-flex form-group">
-                                                    <label for="memOrderstatus" class="title-width">訂單狀態</label>
-                                                    <select class="form-control change-select" id="memOrderstatus">
-                                                        <option>未取餐</option>
-                                                        <option>已取餐</option>
-                                                        <option>訂單取消</option>
-                                                    </select>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="modal-footer justify-content-center">
-                                            <button type="button" class="btn btn-primary mainBTN btn-touch">修改</button>
-                                            <button type="button" class="btn btn-secondary subBTN" data-dismiss="modal">取消</button>
+                            <td>
+                                <i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#memOrder"></i>
+                                <div class="modal fade" id="memOrder" tabindex="-1" role="dialog" aria-labelledby="memOrderTitle" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <!-- 新增跳窗 -->
+                                        <div class="modal-content">
+                                            <figure class="modal-img">
+                                                <img src="images/dayCookIndex_whiteBG1.svg" alt="">
+                                            </figure>
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="memOrderTitle">訂單資料</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memOrderNo" class="col-form-label title-width">訂單編號</label>
+                                                        <input type="text" class="form-control" id="memOrderNo" value="1" readonly>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memberNo" class="col-form-label title-width">會員編號</label>
+                                                        <input type="text" class="form-control" id="memberNo" value="abc123" readonly>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memOrderTime" class="col-form-label title-width">訂餐時間</label>
+                                                        <input type="text" class="form-control" id="memOrderTime" value="2018-11-12" readonly>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memMealQuantity" class="col-form-label title-width">餐點數量</label>
+                                                        <input type="text" class="form-control" id="memMealQuantity" value="5" readonly>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memOrderAmount" class="col-form-label title-width">訂單金額</label>
+                                                        <input type="text" class="form-control" id="memOrderAmount" value="680" readonly>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memOrderTakeTime" class="col-form-label title-width">取餐時間</label>
+                                                        <input type="text" class="form-control" id="memOrderTakeTime" value="2018-11-12" readonly>
+                                                    </div>
+                                                    <div class="d-flex form-group">
+                                                        <label for="memOrderstatus" class="title-width">訂單狀態</label>
+                                                        <select class="form-control change-select" id="memOrderstatus">
+                                                            <option>未取餐</option>
+                                                            <option>已取餐</option>
+                                                            <option>訂單取消</option>
+                                                        </select>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer justify-content-center">
+                                                <button type="button" class="btn btn-primary mainBTN btn-touch">修改</button>
+                                                <button type="button" class="btn btn-secondary subBTN" data-dismiss="modal">取消</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-            <!-- 切換分頁 -->
-                <!-- <ul class="pagination justify-content-center back-page">
-                    <li><a href="#">&laquo;</a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li class="disabled"><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul> -->
             </div>
         </div>
     </div>   
-    
-</body>
+  
+    <button type="button" id="BackTop" class="toTop-arrow"></button>
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 <!-- 按鈕切換 -->
     <script>
         $(".touch").click(function(){
 
-            // $(".change").attr("readonly",true);
+            $(".change").attr("readonly",true);
             $(".change-select").attr("disabled",true);
             $('.btn-touch').click(function(){
-                // $(".change").attr("readonly",false);
+                $(".change").attr("readonly",false);
                 $(".change-select").attr("disabled",false);
                 //..........
                 if($(".btn-touch").html() == "確認"){ //update to db;
                     $('.btn-touch').html("修改");
-                    // $(".change").attr("readonly",true);
+                    $(".change").attr("readonly",true);
                     $(".change-select").attr("disabled",true);
                 }else{
                     $('.btn-touch').html("確認");
@@ -153,4 +147,22 @@
             });
         });
     </script>
+
+<!-- GoTop -->
+    <script>
+        $(function(){
+            $('#BackTop').click(function(){ 
+                $('html,body').animate({scrollTop:0}, 333);
+            });
+            $(window).scroll(function() {
+                if ( $(this).scrollTop() > 300 ){
+                    $('#BackTop').fadeIn(222);
+                } else {
+                    $('#BackTop').stop().fadeOut(222);
+                }
+            }).scroll();
+        });
+    </script>
+    
+</body>
 </html>

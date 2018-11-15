@@ -15,7 +15,7 @@ $space_sm_lr: 0 30px;  //平板左右
     background-image: url("../images/eatDetail_bg.jpg");
 //共用
     *{ 
-        // outline: 1px solid #f00;
+        outline: 1px solid #f00;
         font-size: $fontSize_text;
         color: $color_txt;
         box-sizing: border-box;
@@ -23,9 +23,10 @@ $space_sm_lr: 0 30px;  //平板左右
     .wrap{ 
         width: calc(100% - $space_lr*2); 
         margin: $space_lr;
-        padding: 30px 10px;
+        padding: 50px 10px;
         line-height: $lineHeight;
-        background-color: rgb(255, 255, 255);
+        background-image: url("../images/tableCloth.png");
+        background-size: 100%;
         img,a,span{ display: block; }
         img{ width: 100%; }
         a{ text-decoration: none; }
@@ -37,18 +38,23 @@ $space_sm_lr: 0 30px;  //平板左右
         i{ margin-right: 5px; }
         .fl{ float: left; }
         .tb-width{ width: 60px;}
+        .color{ 
+            color: $color_main2; 
+            font-weight: bold;
+        }
+        .title,.title-img{ display: block; }
         .title{ 
-            font-size: $fontSize_XL; 
-            text-align: center;
+            img{  height: 48px;}
         }
         .title-img{ 
-            padding: 8px 20px 20px;
-            display: block; 
+            margin-bottom: 20px;
+            padding-top: 20px;
         }
     }
 
 //產品介紹
     .banner{ 
+        .banner-pic,.banner-txt{ padding: 0 10px; }
         .banner-pic{
             .heart_icon{
                 float: right;
@@ -71,40 +77,35 @@ $space_sm_lr: 0 30px;  //平板左右
             } 
         }
         .banner-txt{
-            padding: 25px 0;
             .product{
+                margin: 15px 0;
                 h2{ 
-                    margin: 8px 0;
-                    padding: 10px 20px;
+                    padding: 10px;
                     border-radius: 50px;
                     font-size: $fontSize_L; 
-                    color: $color_main2;
-                    background-image: url("../images/33/bg111\ \(7\).png");
+                    background-image: url("../images/bg111\ \(7\).png");
                 }
                 figure{ 
                     width: 20px;
-                    margin: 10px 0 0 10px; 
+                    margin-left: 10px;
                 }
             }
-            .score,.sort,.kcal,.content p{ margin: 8px 0; }
+            .score,.sort,.kcal,.content p{ margin: 10px 0; }
             .score{
                 .grade{
                     span{ margin-right: 10px; }
                     figure{ 
-                        width: 20px; 
-                        margin-right: 10px;
+                        width: 18px; 
+                        margin-right: 8px;
                     }
                 }
             }
             .content{ 
-                margin: 20px 0; 
-                span{ 
-                    font-size: $fontSize_S;
-                    font-weight: bold;
-                }
+                margin: 15px 0; 
+                span{ font-size: $fontSize_S;}
             }
             .price{
-                margin: 20px 0;
+                margin: 15px 0;
                 font-size: $fontSize_L; 
                 color: $color8;
             }
@@ -133,13 +134,11 @@ $space_sm_lr: 0 30px;  //平板左右
             }
             .count-btn{
                 margin-top: 50px;
-
                 .cart_icon{
                     float: right;
                     img,span{ 
                         display: inline-block; 
                         vertical-align: middle;
-                        font-size: $fontSize_S;
                     }
                     img{ 
                         width: 25px; 
@@ -154,7 +153,6 @@ $space_sm_lr: 0 30px;  //平板左右
                     transition-timing-function: cubic-bezier(0.1, 2, 1.0, 0.1);
                     path{ fill:$color_main2; }
                 } 
-
                 .mainBTN {
                     @include btn(100%, light) {
                         max-width: 45%;
@@ -165,7 +163,6 @@ $space_sm_lr: 0 30px;  //平板左右
                     @include btn(100%) {
                         max-width: 45%;
                         height: ($fontSize_S + 5px) * $lineHeight; 
-                        font-size: $fontSize_S;
                     }
                     i{ color: #fff; }
                 }
@@ -178,26 +175,34 @@ $space_sm_lr: 0 30px;  //平板左右
 //留言板
     .msg-board{
         .member-msg{
-            margin-bottom: 20px;
-            padding: 20px;
-            // background-image: url("../images/33/bg_content3.png");
-            background-size: 100% 100%;
-            .member-pic{ 
-                .member-img{ width: 20%; }
-                .member-txt{
-                    margin: 0 20px;
-                    .comments-time{ margin-top: 5px; }
+            margin-top: 20px;
+            padding: 0 20px 10px;
+            .member-data{
+                .member-pic{ 
+                    .member-img{ 
+                        width: 50px; 
+                        padding-left: 5px;
+                    }
+                }
+                .member-pic .member-id,.comments-time{ padding: 10px; }
+                .member-pic,.comments-time{ 
+                    border-bottom: none;
+                    border-radius: 10px 10px 0 0; 
+                    box-shadow: inset -4px 0 0 #f3db8e;
+                    background-color: $color_main3;
                 }
             }
             .comments{
-                .member-letter{ 
+                .member-letter,p{ 
                     width: 100%; 
-                    margin: 10px 0;
-                }
-                p{ 
-                    width: calc(100% - 40px);
-                    margin: 10px 20px;
-                    // border: 1px solid #aaa; 
+                    margin-bottom: 10px;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 0 10px 10px 10px;
+                    box-shadow: inset -5px -2px 0 #f3db8e;
+                    font-family: $fmy; 
+                    background-color: #f9f6ea;
+                    resize : none;
                 }
                 .msg-btn{
                     float: right;
@@ -223,17 +228,50 @@ $space_sm_lr: 0 30px;  //平板左右
 
 //推薦飯團
     .scorpion{
+        background-image: url("../images/tableCloth.png");
+        background-size: 100%;
+        position: relative;
+        width: calc(100% - 32px);
+        left: 16px;
+        // left:50%;
+        // transform: translateX(-50%);
+        .wrap{ 
+            padding-bottom: 0px;
+            background-image: none;
+            .title-img{ 
+                padding-bottom: 20px; 
+                margin-bottom: 0;
+            }
+        }
         .groupon{
+            .owl-nav{
+                display: none;
+            }
+            .owl-dots{
+                padding: 20px 0;
+                text-align: center;
+                .owl-dot{
+                    width: 10px;
+                    height: 10px;
+                    margin: 0 10px;
+                    border-radius: 50%;
+                    background-color: #76391B;
+                    display: inline-block;
+                }
+                .active{
+                    background-color: $color_main1;
+                }
+            }
             .groupon-box{
                 margin: 0 15px;
                 padding: 10px;
                 border: 2px solid $color_main2;
                 border-bottom: 10px solid $color_main2;
                 border-radius: 25px;
+                background-color: #fffdf4;
                 .groupon-title{
                         margin: 5px 0 0 -25px;
                         padding: 10px 0 10px 25px;
-                        font-weight: bold;
                         background-color: $color_main1;
                         position: relative;
                         &::before{
@@ -297,40 +335,6 @@ $space_sm_lr: 0 30px;  //平板左右
                             border-right: 2px solid $color_main2;
                         }
                     }
-                    .groupon-people{
-                        .people-bar{
-                            width: 60%;
-                            border-radius: 25px;
-                            text-align: center;
-                            background-color: $color_main1;
-                            position: relative;
-                            .people,.gap,.people-total{ 
-                                display: inline-block; 
-                                color: $color_hot;
-                            }
-                            .people{
-                                margin-right: 0;
-                                padding-right: 0; 
-                                border-style: none;
-                            }
-                            .gap{ margin: 0 10px; }
-                            .people-line{
-                                position: absolute;
-                                top: 0;
-                                bottom: 0;
-                                left: 0;
-                                .peopleLine{ 
-                                    // width: 50px;
-                                    border-radius: 25px;
-                                    background-color: #000; 
-                                    position: absolute;
-                                    top: 0;
-                                    bottom: 0;
-                                    left: 0;
-                                }
-                            }
-                        }
-                    }
                 }
                 .subBTN {
                     @include btn(100%) {
@@ -354,15 +358,18 @@ $space_sm_lr: 0 30px;  //平板左右
         margin: $space_sm_lr;
         padding: 50px 30px;
         .title-img{ 
-            padding: 20px 20px 50px;
-            display: block; 
+            margin-bottom: 30px;
+            padding-top: 30px;
         }
     }
 
 //產品介紹
     .banner{ 
+        .banner-pic{
+            .heart_icon{ margin-right: 20px; }
+        }
         .banner-txt{
-            margin: 0 15px;
+            padding: 0 15px;
             .product{
                 h2{ margin: 15px 0;}
                 figure{ 
@@ -397,8 +404,8 @@ $space_sm_lr: 0 30px;  //平板左右
             }
             .count-btn{
                 margin-top: 80px;
-
                 .mainBTN {
+                    span{ font-size: $fontSize_S; }
                     @include btn(100%, light) {
                         max-width: 40%;
                         height: ($fontSize_S + 10px) * $lineHeight; 
@@ -408,166 +415,169 @@ $space_sm_lr: 0 30px;  //平板左右
                     @include btn(100%) {
                         max-width: 40%;
                         height: ($fontSize_S + 10px) * $lineHeight; 
-                    }
-                }
-            }
-        
-        }
-    }
-
-//留言板
-    .msg-board{
-        .member-msg{
-            margin: 0 50px 30px;
-            padding: 20px 50px;
-            .member-pic{ 
-                .member-img{ width: 15%; }
-                .member-txt{
-                    .comments-time{ margin-top: 15px; }
-                }
-            }
-            .comments{
-                .member-letter{ margin: 20px 0; }
-                p{ margin: 20px; }
-                .msg-btn{
-                    .cancelBTN{
-                        @include btn(auto);
-                        margin-right: 30px;
-                        padding: 0 10px;
-                        font-size: $fontSize_text;
-                        background-color: #FCF2CA;
-                        color: #76391B;
-                    }
-                    .nextBTN {
-                        @include btn(auto);
-                        padding: 0 10px;
-                        font-size: $fontSize_text;
-                        color: #fff;
-                        background-color: $color_main4;
-                    }
-                }
-            }
-        }
-    }
-
-//推薦飯團
-    .scorpion{
-        .wrap{ padding: 50px 0; }
-    }
-}
-}
-
-@include rwd(md,float) {  //1024px
-.eatDetail{
-//共用
-    .wrap{ padding: 80px 10px 50px; }
-
-//產品介紹
-    .banner{ 
-        .banner-pic{
-            padding-top: 50px;
-            .heart_icon{ padding-right: 20px; }
-        }
-        .banner-txt{
-            margin: 0;
-            padding: 0;
-            padding-left: 15px;
-            .product{
-                h2{ 
-                    margin: 8px 0;
-                    padding: 10px 20px;
-                    border-radius: 50px;
-                    font-size: $fontSize_L; 
-                    color: $color_main2;
-                    background-image: url("../images/33/bg111\ \(7\).png");
-                }
-                figure{ 
-                    width: 20px;
-                    margin: 10px 0 0 10px; 
-                }
-            }
-            .score,.sort,.kcal,.content p{ margin: 8px 0; }
-            .score{
-                .grade{
-                    span{ margin-right: 10px; }
-                }
-            }
-            .content,.price{ margin: 20px 0; }
-            .count-buy{
-                margin: 30px 0;
-                span{ 
-                    margin-right: 0;
-                    font-size: $fontSize_text;
-                }
-                .count-qty{
-                    .qty-cut,.qty{ margin-right: 15px; }
-                    .plusAndMinus {
-                        @include roundBtn(($fontSize_text + 5px) * $lineHeight, $color_main4) { }
-                    }
-                    .qty{ 
-                        height: ($fontSize_text + 5px) * $lineHeight; 
                         font-size: $fontSize_S;
                     }
                 }
             }
-            .count-btn{
-                margin-top: 50px;
-
-                .mainBTN {
-                    @include btn(100%, light) {
-                        max-width: 45%;
-                        height: ($fontSize_S + 5px) * $lineHeight; 
-                    }
-                }
-                .subBTN {
-                    @include btn(100%) {
-                        max-width: 45%;
-                        height: ($fontSize_S + 5px) * $lineHeight; 
-                    }
-                }
-            }
         }
-    }
-//留言板
-    .msg-board{
-        .wrap{ padding: 50px 0; }
-        .member-msg{
-            margin: 0 50px 30px;
-            .member-pic{ 
-                .member-img{ width: 10%; }
-            }
-        }
-    }
-}
-}
-
-@include rwd(lg,float) { //1200px
-.eatDetail{
-//共用
-    .wrap{ 
-        width: 1200px; 
-        margin: auto;
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-
-//產品介紹
-    .banner{ 
-        .banner-pic{ padding: 60px 20px 0 0; }
-        .banner-txt{ padding-left: 30px; }
     }
 
 //留言板
     .msg-board{
-        .wrap{ 
-            padding-left: 30px;
-            padding-right: 30px; 
-        }
         .member-msg{
-            .member-pic{ 
-                .member-img{ width: 10%; }
+            margin-top: 30px;
+            padding: 20px 30px;
+            padding-top: 0;
+            .member-data{
+                .member-pic{ 
+                    .member-img{ width: 60px; }
+                }
+                .member-pic .member-id,.comments-time{ padding: 15px; }
+            }
+            .comments{
+                .member-letter,p{ 
+                    margin-bottom: 15px;
+                    padding: 15px;
+                }
+                .msg-btn{
+                    .cancelBTN{
+                        @include btn(auto);
+                        height: ($fontSize_S + 10px) * $lineHeight; 
+                        margin-right: 15px;
+                        background-color: #FCF2CA;
+                        font-weight: 900;
+                        color: #76391B;
+                    }
+                    .nextBTN {
+                        @include btn(auto);
+                        height: ($fontSize_S + 10px) * $lineHeight; 
+                        background-color: $color_main4;
+                        font-weight: 900;
+                        color: #fff;
+                    }
+                }
             }
         }
     }
+
+// //推薦飯團
+//     .scorpion{
+//         .wrap{ padding: 50px 0; }
+//     }
 }
 }
+
+// @include rwd(md,float) {  //1024px
+// .eatDetail{
+// //共用
+//     .wrap{ padding: 80px 10px 50px; }
+
+// //產品介紹
+//     .banner{ 
+//         .banner-pic{
+//             padding-top: 50px;
+//             .heart_icon{ padding-right: 20px; }
+//         }
+//         .banner-txt{
+//             margin: 0;
+//             padding: 0;
+//             padding-left: 15px;
+//             .product{
+//                 h2{ 
+//                     margin: 8px 0;
+//                     padding: 10px 20px;
+//                     border-radius: 50px;
+//                     font-size: $fontSize_L; 
+//                     color: $color_main2;
+//                     background-image: url("../images/33/bg111\ \(7\).png");
+//                 }
+//                 figure{ 
+//                     width: 20px;
+//                     margin: 10px 0 0 10px; 
+//                 }
+//             }
+//             .score,.sort,.kcal,.content p{ margin: 8px 0; }
+//             .score{
+//                 .grade{
+//                     span{ margin-right: 10px; }
+//                 }
+//             }
+//             .content,.price{ margin: 20px 0; }
+//             .count-buy{
+//                 margin: 30px 0;
+//                 span{ 
+//                     margin-right: 0;
+//                     font-size: $fontSize_text;
+//                 }
+//                 .count-qty{
+//                     .qty-cut,.qty{ margin-right: 15px; }
+//                     .plusAndMinus {
+//                         @include roundBtn(($fontSize_text + 5px) * $lineHeight, $color_main4) { }
+//                     }
+//                     .qty{ 
+//                         height: ($fontSize_text + 5px) * $lineHeight; 
+//                         font-size: $fontSize_S;
+//                     }
+//                 }
+//             }
+//             .count-btn{
+//                 margin-top: 50px;
+
+//                 .mainBTN {
+//                     @include btn(100%, light) {
+//                         max-width: 45%;
+//                         height: ($fontSize_S + 5px) * $lineHeight; 
+//                     }
+//                 }
+//                 .subBTN {
+//                     @include btn(100%) {
+//                         max-width: 45%;
+//                         height: ($fontSize_S + 5px) * $lineHeight; 
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// //留言板
+//     .msg-board{
+//         .wrap{ padding: 50px 0; }
+//         .member-msg{
+//             margin: 0 50px 30px;
+//             .member-pic{ 
+//                 .member-img{ width: 10%; }
+//             }
+//         }
+//     }
+// }
+// }
+
+// @include rwd(lg,float) { //1200px
+// .eatDetail{
+// //共用
+//     .wrap{ 
+//         width: 1200px; 
+//         margin: auto;
+//         padding-left: 30px;
+//         padding-right: 30px;
+//     }
+
+// //產品介紹
+//     .banner{ 
+//         .banner-pic{ padding: 60px 20px 0 0; }
+//         .banner-txt{ padding-left: 30px; }
+//     }
+
+// //留言板
+//     .msg-board{
+//         .wrap{ 
+//             padding-left: 30px;
+//             padding-right: 30px; 
+//         }
+//         .member-msg{
+//             .member-pic{ 
+//                 .member-img{ width: 10%; }
+//             }
+//         }
+//     }
+// }
+// }
