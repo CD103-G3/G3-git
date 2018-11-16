@@ -516,6 +516,18 @@ header {
     .eatDetail * .color {
       color: #76391B;
       font-weight: bold; }
+    .eatDetail * img, .eatDetail * a, .eatDetail * span {
+      display: block; }
+    .eatDetail * img {
+      width: 100%; }
+    .eatDetail * input, .eatDetail * button {
+      border: none;
+      font-family: 微軟正黑體, arial, "sans serif";
+      cursor: pointer; }
+    .eatDetail * input:focus, .eatDetail * button:focus {
+      outline-width: 0px; }
+    .eatDetail * i {
+      margin-right: 5px; }
   .eatDetail .wrap {
     width: calc(100% - $space_lr*2);
     margin: 0 16px;
@@ -523,16 +535,6 @@ header {
     line-height: 1.6;
     background-image: url("../images/tableCloth.png");
     background-size: 100%; }
-    .eatDetail .wrap img, .eatDetail .wrap a, .eatDetail .wrap span {
-      display: block; }
-    .eatDetail .wrap img {
-      width: 100%; }
-    .eatDetail .wrap input, .eatDetail .wrap button {
-      border: none;
-      font-family: 微軟正黑體, arial, "sans serif";
-      cursor: pointer; }
-    .eatDetail .wrap i {
-      margin-right: 5px; }
     .eatDetail .wrap .title, .eatDetail .wrap .title-img {
       display: block; }
     .eatDetail .wrap .title img {
@@ -1082,7 +1084,7 @@ header {
       .eatDetail .msg-board .member-msg .comments .msg-btn .nextBTN:active {
         top: 2px; }
   .eatDetail .scorpion {
-    background-size: calc(96vw - 30px); }
+    background-size: calc(96vw - 29px); }
     .eatDetail .scorpion .wrap .title-img {
       padding-bottom: 30px; }
     .eatDetail .scorpion .groupon .owl-dots {
@@ -1104,7 +1106,6 @@ header {
       border-radius: 100px;
       transition: .2s;
       cursor: pointer;
-      height: 48px;
       font-size: 24px;
       font-weight: 900; }
       .eatDetail .scorpion .groupon .groupon-box .subBTN:hover {
@@ -1174,7 +1175,7 @@ header {
     .eatDetail .msg-board .member-msg .member-pic .member-img {
       width: 10%; }
   .eatDetail .scorpion {
-    background-size: calc(98vw - 40px); }
+    background-size: calc(97.5vw - 34.5px); }
     .eatDetail .scorpion .groupon {
       margin: 20px 0px; } }
 
@@ -1218,6 +1219,6 @@ header {
   .eatDetail .msg-board .wrap {
     padding-bottom: 60px; }
   .eatDetail .scorpion {
-    background-size: calc(64.5vw - 38px); }
+    background-size: calc(64.5vw - 36px); }
     .eatDetail .scorpion .groupon {
       margin: 20px 0px; } }

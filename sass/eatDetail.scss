@@ -26,6 +26,15 @@ $space_sm_lr: 0 30px;  //平板左右
             color: $color_main2; 
             font-weight: bold;
         }
+        img,a,span{ display: block; }
+        img{ width: 100%; }
+        input,button{ 
+            border: none; 
+            font-family: $fmy; 
+            cursor: pointer;
+        }
+        input:focus,button:focus{ outline-width: 0px; }
+        i{ margin-right: 5px; }
     }
     .wrap{ 
         width: calc(100% - $space_lr*2); 
@@ -34,14 +43,6 @@ $space_sm_lr: 0 30px;  //平板左右
         line-height: $lineHeight;
         background-image: url("../images/tableCloth.png");
         background-size: 100%;
-        img,a,span{ display: block; }
-        img{ width: 100%; }
-        input,button{ 
-            border: none; 
-            font-family: $fmy; 
-            cursor: pointer;
-        }
-        i{ margin-right: 5px; }
         .title,.title-img{ display: block; }
         .title{ 
             img{ height: 48px; }
@@ -488,7 +489,7 @@ $space_sm_lr: 0 30px;  //平板左右
 
         //推薦飯團
         .scorpion{
-            background-size: calc(96vw - 30px);
+            background-size: calc(96vw - 29px);
             .wrap{
                 .title-img{ padding-bottom: 30px; }
             }
@@ -503,7 +504,6 @@ $space_sm_lr: 0 30px;  //平板左右
                     }
                     .subBTN {
                         @include btn(100%) {
-                            height: ($fontSize_S + 10px) * $lineHeight; 
                             font-size: $fontSize_M;
                             font-weight: 900;
                         }
@@ -560,7 +560,7 @@ $space_sm_lr: 0 30px;  //平板左右
 
         //推薦飯團
         .scorpion{
-            background-size: calc(98vw - 40px);
+            background-size: calc(97.5vw - 34.5px);
             .groupon{ margin: 20px 0px; }
         }
     }
@@ -588,7 +588,7 @@ $space_sm_lr: 0 30px;  //平板左右
 
         //推薦飯團
         .scorpion{
-            background-size: calc(64.5vw - 38px);
+            background-size: calc(64.5vw - 36px);
             .groupon{ margin: 20px 0px; }
         }
     }

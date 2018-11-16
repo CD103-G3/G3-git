@@ -1,3 +1,31 @@
+//加入購物車
+var storage = sessionStorage;
+
+function doFirst(){
+
+    if(storage['addItemList']==null){
+        storage['addItemList']= '';
+    }
+    var list = document.querySelector('.add-cart');
+    
+        list.addEventListener('click',function(){
+            var dishes = document.querySelector('#'+this.id+' input').value;
+            addItem(this.id, dishes);
+        });
+    }
+
+function addItem(itemId, itemValue){
+    if(storage[itemId]){
+        console.log('got it');
+    }else{
+        storage[itemId] = itemValue;
+        console.log(storage[itemId]);
+        storage['addItemList'] += itemId + ',';
+    }
+}
+window.addEventListener('load',doFirst);
+//加入購物車結束
+
 // 圖片放大效果
 $(function() {
 
@@ -166,17 +194,15 @@ window.addEventListener('load',detailQty)
 // 數字增減結束
 
 // 新增留言
+
 function eatDetailMsg() {
-    
+    var text = document.getElementById('memberLetter'); //找到textarea中的字
     document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後新增留言
-        var text = document.getElementById('memberLetter');  //找到textarea中的字
         var today = new Date();  //建立物件
         var year = today.getFullYear();
         var mon = today.getMonth()+1;
         var day = today.getDate();
         var memberImg = "images/logo.png";  //變更圖片路徑
-
-                            //把留言內容用要包的div名稱包起來
         if(text.value==''){
             swal({ text: "要輸入內容哦~", });
         }else{ 
@@ -196,13 +222,44 @@ function eatDetailMsg() {
                                         <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
                                     </div>
                                 </div>
-                            </div>`;
+                            </div>`;//把留言內容用要包的div名稱包起來
             document.getElementsByClassName('text-container')[0].innerHTML += textDiv;  //新增留言到留言區
-            text.value = '';  //清空textarea中的字
         }
     }
 };
 window.addEventListener('load', eatDetailMsg);
+
+//留言連結資料庫
+function sendForm(){
+    // alert("HI");
+    var xhr = new XMLHttpRequest();
+
+    xhr.onload = function(){
+        if(xhr.status == 200){
+            eatDetailMsg();
+            document.querySelector('#memberLetter').value='';
+        }else{
+            alert(xhr.status);
+        }
+    }
+    // console.log('executing');
+
+    xhr.open("post","comment.php",true);
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+    var data = "mealNo=" + document.querySelector("#commentsBtn").value + "&msg=" + document.querySelector("#memberLetter").value;
+    // alert(data);
+    if(text.value == '') {
+
+    } else {
+        xhr.send(data);
+    }
+    
+    text.value = '';  //清空textarea中的字
+}
+
+window.addEventListener('load',function(){
+    document.getElementById('commentsBtn').addEventListener('click',sendForm);
+});
 // 新增留言結束
 
 //隨機產生留言
@@ -210,8 +267,8 @@ function msg() {
 
     document.getElementById('commentsChange').onclick = function() {
         var title=document.getElementById('memberLetter');
-        var n = ['太好吃了吧!!!','天啊!這麼好吃的東西!我要感謝媽媽!','我一定要帶妹妹17來吃!阿~我沒有妹妹'];
-        var max=2;
+        var n = ['救命啊~我從沒吃過這麼好吃的食物!!!','為什麼要讓我吃到一個這麼好的食物? 如果我以後吃不到怎麼辦啊~','節目中誇張的好吃表情真的不是騙人的，香氣咬兩下馬上在嘴中化開，甜味慢慢的滑入喉嚨，這味道真是太誘人了~','太感動了，我一定要帶妹妹來吃!!阿~我沒有妹妹T_T','感謝父母讓我來這世上~'];
+        var max=4;
         var min=0;
         var title = n[Math.floor(Math.random()*(max-min+1)+min)];
 
@@ -221,3 +278,31 @@ function msg() {
 window.addEventListener('load',msg);
 //隨機產生留言結束
 
+//貓頭鷹
+$(document).ready(function(){
+    $(".owl-carousel").owlCarousel({
+        // center: true,
+        pagination: true,
+        items: 1,
+        loop: true,
+        center: true,
+        responsiveClass: true,
+        nav: false,
+        autoWidth:true,
+        responsive:{
+            0:{
+                items: 1,
+                margin: 30
+            },
+            768:{
+                items: 2,
+                margin: 50
+            },
+            1024:{
+                items: 3,
+                margin: 70
+            }
+        }
+    });
+});
+//貓頭鷹結束

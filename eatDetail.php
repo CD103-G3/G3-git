@@ -25,7 +25,7 @@
 <div class="eatDetail">
     <?php
         try{
-            $dsn = "mysql:host=localhost;port=3306;dbname=cd103;charset=utf8";
+            $dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
             $user = "root";
             $password = "tshoa";
             $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
@@ -150,7 +150,7 @@
                         <figure class="member-img fl">
                             <img src="images/icon7.png">
                         </figure>
-                        <div class="member-id fl color">訪客訪客訪客</div>
+                        <div class="member-id fl color">訪客</div>
                     </div>
                     <!-- <div class="comments-time fl">2018-01-01</div> -->
                 </div>
@@ -158,11 +158,35 @@
                     <textarea placeholder="請輸入留言..." name="member-letter" id="memberLetter" class="member-letter" rows="3" maxlength="50" required="required"></textarea>
                     <div class="msg-btn">   
                         <button type="text" id="commentsChange" class="cancelBTN">隨機產生留言</button>
-                        <button type="submit" name="comments" id="commentsBtn" class="nextBTN">送出</button>
+                        <button type="submit" value="<?php echo $test ?>" name="comments" id="commentsBtn" class="nextBTN">送出</button>
                     </div>
                 </div>
             </div>
-            <div class="text-container"></div>
+            <?php
+                $sql = "select * from message where meal_No=$test";
+                $message = $pdo -> query($sql);
+                while($msgRow = $message->fetchObject()){;
+            ?>
+            <div class="text-container">
+                <div class="member-msg">
+                    <div class="member-data clearfix">
+                        <div class="member-pic fl">
+                            <figure class="member-img fl">
+                                <img src="images/icon7.png">
+                            </figure>
+                            <div class="member-id fl color">ABC123</div>
+                        </div>
+                        <div class="comments-time fl"> <?php echo $msgRow -> message_Time ?> </div>
+                    </div>
+                    <div class="comments clearfix">
+                        <p><?php echo $msgRow -> message_Content ?></p>
+                        <div class="msg-btn">  
+                            <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php }; ?>       
         </div>
     </div>
 
@@ -196,7 +220,7 @@
                         <span class="meals-title">好好動吃動</span>
                     </div>
                     <div class="groupon-more color">
-                        還有5個餐點...
+                        總共5個餐點...
                     </div>
                 </div>
                 <div class="groupon-detail">
@@ -234,7 +258,7 @@
                         <span class="meals-title">好好動吃動</span>
                     </div>
                     <div class="groupon-more color">
-                        還有5個餐點...
+                        總共5個餐點...
                     </div>
                 </div>
                 <div class="groupon-detail">
@@ -272,7 +296,7 @@
                         <span class="meals-title">好好動吃動</span>
                     </div>
                     <div class="groupon-more color">
-                        還有5個餐點...
+                        總共5個餐點...
                     </div>
                 </div>
                 <div class="groupon-detail">
@@ -310,7 +334,7 @@
                         <span class="meals-title">好好動吃動</span>
                     </div>
                     <div class="groupon-more color">
-                        還有5個餐點...
+                        總共5個餐點...
                     </div>
                 </div>
                 <div class="groupon-detail">
@@ -348,7 +372,7 @@
                         <span class="meals-title">好好動吃動</span>
                     </div>
                     <div class="groupon-more color">
-                        還有5個餐點...
+                        總共5個餐點...
                     </div>
                 </div>
                 <div class="groupon-detail">
@@ -377,32 +401,5 @@
 <script src="js/eatDetail.js"></script>
 <script src="js/iconCliCK.js"></script>
 
-<script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-            // center: true,
-            pagination: true,
-            items: 1,
-            loop: true,
-            center: true,
-            responsiveClass: true,
-            nav: false,
-            autoWidth:true,
-            responsive:{
-                0:{
-                    items: 1,
-                    margin: 30
-                },
-                768:{
-                    items: 2,
-                    margin: 50
-                },
-                1024:{
-                    items: 3,
-                    margin: 70
-                }
-            }
-        });
-    });
-</script>
+
 </html>
