@@ -2,8 +2,8 @@
     // require_once('nav.php');
     ob_start();
     session_start();
-    $test = $_REQUEST["meal_No"]=1;
-    $_SESSION["quantity"][$test] = 1;
+    $test  = $_REQUEST["meal_No"] = 10;
+    echo $_SESSION["quantity"][$test] = 1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,37 +15,38 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/eatDetail.css">
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/eatDetail.js"></script>
     <title>餐點介紹</title>
 </head>
-<body>
+<body class="eatDetail">
 
-<div class="eatDetail">
-    <?php
-        try{
-            $dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-            $user = "root";
-            $password = "tshoa";
-            $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-            $pdo = new PDO($dsn, $user, $password, $options);
-            $mealNo = $_REQUEST["meal_No"]=1;
-            $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No where A1.meal_No = $mealNo group by A1.meal_No";
+<div class="eatDetail-body">
 
-            $dishes = $pdo -> query($sql);
-            
-            if( $dishes->rowCount() == 0){
-                echo "查無此商品資料";
-            }else{
-                $dishesRow = $dishes -> fetchObject();
-	?> 
 <!-- 產品介紹 -->
     <div class="banner">
         <div class="wrap clearfix">
+
+        <?php
+            try{
+                $dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
+                $user = "root";
+                $password = "tshoa";
+                $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+                $pdo = new PDO($dsn, $user, $password, $options);
+                //下sql查詢抓表格
+                $mealNo = $_REQUEST["meal_No"];
+                $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No where A1.meal_No = $mealNo group by A1.meal_No";
+
+                $dishes = $pdo -> query($sql);
+
+                if( $dishes->rowCount() == 0){
+                    echo "查無此商品資料";
+                }else{
+                    $dishesRow = $dishes -> fetchObject();			
+        ?>    
+
             <div class="banner-pic part-md-6 part-lg-6 clearfix">
                 <figure>
-                    <img src="images/ <?php echo substr_replace($dishesRow->meal_Pic,'',-7); ?> / <?php echo $dishesRow->meal_Pic; ?>" alt="<?php echo $dishesRow->meal_Name; ?>">
+                    <img class="sunder-img-zoom" src="images/ <?php echo substr_replace($dishesRow->meal_Pic,'',-7); ?> / <?php echo $dishesRow->meal_Pic; ?>" alt="<?php echo $dishesRow->meal_Name; ?>" alt="特級海鮮丼">
                 </figure>
                 <p class="heart_icon">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -90,7 +91,7 @@
                 </div>       
                 <div class="kcal clearfix">
                     <span class="tb-width fl color">卡路里</span>
-                    <span class="fl"> <?php echo $dishesRow->meal_Cal; ?> cal</span>
+                    <span class="fl"> <?php echo $dishesRow->meal_Cal; ?> kcal</span>
                 </div> 
                 <div class="content clearfix">
                     <span class="color">餐點介紹</span>
@@ -150,7 +151,7 @@
                         <figure class="member-img fl">
                             <img src="images/icon7.png">
                         </figure>
-                        <div class="member-id fl color">訪客</div>
+                        <div class="member-id fl color">訪客訪客訪客</div>
                     </div>
                     <!-- <div class="comments-time fl">2018-01-01</div> -->
                 </div>
@@ -176,17 +177,19 @@
                             </figure>
                             <div class="member-id fl color">ABC123</div>
                         </div>
-                        <div class="comments-time fl"> <?php echo $msgRow -> message_Time ?> </div>
+                        <div class="comments-time fl"><?php echo $msgRow -> message_Time ?> </div>
                     </div>
                     <div class="comments clearfix">
-                        <p><?php echo $msgRow -> message_Content ?></p>
+                        <p><?php echo $msgRow -> message_Content ?> </p>
                         <div class="msg-btn">  
                             <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php }; ?>       
+            <?php
+                };
+            ?>   
         </div>
     </div>
 
@@ -393,13 +396,16 @@
             </div>
         </div>
     </div>
+
+
 </div>
 </body>
 
 <script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
 <script src="js/eatDetail.js"></script>
 <script src="js/iconCliCK.js"></script>
-
 
 </html>

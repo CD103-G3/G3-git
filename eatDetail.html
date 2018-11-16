@@ -8,21 +8,18 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/eatDetail.css">
-    <!-- <link rel="stylesheet" href="css/sstyle.css"> -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/eatDetail.js"></script>
     <title>餐點介紹</title>
 </head>
-<body>
-<div class="eatDetail">
+<body class="eatDetail">
+
+<div class="eatDetail-body">
 
 <!-- 產品介紹 -->
     <div class="banner">
         <div class="wrap clearfix">
             <div class="banner-pic part-md-6 part-lg-6 clearfix">
                 <figure>
-                    <img src="images/ra_03.png" alt="特級海鮮丼">
+                    <img class="sunder-img-zoom" src="images/ra_03.png" alt="特級海鮮丼">
                 </figure>
                 <p class="heart_icon">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -363,38 +360,9 @@
 
 <script src='https://cdn.jsdelivr.net/mojs/0.265.6/mo.min.js'></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
 <script src="js/eatDetail.js"></script>
 <script src="js/iconCliCK.js"></script>
-
-<script>
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-            // center: true,
-            pagination: true,
-            items: 1,
-            loop: true,
-            center: true,
-            responsiveClass: true,
-            nav: false,
-            autoWidth:true,
-            responsive:{
-                0:{
-                    items: 1,
-                    margin: 30
-                },
-                768:{
-                    items: 2,
-                    margin: 50
-                },
-                1024:{
-                    items: 3,
-                    margin: 70
-                }
-            }
-        });
-    });
-</script>
-
-
 
 </html>

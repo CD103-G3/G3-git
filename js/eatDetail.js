@@ -1,5 +1,4 @@
-//加入購物車
-var storage = sessionStorage;
+var storage = sessionStorage;  // 加入購物車
 
 function doFirst(){
 

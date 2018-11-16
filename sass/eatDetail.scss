@@ -13,7 +13,14 @@ $space_sm_lr: 0 30px;  //平板左右
     font-size: $fontSize_text; 
     font-family: $fmy; 
     background-image: url("../images/eatDetail_bg.jpg");
+
     //共用
+    .eatDetail-body{
+        background-image: url("../images/tableCloth.png");
+        background-size: 91.5%;
+        background-repeat-x: no-repeat;
+        background-position-x: center; 
+    }
     *{ 
         // outline: 1px solid #f00;
         font-size: $fontSize_text;
@@ -33,16 +40,13 @@ $space_sm_lr: 0 30px;  //平板左右
             font-family: $fmy; 
             cursor: pointer;
         }
-        input:focus,button:focus{ outline-width: 0px; }
+        input:focus,button:focus,textarea:focus{ outline-width: 0px; }
         i{ margin-right: 5px; }
     }
     .wrap{ 
-        width: calc(100% - $space_lr*2); 
         margin: $space_lr;
         padding: 50px 10px;
         line-height: $lineHeight;
-        background-image: url("../images/tableCloth.png");
-        background-size: 100%;
         .title,.title-img{ display: block; }
         .title{ 
             img{ height: 48px; }
@@ -130,6 +134,7 @@ $space_sm_lr: 0 30px;  //平板左右
                         font-size: $fontSize_S;
                         font-weight: 900;
                         text-align: center; 
+                        cursor: text;
                         &:focus{ background-color: $color_main3; }
                     }
                 }
@@ -231,15 +236,10 @@ $space_sm_lr: 0 30px;  //平板左右
 
     //推薦飯團
     .scorpion{
-        background-image: url("../images/tableCloth.png");
-        background-size: calc(100% - 32px);
-        background-repeat-x: no-repeat;
-        background-position-x: center; 
         position: relative;
         .wrap{ 
             padding-top: 57px;
             padding-bottom: 0px;
-            background-image: none;
             .title-img{ 
                 padding-bottom: 20px; 
                 margin-bottom: 0;
@@ -304,7 +304,6 @@ $space_sm_lr: 0 30px;  //平板左右
                         width: 120px;
                         height: 120px;
                         margin: 0 5px 10px;
-                        // box-shadow: 3px 3px 3px #aaa;
                         border-radius: 15px;
                         position: relative;
                         display: inline-block;
@@ -362,9 +361,8 @@ $space_sm_lr: 0 30px;  //平板左右
         }
         //共用
         .wrap{ 
-            width: calc(100% - $space_sm_lr*2); 
             margin: $space_sm_lr;
-            padding: 50px 30px;
+            padding: 80px 30px 20px;
             .title{ 
                 img{ height: 60px; }
             }
@@ -489,7 +487,6 @@ $space_sm_lr: 0 30px;  //平板左右
 
         //推薦飯團
         .scorpion{
-            background-size: calc(96vw - 29px);
             .wrap{
                 .title-img{ padding-bottom: 30px; }
             }
@@ -516,8 +513,10 @@ $space_sm_lr: 0 30px;  //平板左右
 
 @include rwd(md,float) {  //1024px
     .eatDetail{
+        .eatDetail-body{ background-size: 94%; }
         //共用
         .wrap{ 
+            padding: 80px 30px 20px;
             .title{ margin-top: 50px; }
             .title-img{ padding: 20px 30px; } 
         }
@@ -560,14 +559,14 @@ $space_sm_lr: 0 30px;  //平板左右
 
         //推薦飯團
         .scorpion{
-            background-size: calc(97.5vw - 34.5px);
-            .groupon{ margin: 20px 0px; }
+            .groupon{ margin: 20px 0px 0; }
         }
     }
 }
 
 @include rwd(lg,float) { //1200px
     .eatDetail{
+        .eatDetail-body{ background-size: 62.5%; }
         //共用
         .wrap{ 
             width: 1200px; 
@@ -588,8 +587,7 @@ $space_sm_lr: 0 30px;  //平板左右
 
         //推薦飯團
         .scorpion{
-            background-size: calc(64.5vw - 36px);
-            .groupon{ margin: 20px 0px; }
+            .groupon{ margin: 20px 0px 0; }
         }
     }
 }
