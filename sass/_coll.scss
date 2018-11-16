@@ -65,21 +65,29 @@
 
     // 標語
     .coll_slogan{
-        width: 80%;
-        height: 150px;
-        background-color: #BB7232;
+        width: 100%;
+        height: 300px;
+        background-image:url(../image/slogan1920.png);
         font-size: 0;
         position: relative;
         z-index: -2;
-        margin: 0 10%;
+        margin: 0;
         text-align: center;
     }
     .coll_slogan_title{
-        width: 50%;
+        width: 100%;
         display: inline-block;
+        text-align: center;
+        margin: 5% 0;
     }
     #coll_slogan_txt{
+        border-top:2px solid #000;
+        border-bottom:2px solid #000; 
+        color: #000;
+        opacity: 1;
         font-size: 48px;
+        text-align: center;
+        max-width: 200px;
         
     }
     .coll_slogan_title p{
@@ -99,260 +107,7 @@
         display: inline-block;
     }
 
-    .jump{
-        -webkit-animation: 5s jump linear infinite;
-          animation: 5s jump linear infinite;
-    }
     
-    @keyframes jump{
-        0% {
-          -webkit-transform: scale(0, 0);
-                  transform: scale(0, 0);
-        }
-        
-        2% {
-          -webkit-transform: scale(0.292554252432152, 0.545376716848168);
-                  transform: scale(0.292554252432152, 0.545376716848168);
-        }
-        
-        4% {
-          -webkit-transform: scale(0.788551391390369, 1.120376016086594);
-                  transform: scale(0.788551391390369, 1.120376016086594);
-        }
-        
-        6% {
-          -webkit-transform: scale(1.120376016086594, 1.184807461549862);
-                  transform: scale(1.120376016086594, 1.184807461549862);
-        }
-        
-        8% {
-          -webkit-transform: scale(1.207445230574602, 1.037247338712057);
-                  transform: scale(1.207445230574602, 1.037247338712057);
-        }
-        
-        10% {
-          -webkit-transform: scale(1.139672272493081, 0.959151493096828);
-                  transform: scale(1.139672272493081, 0.959151493096828);
-        }
-        
-        12% {
-          -webkit-transform: scale(1.037247338712057, 0.972534530793938);
-                  transform: scale(1.037247338712057, 0.972534530793938);
-        }
-        
-        14% {
-          -webkit-transform: scale(0.972031419546276, 1.001379435012348);
-                  transform: scale(0.972031419546276, 1.001379435012348);
-        }
-        
-        16% {
-          -webkit-transform: scale(0.957140100254271, 1.008821093113781);
-                  transform: scale(0.957140100254271, 1.008821093113781);
-        }
-        
-        18% {
-          -webkit-transform: scale(0.972534530793938, 1.003092956925791);
-                  transform: scale(0.972534530793938, 1.003092956925791);
-        }
-        
-        20% {
-          -webkit-transform: scale(0.993604544681563, 0.998573305048547);
-                  transform: scale(0.993604544681563, 0.998573305048547);
-        }
-        
-        22% {
-          -webkit-transform: scale(1.006367469874671, 0.998500975623806);
-                  transform: scale(1.006367469874671, 0.998500975623806);
-        }
-        
-        24% {
-          -webkit-transform: scale(1.008821093113781, 0.999833501948367);
-                  transform: scale(1.008821093113781, 0.999833501948367);
-        }
-        
-        26% {
-          -webkit-transform: scale(1.005378103626964, 1.000385276149533);
-                  transform: scale(1.005378103626964, 1.000385276149533);
-        }
-        
-        28% {
-          -webkit-transform: scale(1.001059752569101, 1.000203385122328);
-                  transform: scale(1.001059752569101, 1.000203385122328);
-        }
-        
-        30% {
-          -webkit-transform: scale(0.998573305048547, 0.999964849826148);
-                  transform: scale(0.998573305048547, 0.999964849826148);
-        }
-        
-        32% {
-          -webkit-transform: scale(0.998191241770966, 0.999924761163581);
-                  transform: scale(0.998191241770966, 0.999924761163581);
-        }
-        
-        34% {
-          -webkit-transform: scale(0.998951615476555, 0.999980662109647);
-                  transform: scale(0.998951615476555, 0.999980662109647);
-        }
-        
-        36% {
-          -webkit-transform: scale(0.999833501948367, 1.000014970213524);
-                  transform: scale(0.999833501948367, 1.000014970213524);
-        }
-        
-        38% {
-          -webkit-transform: scale(1.00031555507819, 1.000011778605271);
-                  transform: scale(1.00031555507819, 1.000011778605271);
-        }
-        
-        40% {
-          -webkit-transform: scale(1.00036955135608, 1.000000175788403);
-                  transform: scale(1.00036955135608, 1.000000175788403);
-        }
-        
-        42% {
-          -webkit-transform: scale(1.000203385122328, 0.999996522266158);
-                  transform: scale(1.000203385122328, 0.999996522266158);
-        }
-        
-        44% {
-          -webkit-transform: scale(1.000023918238932, 0.999998563845857);
-                  transform: scale(1.000023918238932, 0.999998563845857);
-        }
-        
-        46% {
-          -webkit-transform: scale(0.999930953553718, 1.000000476269022);
-                  transform: scale(0.999930953553718, 1.000000476269022);
-        }
-        
-        48% {
-          -webkit-transform: scale(0.999924761163581, 1.000000621989317);
-                  transform: scale(0.999924761163581, 1.000000621989317);
-        }
-        
-        50% {
-          -webkit-transform: scale(0.99996074901389, 1.000000103935755);
-                  transform: scale(0.99996074901389, 1.000000103935755);
-        }
-        
-        52% {
-          -webkit-transform: scale(0.999997145282538, 0.999999853998891);
-                  transform: scale(0.999997145282538, 0.999999853998891);
-        }
-        
-        54% {
-          -webkit-transform: scale(1.000014970213524, 0.999999910625746);
-                  transform: scale(1.000014970213524, 0.999999910625746);
-        }
-        
-        56% {
-          -webkit-transform: scale(1.000015265384358, 1.000000008427682);
-                  transform: scale(1.000015265384358, 1.000000008427682);
-        }
-        
-        58% {
-          -webkit-transform: scale(1.000007531821609, 1.000000030270993);
-                  transform: scale(1.000007531821609, 1.000000030270993);
-        }
-        
-        60% {
-          -webkit-transform: scale(1.000000175788403, 1.000000009501385);
-                  transform: scale(1.000000175788403, 1.000000009501385);
-        }
-        62% {
-          -webkit-transform: scale(0.999996779924779, 0.999999994661554);
-                  transform: scale(0.999996779924779, 0.999999994661554);
-        }
-        64% {
-          -webkit-transform: scale(0.999996913355979, 0.999999995014962);
-                  transform: scale(0.999996913355979, 0.999999995014962);
-        }
-        66% {
-          -webkit-transform: scale(0.999998563845857, 0.999999999625199);
-                  transform: scale(0.999998563845857, 0.999999999625199);
-        }
-        68% {
-          -webkit-transform: scale(1.000000045503658, 1.000000001352395);
-                  transform: scale(1.000000045503658, 1.000000001352395);
-        }
-        70% {
-          -webkit-transform: scale(1.000000687807928, 1.000000000650779);
-                  transform: scale(1.000000687807928, 1.000000000650779);
-        }
-        72% {
-          -webkit-transform: scale(1.000000621989317, 0.999999999851502);
-                  transform: scale(1.000000621989317, 0.999999999851502);
-        }
-        74% {
-          -webkit-transform: scale(1.00000027190648, 0.999999999744926);
-                  transform: scale(1.00000027190648, 0.999999999744926);
-        }
-        76% {
-          -webkit-transform: scale(0.999999974491714, 0.999999999943276);
-                  transform: scale(0.999999974491714, 0.999999999943276);
-        }
-        78% {
-          -webkit-transform: scale(0.999999853998891, 1.000000000054265);
-                  transform: scale(0.999999853998891, 1.000000000054265);
-        }
-        80% {
-          -webkit-transform: scale(0.999999875091735, 1.000000000038668);
-                  transform: scale(0.999999875091735, 1.000000000038668);
-        }
-        82% {
-          -webkit-transform: scale(0.999999948934096, 0.999999999999035);
-                  transform: scale(0.999999948934096, 0.999999999999035);
-        }
-        84% {
-          -webkit-transform: scale(1.000000008427682, 0.999999999987969);
-                  transform: scale(1.000000008427682, 0.999999999987969);
-        }
-        86% {
-          -webkit-transform: scale(1.000000030817137, 0.999999999995506);
-                  transform: scale(1.000000030817137, 0.999999999995506);
-        }
-        88% {
-          -webkit-transform: scale(1.000000024997425, 1.000000000001836);
-                  transform: scale(1.000000024997425, 1.000000000001836);
-        }
-        90% {
-          -webkit-transform: scale(1.000000009501385, 1.000000000002084);
-                  transform: scale(1.000000009501385, 1.000000000002084);
-        }
-        92% {
-          -webkit-transform: scale(0.999999997642536, 1.000000000000276);
-                  transform: scale(0.999999997642536, 1.000000000000276);
-        }
-        94% {
-          -webkit-transform: scale(0.999999993528801, 0.999999999999482);
-                  transform: scale(0.999999993528801, 0.999999999999482);
-        }
-        96% {
-          -webkit-transform: scale(0.999999995014962, 0.999999999999711);
-                  transform: scale(0.999999995014962, 0.999999999999711);
-        }
-        98% {
-          -webkit-transform: scale(0.999999998251508, 1.000000000000041);
-                  transform: scale(0.999999998251508, 1.000000000000041);
-        }
-        100% {
-          -webkit-transform: scale(1.000000000606774, 1.000000000000103);
-                  transform: scale(1.000000000606774, 1.000000000000103);
-        }
-        0% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 1;
-        }
-        90% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 0;
-        }
-      }
-      
     .coll_slogan_pic_icon{
         width: 5%;
     }
@@ -519,11 +274,21 @@
     }
     // 標語結束
 
+    // 整個左邊left
+    // .left{
+    //     position: fixed;
+    //     bottom: 0;
+    //     right: 0;
+    // }
+    // 整個左邊left結束
 
     // 左邊的面板 
     .coll_panel{
         width: calc(25% - 20px);
         display: block;
+        // position: fixed;
+        // bottom: 0;
+        // left: 0;
     }
 
     // 面板圓形
@@ -598,17 +363,13 @@
         margin: 20px 0;
         position: relative;
     }
-
-    .kind_icon:hover{
-        animation: up_down 0.2s ease infinite;
-        
+    .coll_kind_item:hover{
+        background: #BB7232
     }
-    @keyframes up_down{
-        0%{top:0;}
-        50%{top:-2px;}
-        100%{top:2px;}
+    .kind_icon:hover + .coll_kind_item_title{
+            color: #333333;
+            background: #fff;
     }
-    
     // 面板矩形結束
 
     // 搜尋
@@ -644,7 +405,7 @@
 
     .coll_title{
         background-color: #FCF2A8;
-        
+        margin: 0;
     }
 
     // 標題 
@@ -668,7 +429,7 @@
         height: 50px;
     }
     .title_kind_icon{
-        width: 100%;
+        width: 80%;
         text-align: center;
         display:block; 
         margin:auto;
@@ -703,11 +464,11 @@
         width: calc(25% - 20px);
         box-sizing: border-box; 
         border: 2px solid #fff;
-        margin: 0 10px;
+        margin: 10px 10px;
         font-size: 0px;
         background-color: #fff;
         border-radius: 20px;
-        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        
     }
     .coll_food::after {
         content: "";
@@ -720,24 +481,26 @@
         height: 100%;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         opacity: 0;
-        -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
-    .coll_food:hover {
-        -webkit-transform: scale(1.25, 1.25);
+    .coll_food_pic_icon:hover {
+        
         transform: scale(1.25, 1.25);
     }
-    .coll_food:hover::after {
+    .coll_food_pic_icon:hover::after {
         opacity: 1;
     }    
     .coll_food_X{
         border-bottom: 2px solid #333333;
+      
     }
     .coll_food_X_icon{
         float: right;
-        width: 5%;
+        width: 10%;
     }
-
+    .coll_food_pic_icon{
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
     .coll_food_title{
         // display: inline-block;
         // vertical-align: baseline;
@@ -753,6 +516,7 @@
         background-color: #BB7232;
         color: #fff;
     }
+    // 菜色評分
     .coll_food_score{
         margin: 10px 0;
         text-align: center;
@@ -760,6 +524,17 @@
         // display: inline-block;
         // vertical-align: baseline;
     }
+    .scoreEgg-container ul li {
+        display: inline-block;
+        width: 40px;
+        margin: 0 5px;
+    }
+    .pic img {
+        width: 100%;
+    }
+
+    // 菜色評分結束
+    
     .coll_food_title_icon{
         width: 13%;
         margin: 0 2px;
@@ -776,7 +551,7 @@
         
     }
     .coll_food_price{
-        width:35%;
+        width:34%;
         float:left;
         // display: inline-block;
         // vertical-align: middle;
@@ -922,12 +697,24 @@
         .coll_slogan{
             width: 100%;
             height: 150px;
-            background-color: #BB7232;
+            background-image:url(../image/slogan1920.jpg);
+            background-size:100% 100%;
             font-size: 0;
+            // opacity: 0.7;
         }
         .coll_slogan_title{
             width: 100%;
             display: inline-block;
+            text-align: center;
+            color: #fff;
+            opacity: 1;
+        }
+        .coll_slogan_txt{
+            border-top:2px solid #fff; 
+            border-bottom:2px solid #fff; 
+            opacity: 1;
+            max-width: 200px;
+            color: #fff;
         }
         .coll_slogan_title p{
             // max-width: 300px;
@@ -957,7 +744,9 @@
             display: block;
             font-size: 0;
         }
-    
+        .coll_total_background{
+            background-image: url(/image/slogan1024.jpg);
+        }
         // 面板圓形
         .coll_total{
             max-width: 100px;
@@ -965,7 +754,7 @@
             height:100px; 
             border-radius:999px;
             background-color:#FFBA3B;
-            margin: 10px 0 10px 10%;
+            margin: 10px 0 10px 20%;
             z-index: 2;
             float: none;
             display: inline-block;
@@ -997,7 +786,8 @@
             float: none;
             display: inline-block;
             vertical-align: middle;
-            margin: 20px 0px 0 20px;
+            margin: 0px 0px 0 20px;
+            text-align: center;
         }
         .coll_total_s p{
             font-size:24px;
@@ -1042,6 +832,14 @@
         }
         .coll_kind_item_text{
             margin: 2px 0;
+        }
+
+        .coll_kind_item:hover{
+            background: #BB7232
+        }
+        .kind_icon:hover + .coll_kind_item_title{
+                color: #333333;
+                background: #fff;
         }
         // 面板矩形結束
     
@@ -1146,6 +944,26 @@
             border: 2px solid #fff;
             border-radius: 20px;
         }
+        .coll_food::after {
+            content: "";
+            border-radius: 5px;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .coll_food_pic_icon:hover {
+            
+            transform: scale(1.25, 1.25);
+        }
+        .coll_food_pic_icon:hover::after {
+            opacity: 1;
+        }    
         .coll_food_X{
             // border-bottom: 2px solid #000;
         }
@@ -1157,6 +975,13 @@
             line-height: 40px;
             font-size: 24px;
             text-align: center;
+        }
+        .coll_food_title p{
+            text-align: center;
+            border:2px#ccc solid;
+            border-radius:10px;
+            background-color: #BB7232;
+            color: #fff;
         }
         .coll_food_score{
             margin: auto;
@@ -1202,7 +1027,9 @@
             display: inline-block;
             vertical-align: baseline;
         }
-    
+
+        @include main-BTN(200px);
+
         .coll_food_shop_icon{
             display: inline-block;
             vertical-align: baseline;
@@ -1293,15 +1120,20 @@
     .coll_slogan{
         width: 100%;
         height: 150px;
-        background-color: #BB7232;
+        background-image:url(/image/slogan1920.jpg);
+        background-size:100% 100%;
         font-size: 0;
+        opacity: 0.7;
     }
     .coll_slogan_title{
         width: 100%;
         display: inline-block;
+        text-align: center;
+        color: #fff;
+        margin: 5% auto;
     }
     .coll_slogan_title p{
-        // max-width: 300px;
+        max-width: 80px;
         font-size: 20px;
         margin: auto;
         padding: 10px 0;
@@ -1317,6 +1149,13 @@
     .coll_slogan_pic_icon{
         width: 5%;
     }
+    #coll_slogan_txt{
+        border-top:2px solid #fff; 
+        border-bottom:2px solid #fff; 
+        // opacity: 0.6;
+        color: #fff;
+    }
+    
     // 標語結束
 
 
@@ -1328,6 +1167,9 @@
         display: block;
         font-size: 0;
     }
+    .coll_total_background{
+        background-image: url(../image/slogan1024.jpg);
+    }
 
     // 面板圓形
     .coll_total{
@@ -1336,7 +1178,7 @@
         height:100px; 
         border-radius:999px;
         background-color:#FFBA3B;
-        margin: 10px 0 10px 10%;
+        margin: 10px 0 10px 20%;
         z-index: 2;
         float: none;
         display: inline-block;
@@ -1366,7 +1208,7 @@
         float: none;
         display: inline-block;
         vertical-align: middle;
-        margin: 20px 0px 0 20px;
+        margin: 0px 0px 0 0px;
     }
     .coll_total_s p{
         font-size:24px;
@@ -1411,6 +1253,20 @@
     .coll_kind_item_text{
         margin: 2px 0;
     }
+
+    .coll_kind_item:hover{
+        background: #BB7232
+    }
+    .kind_icon:hover + .coll_kind_item_title{
+            color: #333333;
+            background: #fff;
+    }
+    // .kind_icon_vegetarian{
+    //     width: 70%;
+    // }
+    // .kind_icon_denshyoku{
+    //     width: 87%;
+    // }
     // 面板矩形結束
 
     // 搜尋
@@ -1507,27 +1363,61 @@
 
     .coll_food{
         width: calc(50% - 10px);
+        min-height: 376.52px;
         box-sizing: border-box; 
         border: 2px solid #fff;
         border-radius: 20px;
         margin: 5px 5px;
         background-color: #fff;
     }
+    .coll_food::after {
+        content: "";
+        border-radius: 5px;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    .coll_food_pic_icon:hover {
+        
+        transform: scale(1.25, 1.25);
+    }
+    .coll_food_pic_icon:hover::after {
+        opacity: 1;
+    }    
     .coll_food_X{
-        // border-bottom: 2px solid #000;
+        border-bottom: 2px solid #000;
+        text-align: right;
+        margin: 0 0 5px 0;
+        display: inline-block;
     }
     .coll_food_X_icon{
-        float: right;
+        float: none;
         width: 10%;
+        
+    }
+    .coll_food_title{
+        min-height: 84px;
     }
     .coll_food_title p{
+        margin: 0 0 5px 0;
         line-height: 40px;
         font-size: 24px;
         text-align: center;
     }
     .coll_food_score{
-        margin: auto;
+        margin: 0 0 5px 0;
         text-align: center;
+
+    }
+    .score{
+        width: 180%;
+        
     }
     .coll_food_title_icon{
         width: 15%;
@@ -1543,14 +1433,16 @@
     .coll_food_price p{
         color: #333333;
         // background-color: #FCE444;
-        font-size: 30px;
+        font-size: 27px;
         padding: 0 0 0 0;
         text-align: center;
         margin: 10px 0;
     }
 
 
-
+    .pic{
+        width: 20%;
+    }
 
     .coll_food_pic_icon{
         width: 80%;
