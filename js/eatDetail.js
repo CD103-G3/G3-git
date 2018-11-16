@@ -176,26 +176,30 @@ function eatDetailMsg() {
         var day = today.getDate();
         var memberImg = "images/logo.png";  //變更圖片路徑
 
-        var textDiv = `<div class="member-msg">
-                            <div class="member-data clearfix">
-                                <div class="member-pic fl">
-                                    <figure class="member-img fl">
-                                        <img src=${memberImg}>
-                                    </figure>
-                                    <div class="member-id fl color">訪客訪客訪客</div>
+                            //把留言內容用要包的div名稱包起來
+        if(text.value==''){
+            swal({ text: "要輸入內容哦~", });
+        }else{ 
+            var textDiv = `<div class="member-msg">
+                                <div class="member-data clearfix">
+                                    <div class="member-pic fl">
+                                        <figure class="member-img fl">
+                                            <img src=${memberImg}>
+                                        </figure>
+                                        <div class="member-id fl color">訪客訪客訪客</div>
+                                    </div>
+                                    <div class="comments-time fl">${year}/${mon}/${day}</div>
                                 </div>
-                                <div class="comments-time fl">${year}/${mon}/${day}</div>
-                            </div>
-                            <div class="comments clearfix">
-                                <p>${text.value}</p>
-                                <div class="msg-btn">   
-                                    <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
+                                <div class="comments clearfix">
+                                    <p>${text.value}</p>
+                                    <div class="msg-btn">   
+                                        <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>`;    //把留言內容用要包的div名稱包起來
-
-        document.getElementsByClassName('text-container')[0].innerHTML += textDiv;  //新增留言到留言區
-        text.value = '';  //清空textarea中的字
+                            </div>`;
+            document.getElementsByClassName('text-container')[0].innerHTML += textDiv;  //新增留言到留言區
+            text.value = '';  //清空textarea中的字
+        }
     }
 };
 window.addEventListener('load', eatDetailMsg);

@@ -2,7 +2,7 @@ header{
     width: 100%;
     height: 80px;
     position: fixed;
-    z-index: 2;
+    z-index: 100;
     
     *{
         font-size: 0;
@@ -14,8 +14,11 @@ header{
         font-size: 24px;
         color: #fff;
         text-decoration: none;  
+    };
+    label{
+        font-size: 24px;
+        color: #fff;
     }
-
     #navctrl{
         display: none;
 
@@ -117,6 +120,7 @@ header{
         }
   
         .seach-button{
+            font-size: 0;
             padding: 23px 9px 18px;
             color: #76391b;
             border-radius: 50%;
@@ -175,15 +179,18 @@ header{
                 margin-bottom: 35px;
 
                 .before-login{
-                   display: none;
-
-                    a{
-                        margin-right: 20px;
-                    }
+                //    display: none;
+                font-size: 24px;
+                color: #fff;
+                display: inline-block;
+                    // a{
+                        // margin-right: 20px;
+                    // }
                 }
                 
                 .after-login{
-                    display: inline-block;
+                    // display: inline-block;
+                    display: none;
                     
                     div{
                         display: inline-block;
@@ -299,6 +306,9 @@ header{
 .nav_height{
     height: 75px;
 }
+#clearCookie{
+    display: none;
+}
 
 @media screen and (min-width: 1024px){
 
@@ -385,6 +395,7 @@ header{
 
                     &.table-hidden{
                         display: none;
+                 
                     }
 
                     &.logo{
@@ -565,4 +576,3 @@ header{
         height: 100px;
     }
 }
-

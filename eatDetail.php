@@ -1,3 +1,10 @@
+<?php
+    // require_once('nav.php');
+    ob_start();
+    session_start();
+    $test = $_REQUEST["meal_No"]=1;
+    $_SESSION["quantity"][$test] = 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,21 +15,37 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <link rel="stylesheet" href="css/eatDetail.css">
-    <!-- <link rel="stylesheet" href="css/sstyle.css"> -->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/eatDetail.js"></script>
     <title>餐點介紹</title>
 </head>
 <body>
-<div class="eatDetail">
 
+<div class="eatDetail">
+    <?php
+        try{
+            $dsn = "mysql:host=localhost;port=3306;dbname=cd103;charset=utf8";
+            $user = "root";
+            $password = "tshoa";
+            $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+            $pdo = new PDO($dsn, $user, $password, $options);
+            $mealNo = $_REQUEST["meal_No"]=1;
+            $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No where A1.meal_No = $mealNo group by A1.meal_No";
+
+            $dishes = $pdo -> query($sql);
+            
+            if( $dishes->rowCount() == 0){
+                echo "查無此商品資料";
+            }else{
+                $dishesRow = $dishes -> fetchObject();
+	?> 
 <!-- 產品介紹 -->
     <div class="banner">
         <div class="wrap clearfix">
             <div class="banner-pic part-md-6 part-lg-6 clearfix">
                 <figure>
-                    <img src="images/ra_03.png" alt="特級海鮮丼">
+                    <img src="images/ <?php echo substr_replace($dishesRow->meal_Pic,'',-7); ?> / <?php echo $dishesRow->meal_Pic; ?>" alt="<?php echo $dishesRow->meal_Name; ?>">
                 </figure>
                 <p class="heart_icon">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -46,14 +69,14 @@
             </div>
             <div class="banner-txt part-md-6 part-lg-6">
                 <div class="product clearfix">
-                    <h2 class="fl color">(生)特級海鮮丼</h2>
+                    <h2 class="fl color"> <?php echo $dishesRow->meal_Name; ?> </h2>
                     <figure class="fl"><img src="/images/icon/chili.svg"></figure>
                     <figure class="fl"><img src="/images/icon/lettuce.svg"></figure>
                 </div>
                 <div class="score clearfix">
                     <div class="tb-width fl color">評分</div>   
                     <div class="grade fl">
-                        <span class="fl">4.5</span>
+                        <span class="fl"> <?php echo $dishesRow->meal_Total; ?> </span>
                         <figure class="fl"><img src="images/icon/eggFull.svg"></figure>
                         <figure class="fl"><img src="images/icon/eggFull.svg"></figure>
                         <figure class="fl"><img src="images/icon/eggFull.svg"></figure>
@@ -63,17 +86,17 @@
                 </div>
                 <div class="sort clearfix">
                     <span class="tb-width fl color">分類</span>
-                    <span class="fl">丼飯</span>
+                    <span class="fl"> <?php echo $dishesRow->mealGenre_Name; ?> </span>
                 </div>       
                 <div class="kcal clearfix">
                     <span class="tb-width fl color">卡路里</span>
-                    <span class="fl">300kcal</span>
+                    <span class="fl"> <?php echo $dishesRow->meal_Cal; ?> cal</span>
                 </div> 
                 <div class="content clearfix">
                     <span class="color">餐點介紹</span>
-                    <p>海膽、干貝、牡丹蝦、鮭魚肚、鮪魚、紅甘肚、鮭魚卵等外加多款現流生魚片，滿滿的新鮮海味，隱藏首推的頂級美食。</p>  
+                    <p> <?php echo $dishesRow->meal_Info; ?> </p>  
                 </div>
-                <span class="price">NT680元</span>
+                <span class="price">NT <?php echo $dishesRow->meal_Price; ?> 元</span>
                 <div class="count-buy clearfix">
                     <span class="tb-width fl color">數量</span>
                     <div class="count-qty line-block">
@@ -83,7 +106,8 @@
                     </div>    
                 </div>
                 <div class="count-btn clearfix">
-                    <button class="add-cart mainBTN cart_icon" name="add-cart">
+                    <button class="add-cart mainBTN cart_icon" name="add-cart" id="A0 <?php echo $dishesRow->meal_No; ?>">
+                    <input type="hidden" value="<?php echo $dishesRow->meal_Name; ?> | <?php echo $dishesRow->meal_Pic; ?> | <?php echo $dishesRow->meal_Price; ?> |1">
                         <svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                             viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
                             <g>
@@ -104,6 +128,13 @@
                 </div>
             </div>
         </div>
+        <?php
+            }
+        }catch(PDOException $e){
+            echo "error~<br>";
+            echo $e->getMessage() , "<br>";
+        }
+        ?>
     </div>
 
 <!-- 留言板 -->
@@ -338,8 +369,6 @@
             </div>
         </div>
     </div>
-
-
 </div>
 </body>
 
@@ -376,7 +405,4 @@
         });
     });
 </script>
-
-
-
 </html>
