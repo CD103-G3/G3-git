@@ -8,9 +8,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	  		integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	  		crossorigin="anonymous"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" >
 	<link rel="stylesheet" href="css/style.css">
-	
+		
 </head>
 <body>
 	
@@ -295,8 +299,8 @@ if( $Menu->rowCount()==0){
 
 
 			<div class="coll_food part-3 part-s-6 part-l-6">
-				<a href="javascript:void(0);" class="coll_food_X part-12 del_coll" id="<?php echo $rowMenu['mealGenre_No']?>">
-					<img src="image/trash.svg" alt="" title="取消收藏" class="coll_food_X_icon">
+				<a href="javascript:;" class="coll_food_X part-12 del_coll" data-id="<?php echo $rowMenu['mealGenre_No']?>">
+					<img src="image/trash.svg" alt="" title="取消收藏" class="coll_food_X_icon del_coll">
 				</a>
 				<div class="coll_food_title part-12">
 					<p><?php echo $rowMenus["meal_Name"]?></p>
@@ -406,21 +410,50 @@ if( $Menu->rowCount()==0){
 	</script>
 
 	<!-- 評分 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+	  		integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+	  		crossorigin="anonymous"></script>
 	
-	<script>
-    $(document).on("ready",function(){
 
-    	$("a.del_coll").on("click",function(){
-    		var c = confirm("確定要取消收藏嗎");
+	<script type="text/javascript">
+	$(function(){
+	 
+	 
+		 $(".del_coll").click(function(){
+		  //var user8ID = $.trim( $('#user8ID').val() );
+		  var statu = confirm("確定取消收藏嗎?");
+		  var this_coll = $(this).parent();
+		  this_coll.fadeOut();
+			  // if(!statu){
+			  //  return false;
+			  // }
+		 		// var operation = '8IDdelete';
+			  // $.ajax({
+				 //    type:'POST',
+				 //    url:'backendUserModuleMapping.php?stamp='+new Date().getTime(),
+				 //    data:'operation='+operation+'&'+$("form").eq(1).serialize(),
+				 //    success:function(msg){
+				 //      if(msg == 1){
+				 //       alert( 'Delete Successful!' );
+				 //       this_coll.fadeOut();
+				 //       location.reload();
+				 //      }else{
+				 //       alert( 'Delete Failed!' );
+				 //      }      
+				 //    },
+				 //    error:function(){
+				 //      alert( 'Delete Failed!' );
+				 //    }
+			    
+			  //  });
+		  
+		 });
+	 
+	});
+</script>
 
-    		console.log(c);
-    	})
-
-    }) 
-    return false;
-    	
-    
-	</script>
+	
 
 	
 
