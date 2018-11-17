@@ -2,6 +2,7 @@
 	require_once('nav.php');
 	ob_start();
 	session_start();
+	$memNo = 2; //測試用
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +25,7 @@
 	<section>
 		<div class="coll_slogan part-12 part-s-12">
 			<div class="coll_slogan_title part-12">
-				<p id="coll_slogan_txt">我的收藏</p>
+				<p id="coll_slogan_txt" style="">我的收藏</p>
 				
 			</div>
 			<!-- <div class="coll_slogan_pic part-9 ">
@@ -49,7 +50,7 @@
 						try{
 							require_once("connectmenu.php");
 						      
-							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No";
+							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No && membercoll.member_No = $memNo";
 							$colltotal = $pdo->prepare($collsql);
 							$colltotal->execute();
 							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
@@ -76,170 +77,171 @@
 			
 
 
-
+			
 			<!-- 紅色 -->
 			<div class="coll_kind  part-s-12 part-l-12">
-					<div class="coll_kind_item part-4 part-s-2 part-l-2 ">
-						<a href="#A1"><img src="image/soup.png" alt="hot_pot" title="鍋物" class="kind_icon"></a>
-						<p class="coll_kind_item_title">鍋物</p>
+				
+				<div class="coll_kind_item part-4 part-s-2 part-l-2">
+					<a href="#A1"><img src="image/bandon.png" alt="convenient" title="便當" class="kind_icon"></a>
+					<p class="coll_kind_item_title">便當</p>
 
-						<?php
-							try{
-								require_once("connectmenu.php");
-							      
-								$collsql = "select Count(distinct membercoll.meal_No) count from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n";
-								$colltotalsoup = $pdo->prepare($collsql);
-								$colltotalsoup->bindValue(":n", 5);
-								$colltotalsoup->execute();
-								while($rowcoll=$colltotalsoup->fetch(PDO::FETCH_ASSOC)){
-						?>
+					<?php
+						try{
+							require_once("connectmenu.php");
+								
+							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n && membercoll.member_No = $memNo";
+							$colltotal = $pdo->prepare($collsql);
+							$colltotal->bindValue(":n",1);
+							$colltotal->execute();
+							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
+					?>
 
-						<p class="coll_kind_item_text"><?php echo $rowcoll['count']?></p>
+					<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
 
-						<?php
-							}
-						?>		
-						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
-						?>
-					</div>
-					<div class="coll_kind_item part-4 part-s-2 part-l-2">
-						<a href="#A5"><img src="image/veget.png" alt="vegetarian" title="素食" class="kind_icon kind_icon_vegetarian"></a>
-						<p class="coll_kind_item_title">素食</p>
+					<?php
+						}
+					?>		
+					<?php
+						}catch(PDOException $e){
+							echo $e->getMessage();
+						}
+					?>
 
-						<?php
-							try{
-								require_once("connectmenu.php");
-							      
-								$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n";
-								$colltotal = $pdo->prepare($collsql);
-								$colltotal->bindValue(":n",4);
-								$colltotal->execute();
-								while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
-						?>
+				</div>
+				<div class="coll_kind_item part-4 part-s-2 part-l-2">
+					<a href="#A2"><img src="image/don.png" alt="Risotto" title="丼飯" class="kind_icon"></a>
+					<p class="coll_kind_item_title">丼飯</p>
 
-						<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
+					<?php
+						try{
+							require_once("connectmenu.php");
+								
+							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n && membercoll.member_No = $memNo";
+							$colltotal = $pdo->prepare($collsql);
+							$colltotal->bindValue(":n",0);
+							$colltotal->execute();
+							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
+					?>
 
-						<?php
-							}
-						?>		
-						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
-						?>
+					<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
 
-					</div>
-					<div class="coll_kind_item part-4 part-s-2 part-l-2">
-						<a href="#A4"><img src="image/denshyoku.png" alt="Diet" title="定食" class="kind_icon kind_icon_denshyoku"></a>
-						<p class="coll_kind_item_title">定食</p>
+					<?php
+						}
+					?>		
+					<?php
+						}catch(PDOException $e){
+							echo $e->getMessage();
+						}
+					?>
 
-						<?php
-							try{
-								require_once("connectmenu.php");
-							      
-								$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n";
-								$colltotal = $pdo->prepare($collsql);
-								$colltotal->bindValue(":n",3);
-								$colltotal->execute();
-								while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
-						?>
+				</div>
+				<div class="coll_kind_item part-4 part-s-2 part-l-2">
+					<a href="#A3"><img src="image/lame.png" alt="noodles" title="拉麵" class="kind_icon"></a>
+					<p class="coll_kind_item_title">拉麵</p>
 
-						<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
+					<?php
+						try{
+							require_once("connectmenu.php");
+								
+							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n && membercoll.member_No = $memNo";
+							$colltotal = $pdo->prepare($collsql);
+							$colltotal->bindValue(":n",2);
+							$colltotal->execute();
+							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
+					?>
 
-						<?php
-							}
-						?>		
-						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
-						?>
+					<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
 
-					</div>
-					<div class="coll_kind_item part-4 part-s-2 part-l-2">
-						<a href="#A3"><img src="image/lame.png" alt="noodles" title="拉麵" class="kind_icon"></a>
-						<p class="coll_kind_item_title">拉麵</p>
+					<?php
+						}
+					?>		
+					<?php
+						}catch(PDOException $e){
+							echo $e->getMessage();
+						}
+					?>
 
-						<?php
-							try{
-								require_once("connectmenu.php");
-							      
-								$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n";
-								$colltotal = $pdo->prepare($collsql);
-								$colltotal->bindValue(":n",2);
-								$colltotal->execute();
-								while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
-						?>
+				</div>
+				<div class="coll_kind_item part-4 part-s-2 part-l-2">
+					<a href="#A4"><img src="image/denshyoku.png" alt="Diet" title="定食" class="kind_icon kind_icon_denshyoku"></a>
+					<p class="coll_kind_item_title">定食</p>
 
-						<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
+					<?php
+						try{
+							require_once("connectmenu.php");
+								
+							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n && membercoll.member_No = $memNo";
+							$colltotal = $pdo->prepare($collsql);
+							$colltotal->bindValue(":n",3);
+							$colltotal->execute();
+							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
+					?>
 
-						<?php
-							}
-						?>		
-						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
-						?>
+					<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
 
-					</div>
-					<div class="coll_kind_item part-4 part-s-2 part-l-2">
-						<a href="#A1"><img src="image/bandon.png" alt="convenient" title="便當" class="kind_icon"></a>
-						<p class="coll_kind_item_title">便當</p>
+					<?php
+						}
+					?>		
+					<?php
+						}catch(PDOException $e){
+							echo $e->getMessage();
+						}
+					?>
 
-						<?php
-							try{
-								require_once("connectmenu.php");
-							      
-								$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n";
-								$colltotal = $pdo->prepare($collsql);
-								$colltotal->bindValue(":n",1);
-								$colltotal->execute();
-								while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
-						?>
+				</div>
+				<div class="coll_kind_item part-4 part-s-2 part-l-2">
+					<a href="#A5"><img src="image/veget.png" alt="vegetarian" title="素食" class="kind_icon kind_icon_vegetarian"></a>
+					<p class="coll_kind_item_title">素食</p>
 
-						<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
+					<?php
+						try{
+							require_once("connectmenu.php");
+								
+							$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n && membercoll.member_No = $memNo";
+							$colltotal = $pdo->prepare($collsql);
+							$colltotal->bindValue(":n",4);
+							$colltotal->execute();
+							while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
+					?>
 
-						<?php
-							}
-						?>		
-						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
-						?>
+					<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
 
-					</div>
-					<div class="coll_kind_item part-4 part-s-2 part-l-2">
-						<a href="#A2"><img src="image/don.png" alt="Risotto" title="丼飯" class="kind_icon"></a>
-						<p class="coll_kind_item_title">丼飯</p>
+					<?php
+						}
+					?>		
+					<?php
+						}catch(PDOException $e){
+							echo $e->getMessage();
+						}
+					?>
 
-						<?php
-							try{
-								require_once("connectmenu.php");
-							      
-								$collsql = "select Count(distinct membercoll.meal_No) counts from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n";
-								$colltotal = $pdo->prepare($collsql);
-								$colltotal->bindValue(":n",0);
-								$colltotal->execute();
-								while($rowcoll=$colltotal->fetch(PDO::FETCH_ASSOC)){
-						?>
+				</div>
+				<div class="coll_kind_item part-4 part-s-2 part-l-2 ">
+					<a href="#A6"><img src="image/soup.png" alt="hot_pot" title="鍋物" class="kind_icon"></a>
+					<p class="coll_kind_item_title">鍋物</p>
 
-						<p class="coll_kind_item_text"><?php echo $rowcoll['counts']?></p>
+					<?php
+						try{
+							require_once("connectmenu.php");
+								
+							$collsql = "select Count(distinct membercoll.meal_No) count from membercoll,meal where membercoll.meal_No = meal.meal_No && meal.mealGenre_No = :n && membercoll.member_No = $memNo";
+							$colltotalsoup = $pdo->prepare($collsql);
+							$colltotalsoup->bindValue(":n", 5);
+							$colltotalsoup->execute();
+							while($rowcoll=$colltotalsoup->fetch(PDO::FETCH_ASSOC)){
+					?>
 
-						<?php
-							}
-						?>		
-						<?php
-							}catch(PDOException $e){
-								echo $e->getMessage();
-							}
-						?>
+					<p class="coll_kind_item_text"><?php echo $rowcoll['count']?></p>
 
-					</div>
+					<?php
+						}
+					?>		
+					<?php
+						}catch(PDOException $e){
+							echo $e->getMessage();
+						}
+					?>
+				</div>	
 			</div>
 			<!-- 紅色結束 -->
 
@@ -257,6 +259,16 @@
 
 		<section>	
 		<div class="coll_title part-9 part-s-12 part-l-12">
+			<div class="coll_title_noColl--container">
+				<div class="coll_title_kind part-12 part-s-12 part-l-12">
+					<p class="coll_nocoll">尚未有任何收藏項目種類</p>
+				</div>
+				<div class="coll_food coll_nocoll_txt part-6 part-s-6 part-l-6">
+					<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="">餐點一覽</a>參考看看</p>
+
+				</div>
+			</div>
+			
 <?php
 		try{
 			require_once("connectmenu.php");
@@ -268,12 +280,12 @@
 if( $Menu->rowCount()==0){
 ?>
 	<div class="coll_title_kind part-12 part-s-12 part-l-12">
-							<p class="coll_nocoll">尚未有任何收藏項目種類</p>
-						</div>
-						<div class="coll_food coll_nocoll_txt part-6 part-s-6 part-l-6">
-							<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="">餐點一覽</a>參考看看</p>
+		<p class="coll_nocoll">尚未有任何收藏項目種類</p>
+	</div>
+	<div class="coll_food coll_nocoll_txt part-6 part-s-6 part-l-6">
+		<p id="coll_nocoll_txt">您目前沒有任何收藏，建議前往<a href="">餐點一覽</a>參考看看</p>
 
-						</div>
+	</div>
 <?php
 }else{
 	while($rowMenu=$Menu->fetch(PDO::FETCH_ASSOC)){	//餐點類別
@@ -284,7 +296,7 @@ if( $Menu->rowCount()==0){
 					<img src="image/topic_border.svg" alt="" class="title_kind_line_icon">
 				</div>
 				<div class="coll_title_kind_text part-2 .part-s-6">
-					<img src="image/<?php echo $rowMenu["meal_genre_Pic"]?>" alt="soup.png" title="鍋物" class="title_kind_icon" id="A<?php echo $rowMenu["mealGenre_No"]?>">
+					<img src="image/<?php echo $rowMenu["meal_genre_Pic"]?>" alt="soup.png" title="" class="title_kind_icon" id="A<?php echo $rowMenu["mealGenre_No"]?>">
 					<p><?php echo $rowMenu["mealGenre_Name"]?></p>
 				</div>
 				<div class="coll_title_kind_line part-7 .part-s-3">
@@ -292,7 +304,7 @@ if( $Menu->rowCount()==0){
 				</div>
 			</div>
 <?php
-		$mealsql = "select * from meal where mealGenre_No=" . $rowMenu["mealGenre_No"];
+		$mealsql = "select * from meal,membercoll where mealGenre_No=" . $rowMenu["mealGenre_No"]. "&& member_No = $memNo && meal.meal_No = membercoll.meal_No";
 		$Menus = $pdo ->query($mealsql);
 		while($rowMenus=$Menus->fetch(PDO::FETCH_ASSOC)){	//餐點類別的餐點內容
 ?>
@@ -308,35 +320,35 @@ if( $Menu->rowCount()==0){
 
 				
 				<div class="coll_food_score part-12">
-				<div class="scoreEgg-container">
-								<ul>
-									<li>
-										<div class="pic part-s-2">
-											<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
-										</div>
-									</li>
-									<li>
-										<div class="pic part-s-2">
-											<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
-										</div>
-									</li>
-									<li>
-										<div class="pic part-s-2">
-											<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
-										</div>
-									</li>
-									<li>
-										<div class="pic part-s-2">
-											<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
-										</div>
-									</li>
-									<li>
-										<div class="pic part-s-2">
-											<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
-										</div>
-									</li>
-								</ul>
+				<!-- <div class="scoreEgg-container">
+					<ul>
+						<li>
+							<div class="pic part-s-2">
+								<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
 							</div>
+						</li>
+						<li>
+							<div class="pic part-s-2">
+								<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
+							</div>
+						</li>
+						<li>
+							<div class="pic part-s-2">
+								<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
+							</div>
+						</li>
+						<li>
+							<div class="pic part-s-2">
+								<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
+							</div>
+						</li>
+						<li>
+							<div class="pic part-s-2">
+								<img src="image/eggEmpty.svg" alt="scoreYes" class="score">
+							</div>
+						</li>
+					</ul>
+				</div> -->
 							
 				</div>
 
@@ -417,6 +429,22 @@ if( $Menu->rowCount()==0){
 	
 
 	<script type="text/javascript">
+	window.addEventListener('load', function() {
+		var notMealColl = 
+		``;
+		var mealTotalCount = document.getElementsByClassName('coll_total_num')[0];
+
+		var noMealLink = document.getElementsByClassName('coll_title_noColl--container')[0];
+		noMealLink.children[0].style.float = 'none';
+		noMealLink.children[1].style.float = 'none';
+		noMealLink.children[1].style.margin = 'auto';
+		if(mealTotalCount.innerText == 0) { //if these is no collection in this member collection
+			noMealLink.style.display = 'block';
+		} else {
+			noMealLink.style.display = 'none';
+		}
+		
+	})
 	$(function(){
 	 
 	 
