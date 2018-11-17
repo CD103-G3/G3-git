@@ -506,9 +506,10 @@ header {
   .eatDetail .eatDetail-body {
     background-image: url("../images/tableCloth.png");
     background-size: 91.5%;
-    background-repeat-x: no-repeat;
+    background-repeat: repeat-y;
     background-position-x: center; }
   .eatDetail * {
+    outline: 1px solid #f00;
     font-size: 16px;
     color: #333333;
     box-sizing: border-box; }
@@ -564,16 +565,12 @@ header {
     .eatDetail .banner .banner-pic svg path {
       fill: #bbb; }
   .eatDetail .banner .banner-txt .product {
-    margin: 15px 0; }
-    .eatDetail .banner .banner-txt .product h2 {
-      padding: 10px;
-      border-radius: 50px;
-      font-size: 30px;
-      background-image: url("../images/bg111 (7).png"); }
-    .eatDetail .banner .banner-txt .product figure {
-      width: 20px;
-      padding: 25px 0;
-      margin-left: 10px; }
+    margin: 15px 0;
+    padding: 10px;
+    border-radius: 50px;
+    font-size: 30px;
+    background-image: url("../images/bg111 (7).png");
+    display: inline-block; }
   .eatDetail .banner .banner-txt .score, .eatDetail .banner .banner-txt .sort, .eatDetail .banner .banner-txt .kcal, .eatDetail .banner .banner-txt .content p {
     margin: 10px 0; }
   .eatDetail .banner .banner-txt .score .grade span {
@@ -828,7 +825,8 @@ header {
           margin: 0 5px 10px;
           border-radius: 15px;
           position: relative;
-          display: inline-block; }
+          display: inline-block;
+          vertical-align: top; }
           .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-img, .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
             padding: 3px 0; }
           .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-img {
@@ -927,12 +925,9 @@ header {
       margin-right: 20px; }
   .eatDetail .banner .banner-txt {
     padding: 0 50px; }
-    .eatDetail .banner .banner-txt .product h2 {
+    .eatDetail .banner .banner-txt .product {
       margin: 15px 0;
       font-size: 36px; }
-    .eatDetail .banner .banner-txt .product figure {
-      width: 25px;
-      margin: 15px 0 0 15px; }
     .eatDetail .banner .banner-txt .score, .eatDetail .banner .banner-txt .sort, .eatDetail .banner .banner-txt .kcal, .eatDetail .banner .banner-txt .content p {
       margin: 15px 0; }
     .eatDetail .banner .banner-txt .score .grade span {
@@ -1086,6 +1081,12 @@ header {
     padding: 30px 0; }
   .eatDetail .scorpion .groupon .groupon-box .groupon-title p, .eatDetail .scorpion .groupon .groupon-box .groupon-title span {
     font-size: 24px; }
+  .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
+    padding: 8px 5px;
+    font-size: 16px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-more {
     font-size: 24px; }
   .eatDetail .scorpion .groupon .groupon-box .subBTN {
@@ -1154,11 +1155,6 @@ header {
     padding: 0 20px 0; }
     .eatDetail .banner .banner-txt .product {
       margin: 0; }
-      .eatDetail .banner .banner-txt .product h2 {
-        margin: 0; }
-      .eatDetail .banner .banner-txt .product figure {
-        margin-top: 0;
-        padding: 0; }
     .eatDetail .banner .banner-txt .content, .eatDetail .banner .banner-txt .price {
       margin: 20px 0; }
     .eatDetail .banner .banner-txt .count-buy {

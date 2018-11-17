@@ -18,11 +18,11 @@ $space_sm_lr: 0 30px;  //平板左右
     .eatDetail-body{
         background-image: url("../images/tableCloth.png");
         background-size: 91.5%;
-        background-repeat-x: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center; 
     }
     *{ 
-        // outline: 1px solid #f00;
+        outline: 1px solid #f00;
         font-size: $fontSize_text;
         color: $color_txt;
         box-sizing: border-box;
@@ -82,19 +82,13 @@ $space_sm_lr: 0 30px;  //平板左右
             } 
         }
         .banner-txt{
-            .product{
+            .product{ 
                 margin: 15px 0;
-                h2{ 
-                    padding: 10px;
-                    border-radius: 50px;
-                    font-size: $fontSize_L; 
-                    background-image: url("../images/bg111\ \(7\).png");
-                }
-                figure{ 
-                    width: 20px;
-                    padding: 25px 0;
-                    margin-left: 10px;
-                }
+                padding: 10px;
+                border-radius: 50px;
+                font-size: $fontSize_L; 
+                background-image: url("../images/bg111\ \(7\).png");
+                display: inline-block;
             }
             .score,.sort,.kcal,.content p{ margin: 10px 0; }
             .score{
@@ -307,6 +301,7 @@ $space_sm_lr: 0 30px;  //平板左右
                         border-radius: 15px;
                         position: relative;
                         display: inline-block;
+                        vertical-align: top;
                         .meals-img,.meals-title{ padding: 3px 0; }
                         .meals-img{ 
                             border-radius: 15px;
@@ -382,14 +377,8 @@ $space_sm_lr: 0 30px;  //平板左右
             .banner-txt{
                 padding: 0 50px;
                 .product{
-                    h2{ 
-                        margin: 15px 0;
-                        font-size: $fontSize_XL;
-                    }
-                    figure{ 
-                        width: 25px;
-                        margin: 15px 0 0 15px; 
-                    }
+                    margin: 15px 0;
+                    font-size: $fontSize_XL;
                 }
                 .score,.sort,.kcal,.content p{ margin: 15px 0; }
                 .score{
@@ -497,6 +486,15 @@ $space_sm_lr: 0 30px;  //平板左右
                         p,span{ font-size: $fontSize_M; }
                     }
                     .groupon-meals{
+                        .groupon-item{
+                            .meals-title{ 
+                                padding: 8px 5px;
+                                font-size: $fontSize_text; 
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                            }
+                        }
                         .groupon-more{ font-size: $fontSize_M; }
                     }
                     .subBTN {
@@ -529,14 +527,7 @@ $space_sm_lr: 0 30px;  //平板左右
             }
             .banner-txt{
                 padding: 0 20px 0;
-                .product{
-                    margin: 0;
-                    h2{ margin: 0; }
-                    figure{ 
-                        margin-top: 0;
-                        padding: 0; 
-                    }
-                }
+                .product{ margin: 0; }
                 .content,.price{ margin: 20px 0; }
                 .count-buy{
                     margin: 30px 0;

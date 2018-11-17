@@ -42,11 +42,7 @@
                 </p>
             </div>
             <div class="banner-txt part-md-6 part-lg-6">
-                <div class="product clearfix">
-                    <h2 class="fl color">(生)特級海鮮丼</h2>
-                    <figure class="fl"><img src="/images/icon/chili.svg"></figure>
-                    <figure class="fl"><img src="/images/icon/lettuce.svg"></figure>
-                </div>
+                <h2 class="product color">(生)特級海鮮丼</h2>
                 <div class="score clearfix">
                     <div class="tb-width fl color">評分</div>   
                     <div class="grade fl">
@@ -364,5 +360,32 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/eatDetail.js"></script>
 <script src="js/iconCliCK.js"></script>
-
+<script>
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            // center: true,
+            pagination: true,
+            items: 1,
+            loop: true,
+            center: true,
+            responsiveClass: true,
+            nav: false,
+            autoWidth:true,
+            responsive:{
+                0:{
+                    items: 1,
+                    margin: 30
+                },
+                768:{
+                    items: 2,
+                    margin: 50
+                },
+                1024:{
+                    items: 3,
+                    margin: 70
+                }
+            }
+        });
+    });
+</script>
 </html>

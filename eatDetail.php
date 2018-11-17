@@ -2,8 +2,7 @@
     // require_once('nav.php');
     ob_start();
     session_start();
-    $test  = $_REQUEST["meal_No"] = 10;
-    echo $_SESSION["quantity"][$test] = 1;
+    require_once('phpDB/connectDB_CD103G3.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,31 +21,25 @@
 <div class="eatDetail-body">
 
 <!-- 產品介紹 -->
+    <?php
+        try{
+            $mealNo = $_REQUEST["meal_No"];
+            $_SESSION["quantity"][$mealNo] = 1;
+            require_once('phpDB/connectDB_CD103G3.php');
+            
+            $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No where A1.meal_No = $mealNo group by A1.meal_No";
+            $dishes = $pdo -> query($sql);
+            
+            if( $dishes->rowCount() == 0){
+                echo "查無此商品資料";
+            }else{
+                $dishesRow = $dishes -> fetchObject();
+    ?>    
     <div class="banner">
         <div class="wrap clearfix">
-
-        <?php
-            try{
-                $dsn = "mysql:host=localhost;port=3306;dbname=cd103g3;charset=utf8";
-                $user = "root";
-                $password = "tshoa";
-                $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-                $pdo = new PDO($dsn, $user, $password, $options);
-                //下sql查詢抓表格
-                $mealNo = $_REQUEST["meal_No"];
-                $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No where A1.meal_No = $mealNo group by A1.meal_No";
-
-                $dishes = $pdo -> query($sql);
-
-                if( $dishes->rowCount() == 0){
-                    echo "查無此商品資料";
-                }else{
-                    $dishesRow = $dishes -> fetchObject();			
-        ?>    
-
             <div class="banner-pic part-md-6 part-lg-6 clearfix">
                 <figure>
-                    <img class="sunder-img-zoom" src="images/ <?php echo substr_replace($dishesRow->meal_Pic,'',-7); ?> / <?php echo $dishesRow->meal_Pic; ?>" alt="<?php echo $dishesRow->meal_Name; ?>" alt="特級海鮮丼">
+                    <img class="sunder-img-zoom" src="images/meals/<?php echo $dishesRow->meal_Pic; ?>" alt="<?php echo $dishesRow->meal_Name; ?>">
                 </figure>
                 <p class="heart_icon">
                     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -69,11 +62,7 @@
                 </p>
             </div>
             <div class="banner-txt part-md-6 part-lg-6">
-                <div class="product clearfix">
-                    <h2 class="fl color"> <?php echo $dishesRow->meal_Name; ?> </h2>
-                    <figure class="fl"><img src="/images/icon/chili.svg"></figure>
-                    <figure class="fl"><img src="/images/icon/lettuce.svg"></figure>
-                </div>
+                <h2 class="product color"> <?php echo $dishesRow->meal_Name; ?> </h2>
                 <div class="score clearfix">
                     <div class="tb-width fl color">評分</div>   
                     <div class="grade fl">
@@ -159,12 +148,12 @@
                     <textarea placeholder="請輸入留言..." name="member-letter" id="memberLetter" class="member-letter" rows="3" maxlength="50" required="required"></textarea>
                     <div class="msg-btn">   
                         <button type="text" id="commentsChange" class="cancelBTN">隨機產生留言</button>
-                        <button type="submit" value="<?php echo $test ?>" name="comments" id="commentsBtn" class="nextBTN">送出</button>
+                        <button type="submit" value="<?php echo $mealNo ?>" name="comments" id="commentsBtn" class="nextBTN">送出</button>
                     </div>
                 </div>
             </div>
             <?php
-                $sql = "select * from message where meal_No=$test";
+                $sql = "select * from message where meal_No=$mealNo ORDER BY message_No DESC";
                 $message = $pdo -> query($sql);
                 while($msgRow = $message->fetchObject()){;
             ?>
@@ -182,14 +171,12 @@
                     <div class="comments clearfix">
                         <p><?php echo $msgRow -> message_Content ?> </p>
                         <div class="msg-btn">  
-                            <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
+                            <button type="submit" name="comments" class="nextBTN">檢舉</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <?php
-                };
-            ?>   
+            <?php }; ?>   
         </div>
     </div>
 
@@ -204,7 +191,7 @@
             </figure>
         </div>
         <div class="groupon owl-carousel"> 
-            <div class="groupon-box">
+            <!-- <div class="groupon-box">
                 <div class="groupon-title">
                     <p class="color">有青!才敢大聲!!</p>
                     <span>6折</span>
@@ -241,163 +228,9 @@
                     </div>
                 </div>
                 <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon-title">
-                    <p class="color">有青!才敢大聲!!</p>
-                    <span>6折</span>
-                </div>
-                <div class="groupon-meals">
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-more color">
-                        總共5個餐點...
-                    </div>
-                </div>
-                <div class="groupon-detail">
-                    <div class="groupon-day clearfix">
-                        <span class="fl color">飯團天數</span>
-                        <span class="fl">5天</span>
-                    </div>
-                    <div class="groupon-money clearfix">
-                        <span class="fl color">平均一餐</span>
-                        <span class="fl">20元</span>
-                    </div>
-                    <div class="groupon-date clearfix">
-                        <span class="fl color">截止日期</span>
-                        <span class="fl">11/30前</span>
-                    </div>
-                </div>
-                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon-title">
-                    <p class="color">有青!才敢大聲!!</p>
-                    <span>6折</span>
-                </div>
-                <div class="groupon-meals">
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-more color">
-                        總共5個餐點...
-                    </div>
-                </div>
-                <div class="groupon-detail">
-                    <div class="groupon-day clearfix">
-                        <span class="fl color">飯團天數</span>
-                        <span class="fl">5天</span>
-                    </div>
-                    <div class="groupon-money clearfix">
-                        <span class="fl color">平均一餐</span>
-                        <span class="fl">20元</span>
-                    </div>
-                    <div class="groupon-date clearfix">
-                        <span class="fl color">截止日期</span>
-                        <span class="fl">11/30前</span>
-                    </div>
-                </div>
-                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon-title">
-                    <p class="color">有青!才敢大聲!!</p>
-                    <span>6折</span>
-                </div>
-                <div class="groupon-meals">
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-more color">
-                        總共5個餐點...
-                    </div>
-                </div>
-                <div class="groupon-detail">
-                    <div class="groupon-day clearfix">
-                        <span class="fl color">飯團天數</span>
-                        <span class="fl">5天</span>
-                    </div>
-                    <div class="groupon-money clearfix">
-                        <span class="fl color">平均一餐</span>
-                        <span class="fl">20元</span>
-                    </div>
-                    <div class="groupon-date clearfix">
-                        <span class="fl color">截止日期</span>
-                        <span class="fl">11/30前</span>
-                    </div>
-                </div>
-                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
-            </div>
-            <div class="groupon-box">
-                <div class="groupon-title">
-                    <p class="color">有青!才敢大聲!!</p>
-                    <span>6折</span>
-                </div>
-                <div class="groupon-meals">
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-item">
-                        <figure class="meals-img">
-                            <img src="images/ra_03.png" alt="">
-                        </figure>
-                        <span class="meals-title">好好動吃動</span>
-                    </div>
-                    <div class="groupon-more color">
-                        總共5個餐點...
-                    </div>
-                </div>
-                <div class="groupon-detail">
-                    <div class="groupon-day clearfix">
-                        <span class="fl color">飯團天數</span>
-                        <span class="fl">5天</span>
-                    </div>
-                    <div class="groupon-money clearfix">
-                        <span class="fl color">平均一餐</span>
-                        <span class="fl">20元</span>
-                    </div>
-                    <div class="groupon-date clearfix">
-                        <span class="fl color">截止日期</span>
-                        <span class="fl">11/30前</span>
-                    </div>
-                </div>
-                <div class="groupon-btn subBTN"><a href="#">查看此飯糰</a></div>
-            </div>
+            </div> -->
         </div>
     </div>
-
-
 </div>
 </body>
 
@@ -405,7 +238,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/owl.carousel.min.js"></script>
-<script src="js/eatDetail.js"></script>
 <script src="js/iconCliCK.js"></script>
+<script src="js/eatDetail.js"></script>
 
 </html>

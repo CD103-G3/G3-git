@@ -129,7 +129,7 @@ $(function() {
 function $all(all) {
     return document.querySelectorAll(all);
 };
-const eggScore = {
+var eggScore = {
     egg(egg) {
         egg.container.forEach(function(e,w) {
             var score = Math.round(e.children[0].innerText);
@@ -193,9 +193,11 @@ window.addEventListener('load',detailQty)
 // 數字增減結束
 
 // 新增留言
-
 function eatDetailMsg() {
-    var text = document.getElementById('memberLetter'); //找到textarea中的字
+    if(document.getElementsByClassName('text-container').length > 0) {
+        var text = document.getElementById('memberLetter');
+
+    }     //找到textarea中的字
     document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後新增留言
         var today = new Date();  //建立物件
         var year = today.getFullYear();
@@ -205,24 +207,28 @@ function eatDetailMsg() {
         if(text.value==''){
             swal({ text: "要輸入內容哦~", });
         }else{ 
-            var textDiv = `<div class="member-msg">
-                                <div class="member-data clearfix">
-                                    <div class="member-pic fl">
-                                        <figure class="member-img fl">
-                                            <img src=${memberImg}>
-                                        </figure>
-                                        <div class="member-id fl color">訪客訪客訪客</div>
-                                    </div>
-                                    <div class="comments-time fl">${year}/${mon}/${day}</div>
-                                </div>
-                                <div class="comments clearfix">
-                                    <p>${text.value}</p>
-                                    <div class="msg-btn">   
-                                        <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
-                                    </div>
-                                </div>
-                            </div>`;//把留言內容用要包的div名稱包起來
-            document.getElementsByClassName('text-container')[0].innerHTML += textDiv;  //新增留言到留言區
+            //把留言內容用要包的div名稱包起來
+            var textDiv = document.createElement('div');
+            textDiv.className = 'member-msg';
+            textDiv.innerHTML += 
+            `<div class="member-data clearfix">
+                <div class="member-pic fl">
+                    <figure class="member-img fl">
+                        <img src=${memberImg}>
+                    </figure>
+                    <div class="member-id fl color">訪客訪客訪客</div>
+                </div>
+                <div class="comments-time fl">${year}/${mon}/${day}</div>
+            </div>
+            <div class="comments clearfix">
+                <p>${text.value}</p>
+                <div class="msg-btn">   
+                    <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
+                </div>
+            </div>`;
+            var textContainer = document.getElementsByClassName('text-container')[0];
+            textContainer.insertBefore(textDiv, textContainer.childNodes[0]);
+              //新增留言到留言區
         }
     }
 };
@@ -230,6 +236,10 @@ window.addEventListener('load', eatDetailMsg);
 
 //留言連結資料庫
 function sendForm(){
+    if(document.getElementById('memberLetter')) {
+        var text = document.getElementById('memberLetter');
+        
+    }
     // alert("HI");
     var xhr = new XMLHttpRequest();
 
@@ -245,15 +255,16 @@ function sendForm(){
 
     xhr.open("post","comment.php",true);
     xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    var data = "mealNo=" + document.querySelector("#commentsBtn").value + "&msg=" + document.querySelector("#memberLetter").value;
+    var data = "mealNo=" + document.querySelector("#commentsBtn").value + "&msg=" + text.value;
     // alert(data);
     if(text.value == '') {
 
     } else {
         xhr.send(data);
+        text.value = '';
     }
     
-    text.value = '';  //清空textarea中的字
+      
 }
 
 window.addEventListener('load',function(){
@@ -277,31 +288,112 @@ function msg() {
 window.addEventListener('load',msg);
 //隨機產生留言結束
 
-//貓頭鷹
-$(document).ready(function(){
-    $(".owl-carousel").owlCarousel({
-        // center: true,
-        pagination: true,
-        items: 1,
-        loop: true,
-        center: true,
-        responsiveClass: true,
-        nav: false,
-        autoWidth:true,
-        responsive:{
-            0:{
-                items: 1,
-                margin: 30
-            },
-            768:{
-                items: 2,
-                margin: 50
-            },
-            1024:{
-                items: 3,
-                margin: 70
-            }
+//飯團串接
+function initEatDetail() {
+    getRecomm();
+}
+function getRecomm() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload=function (){
+        if( xhr.status == 200 ){
+            if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
+                showRecomm(xhr.responseText); 
+            } else {
+                showRecomm(xhr.responseText); 
+            } 
+        }else{
+            alert( xhr.status );
         }
+    }
+
+    var url = '6-1_recommendGrouponList.php';
+    xhr.open("Get", url, true);
+    xhr.send( null );
+}
+function showRecomm(jsonStr) {
+    var recommGroupon = JSON.parse(jsonStr);
+    console.log(recommGroupon);
+    var recommGrouponCount = recommGroupon.length;
+    for(let i = 0; i < recommGrouponCount;i++) { //加飯團
+        var mealTotal = recommGroupon[i][11].length;
+        var mealPrice = 0;
+        var recommBox = 
+        `<div class="groupon-box">
+            <div class="groupon-title">
+                <p class="color">${recommGroupon[i][1]}</p>
+                <span>${recommGroupon[i][8].replace('0.','')}折</span>
+            </div>
+            <div class="groupon-meals">
+                <div class="grouponMeals-container">
+
+                </div>
+                
+                <div class="groupon-more color">
+                    總共${mealTotal}個餐點...
+                </div>
+            </div>
+            <div class="groupon-detail">
+                <div class="groupon-day clearfix">
+                    <span class="fl color">飯團天數</span>
+                    <span class="fl">${mealTotal}天 </span>
+                </div>
+                <div class="groupon-money clearfix">
+                    <span class="fl color">平均一餐</span>
+                    <span class="fl fl-avgPrice"></span>
+                </div>
+                <div class="groupon-date clearfix">
+                    <span class="fl color">截止日期</span>
+                    <span class="fl">${recommGroupon[i][5]}前</span>
+                </div>
+            </div>
+            <div class="groupon-btn subBTN">
+            <a href="6-1_grouponDetail.php?no=${recommGroupon[i][0]}">查看此飯糰</a>
+            </div>
+        </div>`;
+        document.querySelector('.eatDetail .groupon').innerHTML += recommBox;
+
+        for(let j = 0; j < mealTotal ; j++) { //加餐點
+            mealPrice += parseInt(recommGroupon[i][11][j][2]);
+            if(j < 2) { //只增加兩個餐
+                var grouponMeal =
+                `<div class="groupon-item">
+                    <figure class="meals-img">
+                        <img src="images/meals/${recommGroupon[i][11][j][1]}" alt="${recommGroupon[i][11][j][0]}">
+                    </figure>
+                    <span class="meals-title">${recommGroupon[i][11][j][0]}</span>
+                </div>`;
+                document.getElementsByClassName('grouponMeals-container')[i].innerHTML += grouponMeal;
+            }
+            document.querySelectorAll('.groupon-money .fl-avgPrice')[i].innerHTML = Math.floor(mealPrice * 0.6 / mealTotal) + '元';
+        }
+        
+    }
+    // 全部加載後再加載owlCarousel
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            pagination: true,
+            items: 1,
+            loop: true,
+            center: true,
+            responsiveClass: true,
+            nav: false,
+            autoWidth:true,
+            responsive:{
+                0:{
+                    items: 1,
+                    margin: 30
+                },
+                768:{
+                    items: 2,
+                    margin: 50
+                },
+                1024:{
+                    items: 3,
+                    margin: 80
+                }
+            }
+        });
     });
-});
-//貓頭鷹結束
+}
+window.addEventListener('load',initEatDetail);
+//飯團串接結束
