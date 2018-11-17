@@ -421,36 +421,38 @@ if( $Menu->rowCount()==0){
 	 
 	 
 		 $(".del_coll").click(function(){
-		  //var user8ID = $.trim( $('#user8ID').val() );
+		  
 		  var statu = confirm("確定取消收藏嗎?");
 		  var this_coll = $(this).parent();
-		  this_coll.fadeOut();
-			  // if(!statu){
-			  //  return false;
-			  // }
-		 		// var operation = '8IDdelete';
-			  // $.ajax({
-				 //    type:'POST',
-				 //    url:'backendUserModuleMapping.php?stamp='+new Date().getTime(),
-				 //    data:'operation='+operation+'&'+$("form").eq(1).serialize(),
-				 //    success:function(msg){
-				 //      if(msg == 1){
-				 //       alert( 'Delete Successful!' );
-				 //       this_coll.fadeOut();
-				 //       location.reload();
-				 //      }else{
-				 //       alert( 'Delete Failed!' );
-				 //      }      
-				 //    },
-				 //    error:function(){
-				 //      alert( 'Delete Failed!' );
-				 //    }
+		  
+			  if(!statu){
+			   return false;
+			  }
+		 		
+				  $.ajax({
+					    type:'POST',
+					    url:'del_coll.php',
+					    data:{
+					    'id': $(this).attr("data-id")
+					},
+					    success:function(msg){
+						      if(msg == 1){
+						       alert( 'Delete Successful!' );
+						       this_coll.fadeOut();
+						       location.reload();
+						      }else{
+						       alert( 'Delete Failed!' );
+						      }      
+					    },
+					    error:function(){
+					      alert( 'Delete Failed!' );
+					    }
 			    
-			  //  });
+			   	  });
 		  
 		 });
-	 
-	});
+	 });
+	
 </script>
 
 	
