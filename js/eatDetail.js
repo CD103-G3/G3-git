@@ -194,41 +194,38 @@ window.addEventListener('load',detailQty)
 
 // 新增留言
 function eatDetailMsg() {
-    if(document.getElementsByClassName('text-container').length > 0) {
-        var text = document.getElementById('memberLetter');
 
-    }     //找到textarea中的字
-    document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後新增留言
-        var today = new Date();  //建立物件
+    var text = document.getElementById('memberLetter');
+
+    document.getElementById('commentsBtn').onclick = function() {  //當點擊送出後執行function
+        var today = new Date();  //建立時間物件
         var year = today.getFullYear();
         var mon = today.getMonth()+1;
         var day = today.getDate();
         var memberImg = "images/logo.png";  //變更圖片路徑
-        if(text.value==''){
-            swal({ text: "要輸入內容哦~", });
+        if(text.value.trim()=='' ){         //trim()去除空白輸入
+            swal({ text: "要輸入內容哦~", });  
         }else{ 
-            //把留言內容用要包的div名稱包起來
-            var textDiv = document.createElement('div');
-            textDiv.className = 'member-msg';
-            textDiv.innerHTML += 
-            `<div class="member-data clearfix">
-                <div class="member-pic fl">
-                    <figure class="member-img fl">
-                        <img src=${memberImg}>
-                    </figure>
-                    <div class="member-id fl color">訪客訪客訪客</div>
+            var textDiv = document.createElement('div');  //設定變數為新增div
+            textDiv.className = 'member-msg';             //設定新增div的class名稱
+            textDiv.innerHTML +=                          //div內包的內容
+                `<div class="member-data clearfix">
+                    <div class="member-pic fl">
+                        <figure class="member-img fl">
+                            <img src=${memberImg}>
+                        </figure>
+                        <div class="member-id fl color">訪客訪客訪客</div>
+                    </div>
+                    <div class="comments-time fl">${year}/${mon}/${day}</div>
                 </div>
-                <div class="comments-time fl">${year}/${mon}/${day}</div>
-            </div>
-            <div class="comments clearfix">
-                <p>${text.value}</p>
-                <div class="msg-btn">   
-                    <button type="submit" name="comments" id="commentsBtn" class="nextBTN">檢舉</button>
-                </div>
-            </div>`;
-            var textContainer = document.getElementsByClassName('text-container')[0];
-            textContainer.insertBefore(textDiv, textContainer.childNodes[0]);
-              //新增留言到留言區
+                <div class="comments clearfix">
+                    <p>${text.value}</p>
+                    <div class="msg-btn">   
+                        <button type="submit" name="comments" class="nextBTN">檢舉</button>
+                    </div>
+                </div>`;
+            var textContainer = document.getElementsByClassName('text-container')[0];  //設定變數為放留言的空間
+            textContainer.insertBefore(textDiv, textContainer.childNodes[0]);  //送出留言後，把留言設定在最上面
         }
     }
 };
@@ -236,35 +233,32 @@ window.addEventListener('load', eatDetailMsg);
 
 //留言連結資料庫
 function sendForm(){
-    if(document.getElementById('memberLetter')) {
-        var text = document.getElementById('memberLetter');
+    
+    var text = document.getElementById('memberLetter');  
         
-    }
     // alert("HI");
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();  //xml的請求物件
 
     xhr.onload = function(){
         if(xhr.status == 200){
             eatDetailMsg();
-            document.querySelector('#memberLetter').value='';
+            document.querySelector('#memberLetter').value='';  //querySelector()尋找符合名稱的物件
         }else{
-            alert(xhr.status);
+            alert(xhr.status);  //如果沒有成功，則出現代碼
         }
     }
     // console.log('executing');
 
-    xhr.open("post","comment.php",true);
-    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
-    var data = "mealNo=" + document.querySelector("#commentsBtn").value + "&msg=" + text.value;
+    xhr.open("post","comment.php",true);  //把資料傳送到指定的檔案裡
+    xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");  //傳送設定(固定寫法)
+    var data = "mealNo=" + document.querySelector("#commentsBtn").value + "&msg=" + text.value;  //設定餐點編號為按鈕的值與訊息內容
     // alert(data);
-    if(text.value == '') {
+    if(text.value == '') {  //如果值為空白不做事
 
     } else {
-        xhr.send(data);
+        xhr.send(data);     //傳送資料並把訊息框清空
         text.value = '';
     }
-    
-      
 }
 
 window.addEventListener('load',function(){

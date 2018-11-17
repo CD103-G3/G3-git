@@ -177,6 +177,7 @@ $space_sm_lr: 0 30px;  //平板左右
     .msg-board{
         .wrap{ padding-bottom: 43px; }
         .member-msg{
+            &:last-child { display: none; }
             margin-top: 20px;
             padding: 0 20px;
             .member-data{

@@ -175,6 +175,23 @@
                         </div>
                     </div>
                 </div>
+                <div class="member-msg">
+                    <div class="member-data clearfix">
+                        <div class="member-pic fl">
+                            <figure class="member-img fl">
+                                <img src="images/icon7.png">
+                            </figure>
+                            <div class="member-id fl color">ABC123</div>
+                        </div>
+                        <div class="comments-time fl"></div>
+                    </div>
+                    <div class="comments clearfix">
+                        <p></p>
+                        <div class="msg-btn">  
+                            <button type="submit" name="comments" class="nextBTN">檢舉</button>
+                        </div>
+                    </div>
+                </div>
             </div>
             <?php }; ?>   
         </div>
