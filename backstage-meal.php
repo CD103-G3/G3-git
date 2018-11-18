@@ -11,7 +11,7 @@
     <title>餐點資料後台</title>
 </head>
 <body class="out">
-    <div class="d-flex">
+    <div class="d-flex" name="top">
         <div class="container col-xl-2">
             <div class="list-group back-nav">
                 <div class="back-logo"><img src="images/logo3.png" alt="logo"></div>
@@ -19,13 +19,13 @@
                     <span>登入者</span>
                     <a href="#">登出</a>
                 </div>
-                <a href="backstage-meal.html" class="list-group-item list-group-item-action back-change focus-color">餐點資訊</a>
-                <a href="backstage-groupon.html" class="list-group-item list-group-item-action back-change">飯團管理</a>
-                <a href="backstage-message.html" class="list-group-item list-group-item-action back-change">留言審核</a>
-                <a href="backstage-chatBot.html" class="list-group-item list-group-item-action back-change">客服雞器人</a>
-                <a href="backstage-achievement.html" class="list-group-item list-group-item-action back-change">成就管理</a>
-                <a href="backstage-memberOrder.html" class="list-group-item list-group-item-action back-change">訂單管理</a>
-                <a href="backstage-manager.html" class="list-group-item list-group-item-action back-change">管理員帳號</a>
+                <a href="backstage-meal.php" class="list-group-item list-group-item-action back-change focus-color">餐點資訊</a>
+                <a href="backstage-groupon.php" class="list-group-item list-group-item-action back-change">飯團管理</a>
+                <a href="backstage-message.php" class="list-group-item list-group-item-action back-change">留言審核</a>
+                <a href="backstage-chatBot.php" class="list-group-item list-group-item-action back-change">客服雞器人</a>
+                <a href="backstage-achievement.php" class="list-group-item list-group-item-action back-change">成就管理</a>
+                <a href="backstage-memberOrder.php" class="list-group-item list-group-item-action back-change">訂單管理</a>
+                <a href="backstage-manager.php" class="list-group-item list-group-item-action back-change">管理員帳號</a>
             </div>
         </div>
     
@@ -168,7 +168,7 @@
             </div>
         </div>
     </div>   
-    
+    <a href="#top" class="toTop-arrow"><i class="fas fa-arrow-circle-up"></i></a>
 </body>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -195,4 +195,5 @@
         });
     </script>
     <script src="meal.js"></script>
+
 </html>

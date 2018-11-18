@@ -1,5 +1,5 @@
-var storage = sessionStorage;  // 加入購物車
-
+// 加入購物車
+var storage = sessionStorage;  
 function doFirst(){
 
     if(storage['addItemList']==null){
@@ -281,6 +281,44 @@ function msg() {
 }
 window.addEventListener('load',msg);
 //隨機產生留言結束
+
+//檢舉資料庫串接
+function messagereport(){
+    // alert('OK');
+    var report = document.querySelectorAll('.report');
+    for( i=0; i<report.length; i++ ){
+        report[i].addEventListener('click',function(){
+            num = this.id;
+            mealnum = 'meal' + this.id;
+            reportnum = 'report' + this.id;
+            msgnum = 'msg'+ this.id;
+            // alert(msgnum);
+            sendMsgReport();
+            // alert('ok');
+            console.log(this);
+        });
+    };
+    function sendMsgReport(){
+        alert('123');
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                alert('OK');
+            }else{
+                alert( xhr.status );
+            }
+        };
+        xhr.open("post", "report.php", true);
+        xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+        var reportData = 
+         "&message_No=" + document.getElementById(msgnum).value;
+        alert(reportData);
+        xhr.send(reportData);
+        
+    };
+};  
+window.addEventListener('load', messagereport);
+//檢舉資料庫串接結束
 
 //飯團串接
 function initEatDetail() {

@@ -6,12 +6,12 @@
 
 .out{ 
     padding: 30px 50px;
-    height: 100vh;
+    // height: 100vh;
     font-family: $fmy;
 
 //共用
     *{
-        // outline: 1px solid #f00;
+        outline: 1px solid #f00;
         font-size: $fontSize_text;
         text-align: center;
         .modal{
@@ -75,6 +75,11 @@
 
     .d-flex{
         height: 100%;
+        .col-xl-2{
+            width: 300px;
+            position: fixed;
+        }
+        .col-xl-10{ margin-left: 300px; }
         .container{
 //左邊切換列
             .back-nav{
@@ -146,6 +151,16 @@
                 }
             }
         }
+    }
+    .toTop-arrow{
+        width: 30px;
+        height: 30px;
+        color: $color_main1;
+        font-size: 30px;
+        position: fixed;
+        right: 5px;
+        bottom: 5px;
+
     }
 }
     

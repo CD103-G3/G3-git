@@ -509,7 +509,6 @@ header {
     background-repeat: repeat-y;
     background-position-x: center; }
   .eatDetail * {
-    outline: 1px solid #f00;
     font-size: 16px;
     color: #333333;
     box-sizing: border-box; }
@@ -692,8 +691,6 @@ header {
   .eatDetail .msg-board .member-msg {
     margin-top: 20px;
     padding: 0 20px; }
-    .eatDetail .msg-board .member-msg:last-child {
-      display: none; }
     .eatDetail .msg-board .member-msg .member-data .member-pic .member-img {
       width: 50px;
       padding-left: 5px; }
@@ -761,6 +758,8 @@ header {
           transition: .2s; }
         .eatDetail .msg-board .member-msg .comments .msg-btn .nextBTN:active {
           top: 2px; }
+  .eatDetail .msg-board .text-container .member-msg:last-child {
+    display: none; }
   .eatDetail .scorpion {
     position: relative; }
     .eatDetail .scorpion .wrap {

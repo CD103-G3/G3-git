@@ -22,7 +22,7 @@ $space_sm_lr: 0 30px;  //平板左右
         background-position-x: center; 
     }
     *{ 
-        outline: 1px solid #f00;
+        // outline: 1px solid #f00;
         font-size: $fontSize_text;
         color: $color_txt;
         box-sizing: border-box;
@@ -177,7 +177,6 @@ $space_sm_lr: 0 30px;  //平板左右
     .msg-board{
         .wrap{ padding-bottom: 43px; }
         .member-msg{
-            &:last-child { display: none; }
             margin-top: 20px;
             padding: 0 20px;
             .member-data{
@@ -225,6 +224,11 @@ $space_sm_lr: 0 30px;  //平板左右
                         background-color: $color_main4;
                     }
                 }
+            }
+        }
+        .text-container{
+            .member-msg{ 
+                &:last-child{ display: none; } 
             }
         }
     }

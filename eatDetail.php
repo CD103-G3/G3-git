@@ -153,7 +153,7 @@
                 </div>
             </div>
             <?php
-                $sql = "select * from message where meal_No=$mealNo ORDER BY message_No DESC";
+                $sql = "select * from message where message.meal_No=$mealNo && message.message_Reported = false ORDER BY message.message_No DESC";
                 $message = $pdo -> query($sql);
                 while($msgRow = $message->fetchObject()){;
             ?>
@@ -169,9 +169,12 @@
                         <div class="comments-time fl"><?php echo $msgRow -> message_Time ?> </div>
                     </div>
                     <div class="comments clearfix">
-                        <p><?php echo $msgRow -> message_Content ?> </p>
+                        <p><?php echo $msgRow -> message_Content ?></p>
                         <div class="msg-btn">  
-                            <button type="submit" name="comments" class="nextBTN">檢舉</button>
+                            <button type="submit" name="comments" id="num<?php echo $msgRow -> message_No ?>" class="nextBTN report">檢舉</button>
+                            <input type="hidden" id="mealnum<?php echo $msgRow -> message_No ?>" value="<?php echo $msgRow -> meal_No ?>">
+                            
+                            <input type="hidden" id="msgnum<?php echo $msgRow -> message_No ?>" value="<?php echo $msgRow -> message_No ?>">
                         </div>
                     </div>
                 </div>
