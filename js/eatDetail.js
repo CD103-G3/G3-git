@@ -221,11 +221,12 @@ function eatDetailMsg() {
                 <div class="comments clearfix">
                     <p>${text.value}</p>
                     <div class="msg-btn">   
-                        <button type="submit" name="comments" class="nextBTN">檢舉</button>
+                        <button type="submit" name="comments" class="nextBTN report">檢舉</button>
                     </div>
                 </div>`;
             var textContainer = document.getElementsByClassName('text-container')[0];  //設定變數為放留言的空間
-            textContainer.insertBefore(textDiv, textContainer.childNodes[0]);  //送出留言後，把留言設定在最上面
+            textContainer.insertBefore(textDiv, textContainer.childNodes[0]); 
+            //送出留言後，把留言設定在最上面
         }
     }
 };
@@ -295,11 +296,10 @@ function messagereport(){
             // alert(msgnum);
             sendMsgReport();
             // alert('ok');
-            console.log(this);
+            // console.log(this);
         });
     };
     function sendMsgReport(){
-        alert('123');
         var xhr = new XMLHttpRequest();
         xhr.onload=function (){
             if( xhr.status == 200 ){
@@ -311,7 +311,7 @@ function messagereport(){
         xhr.open("post", "report.php", true);
         xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
         var reportData = 
-         "&message_No=" + document.getElementById(msgnum).value;
+         "message_No=" + document.getElementById(msgnum).value;
         alert(reportData);
         xhr.send(reportData);
     };

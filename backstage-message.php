@@ -38,33 +38,29 @@
                             <th scope="col">檢舉編號</th>
                             <th scope="col">檢舉日期</th>
                             <th scope="col">被檢舉會員</th>
-                            <th scope="col">餐點名稱</th>
+                            <th scope="col">餐點編號</th>
                             <th scope="col">留言內容</th>
-                            <th scope="col">檢舉次數</th>
                             <th scope="col">審核狀態</th>
-                            <th scope="col">審核結果</th>
                             <th scope="col">修改</th>
                         </tr>
                     </thead>
                     <?php 
                         try {
                             require_once("phpDB/connectDB_CD103G3.php");
-                            $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No group by A1.meal_No order by meal_No";
+                            $sql = "select * from message inner join messagereport on message.message_No = messagereport.message_No WHERE messagereport.report_Status = 'not' group by messagereport.report_No  order by report_No";
                             $products = $pdo -> query( $sql );
                             while($prodRow = $products->fetchObject()){
-                    ?>
+                        ?>
                     <tbody>
                         <tr>
-                            <td scope="row">1</td>
-                            <td>2018-11-12</td>
-                            <td>ABC123</td>
-                            <td>(生)特級海鮮丼</td>
-                            <td>這是能吃的東西嗎</td>
-                            <td>2</td>
-                            <td>未審核</td>
-                            <td>下架留言</td>
+                            <td scope="row"><?php echo $prodRow->report_No; ?></td>
+                            <td><?php echo $prodRow->report_Date; ?></td>
+                            <td><?php echo $prodRow->member_No; ?></td>
+                            <td><?php echo $prodRow->meal_No; ?></td>
+                            <td><?php echo $prodRow->message_Content; ?></td>
+                            <td><?php echo $prodRow->report_Status; ?></td>
                             <td>
-                                <i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#message"></i>
+                                <i class="fas fa-pencil-alt touch" data-toggle="modal" data-target="#message" reportNo="<?php echo $prodRow->report_No;?>" ></i>
                                 <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="messageTitle" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <!-- 新增跳窗 -->
@@ -82,43 +78,37 @@
                                                 <form>
                                                     <div class="d-flex form-group">
                                                         <label for="reportNo" class="col-form-label title-width">檢舉編號</label>
-                                                        <input type="text" class="form-control" id="reportNo" value="1" readonly>
+                                                        <input type="text" class="form-control" id="reportNo" value="<?php echo $prodRow->report_No; ?>" readonly>
                                                     </div>
                                                     <div class="d-flex form-group">
                                                         <label for="reportDate" class="col-form-label title-width">檢舉日期</label>
-                                                        <input type="text" class="form-control" id="reportDate" value="2018-11-12" readonly>
+                                                        <input type="text" class="form-control" id="reportDate" value="<?php echo $prodRow->report_Date; ?>" readonly>
                                                     </div>
                                                     <div class="d-flex form-group">
                                                         <label for="reportMem" class="col-form-label title-width">被檢舉會員</label>
-                                                        <input type="text" class="form-control" id="reportMem" value="ABC123" readonly>
+                                                        <input type="text" class="form-control" id="reportMem" value="<?php echo $prodRow->member_No; ?>" readonly>
                                                     </div>
                                                     <div class="d-flex form-group">
-                                                        <label for="mealName" class="col-form-label title-width">餐點名稱</label>
-                                                        <input type="text" class="form-control" id="mealName" value="(生)特級海鮮丼" readonly>
+                                                        <label for="mealName" class="col-form-label title-width">餐點編號</label>
+                                                        <input type="text" class="form-control" id="mealName" value="<?php echo $prodRow->meal_No; ?>" readonly>
                                                     </div>
                                                     <div class="d-flex form-group">
                                                         <label for="messageContent" class="col-form-label title-width">留言內容</label>
-                                                        <input type="text" class="form-control" id="messageContent" value="這是能吃的東西嗎" readonly>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="reportQty" class="col-form-label title-width">檢舉次數</label>
-                                                        <input type="text" class="form-control" id="reportQty" value="2" readonly>
-                                                    </div>
-                                                    <div class="d-flex form-group">
-                                                        <label for="reportStatus" class="col-form-label title-width">審核狀態</label>
-                                                        <input type="text" class="form-control" id="reportStatus" value="未審核" readonly>
+                                                        <input type="text" class="form-control" id="messageContent" value="<?php echo $prodRow->message_Content; ?>" readonly>
                                                     </div>
                                                     <div class="d-flex form-group">
                                                         <label for="reportResult" class="title-width">審核結果</label>
                                                         <select class="form-control change-select" id="reportResult">
-                                                            <option>留言保留</option>
-                                                            <option>留言下架</option>
+                                                            <option value="pass">通過</option>
+                                                            <option value="unpass">
+                                                                不通過
+                                                            </option>
                                                         </select>
                                                     </div>
                                                 </form>
                                             </div>
                                             <div class="modal-footer justify-content-center">
-                                                <button type="button" class="btn btn-primary mainBTN btn-touch">修改</button>
+                                                <button type="button" class="btn btn-primary mainBTN btn-touch" value="<?php echo $prodRow->report_No; ?>">修改</button>
                                                 <button type="button" class="btn btn-secondary subBTN" data-dismiss="modal">取消</button>
                                             </div>
                                         </div>
@@ -126,6 +116,13 @@
                                 </div>
                             </td>
                         </tr>
+                        <?php
+                            }
+                        } catch (PDOException $e) {
+                            echo "錯誤原因 : ", $e -> getMessage(), "<br>";
+                            echo "錯誤行號 : ", $e -> getLine(), "<br>";
+                        }
+                        ?> 
                     </tbody>
                 </table>
             </div>
@@ -138,14 +135,30 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- <script src="js/eatDetail.js"></script> -->
 
 <!-- 按鈕切換 -->
-    <script>
-        $(".touch").click(function(){
-
+<script>
+    var reportNo;
+    var reportStatus;
+    var reportResultIndex;
+    var reportResult;
+        $(".touch").click(function(){ //鉛筆按鈕
+            // alert(this.getAttribute('reportNo'));
+            
+            reportNo = this.getAttribute('reportNo');
             $(".change").attr("readonly",true);
             $(".change-select").attr("disabled",true);
             $('.btn-touch').click(function(){
+                
+                reportResultIndex = $id('reportResult').selectedIndex; //選擇的index
+                reportResult = $all('#reportResult option')[reportResultIndex].value;
+                // alert(reportResult);
+                // alert(reportNo);
+                if($('.btn-touch').html() == "確認") {
+                    reviseMess(); //修改留言狀態
+                }
+                
                 $(".change").attr("readonly",false);
                 $(".change-select").attr("disabled",false);
                 //..........
@@ -159,5 +172,46 @@
                 //..........
             });
         });
+    function $id(id) {
+    return document.getElementById(id);
+    }
+    function $class(className) {
+        return document.getElementsByClassName(className);
+    }
+    function $all(all) {
+        return document.querySelectorAll(all);
+    }
+    function reviseMess() {
+        var xhr = new XMLHttpRequest();
+        xhr.onload=function (){
+            if( xhr.status == 200 ){
+                if( xhr.responseText.indexOf("not found") != -1){//回傳的資料中含有 not found
+                    
+                } else {
+                    // showMeal(xhr.responseText);  //json 字串
+                    alert('已成功修改該筆資料。');
+                    // $id('message').style.display = 'none';
+                }
+                
+            }else{
+                alert( xhr.status );
+            }
+        }
+        // alert(reportResult);
+            // alert(reportNo);
+        var url = "setMessageReport.php?report_No=" + reportNo + '&report_Status=' + reportResult;
+        xhr.open("Get" ,url, true);
+        xhr.send(null);
+    }
+    window.addEventListener('load', function() {
+        // for(let i = 0 ; i < $class('touch').length ; i++) {
+        //     $class('touch')[i].value = $class('touch')[i].parentNode.children[0].innerText;
+        // }
+        // 
+        
+    })
+        
+        
+    
     </script>
 </html>

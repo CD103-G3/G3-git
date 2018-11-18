@@ -13,10 +13,19 @@
         // $sentmsgreport->bindValue(":report_Qty", $reportQty+1);
         $sentmsgreport->execute();
 
-        //寫入被檢舉留言的資料庫
-        $sql = "INSERT INTO `messagereport` (`report_No`, `message_No`, `report_Date`, `report_Qty`, `report_Status`) VALUES (NULL, $messageNo, NOW(), '1', 'not');";
-        $sentmsgreport = $pdo->prepare($sql);
-        $sentmsgreport->execute();
+        $sql = "SELECT `message_No` FROM `message` WHERE `message_No` IN (SELECT DISTINCT message_No FROM messagereport) and `message_No` = $messageNo";
+        $reportMes = $pdo->prepare($sql);
+        $reportMes->execute();
+        // echo $reportMes -> rowCount() ;
+        if($reportMes -> rowCount() == 0) { //如果沒被檢舉再寫入
+            //寫入被檢舉留言的資料庫
+            $sql = "INSERT INTO `messagereport` (`report_No`, `message_No`,`report_Content` , `report_Date`, `report_Status`) VALUES (NULL, $messageNo, (SELECT message_Content from `message` WHERE message_No = $messageNo), NOW(), 'not');";
+            $sentmsgreport = $pdo->prepare($sql);
+            $sentmsgreport->execute();
+            echo 'success';
+        }
+        
+        
 
     }
     catch(PDOException $e){
