@@ -11,7 +11,7 @@
 
 //共用
     *{
-        outline: 1px solid #f00;
+        // outline: 1px solid #f00;
         font-size: $fontSize_text;
         text-align: center;
         .modal{
@@ -153,14 +153,15 @@
         }
     }
     .toTop-arrow{
-        width: 30px;
-        height: 30px;
-        color: $color_main1;
-        font-size: 30px;
+        width: 40px;
+        height: 40px;
         position: fixed;
-        right: 5px;
-        bottom: 5px;
-
+        right: 15px;
+        bottom: 15px;
+        i{
+            color: $color_main1;
+            font-size: $fontSize_XL;
+        }
     }
 }
     

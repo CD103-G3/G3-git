@@ -3,7 +3,6 @@
   padding: 30px 50px;
   font-family: 微軟正黑體, arial, "sans serif"; }
   .out * {
-    outline: 1px solid #f00;
     font-size: 16px;
     text-align: center; }
     .out * .modal .modal-dialog .modal-content {
@@ -161,10 +160,11 @@
         .out .d-flex .container .back-text .table tbody tr td i {
           cursor: pointer; }
   .out .toTop-arrow {
-    width: 30px;
-    height: 30px;
-    color: #FCE444;
-    font-size: 30px;
+    width: 40px;
+    height: 40px;
     position: fixed;
-    right: 5px;
-    bottom: 5px; }
+    right: 15px;
+    bottom: 15px; }
+    .out .toTop-arrow i {
+      color: #FCE444;
+      font-size: 36px; }

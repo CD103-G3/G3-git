@@ -46,6 +46,13 @@
                             <th scope="col">修改</th>
                         </tr>
                     </thead>
+                    <?php 
+                        try {
+                            require_once("phpDB/connectDB_CD103G3.php");
+                            $sql = "select * from meal A1 inner join meal_genre A2 on A1.mealGenre_No = A2.mealGenre_No group by A1.meal_No order by meal_No";
+                            $products = $pdo -> query( $sql );
+                            while($prodRow = $products->fetchObject()){
+                    ?>
                     <tbody>
                         <tr>
                             <td scope="row">1</td>

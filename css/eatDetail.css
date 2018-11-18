@@ -781,7 +781,7 @@ header {
         background-color: #76391B;
         display: inline-block; }
       .eatDetail .scorpion .groupon .owl-dots .active {
-        background-color: #FCE444; }
+        background-color: #FF5000; }
     .eatDetail .scorpion .groupon .groupon-box {
       margin: 0 15px;
       padding: 10px;
@@ -804,8 +804,6 @@ header {
           position: absolute;
           bottom: -8px;
           left: 0px; }
-        .eatDetail .scorpion .groupon .groupon-box .groupon-title p {
-          font-size: 20px; }
         .eatDetail .scorpion .groupon .groupon-box .groupon-title span {
           width: 80px;
           padding: 5px;
@@ -840,7 +838,10 @@ header {
             position: absolute;
             right: 0;
             bottom: -5px;
-            left: 0; }
+            left: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; }
         .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-more {
           padding: 15px 0;
           font-size: 20px;
@@ -1080,14 +1081,14 @@ header {
     padding-bottom: 30px; }
   .eatDetail .scorpion .groupon .owl-dots {
     padding: 30px 0; }
-  .eatDetail .scorpion .groupon .groupon-box .groupon-title p, .eatDetail .scorpion .groupon .groupon-box .groupon-title span {
-    font-size: 24px; }
+  .eatDetail .scorpion .groupon .groupon-box .groupon-title p {
+    font-size: 16px; }
+  .eatDetail .scorpion .groupon .groupon-box .groupon-title span {
+    font-size: 20px;
+    padding: 8px; }
   .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-item .meals-title {
     padding: 8px 5px;
-    font-size: 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; }
+    font-size: 16px; }
   .eatDetail .scorpion .groupon .groupon-box .groupon-meals .groupon-more {
     font-size: 24px; }
   .eatDetail .scorpion .groupon .groupon-box .subBTN {

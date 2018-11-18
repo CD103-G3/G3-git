@@ -45,15 +45,15 @@ $(function() {
         container.css('width', '100%');
         container.css('height', $(image).height() + 'px');
 
-        // 添加<img>的源代碼作為父代的背景
+        // 把要放大的圖設為父層背景圖
         container.css('background-image', 'url(\'' + $(image).attr('src') + '\')');
         container.css('background-repeat', 'no-repeat');
         container.css('background-position', '-100%');
 
-        // 在父級中按指定的縮放係數（默認為2倍）使圖像變大
+        // 設定父層按指定的比例（默認為2倍）放大
         container.css('background-size', $(image).width() * zoom + 'px ' + $(image).height() * zoom + 'px');
 
-        // 當用戶將鼠標懸停在圖像上時，將其隱藏
+        // 當用戶將滑鼠停在圖像上時，原圖片隱藏
         $(image).on('mouseover', function(e) { $(this).hide(); 
             container.css('cursor', 'zoom-in');
         });
@@ -67,10 +67,10 @@ $(function() {
             container.css('background-position', '-100%');});
 
 
-        // 當用戶在圖像區域內移動鼠標時
+        // 當用戶在圖像區域內移動滑鼠時
         container.on('mousemove', function(e) {
 
-            // 獲取圖像中的鼠標位置
+            // 獲取圖像中滑鼠的位置
             var x = -e.pageX + $(this).offset().left;
             var y = -e.pageY + $(this).offset().top;
 
@@ -314,7 +314,6 @@ function messagereport(){
          "&message_No=" + document.getElementById(msgnum).value;
         alert(reportData);
         xhr.send(reportData);
-        
     };
 };  
 window.addEventListener('load', messagereport);
@@ -421,7 +420,7 @@ function showRecomm(jsonStr) {
                 },
                 1024:{
                     items: 3,
-                    margin: 80
+                    margin: 100
                 }
             }
         });
