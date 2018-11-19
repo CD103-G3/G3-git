@@ -1,0 +1,20 @@
+1120新增的東西
+
+
+
+
+
+
+backstage-message.php 後台管理員頁面
+
+addmanager.php 新增管理員
+managerAuth.php 修改管理員
+
+ 
+Backstage.php 後台登入
+
+ajaxbacklogin.php 後台登入判斷
+
+
+
+
